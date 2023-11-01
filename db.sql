@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS public.offerte
     "desc" character varying(300) NOT NULL,
     titoli_r character varying(90) NOT NULL,
     paga_m money NOT NULL,
-    offerta_id serial NOT NULL,
+    azienda_id serial NOT NULL,
     PRIMARY KEY (id),
-	FOREIGN KEY (offerta_id)
+	FOREIGN KEY (azienda_id)
     REFERENCES public.aziende (id) MATCH SIMPLE
     ON UPDATE CASCADE
     ON DELETE CASCADE
