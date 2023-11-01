@@ -4,6 +4,10 @@ BEGIN;
 
 DROP TABLE IF EXISTS utenti CASCADE;
 DROP TABLE IF EXISTS aziende CASCADE;
+DROP TABLE IF EXISTS offerte CASCADE;
+DROP TABLE IF EXISTS valutazioni CASCADE;
+DROP TABLE IF EXISTS candidate CASCADE;
+DROP TABLE IF EXISTS preferiti CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.utenti
 (
@@ -19,8 +23,8 @@ CREATE TABLE IF NOT EXISTS public.aziende
     id serial NOT NULL,
     mail character varying(20) NOT NULL,
     password character varying(60)[] NOT NULL,
-    sede character varying(20) NOT NULL,
-    ambito character varying(20) NOT NULL,
+	sede character varying(20) NOT NULL,
+	ambito character varying(20) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -87,5 +91,81 @@ CREATE TABLE IF NOT EXISTS public.valutazioni
     ON DELETE CASCADE
 );
 
+
+INSERT INTO public.utenti (mail, password, cv_path)
+VALUES ('user1@example.com', '{hashed_password1}', '/path/to/cv1.pdf'),
+('user2@example.com', '{hashed_password2}', '/path/to/cv2.pdf'),
+('user3@example.com', '{hashed_password3}', '/path/to/cv3.pdf'),
+('user4@example.com', '{hashed_password4}', '/path/to/cv4.pdf'),
+('user5@example.com', '{hashed_password5}', '/path/to/cv5.pdf');
+
+INSERT INTO public.aziende (mail, password, sede, ambito)
+VALUES ('azienda1@example.com', '{hashed_password1}', 'Milano', 'Tecnologia'),
+('azienda2@example.com', '{hashed_password2}', 'Napoli', 'Finanza'),
+('azienda3@example.com', '{hashed_password3}', 'Venezia', 'Sanitatio'),
+('azienda4@example.com', '{hashed_password4}', 'Verona', 'Moda'),
+('azienda5@example.com', '{hashed_password5}', 'Roma', 'Marketing');
+
+INSERT INTO public.offerte (titolo, "desc", titoli_r, paga_m, azienda_id)
+VALUES
+    ('Esempio 1', 'Descrizione offerta 1', 'Titolo R1', 1000.00, 1),
+    ('Esempio 2', 'Descrizione offerta 2', 'Titolo R2', 1200.00, 3),
+    ('Esempio 3', 'Descrizione offerta 3', 'Titolo R3', 900.00, 2),
+    ('Esempio 4', 'Descrizione offerta 4', 'Titolo R4', 1500.00, 5),
+    ('Esempio 5', 'Descrizione offerta 5', 'Titolo R5', 1100.00, 4),
+    ('Esempio 6', 'Descrizione offerta 6', 'Titolo R6', 1300.00, 1),
+    ('Esempio 7', 'Descrizione offerta 7', 'Titolo R7', 800.00, 3),
+    ('Esempio 8', 'Descrizione offerta 8', 'Titolo R8', 1000.00, 2),
+    ('Esempio 9', 'Descrizione offerta 9', 'Titolo R9', 1100.00, 4),
+    ('Esempio 10', 'Descrizione offerta 10', 'Titolo R10', 1200.00, 4),
+    ('Esempio 11', 'Descrizione offerta 11', 'Titolo R11', 1400.00, 5),
+    ('Esempio 12', 'Descrizione offerta 12', 'Titolo R12', 950.00, 3),
+    ('Esempio 13', 'Descrizione offerta 13', 'Titolo R13', 1150.00, 4),
+    ('Esempio 14', 'Descrizione offerta 14', 'Titolo R14', 1250.00, 2),
+    ('Esempio 15', 'Descrizione offerta 15', 'Titolo R15', 1050.00, 5),
+    ('Esempio 16', 'Descrizione offerta 16', 'Titolo R16', 1450.00, 1),
+    ('Esempio 17', 'Descrizione offerta 17', 'Titolo R17', 800.00, 5),
+    ('Esempio 18', 'Descrizione offerta 18', 'Titolo R18', 1100.00, 3),
+    ('Esempio 19', 'Descrizione offerta 19', 'Titolo R19', 1200.00, 2),
+    ('Esempio 20', 'Descrizione offerta 20', 'Titolo R20', 1000.00, 1);
+
+INSERT INTO public.valutazioni (utenti_id, offerte_id, commento, voto)
+VALUES
+    (1, 2, 'Ottima offerta!', 5),
+    (2, 10, 'Molto interessante', 4),
+    (1, 7, 'Non male', 3),
+    (4, 9, 'Da migliorare', 2),
+    (5, 13, 'Decente', 3),
+    (3, 20, 'Niente di speciale', 2),
+    (4, 2, 'Superbo', 5),
+    (2, 1, 'OK', 3),
+    (5, 9, 'Buono', 4),
+    (3, 11, 'Così così', 3);
+
+INSERT INTO public.candidate (utenti_id, offerte_id, scadenza)
+VALUES
+    (1, 2, '2023-12-31 12:00:00'),
+    (2, 1, '2023-12-30 14:30:00'),
+    (3, 10, '2023-12-28 10:15:00'),
+    (4, 12, '2023-12-29 16:45:00'),
+    (1, 4, '2023-12-27 08:00:00'),
+    (2, 6, '2023-12-26 09:30:00'),
+    (4, 20, '2023-12-25 17:30:00'),
+    (5, 16, '2023-12-24 15:00:00'),
+    (3, 3, '2023-12-23 13:45:00'),
+    (1, 1, '2023-12-22 11:30:00');
+	
+INSERT INTO public.preferiti (utenti_id, offerte_id)
+VALUES
+    (1, 1),
+    (1, 10),
+    (1, 12),
+    (2, 1),
+    (3, 4),
+    (4, 2),
+    (4, 10),
+    (5, 3),
+    (2, 2),
+    (3, 1);
 
 END;
