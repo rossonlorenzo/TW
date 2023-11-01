@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS public.aziende
     id serial NOT NULL,
     mail character varying(20) NOT NULL,
     password character varying(60)[] NOT NULL,
-	sede character varying(20) NOT NULL,
-	ambito character varying(20) NOT NULL,
+    sede character varying(20) NOT NULL,
+    ambito character varying(20) NOT NULL,
     PRIMARY KEY (id)
 );
 
