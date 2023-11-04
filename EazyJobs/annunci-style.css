@@ -1,0 +1,283 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --headerBgColor: #f7e7ce;
+    --headerTxtColor: #52154e;
+    --bgColor: #b48e92;
+    --txtColor: rgb(0,0,0);
+    --footerBgColor: #f7e7ce;
+    --footerTxtColor: #52154e;
+    --linkColor: #52154e;
+    --visitedLinkColor: #b48e92;
+    --font-body-family: "Roboto Condensed", sans-serif;
+}
+
+html{
+    font-size: 100%;
+    font-family: var(--font-body-family);
+    line-height: 1.5em;
+    margin: auto;
+}
+
+header{
+    color: var(--headerTxtColor);
+    text-align: center;
+    padding: 1em;
+    max-width: 100%;
+    margin: 0 auto; 
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-family: 'Climate Crisis', sans-serif;
+    font-family: 'Syncopate', sans-serif;
+}
+
+nav{
+    background-color: var(--headerBgColor);
+    color: var(--headerTxtColor);
+}
+
+nav a:link{
+    color:var(--linkColor);
+}
+
+nav a:visited{
+    color:var(--visitedLinkColor);
+}
+
+#menu a:link{
+    color:var(--linkColor);
+}
+
+#menu a:visited{
+    color:var(--visitedLinkColor);
+}
+
+#navigazione {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    background-color: var(--headerBgColor);
+    padding: 0.5em;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+#menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+
+#menu ul li {
+    display: inline;
+    flex: 1;
+}
+
+#menu ul li:last-child {
+    text-align: right;
+}
+
+#breadcrumb {
+    text-align: left;
+    padding: 0.5em;
+}
+
+main {
+    background-color: var(--bgColor);
+    color: var(--txtColor);
+    margin: 0 auto;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    width: 75%;
+    height: 75%;
+}
+
+form {
+    text-align: center;
+    margin: 1em 0;
+}
+
+#professione,
+#locazione {
+    border: none;
+    padding: 0.5em;
+    margin-top: 1em;
+    display: inline;
+}
+
+#professione {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+#locazione {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+button[type="submit"] {
+    padding: 0.5em 1em;
+    background-color: var(--headerTxtColor);
+    color: white;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--footerBgColor);
+}
+
+#filtered-search {
+    display: flex;
+}
+
+#jobFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    max-width: 15%;
+    background-color: #fff;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+#jobFilters label {
+    width: 90%;
+    margin: auto;
+    white-space: nowrap;
+}
+
+#jobFilters select,
+#jobFilters input[type="text"],
+#jobFilters input[type="range"] {
+    width: 90%;
+    margin: auto;
+    height: auto;
+}
+
+.checkbox-group {
+    display: flex;
+    margin: auto;
+}
+
+.checkbox-group label {
+    font-size: 0.8em;
+}
+
+input[type="range"]::before {
+    content: attr(min);
+    position: relative;
+    left: 0;
+    bottom: -1em;
+    font-size: 12px;
+}
+
+input[type="range"]::after {
+    content: attr(max);
+    position: relative;
+    right: 0;
+    bottom: -1em;
+    font-size: 12px;
+}
+
+#jobFilters button {
+    width: auto;
+    margin: auto;
+}
+
+ul.annunci {
+    max-width: 35%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    height: 40em;
+}
+
+ul.annunci li {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border-radius: 1em;
+    max-width: 100%;
+    padding: 1em;
+    margin: 1em;
+}
+
+ul.annunci li h3 {
+    font-size: 1.3em;
+}
+
+ul.annunci li h4 {
+    font-size: 1em;
+}
+
+ul.annunci li h5 {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+ul.annunci li p {
+    font-size: 0.8em;
+}
+
+#header-annunci {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#header-annunci h4 {
+    margin-left: 3em;
+}
+
+ul.annunci img {
+    max-width: 15%;
+}
+
+#Loco, #Stipendio, #Contatti {
+    display: flex;
+    gap: 1em;
+}
+
+#Loco {
+    margin-top: 0.5em;
+}
+
+#Contatti {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+footer {
+    background-color: var(--headerBgColor);
+    padding: 0.5em;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+#footer ul {
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    justify-content:space-between;
+    padding: 0.5em;
+}
+
+#footer li {
+    display: inline;
+    flex: 1;
+}
