@@ -93,31 +93,45 @@ nav a:visited{
 main {
     background-color: var(--bgColor);
     color: var(--txtColor);
-    margin: 0 auto;
+    margin: 1em auto;
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     width: 75%;
 }
 
+.h2-container {
+    color: white;
+    background-color: var(--headerTxtColor);
+    padding: 0.5em;
+    border-radius: 1em 1em 0 0;
+}
+
+.h2-container h2{
+    font-size: 1.2em;
+}
+
 form {
     text-align: center;
-    margin: 1em 0;
+    margin: 0.5em 0;
 }
 
 #professione,
 #locazione {
     border: none;
     padding: 0.5em;
-    margin-top: 1em;
+    margin: 0.5em 0;
     display: inline;
+    max-width: 30%;
 }
 
 #professione {
+    margin-left: 0.5em;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
 }
 
 #locazione {
+    margin-right: 0.5em;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
 }
@@ -129,94 +143,122 @@ button[type="submit"] {
     border: none;
     border-radius: 1em;
     cursor: pointer;
+    max-width: 20%;
+    margin-right: 0.5em;
+    position: relative;
+    margin: 0.5em 0;
 }
 
 button[type="submit"]:hover {
     background-color: var(--footerBgColor);
 }
 
+button[type="submit"] img{
+    display: none;
+    max-width: 50%;
+    max-height: 50%;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
 ul.aziende {
-    background-color: #fff;
+    background-color: var(--headerBgColor);
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
-    gap: 1em;
-    border-radius: 1em;
-    max-width: 75%;
-    margin: 2em auto;
+    gap: 0.5em;
+    border-radius: 0 0 1em;
+    max-width: 100%;
+    margin: 0 auto 1em;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 ul.aziende li {
     background-color: #fff;
-    padding: 1em;
-    flex: 1;
-    text-align: center;
+    padding: 0.7em;
+    border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
-    display: flex;
-    flex-direction: column;
-    max-width: 10%;
-    margin: auto;
-}
-
-ul.aziende img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
+    margin: 0.5em 0.3em;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 ul.aziende h3 {
     font-size: 1em;
+    margin: auto 1em;
+    color: var(--linkColor);
+}
+
+ul.aziende h4 {
+    font-weight: normal;
+    font-size: 1em;
+    margin: auto 1em;
+}
+
+ul.aziende p {
+    font-weight: bold;
+    font-size: 1em;
+    margin: auto;
+}
+
+ul.aziende img {
+    width: 70%;
+    height: auto;
+    margin: auto;
 }
 
 .valutazione-media {
     color: var(--headerTxtColor);
     font-size: 1em;
+    margin: auto;
 }
 
 .slider-container {
-    max-width: 75%;
-    overflow: hidden;
-    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    max-width: 90%;
     margin: 0 auto;
+    align-items: center;
 }
   
 .slider {
     display: flex;
-    transition: transform 0.5s;
     max-width: 100%;
+    border-radius: 1em;
+    overflow: hidden; /* Change overflow to 'hidden' */
 }
 
-.slider img {
-    border-radius: 1em;
-    max-width: 100%;
-    object-fit: cover;
+.mySlides {
+    width: 100%; /* Set initial opacity to 0 */
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateX(0%); /* Initially, move the slides to the left */
 }
 
 .control-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: var(--headerBgColor);
     border: none;
     color: var(--headerTxtColor);
-    font-size: 1.5em;
+    font-size: 1em;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 100%;
     width: 2em;
     height: 2em;
 }
 
-.prev-button {
-    left: 0;
+#prevBtn {
+    margin: 0.5em;
 }
 
-.next-button {
-    right: 0;
+#nextBtn {
+    margin: 0.5em;
 }
 
 .dots-container {
+    grid-column: 2;
     text-align: center;
     margin-top: 0.5em;
 }
@@ -238,7 +280,7 @@ ul.aziende h3 {
 footer {
     background-color: var(--headerBgColor);
     padding: 0.5em;
-    border-radius: 1em;
+    border-radius: 1em 1em 0 0;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     max-width: 75%;
     margin: 0 auto;
@@ -256,3 +298,40 @@ footer {
     display: inline;
     flex: 1;
 }
+
+@media (max-width: 800px) {
+    main{
+        width: 100%;
+    }
+    ul.aziende {
+        gap: 0;
+    }
+    ul.aziende li {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    ul.aziende h4, ul.aziende img {
+        display: none;
+    }
+    ul.aziende p {
+        font-weight: normal;
+    }
+    form h2{
+        display: none;
+    }
+    button[type="submit"] {
+        vertical-align: middle;
+        padding: 1em;
+        border-radius: 100%;
+    }
+    button[type="submit"] a{
+        display: none;
+    }
+
+    button[type="submit"] img{
+        display: inline;
+    }
+    
+}
+
+
