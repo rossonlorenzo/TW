@@ -21,54 +21,49 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //splide slider implementation
-const slider = document.querySelector(".slider");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const sliderContainer = document.querySelector(".slider-container");
-const dotsContainer = document.querySelector(".dots-container");
+var slideIndex = 1;
+showDivs(slideIndex);
 
-let slideIndex = 0;
+document.getElementById("prevBtn").addEventListener("click", () => {
+  showDivs(slideIndex += -1);
+})
 
-nextBtn.addEventListener("click", () => {
-  slideIndex++;
-  if (slideIndex > 2) slideIndex = 0;
-  updateSlider();
-});
+document.getElementById("nextBtn").addEventListener("click", () => {
+    showDivs(slideIndex += 1);
+})
 
-prevBtn.addEventListener("click", () => {
-  slideIndex--;
-  if (slideIndex < 0) slideIndex = 2;
-  updateSlider();
-});
+document.getElementById("dot1").addEventListener("click", () => {
+    showDivs(slideIndex = 1);
+})
 
-for (let i = 0; i < 3; i++) {
-    const dot = document.createElement("span");
-    dot.className = "dot";
-    dotsContainer.appendChild(dot);
-    dot.addEventListener("click", () => {
-      slideIndex = i;
-      updateSlider();
-    });
+document.getElementById("dot2").addEventListener("click", () => {
+    showDivs(slideIndex = 2);
+})
+
+document.getElementById("dot3").addEventListener("click", () => {
+    showDivs(slideIndex = 3);
+})
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  for (i = 0; i < x.length; i++) {
+    x[i].style.opacity = 1;
+    x[i].style.transform = "translateX(0%)"; // Move slides to the left
+  }
+
+  if(slideIndex== 2 || slideIndex ==3){
+    x[0].style.opacity = 0;
+  }
+
+  x[slideIndex-1].style.transform = "translateX("+-100* (slideIndex-1)+"%)"; // Slide to its original position
+  dots[slideIndex-1].className += " active";
 }
 
-function updateDots() {
-const dots = dotsContainer.querySelectorAll(".dot");
-dots.forEach((dot, i) => {
-    if (i === slideIndex) {
-    dot.classList.add("active");
-    } else {
-    dot.classList.remove("active");
-    }
-});
-}
-
-updateDots();
-
-function updateSlider() {
-    const containerWidth = sliderContainer.clientWidth;
-    const slideWidth = containerWidth;
-    slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
-    updateDots();
-}
- 
 
