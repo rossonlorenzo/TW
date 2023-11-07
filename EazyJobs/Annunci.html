@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EazyJobs Annunci</title>
-    <meta name="keywords" conent="">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" href="annunci-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <header>
         <h1>EazyJobs</h1>
     </header>
-    <div id="navigazione"> <!--make this a ul-->
+    <div id="navigazione">
         <nav id="menu">
             <ul>
                 <li lang="en"><a href="Home.html">Home</a></li>
@@ -36,169 +36,197 @@
         </form>
 
         <div id="filtered-search">
-        <form id="jobFilters" action="search.html" method="get">    <!--action?-->
-            <label for="publicationDate">Data:</label>
-            <select id="publicationDate" name="publicationDate">
-                <option value="last-24-hours">Ultime 24 ore</option>
-                <option value="last-3-days">Ultimi 3 giorni</option>
-                <option value="last-7-days">Ultimi 7 giorni</option>
-                <option value="last-14-days">Ultimi 14 giorni</option>
-            </select>
-        
-            <label for="company">Azienda:</label>
-            <input type="text" id="company" name="company" placeholder="Cerca Azienda...">
-        
-            <label for="province">Provincia:</label>
-            <select id="province" name="province">
-                <option value="Milano">Milano</option>
-                <option value="Roma">Roma</option>
-                <option value="Napoli">Napoli</option>
-                <option value="Firenze">Firenze</option>
-                <option value="Bologna">Bologna</option>
-                <!-- add more province options, from database? -->
-            </select>
-        
-            <label for="sector">Settore:</label>
-            <select id="sector" name="sector">
-                <option value="ambiente-sostenibile">Ambiente sostenibile</option>
-                <option value="tecnologia-innovazione">Tecnologia e Innovazione</option>
-                <option value="creativita-design">Creativita' e Design</option>
-                <!-- add more sector options, from database? -->
-            </select>
-        
-            <label for="workMode">Modalita' di lavoro:</label>
-            <div class="checkbox-group">
-                <input type="checkbox" id="workMode1" name="workMode" value="remoto">
-                <label for="workMode1" class="checkbox-label">Da remoto</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="workMode2" name="workMode" value="presenza">
-                <label for="workMode2" class="checkbox-label">In presenza</label>
-            </div>
-        
-            <label for="contractType">Tipo contratto:</label>
-            <div class="checkbox-group">
-                <input type="checkbox" id="contractType1" name="contractType" value="tempo-determinato">
-                <label for="contractType1" class="checkbox-label">Tempo determinato</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="contractType2" name="contractType" value="tempo-indeterminato">
-                <label for="contractType2" class="checkbox-label">Tempo indeterminato</label>
-            </div>
-        
-            <label for="educationLevel">Livello istruzione:</label>
-            <select id="educationLevel" name="educationLevel">
-                <option value="diploma">Diploma</option>
-                <option value="laurea-triennale">Laurea Triennale</option>
-                <option value="laurea-magistrale">Laurea Magistrale</option>
-            </select>
-        
-            <label for="experience">Esperienza Minima:</label>          
-            <input type="range" id="rangeInput" name="experience" min="0" max="10" step="1" value="0">        
-
-            <label for="salary">Stipendio Minimo:</label>
-            <input type="range" id="rangeInput" name="salary" min="3200" max="4000" step="100" value="3200">
-            
-            <button type="submit">Cerca</button>
+        <form id="jobFilters" action="search.html" method="get">
+            <ul id="filterList">    <!--turned into a ul with accessibility in mind-->
+                <li><label for="publicationDate">Data:</label>
+                    <select id="publicationDate" name="publicationDate">
+                        <option value="last-24-hours">Ultime 24 ore</option>
+                        <option value="last-3-days">Ultimi 3 giorni</option>
+                        <option value="last-7-days">Ultimi 7 giorni</option>
+                        <option value="last-14-days">Ultimi 14 giorni</option>
+                    </select>
+                </li>
+                <li><label for="company">Azienda:</label>
+                    <input type="text" id="company" name="company" placeholder="Cerca Azienda...">
+                </li>
+                <li><label for="province">Provincia:</label>
+                    <select id="province" name="province">
+                        <option value="Milano">Milano</option>
+                        <option value="Roma">Roma</option>
+                        <option value="Napoli">Napoli</option>
+                        <option value="Firenze">Firenze</option>
+                        <option value="Bologna">Bologna</option>
+                        <!-- add more province options, from database? -->
+                    </select>
+                </li>
+                <li><label for="sector">Settore:</label>
+                    <select id="sector" name="sector">
+                        <option value="ambiente-sostenibile">Ambiente sostenibile</option>
+                        <option value="tecnologia-innovazione">Tecnologia e Innovazione</option>
+                        <option value="creativita-design">Creativita' e Design</option>
+                        <!-- add more sector options, from database? -->
+                    </select>
+                </li>
+                <li>
+                    <label for="workMode">Modalità:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="workMode1" name="workMode" value="remoto">
+                        <label for="workMode1" class="checkbox-label">Da remoto</label>
+                    </div>                
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="workMode2" name="workMode" value="presenza">
+                        <label for="workMode2" class="checkbox-label">In presenza</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="contractType">Tipo contratto:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="contractType1" name="contractType" value="tempo-determinato">
+                        <label for="contractType1" class="checkbox-label">Tempo determinato</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="contractType2" name="contractType" value="tempo-indeterminato">
+                        <label for="contractType2" class="checkbox-label">Tempo indeterminato</label>
+                    </div>
+                </li>
+                <li>
+                    <label for="educationLevel">Livello istruzione:</label>
+                    <select id="educationLevel" name="educationLevel">
+                        <option value="diploma">Diploma</option>
+                        <option value="laurea-triennale">Laurea Triennale</option>
+                        <option value="laurea-magistrale">Laurea Magistrale</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="experience">Esperienza:</label>          
+                    <input type="range" id="rangeInput" name="experience" min="0" max="10" step="1" value="0">  
+                </li>
+                <li>
+                    <label for="salary">Stipendio:</label>
+                    <input type="range" id="rangeInput" name="salary" min="3200" max="4000" step="100" value="3200">
+                </li>               
+            </ul>  
+            <button type="submit">Cerca</button>          
         </form>       
         
         <ul class="annunci">
             <li id="SyncLab">
-                <div id="header-annunci">
+                <div class="header-annunci">
                 <h3>Software Developer</h3>
                 <h4>Sync Lab</h4>
                 <img src="SyncLab-logo.png" alt="SyncLab-logo">
                 </div>
 
-                <h5>Descrizione:</h5>
+                <h5>Descrizione:</h5>                
                 <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                <div id="Loco">
-                <h5>Loco:</h5><p>Padova PD</p>
-                </div>
-                <div id="Stipendio">
-                <h5>Stipendio medio:</h5><p>3500 euro</p>
-                </div>
-                <div id="Contatti">
-                <h5>Contatti:</h5><p>synclab@gmail.it</p>
-                </div>
+                
+                <ul class="job-info">
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
             </li>
             <li id="SyncLab">
-                <div id="header-annunci">
+                <div class="header-annunci">
                 <h3>Software Developer</h3>
                 <h4>Sync Lab</h4>
                 <img src="SyncLab-logo.png" alt="SyncLab-logo">
                 </div>
 
-                <h5>Descrizione:</h5>
+                <h5>Descrizione:</h5>                
                 <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                <div id="Loco">
-                <h5>Loco:</h5><p>Padova PD</p>
-                </div>
-                <div id="Stipendio">
-                <h5>Stipendio medio:</h5><p>3500 euro</p>
-                </div>
-                <div id="Contatti">
-                <h5>Contatti:</h5><p>synclab@gmail.it</p>
-                </div>
+                
+                <ul class="job-info">
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
             </li>
             <li id="SyncLab">
-                <div id="header-annunci">
+                <div class="header-annunci">
                 <h3>Software Developer</h3>
                 <h4>Sync Lab</h4>
                 <img src="SyncLab-logo.png" alt="SyncLab-logo">
                 </div>
 
-                <h5>Descrizione:</h5>
+                <h5>Descrizione:</h5>                
                 <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                <div id="Loco">
-                <h5>Loco:</h5><p>Padova PD</p>
-                </div>
-                <div id="Stipendio">
-                <h5>Stipendio medio:</h5><p>3500 euro</p>
-                </div>
-                <div id="Contatti">
-                <h5>Contatti:</h5><p>synclab@gmail.it</p>
-                </div>
+                
+                <ul class="job-info">
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
             </li>
             <li id="SyncLab">
-                <div id="header-annunci">
+                <div class="header-annunci">
                 <h3>Software Developer</h3>
                 <h4>Sync Lab</h4>
                 <img src="SyncLab-logo.png" alt="SyncLab-logo">
                 </div>
 
-                <h5>Descrizione:</h5>
+                <h5>Descrizione:</h5>                
                 <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                <div id="Loco">
-                <h5>Loco:</h5><p>Padova PD</p>
-                </div>
-                <div id="Stipendio">
-                <h5>Stipendio medio:</h5><p>3500 euro</p>
-                </div>
-                <div id="Contatti">
-                <h5>Contatti:</h5><p>synclab@gmail.it</p>
-                </div>
+                
+                <ul class="job-info">
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
             </li>
             <li id="SyncLab">
-                <div id="header-annunci">
+                <div class="header-annunci">
                 <h3>Software Developer</h3>
                 <h4>Sync Lab</h4>
                 <img src="SyncLab-logo.png" alt="SyncLab-logo">
                 </div>
 
-                <h5>Descrizione:</h5>
+                <h5>Descrizione:</h5>                
                 <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                <div id="Loco">
-                <h5>Loco:</h5><p>Padova PD</p>
-                </div>
-                <div id="Stipendio">
-                <h5>Stipendio medio:</h5><p>3500 euro</p>
-                </div>
-                <div id="Contatti">
-                <h5>Contatti:</h5><p>synclab@gmail.it</p>
-                </div>
+                
+                <ul class="job-info">
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
             </li>
         </ul>
+
+        <article id="annuncio-completo">
+            <div class="header-annunci">
+                <h3>Software Developer</h3>
+                <h4>Sync Lab</h4>
+                <img src="SyncLab-logo.png" alt="SyncLab-logo">
+            </div>
+
+            <h5>Descrizione:</h5>
+            <p>Lorem ipsum dolor sit amet. Sed ratione rerum quo asperiores quis cum quod Quis hic ipsa omnis ex iste voluptatem eos fugiat maiores aut voluptatibus rerum? Ab autem possimus sit doloremque eaque vel voluptatem culpa. Et tenetur sequi eos accusamus facere qui optio impedit cum omnis assumenda est iste magnam qui expedita neque aut similique placeat! Vel cumque cumque aut consequatur pariatur et dolorem sapiente aut voluptatem earum ut enim ipsa vel ipsa cumque eum ducimus repellendus. Aut ratione quod ad doloremque aperiam nam impedit voluptatem est nostrum dolores non fugiat earum. Ut mollitia excepturi aut veniam repellendus aut quos minima 33 quia nesciunt est itaque rerum sit voluptate reiciendis ut minima quam. Eum libero error et facere placeat in adipisci voluptatibus est galisum error in iure voluptatem sit totam galisum qui recusandae obcaecati. Non necessitatibus laudantium ex quibusdam nostrum vel deleniti mollitia ut accusantium galisum 33 sint excepturi. </p>
+            
+            <ul class="annuncio-info">
+                <li><h5>Candidati all'annuncio:</h5><p>5</p></li>
+                <li><h5>Recensioni dell'azienda:</h5><p>20</p></li>
+            </ul>
+                
+            <div class="Dettagli" id="dettagli">
+                <ul class="job-complete-info">
+                    <li><h5>Data di pubblicazione:</h5><p>05/11/2023</p></li>
+                    <li><h5>Loco:</h5><p>Padova PD</p></li>
+                    <li><h5>Settore:</h5><p>Tecnologia e innovazione</p></li>
+                    <li><h5>Modalita' di lavoro:</h5><p>Da remoto e In presenza</p></li>
+                    <li><h5>Tipo di contratto:</h5><p>Tempo indeterminato</p></li>
+                    <li><h5>Livello di istruzione richiesto:</h5><p>Laurea triennale</p></li>
+                    <li><h5>Esperienza minima richiesta:</h5><p>2+ anni</p></li>
+                    <li><h5>Stipendio:</h5><p>3500 euro</p></li>
+                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                </ul>
+            </div>
+            
+            <ul class="azioni-aggiuntive">
+                <li><button id="bottone-dettagli">Mostra più dettagli</button></li>
+                <li><button type="submit" id="bottone-candidati">Candidati</button></li>
+                <li><button type="submit" id="bottone-salva">Salva</button></li>
+            </ul>                       
+        </article>
         </div>
 
     </main>
@@ -211,4 +239,5 @@
         </ul>
     </nav>
     </footer>
+    <script src="annunci-script.js"></script>
 </body>
