@@ -141,40 +141,54 @@ button[type="submit"]:hover {
 }
 
 #jobFilters {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5em;
     max-width: 15%;
-    background-color: #fff;
-    border-radius: 1em;
-    margin: 1em;
 }
 
-#jobFilters label {
+#filterList {
+    list-style-type: none;
+    max-width: 90%;
+    background-color: var(--headerBgColor);
+    border-radius: 1em;
+    margin: 1em;
+    margin-top: 0;
+    padding: 0.3em;
+    border: 0.15em var(--footerTxtColor) solid;
+}
+
+#filterList li {
+    padding: 0.3em;
+    background-color: var(--footerBgColor);  
+    margin: 0.3em;
+}
+
+#filterList li label {
     width: 90%;
     margin: auto;
     white-space: nowrap;
+    color: var(--headerTxtColor);
+    font-weight: bold;
 }
 
-#jobFilters select,
-#jobFilters input[type="text"],
-#jobFilters input[type="range"] {
-    width: 90%;
+#filterList li select,
+#filterList li input[type="text"],
+#filterList li input[type="range"] {
+    width: 100%;
     margin: auto;
     height: auto;
 }
 
-.checkbox-group {
+#filterList li .checkbox-group {
     display: flex;
     margin: auto;
 }
 
-.checkbox-group label {
+#filterList li .checkbox-group label {
     font-size: 0.8em;
+    color: black;
+    font-weight: normal;
 }
 
-input[type="range"]::before {
+#filterList li input[type="range"]::before {    /*before:: must verify if necessary*/
     content: attr(min);
     position: relative;
     left: 0;
@@ -182,7 +196,7 @@ input[type="range"]::before {
     font-size: 12px;
 }
 
-input[type="range"]::after {
+#filterList li input[type="range"]::after {     /*after:: must verify if necessary*/
     content: attr(max);
     position: relative;
     right: 0;
@@ -201,14 +215,23 @@ ul.annunci {
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
-    height: 40em;
+    height: 45em;
+    list-style-type: none;
+}
+
+ul.annunci::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: #f7e7ce;
+}
+
+ul.annunci::-webkit-scrollbar-thumb {
+    background-color: #f8d9a7;
 }
 
 ul.annunci li {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+    background-color: white;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
     max-width: 100%;
     padding: 1em;
@@ -217,6 +240,7 @@ ul.annunci li {
 
 ul.annunci li h3 {
     font-size: 1.3em;
+    color: var(--footerTxtColor);
 }
 
 ul.annunci li h4 {
@@ -232,13 +256,13 @@ ul.annunci li p {
     font-size: 0.8em;
 }
 
-#header-annunci {
+.header-annunci {
     display: flex;
     align-items: center;
     gap: 1em;
 }
 
-#header-annunci h4 {
+.header-annunci h4 {
     margin-left: 3em;
 }
 
@@ -246,18 +270,114 @@ ul.annunci img {
     max-width: 15%;
 }
 
-#Loco, #Stipendio, #Contatti {
+ul.job-info {
+    list-style-type: none;
+    margin-top: 1em;
+}
+
+ul.job-info li {
+    display: flex;
+    gap: 0.5em;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+#annuncio-completo {
+    max-width: 45%;
+    background-color: #fff;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    height: 40em;
+}
+
+#annuncio-completo img {
+    max-width: 15%;
+}
+
+#annuncio-completo h3 {
+    font-size: 1.4em;
+    color: var(--headerTxtColor);
+}
+
+#annuncio-completo h4 {
+    font-size: 1.1em;
+    margin-left: 9em;
+}
+
+#annuncio-completo h5 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#annuncio-completo p {
+    font-size: 0.9em;
+}
+
+#annuncio-completo ul h5 {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#annuncio-completo ul p {
+    font-size: 0.8em;
+}
+
+ul.annuncio-info {
+    list-style-type: none;
+    margin-top: 1em;
+}
+
+ul.annuncio-info li {
+    display: flex;
+    gap: 0.5em;
+}
+
+#dettagli {
+    display: none;
+    margin-top: 1em;
+}
+
+ul.job-complete-info {
+    list-style-type: none;
+}
+
+ul.job-complete-info li {
+    display: flex;
+    gap: 0.5em;
+}
+
+ul.azioni-aggiuntive {
+    list-style-type: none;
     display: flex;
     gap: 1em;
 }
 
-#Loco {
-    margin-top: 0.5em;
+ul.azioni-aggiuntive li {
+    max-width: fit-content;
+    margin: 1em 0;
 }
 
-#Contatti {
-    margin-top: 1em;
-    margin-bottom: 1em;
+#bottone-dettagli {
+    padding: 0.5em 1em;
+    background-color: var(--headerTxtColor);
+    color: white;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+#bottone-dettagli:hover {
+    background-color: var(--footerBgColor);
 }
 
 footer {
@@ -266,7 +386,7 @@ footer {
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     max-width: 75%;
-    margin: 0 auto;
+    margin: 2em auto;
 }
 
 #footer ul {
@@ -281,3 +401,16 @@ footer {
     display: inline;
     flex: 1;
 }
+
+/*
+@media (max-width: 800px) {
+    #jobFilters {
+        max-width: 100%;
+    }
+
+    #filterList {
+        max-width: 100%;
+
+    }
+}
+*/
