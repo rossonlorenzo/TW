@@ -141,7 +141,7 @@ button[type="submit"]:hover {
 }
 
 #jobFilters {
-    max-width: 15%;
+    max-width: 15em;
 }
 
 #filterList {
@@ -259,11 +259,13 @@ ul.annunci li p {
 .header-annunci {
     display: flex;
     align-items: center;
+    text-wrap: nowrap;
+    overflow: hidden;
     gap: 1em;
 }
 
-.header-annunci h4 {
-    margin-left: 3em;
+.header-annunci h4, img {   /* fix header changing when resizing */
+    margin: auto;
 }
 
 ul.annunci img {
@@ -297,6 +299,8 @@ ul.job-info li {
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
     height: 40em;
 }
 
@@ -356,6 +360,17 @@ ul.job-complete-info li {
     gap: 0.5em;
 }
 
+ul.job-complete-info li h5 {
+    white-space: nowrap;
+    overflow:visible;
+}
+
+ul.job-complete-info li p {     /* [...] effect */
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
@@ -402,15 +417,48 @@ footer {
     flex: 1;
 }
 
-/*
-@media (max-width: 800px) {
-    #jobFilters {
-        max-width: 100%;
+@media (max-width: 1400px) {
+    ul.annunci li h5 {
+        white-space: nowrap;
+        overflow: visible;
     }
-
-    #filterList {
-        max-width: 100%;
-
+    ul.annunci li p {
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
-*/
+
+@media (max-width: 1200px) {
+    #annuncio-completo {
+        display: none;
+    }
+    ul.annunci {
+        max-width: fit-content;
+    }
+    ul.annunci li p {
+        text-wrap: wrap;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        width: 100%;
+    }
+    #jobFilters {
+        max-width: 12em;
+    }
+    
+}
+
+@media (max-width: 500px) {
+    ul.annunci li h5 {
+        white-space: nowrap;
+        overflow: visible;
+    }
+    ul.annunci li p {
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
