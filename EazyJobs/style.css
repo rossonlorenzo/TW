@@ -163,7 +163,7 @@ button[type="submit"] img{
     transform: translate(-50%, -50%);
 }
 
-ul.aziende {
+ul#aziende {
     background-color: var(--headerBgColor);
     list-style: none;
     display: flex;
@@ -176,36 +176,45 @@ ul.aziende {
     white-space: nowrap;
 }
 
-ul.aziende li {
+ul#aziende li {
     background-color: #fff;
     padding: 0.7em;
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
     margin: 0.5em 0.3em;
     display: grid;
+    gap: 0;
     grid-template-columns: auto auto;
 }
 
-ul.aziende h3 {
+ul#aziende h3 {
     font-size: 1em;
     margin: auto 1em;
     color: var(--linkColor);
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-ul.aziende h4 {
+ul#aziende h4 {
     font-weight: normal;
     font-size: 1em;
     margin: auto 1em;
 }
 
-ul.aziende p {
+ul#aziende p {
     font-weight: bold;
     font-size: 1em;
+    max-width: 9ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin: auto;
 }
 
-ul.aziende img {
-    width: 70%;
+ul#aziende img {
+    width: 3em;
     height: auto;
     margin: auto;
 }
@@ -299,22 +308,26 @@ footer {
     flex: 1;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     main{
         width: 100%;
     }
-    ul.aziende {
-        gap: 0;
-    }
-    ul.aziende li {
+    ul#aziende {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
+        overflow-y: auto;
+        overflow-x: unset;
+        height: 45vh;
     }
-    ul.aziende h4, ul.aziende img {
-        display: none;
+    ul#aziende li {
+        height: 20vh;
+        width: 80%;
     }
-    ul.aziende p {
-        font-weight: normal;
+    ul#aziende h3 {
+        max-width: 10ch;
+    }
+    ul#aziende p {
+        max-width: 10ch;
     }
     form h2{
         display: none;
@@ -332,6 +345,17 @@ footer {
         display: inline;
     }
     
+}
+
+@media (max-width: 400px){
+    ul#aziende {
+        display: flex;
+        overflow-y: auto;
+        overflow-x: unset;
+        flex-direction: column;
+        height: 45vh;
+        align-items: center;
+    }
 }
 
 
