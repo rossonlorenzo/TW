@@ -121,7 +121,7 @@ form {
     padding: 0.5em;
     margin: 0.5em 0;
     display: inline;
-    max-width: 30%;
+    width: 30%;
 }
 
 #professione {
@@ -168,6 +168,7 @@ ul#aziende {
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
+    height: 20vh;
     gap: 0.5em;
     border-radius: 0 0 1em;
     max-width: 100%;
@@ -178,10 +179,21 @@ ul#aziende {
 
 ul#aziende li {
     background-color: #fff;
+    width: fit-content;
     padding: 0.7em;
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
-    margin: 0.5em 0.3em;
+    margin: 0.5em;
+}
+
+#header-aziende{
+    display: flex;
+    justify-content: space-between;
+}
+
+#azienda-grid{
+    margin: auto 0;
+    width: fit-content;
     display: grid;
     gap: 0;
     grid-template-columns: auto auto;
@@ -191,10 +203,6 @@ ul#aziende h3 {
     font-size: 1em;
     margin: auto 1em;
     color: var(--linkColor);
-    max-width: 15ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 ul#aziende h4 {
@@ -206,15 +214,11 @@ ul#aziende h4 {
 ul#aziende p {
     font-weight: bold;
     font-size: 1em;
-    max-width: 9ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     margin: auto;
 }
 
 ul#aziende img {
-    width: 3em;
+    width: 4em;
     height: auto;
     margin: auto;
 }
@@ -308,27 +312,44 @@ footer {
     flex: 1;
 }
 
-@media (max-width: 600px) {
-    main{
-        width: 100%;
-    }
+@media (max-width: 1100px) {
     ul#aziende {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
         overflow-y: auto;
         overflow-x: unset;
         height: 45vh;
+        justify-content: center;
+        align-items: center;
     }
     ul#aziende li {
-        height: 20vh;
+        justify-self: center;
+        height: 15vh;
         width: 80%;
+        overflow-x: hidden;
     }
-    ul#aziende h3 {
-        max-width: 10ch;
+
+    ul#aziende h3{
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-    ul#aziende p {
-        max-width: 10ch;
+
+    ul#aziende p{
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: auto 0;
     }
+
+    ul#aziende img {
+        margin: auto 0;
+    }
+
+    .valutazione-media {
+        margin: auto 0;
+    }
+
     form h2{
         display: none;
     }
@@ -347,7 +368,11 @@ footer {
     
 }
 
-@media (max-width: 400px){
+@media (max-width: 600px){
+    main{
+        width: 100%;
+    }
+
     ul#aziende {
         display: flex;
         overflow-y: auto;
@@ -355,6 +380,11 @@ footer {
         flex-direction: column;
         height: 45vh;
         align-items: center;
+        justify-content: unset;
+    }
+
+    ul#aziende li {
+        overflow-x: unset;
     }
 }
 

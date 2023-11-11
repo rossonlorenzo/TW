@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
       json.data.forEach(function (val) {
         html +=
           "<li id='aziende-" + val.id + "'>" +
+          "<div id='header-aziende'>" +
           "<h3>" + val.nome + "</h3>" +
           "<img src='./assets/SyncLab-logo.png' alt='SyncLab Logo'>" +
+          "</div>" +
+          "<div id='azienda-grid'>" +
           "<h4>ambito:</h4> <p>" + val.ambito + "</p>" +
           "<h4>valutazione:</h4>" +
           "<div class='valutazione-media' data-rating='" + val.media + "'></div>" +
+          "</div>" +
           "</li>";
       })
     } else {
