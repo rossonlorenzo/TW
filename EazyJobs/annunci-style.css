@@ -22,7 +22,16 @@ html{
     margin: auto;
 }
 
-/*color ALL links, whether visited or not, here*/
+/*
+color ALL links, whether visited or not, here
+body a {
+    color: var(--linkColor);
+}
+
+body a:hover {
+    color: var(--visitedLinkColor);
+}
+*/
 
 header{
     color: var(--headerTxtColor);
