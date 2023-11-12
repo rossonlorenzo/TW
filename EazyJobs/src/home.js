@@ -1,14 +1,43 @@
 //showcase avg rating through stars
 document.addEventListener("DOMContentLoaded", function () {
+  var req1;
+
+  //form population
+  const formPSection = document.getElementById('suggestions-professione');
+  const formLSection = document.getElementById('suggestions-locazione');
+  req1 = new XMLHttpRequest();
+  req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
+  req1.send();
+
+  req1.onload = function () {
+    var json = JSON.parse(req1.responseText);
+    var htmlP = "";
+    var htmlL = "";
+// taglia le rep ex: Napoli Napoli
+    if (Array.isArray(json.data)) {
+      json.data.forEach(function (val) {
+        console.log(val);
+        htmlP +=
+          "<option value='" + val.titolo + "'> \n";
+        htmlL +=
+          "<option value='" + val.locazione + "'> \n";
+      })
+    } else {
+      // Handle the case where 'json' is not an array
+      console.error("JSON data is not an array");
+    };
+    formPSection.innerHTML += htmlP;
+    formLSection.innerHTML += htmlL;
+  };
+
+  //aziende population
+  var req2
   const aziendeSection = document.getElementById('aziende');
-  var req;
-  req = new XMLHttpRequest();
-  req.open("GET", 'http://localhost/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
-  req.send();
-
-
-  req.onload = function () {
-    var json = JSON.parse(req.responseText);
+  req2 = new XMLHttpRequest();
+  req2.open("GET", 'http://localhost/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
+  req2.send();
+  req2.onload = function () {
+    var json = JSON.parse(req2.responseText);
     var html = "";
 
     if (Array.isArray(json.data)) {
@@ -31,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("JSON data is not an array");
     };
     aziendeSection.innerHTML += html;
+
 
     const starRatingElements = document.querySelectorAll(".valutazione-media");
 
