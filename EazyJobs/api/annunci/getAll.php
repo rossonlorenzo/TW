@@ -24,8 +24,21 @@
           extract($row);
 
           $cat_item = array(
+            'id' => $id,
             'titolo' => $titolo,
             'locazione' => $locazione,
+            'data_pub' => $data_pub,
+            'ambito' => $ambito,
+            'remoto' => $remoto,
+            'contratto' => $contratto,
+            'desc_breve' => $desc_breve,
+            'desc_completa' => $desc_completa,
+            'titoli_r' => $titoli_r,
+            'esperienza' => $esperienza,
+            'paga_m' => $paga_m,
+            'azienda_id' => $azienda_id,
+            'nome' => $nome,
+            'mail' => $mail,
           );
 
           array_push($cat_arr['data'], $cat_item);

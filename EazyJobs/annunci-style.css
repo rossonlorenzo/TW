@@ -243,6 +243,7 @@ ul.annunci {
     overflow-y: auto;
     max-height: 75vh;
     list-style-type: none;
+    overflow-x: unset;
 }
 
 ul.annunci::-webkit-scrollbar {

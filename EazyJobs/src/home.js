@@ -6,21 +6,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const formPSection = document.getElementById('suggestions-professione');
   const formLSection = document.getElementById('suggestions-locazione');
   req1 = new XMLHttpRequest();
-  req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
+  req1.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
   req1.send();
 
   req1.onload = function () {
     var json = JSON.parse(req1.responseText);
     var htmlP = "";
     var htmlL = "";
-// taglia le rep ex: Napoli Napoli
+    var duplicate = [];
     if (Array.isArray(json.data)) {
       json.data.forEach(function (val) {
-        console.log(val);
-        htmlP +=
+        if(!duplicate.includes(val.titolo)){
+          duplicate.push(val.titolo);
+          htmlP +=
           "<option value='" + val.titolo + "'> \n";
-        htmlL +=
-          "<option value='" + val.locazione + "'> \n";
+        }
+        if(!duplicate.includes(val.locazione)){
+          duplicate.push(val.locazione);
+          htmlL +=
+            "<option value='" + val.locazione + "'> \n";
+        }
       })
     } else {
       // Handle the case where 'json' is not an array
@@ -34,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var req2
   const aziendeSection = document.getElementById('aziende');
   req2 = new XMLHttpRequest();
-  req2.open("GET", 'http://localhost/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
+  req2.open("GET", 'http://localhost:8888/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
   req2.send();
   req2.onload = function () {
     var json = JSON.parse(req2.responseText);
