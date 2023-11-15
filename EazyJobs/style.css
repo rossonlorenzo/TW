@@ -233,7 +233,7 @@ ul#aziende img {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
-    max-width: 90%;
+    max-width: 1024px;
     margin: 0 auto;
     align-items: center;
 }
@@ -247,7 +247,6 @@ ul#aziende img {
 
 .mySlides {
     width: 100%; /* Set initial opacity to 0 */
-    transition: opacity 0.5s, transform 0.5s;
     transform: translateX(0%); /* Initially, move the slides to the left */
 }
 
