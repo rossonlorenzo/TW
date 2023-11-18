@@ -3,7 +3,7 @@ var req1;
 // annunci population
 const annunciSection = document.getElementById('annunci-list');
 req1 = new XMLHttpRequest();
-req1.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
+req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
 req1.send();
 
 req1.onload = function () {
