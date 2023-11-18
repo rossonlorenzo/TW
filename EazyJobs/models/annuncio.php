@@ -40,4 +40,36 @@
 
       return $stmt;
     }
+
+    //Insert new listing
+    public function insertNew() {
+      // Create query
+      $query = 'INSERT INTO ' . $this->table . '
+        SET
+            titolo = :titolo,
+            locazione = :locazione,
+            data_pub = :data_pub,
+            ambito = :ambito,
+            remoto = :remoto,
+            contratto = :contratto,
+            desc_breve = :desc_breve,
+            desc_completa = :desc_completa,
+            titoli_r = :titoli_r,
+            esperienza = :esperienza,
+            paga_m = :paga_m,
+            azienda_id = :azienda_id';
+
+      // Prepare statement
+      $stmt = $this->conn->prepare($query);
+
+      // Bind data
+      $stmt->bindParam(':titolo', $this->titolo);
+      $stmt->bindParam(':locazione', $this->locazione);
+      // ... (bind other fields)
+
+      // Execute query
+      $stmt->execute();
+
+      return $stmt;
+    }
   }
