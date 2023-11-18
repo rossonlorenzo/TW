@@ -10,21 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Make a POST request to insertNew.php
         fetch('http://localhost:8888/TW/EazyJobs/api/annunci/insertNew.php', {
-            method: 'POST',
-            body: formData
+        method: 'POST',
+        body: formData
         })
         .then(response => {
             if (response.ok) {
-                // Handle success (redirect, show success message, etc.)
-                window.location.href = 'success.php';
+                // Handle success
+                console.log('Request successful:', response);
             } else {
-                // Handle error (redirect, show error message, etc.)
-                window.location.href = 'error.php';
+                // Handle error
+                console.error('Request failed:', response);
             }
         })
         .catch(error => {
-            // Handle network errors
             console.error('Error:', error);
+            window.location.href = 'error.php';
         });
     });
 });
