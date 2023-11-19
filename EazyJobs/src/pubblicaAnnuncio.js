@@ -13,15 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => {
-            if (response.ok) {
-                // Handle success (redirect, show success message, etc.)
-                window.location.href = 'success.php';
-            } else {
-                // Handle error (redirect, show error message, etc.)
-                window.location.href = 'error.php';
-            }
-        })
         .catch(error => {
             // Handle network errors
             console.error('Error:', error);
