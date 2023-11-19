@@ -2,7 +2,7 @@
   class Annuncio {
     // DB Stuff
     private $conn;
-    private $table = 'annuncio';
+    private $table = 'annunci';
 
     // Properties
     public $id;
