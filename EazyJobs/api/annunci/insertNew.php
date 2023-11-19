@@ -31,13 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $annuncio->azienda_id = '1';    //replace with the id of the azienda logged in
 
     // Call insertNew method
-    $result = $annuncio->insertNew();
-    $num = $result->rowCount();
-    if($num > 0) {
-        echo 'Success';
-    }
-    else {
-        echo 'Failure';
-    }
+    $annuncio->insertNew();
 }
 ?>
