@@ -41,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Call insertNew method
     if ($annuncio->insertNew()) {
         // On success, redirect or send a success message
-        console.log('Success');
+        error_log('Success');
         exit();
     } else {
         // On failure, handle the error (redirect, show error message, etc.)
-        console.log('Failure');
+        error_log('Failure');
         exit();
-    }
+    }    
 }
 ?>
