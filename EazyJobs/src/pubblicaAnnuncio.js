@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
+        .then(response => {
+            return response.text();
+        })
         .then(data => {
             // Handle success or failure message from PHP
             if (data === 'Success') {

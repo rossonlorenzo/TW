@@ -77,7 +77,6 @@
       $stmt->bindParam(':azienda_id', $this->azienda_id);
 
       // Execute query
-      // Execute query
       $result = $stmt->execute();
 
       if ($result) {
