@@ -1,18 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
-// Enable error reporting for debugging (remove in production)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include_once '../../config/connection.php';
 include_once '../../models/annuncio.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Log received data for debugging purposes
-    file_put_contents('received_data.log', print_r($_POST, true));
-
     // Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
@@ -40,13 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Call insertNew method
     if ($annuncio->insertNew()) {
-        // On success, redirect or send a success message
-        error_log('Success');
+        // On success, send a success response
+        echo 'Success';
         exit();
     } else {
-        // On failure, handle the error (redirect, show error message, etc.)
-        error_log('Failure');
+        // On failure, send an error response
+        echo 'Failure';
         exit();
-    }    
+    }  
 }
 ?>

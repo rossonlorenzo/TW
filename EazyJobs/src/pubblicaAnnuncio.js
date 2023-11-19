@@ -13,9 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
+        .then(data => {
+            // Handle success or failure message from PHP
+            if (data === 'Success') {
+                alert("Il tuo Annuncio e' stato pubblicato!");
+            } else if (data === 'Failure') {
+                alert("Si e' verificato un errore. Riprova!");
+            } else {
+                console.error('Unexpected response:', data);
+            }
+        })
         .catch(error => {
             console.error('Error:', error);
-            window.location.href = 'error.php';
         });
     });
 });

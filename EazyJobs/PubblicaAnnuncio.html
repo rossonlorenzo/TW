@@ -17,7 +17,7 @@
 
 <main>
 
-    <form action="http://localhost:8888/TW/EazyJobs/api/annunci/insertNew.php" method="post" id="publishJob-form">
+    <form action="http://localhost/TW/EazyJobs/api/annunci/insertNew.php" method="post" id="publishJob-form">
         <label for="titolo">Titolo:</label>
         <input type="text" id="titolo" name="titolo" required>
         
@@ -54,10 +54,10 @@
 
         <label for="educationLevel">Livello istruzione richiesto:</label>
         <select id="educationLevel" name="educationLevel">
-            <option value="diploma">Diploma</option>
-            <option value="laurea-triennale">Laurea Triennale</option>
-            <option value="laurea-magistrale">Laurea Magistrale</option>
-            <option value="dottorato">Dottorato</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Laurea triennale">Laurea Triennale</option>
+            <option value="Laurea magistrale">Laurea Magistrale</option>
+            <option value="Dottorato">Dottorato</option>
         </select>
 
         <label for="experience">Anni di esperienza richiesti:</label>
@@ -74,7 +74,7 @@
 
         <button type="submit" id="pubblicaAnnuncio-bottone">Pubblica Annuncio</button>
     </form>
-
+    
 </main>
 <script src="./src/pubblicaAnnuncio.js"></script>
 </body>
