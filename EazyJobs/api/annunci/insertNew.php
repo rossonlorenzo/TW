@@ -1,10 +1,18 @@
-<?php 
+<?php
 header("Access-Control-Allow-Origin: *");
+
+// Enable error reporting for debugging (remove in production)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 include_once '../../config/connection.php';
 include_once '../../models/annuncio.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Log received data for debugging purposes
+    file_put_contents('received_data.log', print_r($_POST, true));
+
     // Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
@@ -41,4 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
-
+?>

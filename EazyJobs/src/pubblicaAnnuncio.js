@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
             body: formData
         })
         .catch(error => {
-            // Handle network errors
             console.error('Error:', error);
+            window.location.href = 'error.php';
         });
     });
 });
