@@ -65,7 +65,16 @@
       // Bind data
       $stmt->bindParam(':titolo', $this->titolo);
       $stmt->bindParam(':locazione', $this->locazione);
-      // ... (bind other fields)
+      $stmt->bindParam(':data_pub', $this->data_pub);
+      $stmt->bindParam(':ambito', $this->ambito);
+      $stmt->bindParam(':remoto', $this->remoto);
+      $stmt->bindParam(':contratto', $this->contratto);
+      $stmt->bindParam(':desc_breve', $this->desc_breve);
+      $stmt->bindParam(':desc_completa', $this->desc_completa);
+      $stmt->bindParam(':titoli_r', $this->titoli_r);
+      $stmt->bindParam(':esperienza', $this->esperienza);
+      $stmt->bindParam(':paga_m', $this->paga_m);
+      $stmt->bindParam(':azienda_id', $this->azienda_id);
 
       // Execute query
       $stmt->execute();
