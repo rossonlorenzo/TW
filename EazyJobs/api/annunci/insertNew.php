@@ -31,14 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $annuncio->azienda_id = '1';    //replace with the id of the azienda logged in
 
     // Call insertNew method
-    if ($annuncio->insertNew()) {
-        // On success, send a success response
+    $result = $annuncio->insertNew();
+    $num = $result->rowCount();
+    if($num > 0) {
         echo 'Success';
-        exit();
-    } else {
-        // On failure, send an error response
+    }
+    else {
         echo 'Failure';
-        exit();
-    }  
+    }
 }
 ?>
