@@ -9,14 +9,14 @@
     public $titolo;
     public $locazione;
     public $data_pub;
-    public $ambito;
+    public $settore;
     public $remoto;
     public $contratto;
     public $desc_breve;
     public $desc_completa;
-    public $titoli_r;
+    public $livello_istruzione;
     public $esperienza;
-    public $paga_m;
+    public $stipendio;
     public $azienda_id;
     public $nome;
     public $mail;
@@ -49,14 +49,14 @@
             titolo = :titolo,
             locazione = :locazione,
             data_pub = :data_pub,
-            ambito = :ambito,
+            settore = :settore,
             remoto = :remoto,
             contratto = :contratto,
             desc_breve = :desc_breve,
             desc_completa = :desc_completa,
-            titoli_r = :titoli_r,
+            livello_istruzione = :livello_istruzione,
             esperienza = :esperienza,
-            paga_m = :paga_m,
+            stipendio = :stipendio,
             azienda_id = :azienda_id';
 
       // Prepare statement
@@ -66,14 +66,14 @@
       $stmt->bindParam(':titolo', $this->titolo);
       $stmt->bindParam(':locazione', $this->locazione);
       $stmt->bindParam(':data_pub', $this->data_pub);
-      $stmt->bindParam(':ambito', $this->ambito);
+      $stmt->bindParam(':settore', $this->settore);
       $stmt->bindParam(':remoto', $this->remoto);
       $stmt->bindParam(':contratto', $this->contratto);
       $stmt->bindParam(':desc_breve', $this->desc_breve);
       $stmt->bindParam(':desc_completa', $this->desc_completa);
-      $stmt->bindParam(':titoli_r', $this->titoli_r);
+      $stmt->bindParam(':livello_istruzione', $this->livello_istruzione);
       $stmt->bindParam(':esperienza', $this->esperienza);
-      $stmt->bindParam(':paga_m', $this->paga_m);
+      $stmt->bindParam(':stipendio', $this->stipendio);
       $stmt->bindParam(':azienda_id', $this->azienda_id);
 
       // Execute query

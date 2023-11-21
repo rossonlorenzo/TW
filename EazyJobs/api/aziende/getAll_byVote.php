@@ -26,7 +26,7 @@
           $cat_item = array(
             'id' => $id,
             'nome' => $nome,
-            'ambito' => $ambito,
+            'settore' => $settore,
             'media' => $media,
           );
 

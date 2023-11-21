@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $annuncio->titolo = $_POST['titolo'];
     $annuncio->locazione = $_POST['locazione'];
     $annuncio->data_pub = date('Y-m-d H:i:s');
-    $annuncio->ambito = $_POST['ambito'];
+    $annuncio->settore = $_POST['settore'];
     if (isset($_POST['workMode1'])) {   //add "presenza" as an attribute to the annunci table
         $annuncio->remoto = true;
     } else {
@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $annuncio->contratto = $_POST['contractType'];
     $annuncio->desc_breve = $_POST['desc_breve'];
     $annuncio->desc_completa = $_POST['desc_completa'];
-    $annuncio->titoli_r = $_POST['educationLevel'];    //add facolta' to the html form
+    $annuncio->livello_istruzione = $_POST['livello_istruzione'];    //add facolta' to the html form
     $annuncio->esperienza = $_POST['esperienza'];
-    $annuncio->paga_m = $_POST['paga'];
+    $annuncio->stipendio = $_POST['stipendio'];
     $annuncio->azienda_id = '1';    //replace with the id of the azienda logged in
 
     // Call insertNew method

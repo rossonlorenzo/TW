@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const formPSection = document.getElementById('suggestions-professione');
   const formLSection = document.getElementById('suggestions-locazione');
   req1 = new XMLHttpRequest();
-  req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
+  req1.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
   req1.send();
 
   req1.onload = function () {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var req2
   const aziendeSection = document.getElementById('aziende');
   req2 = new XMLHttpRequest();
-  req2.open("GET", 'http://localhost/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
+  req2.open("GET", 'http://localhost:8888/TW/EazyJobs/api/aziende/getAll_byVote.php', true);
   req2.send();
   req2.onload = function () {
     var json = JSON.parse(req2.responseText);
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "<img src='./assets/SyncLab-logo.png' alt='SyncLab Logo'>" +
           "</div>" +
           "<div id='azienda-grid'>" +
-          "<h4>ambito:</h4> <p>" + val.ambito + "</p>" +
+          "<h4>ambito:</h4> <p>" + val.settore + "</p>" +
           "<h4>valutazione:</h4>" +
           "<div class='valutazione-media' data-rating='" + val.media + "'></div>" +
           "</div>" +
@@ -133,6 +133,5 @@ function showDivs(n) {
   x[slideIndex - 1].style.transform = "translateX(" + -100 * (slideIndex - 1) + "%)"; // Slide to its original position
   dots[slideIndex - 1].className += " active";
 }
-
 
 

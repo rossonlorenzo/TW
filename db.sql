@@ -57,13 +57,13 @@ CREATE TABLE IF NOT EXISTS aziende
 	dipendenti integer NOT NULL,
 	fatturato integer NOT NULL,
 	sede character varying(60) NOT NULL,
-	ambito character varying(60) NOT NULL,
+	settore character varying(60) NOT NULL,
 	`desc` character varying (500) NOT NULL,
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO aziende (mail, password, nome, sito, fondazione, dipendenti, fatturato, sede, ambito, `desc`)
+INSERT INTO aziende (mail, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
 VALUES
     ('alta.tech@altatech.it', 'P@ssw0rd1!', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.'),
     ('innovazione@italiainnovazione.it', 'Str0ngP@$$2@', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.'),
@@ -93,14 +93,14 @@ CREATE TABLE IF NOT EXISTS annunci
     titolo character varying(60) NOT NULL,
 	locazione character varying(60) NOT NULL,
 	data_pub datetime NOT NULL,
-	ambito character varying(60) NOT NULL,
+	settore character varying(60) NOT NULL,
 	remoto boolean NOT NULL,
 	contratto character varying(60) NOT NULL,
     `desc_breve` character varying(200) NOT NULL,
 	`desc_completa` character varying(500) NOT NULL,
-    titoli_r character varying(90) NOT NULL,
+    livello_istruzione character varying(90) NOT NULL,
 	esperienza integer NOT NULL,
-    paga_m decimal NOT NULL,
+    stipendio decimal NOT NULL,
     azienda_id int NOT NULL,
     PRIMARY KEY (id),
 	FOREIGN KEY (azienda_id)
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS annunci
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO annunci (titolo, locazione, data_pub, ambito, remoto, contratto, `desc_breve`, `desc_completa`, titoli_r, esperienza, paga_m, azienda_id)
+INSERT INTO annunci (titolo, locazione, data_pub, settore, remoto, contratto, `desc_breve`, `desc_completa`, livello_istruzione, esperienza, stipendio, azienda_id)
 VALUES
     ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore frontend altamente creativo per il nostro progetto web.', 'Se sei appassionato di sviluppo frontend e hai esperienza in HTML, CSS e JavaScript, potresti essere la persona giusta per noi.', 'Laurea Triennale, Informatica, Scienze del Computer', 2, 3200.00, 1),
     ('Grafico Pubblicitario', 'Roma', '2023-10-30 10:45:00', 'Design', true, 'Tempo determinato', 'Stiamo cercando un grafico pubblicitario talentuoso per creare materiale promozionale.', 'Se sei creativo e hai esperienza nella progettazione di materiale pubblicitario, potremmo avere una posizione per te.', 'Laurea Triennale, Design, Belle Arti', 3, 3400.00, 2),

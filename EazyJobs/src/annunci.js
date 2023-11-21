@@ -1,15 +1,64 @@
 var req1;
 
-// annunci population
-const annunciSection = document.getElementById('annunci-list');
+//form population
+const formPSection = document.getElementById('suggestions-professione');
+const formLSection = document.getElementById('suggestions-locazione');
 req1 = new XMLHttpRequest();
-req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
+req1.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
 req1.send();
 
 req1.onload = function () {
-    var json = JSON.parse(req1.responseText);
+  var json = JSON.parse(req1.responseText);
+  var htmlP = "";
+  var htmlL = "";
+  var duplicate = [];
+  if (Array.isArray(json.data)) {
+    json.data.forEach(function (val) {
+      if(!duplicate.includes(val.titolo)){
+        duplicate.push(val.titolo);
+        htmlP +=
+        "<option value='" + val.titolo + "'> \n";
+      }
+      if(!duplicate.includes(val.locazione)){
+        duplicate.push(val.locazione);
+        htmlL +=
+          "<option value='" + val.locazione + "'> \n";
+      }
+    })
+  } else {
+    // Handle the case where 'json' is not an array
+    console.error("JSON data is not an array");
+  };
+  formPSection.innerHTML += htmlP;
+  formLSection.innerHTML += htmlL;
+};
+
+
+var req1;
+
+// annunci population and filters
+const annunciSection = document.getElementById('annunci-list');
+const formASection = document.getElementById('suggestions-azienda');
+const selectPSection = document.getElementById('province');
+const selectSSection = document.getElementById('settore');
+const rangeSSection = document.getElementById('rangeSalario');
+
+
+req2 = new XMLHttpRequest();
+req2.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
+req2.send();
+
+req2.onload = function () {
+    var json = JSON.parse(req2.responseText);
     var html = "";
+    var html_Azienda = "";
+    var html_Provincie = "";
+    var html_Settore = "";
+    var duplicate = [];
+    var min = 0;
+    var max = 0;
     if (Array.isArray(json.data)) {
+        min = json.data[0].paga_m;
         json.data.forEach(function (val) {
             html +=
                 "<li id='" + val.nome + "'>" +
@@ -27,16 +76,47 @@ req1.onload = function () {
 
                 "<ul class='job-info'>" +
                 "<li><h5>Loco:</h5><p>" + val.locazione + "</p></li>" +
-                "<li><h5>Stipendio medio:</h5><p>" + val.paga_m + "€</p></li>" +
+                "<li><h5>Stipendio medio:</h5><p>" + val.stipendio + "€</p></li>" +
                 "<li><h5>Contatti:</h5><p>" + val.mail + "</p></li>" +
                 "</ul>" +
                 "</li>";
+
+            if(!duplicate.includes(val.nome)){
+                duplicate.push(val.nome);
+                html_Azienda +=
+                "<option value='" + val.nome + "'> \n";
+            }
+
+            if(!duplicate.includes(val.locazione)){
+                duplicate.push(val.locazione);
+                html_Provincie +=
+                "<option value='" + val.locazione + "'> "+ val.locazione +"</option>\n";
+            }
+
+            if(!duplicate.includes(val.settore)){
+                duplicate.push(val.settore);
+                html_Settore +=
+                "<option value='" + val.settore + "'> "+ val.settore +"</option>\n";
+            }
+
+            if(val.paga_m > max)
+                max = val.paga_m;
+            
+            if(val.paga_m < min)
+                min = val.paga_m;
+            
+                
         })
     } else {
         // Handle the case where 'json' is not an array
         console.error("JSON data is not an array");
     };
     annunciSection.innerHTML += html;
+    formASection.innerHTML += html_Azienda;
+    selectPSection.innerHTML += html_Provincie;
+    selectSSection.innerHTML += html_Settore;
+    rangeSSection.setAttribute("min", min);
+    rangeSSection.setAttribute("max", max);
 
     // Display the first annunci-completo
     displayAnnuncioCompleto(json.data[0]);
@@ -103,12 +183,12 @@ function displayAnnuncioCompleto(data) {
         "<ul class='job-complete-info'>" +
         "<li><h5>Data di pubblicazione:</h5><p>" + data.data_pub + "</p></li>" +
         "<li><h5>Loco:</h5><p>" + data.locazione + "</p></li>" +
-        "<li><h5>Settore:</h5><p>" + data.ambito + "</p></li>" +
+        "<li><h5>Settore:</h5><p>" + data.settore + "</p></li>" +
         "<li><h5>Modalita' di lavoro:</h5><p>" + ml + "</p></li>" +
         "<li><h5>Tipo di contratto:</h5><p>" + data.contratto + "</p></li>" +
-        "<li><h5>Livello di istruzione richiesto:</h5><p>" + data.titoli_r + "</p></li>" +
+        "<li><h5>Livello di istruzione richiesto:</h5><p>" + data.livello_istruzione + "</p></li>" +
         "<li><h5>Esperienza minima richiesta:</h5><p>" + data.esperienza + "</p></li>" +
-        "<li><h5>Stipendio:</h5><p>" + data.paga_m + " €</p></li>" +
+        "<li><h5>Stipendio:</h5><p>" + data.stipendio + " €</p></li>" +
         "<li><h5>Contatti:</h5><p>s" + data.mail + "</p></li>" +
         "</ul>" +
         "</div>" +
