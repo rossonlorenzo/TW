@@ -1,53 +1,83 @@
-<?php 
-  // Headers
-  header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
+<?php
+// Headers
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
 
-  include_once '../../config/connection.php';
-  include_once '../../models/annuncio.php';
+include_once '../../config/connection.php';
+include_once '../../models/annuncio.php';
 
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
+// Instantiate DB & connect
+$database = new Database();
+$db = $database->connect();
 
-  $annuncio = new Annuncio($db);
+$annuncio = new Annuncio($db);
 
+$publicationDate = $_GET['publicationDate'] ?? 'Nessuna';
+$nome = $_GET['nome'] ?? 'Nessuna';
+$locazione = $_GET['locazione'] ?? 'Nessuna';
+$settore = $_GET['settore'] ?? 'Nessuna';
+$remoto = $_GET['remoto'] ?? 'Nessuna';
+$presenza = $_GET['presenza'] ?? 'Nessuna';
+$contratto = $_GET['contratto'] ?? 'Nessuna';
+$livello_istruzione = $_GET['livello_istruzione'] ?? 'Nessuna';
+$esperienza = $_GET['esperienza'] ?? 'Nessuna';
+$stipendio = $_GET['stipendio'] ?? 'Nessuna';
+
+
+// Crea un array con i filtri non nulli
+$filters = array_filter(compact(
+  'publicationDate',
+  'nome',
+  'locazione',
+  'settore',
+  'remoto',
+  'presenza',
+  'contratto',
+  'livello_istruzione',
+  'esperienza',
+  'stipendio'
+));
+
+if (empty($filters)) {
   $result = $annuncio->getAll();
-  
-  $num = $result->rowCount();
+} else {
+  $result = $annuncio->getFiltered($filters);
+}
 
-  if($num > 0) {
-        $cat_arr = array();
-        $cat_arr['data'] = array();
+$num = $result->rowCount();
 
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-          extract($row);
+if ($num > 0) {
+  $cat_arr = array();
+  $cat_arr['data'] = array();
 
-          $cat_item = array(
-            'id' => $id,
-            'titolo' => $titolo,
-            'locazione' => $locazione,
-            'data_pub' => $data_pub,
-            'settore' => $settore,
-            'remoto' => $remoto,
-            'contratto' => $contratto,
-            'desc_breve' => $desc_breve,
-            'desc_completa' => $desc_completa,
-            'livello_istruzione' => $livello_istruzione,
-            'esperienza' => $esperienza,
-            'stipendio' => $stipendio,
-            'azienda_id' => $azienda_id,
-            'nome' => $nome,
-            'mail' => $mail,
-          );
+  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    extract($row);
 
-          array_push($cat_arr['data'], $cat_item);
-        }
+    $cat_item = array(
+      'id' => $id,
+      'titolo' => $titolo,
+      'locazione' => $locazione,
+      'data_pub' => $data_pub,
+      'settore' => $settore,
+      'remoto' => $remoto,
+      'presenza' => $presenza,
+      'contratto' => $contratto,
+      'desc_breve' => $desc_breve,
+      'desc_completa' => $desc_completa,
+      'livello_istruzione' => $livello_istruzione,
+      'esperienza' => $esperienza,
+      'stipendio' => $stipendio,
+      'azienda_id' => $azienda_id,
+      'nome' => $nome,
+      'mail' => $mail,
+    );
 
-        echo json_encode($cat_arr);
-
-  } else {
-        echo json_encode(
-          array('message' => 'No annunci Found')
-        );
+    array_push($cat_arr['data'], $cat_item);
   }
+
+  echo json_encode($cat_arr);
+} else {
+  echo json_encode(
+    array('message' => 'No annunci Found')
+  );
+}

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(publishForm);
 
         // Make a POST request to insertNew.php
-        fetch('http://localhost:8888/TW/EazyJobs/api/annunci/insertNew.php', {
+        fetch('http://localhost/TW/EazyJobs/api/annunci/insertNew.php', {
             method: 'POST',
             body: formData
         })

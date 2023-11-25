@@ -1,56 +1,21 @@
 var req1;
 
-//form population
+//search and form population
 const formPSection = document.getElementById('suggestions-professione');
 const formLSection = document.getElementById('suggestions-locazione');
-req1 = new XMLHttpRequest();
-req1.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
-req1.send();
-
-req1.onload = function () {
-  var json = JSON.parse(req1.responseText);
-  var htmlP = "";
-  var htmlL = "";
-  var duplicate = [];
-  if (Array.isArray(json.data)) {
-    json.data.forEach(function (val) {
-      if(!duplicate.includes(val.titolo)){
-        duplicate.push(val.titolo);
-        htmlP +=
-        "<option value='" + val.titolo + "'> \n";
-      }
-      if(!duplicate.includes(val.locazione)){
-        duplicate.push(val.locazione);
-        htmlL +=
-          "<option value='" + val.locazione + "'> \n";
-      }
-    })
-  } else {
-    // Handle the case where 'json' is not an array
-    console.error("JSON data is not an array");
-  };
-  formPSection.innerHTML += htmlP;
-  formLSection.innerHTML += htmlL;
-};
-
-
-var req1;
-
-// annunci population and filters
-const annunciSection = document.getElementById('annunci-list');
 const formASection = document.getElementById('suggestions-azienda');
 const selectPSection = document.getElementById('province');
 const selectSSection = document.getElementById('settore');
 const rangeSSection = document.getElementById('rangeSalario');
 
+req1 = new XMLHttpRequest();
+req1.open("GET", 'http://localhost/TW/EazyJobs/api/annunci/getAll.php', true);
+req1.send();
 
-req2 = new XMLHttpRequest();
-req2.open("GET", 'http://localhost:8888/TW/EazyJobs/api/annunci/getAll.php', true);
-req2.send();
-
-req2.onload = function () {
-    var json = JSON.parse(req2.responseText);
-    var html = "";
+req1.onload = function () {
+    var json = JSON.parse(req1.responseText);
+    var htmlP = "";
+    var htmlL = "";
     var html_Azienda = "";
     var html_Provincie = "";
     var html_Settore = "";
@@ -58,8 +23,70 @@ req2.onload = function () {
     var min = 0;
     var max = 0;
     if (Array.isArray(json.data)) {
-        min = json.data[0].paga_m;
+        min = json.data[0].stipendio;
         json.data.forEach(function (val) {
+            if (!duplicate.includes(val.titolo)) {
+                duplicate.push(val.titolo);
+                htmlP +=
+                    "<option value='" + val.titolo + "'> \n";
+            }
+            if (!duplicate.includes(val.locazione)) {
+                duplicate.push(val.locazione);
+                htmlL +=
+                    "<option value='" + val.locazione + "'> \n";
+                    html_Provincie +=
+                    "<option value='" + val.locazione + "'> " + val.locazione + "</option>\n";
+            }
+
+            if (!duplicate.includes(val.nome)) {
+                duplicate.push(val.nome);
+                html_Azienda +=
+                    "<option value='" + val.nome + "'> \n";
+            }
+            if (!duplicate.includes(val.settore)) {
+                duplicate.push(val.settore);
+                html_Settore +=
+                    "<option value='" + val.settore + "'> " + val.settore + "</option>\n";
+            }
+
+            if (val.stipendio > max)
+                max = val.stipendio;
+
+            if (val.stipendio < min)
+                min = val.stipendio;
+        })
+    } else {
+        // Handle the case where 'json' is not an array
+        console.error("JSON data is not an array");
+    };
+    formPSection.innerHTML += htmlP;
+    formLSection.innerHTML += htmlL;
+    formASection.innerHTML += html_Azienda;
+    selectPSection.innerHTML += html_Provincie;
+    selectSSection.innerHTML += html_Settore;
+    rangeSSection.setAttribute("min", min);
+    rangeSSection.setAttribute("max", max);
+};
+
+
+var req1;
+
+// annunci population
+const annunciSection = document.getElementById('annunci-list');
+
+req2 = new XMLHttpRequest();
+url = 'http://localhost/TW/EazyJobs/api/annunci/getAll.php';
+params = window.location.href.split('html');
+url = url + params[1];
+req2.open("GET", url, true);
+req2.send();
+
+req2.onload = function () {
+    var json = JSON.parse(req2.responseText);
+    var html = "";
+    if (Array.isArray(json.data)) {
+        json.data.forEach(function (val) {
+            //annunci.push(val);
             html +=
                 "<li id='" + val.nome + "'>" +
                 "<div class='header-annunci'>" +
@@ -80,43 +107,12 @@ req2.onload = function () {
                 "<li><h5>Contatti:</h5><p>" + val.mail + "</p></li>" +
                 "</ul>" +
                 "</li>";
-
-            if(!duplicate.includes(val.nome)){
-                duplicate.push(val.nome);
-                html_Azienda +=
-                "<option value='" + val.nome + "'> \n";
-            }
-
-            if(!duplicate.includes(val.locazione)){
-                duplicate.push(val.locazione);
-                html_Provincie +=
-                "<option value='" + val.locazione + "'> "+ val.locazione +"</option>\n";
-            }
-
-            if(!duplicate.includes(val.settore)){
-                duplicate.push(val.settore);
-                html_Settore +=
-                "<option value='" + val.settore + "'> "+ val.settore +"</option>\n";
-            }
-
-            if(val.paga_m > max)
-                max = val.paga_m;
-            
-            if(val.paga_m < min)
-                min = val.paga_m;
-            
-                
         })
     } else {
         // Handle the case where 'json' is not an array
         console.error("JSON data is not an array");
     };
     annunciSection.innerHTML += html;
-    formASection.innerHTML += html_Azienda;
-    selectPSection.innerHTML += html_Provincie;
-    selectSSection.innerHTML += html_Settore;
-    rangeSSection.setAttribute("min", min);
-    rangeSSection.setAttribute("max", max);
 
     // Display the first annunci-completo
     displayAnnuncioCompleto(json.data[0]);
@@ -153,11 +149,19 @@ req2.onload = function () {
 function displayAnnuncioCompleto(data) {
     var htmlC = "";
     const annuncioCSection = document.getElementById('annuncio-completo');
-    var ml = "";
-    if(data.remoto == 0){
-        ml = "In presenza";
-    } else{
+    ml = "";
+    var remoto = "";
+    var presenza = "";
+
+    if (data.presenza == 1) {
+        ml = " In presenza";
+    }
+
+    if (data.remoto == 1) {
         ml = "Da remoto";
+        if (data.presenza == 1) {
+            ml += " e in presenza";
+        }
     }
 
     htmlC +=
@@ -215,12 +219,24 @@ function displayAnnuncioCompleto(data) {
     });
 
     const annunciButton = document.getElementById("bottone-annunci");
-
+    const annunciCompleto = document.getElementById('annuncio-completo');
     annunciButton.addEventListener("click", function () {
-        // Hide the filters when annunci are shown
-        jobFilters.style.display = "none";
-        filterButton.textContent = "Mostra filtri";
+        annunciCompleto.style.display = "none";
+
+        // Show all small annunci
+        const smallAnnunci = document.querySelectorAll(".annunci li");
+        smallAnnunci.forEach(function (annuncio) {
+            annuncio.style.display = "block";
+        });
     });
+
+    // NON SO se sia il modo corretto per farlo, però la gaggi deve ancora dirci quindi io intato 
+    // l'ho fatto speriamo non sia da cambiare
+    // const currentURL = window.location.href;
+    // const hasParameters = currentURL.includes('?');
+    // if (hasParameters) {
+    //     filter();
+    // }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -236,4 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filterButton.textContent = "Mostra filtri";
         }
     });
+
+
 });
+
