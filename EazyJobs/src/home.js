@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
           "</div>" +
           "<div id='azienda-grid'>" +
           "<h4>settore:</h4> <p>" + val.settore + "</p>" +
-          "<h4>ambito:</h4> <p>" + val.settore + "</p>" +
           "<h4>valutazione:</h4>" +
           "<div class='valutazione-media' data-rating='" + val.media + "'></div>" +
           "</div>" +
