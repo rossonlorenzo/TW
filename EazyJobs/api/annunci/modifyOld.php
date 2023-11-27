@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $annuncio = new Annuncio($db);
 
+    $annuncio->id = $_POST['id'];
     $annuncio->titolo = $_POST['titolo'];
     $annuncio->locazione = $_POST['locazione'];
     $annuncio->data_pub = date('Y-m-d H:i:s');
@@ -28,6 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $annuncio->stipendio = $_POST['stipendio'];
     $annuncio->azienda_id = '1';    //replace with the id of the azienda logged in
 
-    $annuncio->insertNew();
+    $annuncio->modifyOld();
 }
-?>

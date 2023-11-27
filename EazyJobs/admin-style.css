@@ -138,6 +138,22 @@ img#profile_picture:hover {
     background-color: var(--footerBgColor);
 }
 
+.bottone-modifica, .bottone-elimina {
+    padding: 0.5em 1em;
+    margin-top: 1em;
+    background-color: var(--headerTxtColor);
+    color: white;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    width: auto;
+}
+
+.bottone-modifica:hover, .bottone-elimina:hover {
+    color: black;
+    background-color: var(--footerBgColor);
+}
+
 main > h3 {
     color: white;
     background-color: var(--headerTxtColor);

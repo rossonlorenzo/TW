@@ -19,50 +19,49 @@
 
     <form action="http://localhost/TW/EazyJobs/api/annunci/insertNew.php" method="post" id="publishJob-form">
         <label for="titolo">Titolo:</label>
-        <input type="text" id="titolo" name="titolo" required>
+        <input type="text" id="titolo" name="titolo">
         
-        <label for="breve-desc">Breve descrizione:</label>
-        <textarea id="breve-desc" name="desc_breve" required></textarea>
+        <label for="desc_breve">Breve descrizione:</label>
+        <textarea id="desc_breve" name="desc_breve"></textarea>
 
-        <label for="lunga-desc">Descrizione completa:</label>
-        <textarea id="lunga-desc" name="desc_completa" required></textarea>
+        <label for="desc_completa">Descrizione completa:</label>
+        <textarea id="desc_completa" name="desc_completa"></textarea>
 
-        <label for="loco">Provincia:</label>
-        <input type="text" id="loco" name="locazione" required>
+        <label for="locazione">Provincia:</label>
+        <input type="text" id="locazione" name="locazione">
 
         <label for="settore">Settore:</label>
-        <input type="text" id="settore" name="ambito" required>
+        <input type="text" id="settore" name="settore">
 
-        <label for="workMode">Modalità di lavoro:</label>
+        <label for="modalità">Modalità di lavoro:</label>
         <div class="checkbox-group">
-            <input type="checkbox" id="workMode1" name="workMode1" value="true">
-            <label for="workMode1" class="checkbox-label">Da remoto</label>
-        </div>                
-        <div class="checkbox-group">
-            <input type="checkbox" id="workMode2" name="workMode2" value="true">
-            <label for="workMode2" class="checkbox-label">In presenza</label>
+            <input type="checkbox" id="modalità-remoto" name="modalità-remoto">
+            <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
+
+            <input type="checkbox" id="modalità-presenza" name="modalità-presenza">
+            <label for="modalità-presenza" class="checkbox-label">In presenza</label>
         </div>
 
-        <label for="contractType">Tipo contratto:</label>
+        <label for="contratto">Tipo contratto:</label>
         <div class="radio-group">
-            <input type="radio" id="contractType1" name="contractType" value="Tempo determinato">
-            <label for="contractType1" class="radio-label">Tempo determinato</label>
+            <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
+            <label for="determinato" class="radio-label">Tempo determinato</label>
 
-            <input type="radio" id="contractType2" name="contractType" value="Tempo indeterminato">
-            <label for="contractType2" class="radio-label">Tempo indeterminato</label>
+            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
+            <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
         </div>
 
-        <label for="educationLevel">Livello istruzione richiesto:</label>
-        <select id="educationLevel" name="educationLevel">
-            <option value="Diploma">Diploma</option>
+        <label for="livello_istruzione">Livello istruzione richiesto:</label>
+        <select id="livello_istruzione" name="livello_istruzione">
+            <option value="Diploma" selected>Diploma</option>
             <option value="Laurea triennale">Laurea Triennale</option>
             <option value="Laurea magistrale">Laurea Magistrale</option>
             <option value="Dottorato">Dottorato</option>
         </select>
 
-        <label for="experience">Anni di esperienza richiesti:</label>
-        <select id="experience" name="esperienza">
-            <option value="1">1</option>
+        <label for="esperienza">Anni di esperienza richiesti:</label>
+        <select id="esperienza" name="esperienza">
+            <option value="1"selected>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -70,7 +69,7 @@
         </select>
 
         <label for="stipendio">Stipendio:</label>
-        <input type="text" id="stipendio" name="paga" required pattern="[0-9]+" title="Inserire un valore numerico..">
+        <input type="text" id="stipendio" name="stipendio">
 
         <button type="submit" id="pubblicaAnnuncio-bottone">Pubblica Annuncio</button>
     </form>

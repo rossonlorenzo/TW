@@ -19,11 +19,11 @@
     // Get categories
     public function getAll_byVote() {
       // Create query
-      $query = 'SELECT aziende.id, aziende.nome, aziende.ambito, AVG(valutazioni.voto) AS media
+      $query = 'SELECT aziende.id, aziende.nome, aziende.settore, AVG(valutazioni.voto) AS media
       FROM aziende
       INNER JOIN valutazioni ON aziende.id = valutazioni.aziende_id
-      GROUP BY aziende.id, aziende.nome, aziende.ambito
-      ORDER BY media ASC;';
+      GROUP BY aziende.id, aziende.nome, aziende.settore
+      ORDER BY media ASC';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);

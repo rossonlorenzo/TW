@@ -12,7 +12,7 @@
 
   $annuncio = new Annuncio($db);
 
-  $result = $annuncio->getAll();
+  $result = $annuncio->getAllbyId();
   
   $num = $result->rowCount();
 
@@ -24,7 +24,7 @@
           extract($row);
 
           $cat_item = array(
-            'id' => $id,
+            'id' => $annuncio_id,
             'titolo' => $titolo,
             'locazione' => $locazione,
             'data_pub' => $data_pub,
