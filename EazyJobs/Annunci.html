@@ -30,17 +30,22 @@
 
     <main>
         <form action="search.html" method="get">   <!--action?-->
-            <input type="text" id="professione" name="professione" placeholder="Professione..." required>
-            <input type="text" id="locazione" name="locazione" placeholder="Provincia..." required>
+            <input type="text" id="professione" name="professione" list="suggestions-professione" placeholder="Professione..." required>
+            <input type="text" id="locazione" name="locazione" list="suggestions-locazione" placeholder="Provincia..." required>
+            <datalist id="suggestions-professione">
+            </datalist>
+            <datalist id="suggestions-locazione">
+            </datalist>
             <button type="submit">Cerca</button>
-        </form>
+        </form> 
 
         <button id="bottone-filtri">Mostra filtri</button>
         <div id="filtered-search">
-        <form id="jobFilters" action="search.html" method="get">
+        <form id="jobFilters" method="get">
             <ul id="filterList">    <!--turned into a ul with accessibility in mind-->
                 <li><label for="publicationDate">Data:</label>
                     <select id="publicationDate" name="publicationDate">
+                        <option value="Nessuna">Nessuna</option>
                         <option value="last-24-hours">Ultime 24 ore</option>
                         <option value="last-3-days">Ultimi 3 giorni</option>
                         <option value="last-7-days">Ultimi 7 giorni</option>
@@ -48,51 +53,49 @@
                     </select>
                 </li>
                 <li><label for="company">Azienda:</label>
-                    <input type="text" id="company" name="company" placeholder="Cerca Azienda...">
+                    <input type="text" id="company" name="nome" list="suggestions-azienda" placeholder="Cerca Azienda..." required>
+                    <datalist id="suggestions-azienda">
+                            <option value="Nessuna">Nessuna</option>
+                    </datalist>
                 </li>
                 <li><label for="province">Provincia:</label>
-                    <select id="province" name="province">
-                        <option value="Milano">Milano</option>
-                        <option value="Roma">Roma</option>
-                        <option value="Napoli">Napoli</option>
-                        <option value="Firenze">Firenze</option>
-                        <option value="Bologna">Bologna</option>
-                        <!-- add more province options, from database? -->
+                    <select id="province" name="locazione">
+                        <option value="Nessuna">Nessuna</option>
+                        <!-- add more province options, from database? Done ;) -->
                     </select>
                 </li>
-                <li><label for="sector">Settore:</label>
-                    <select id="sector" name="sector">
-                        <option value="ambiente-sostenibile">Ambiente sostenibile</option>
-                        <option value="tecnologia-innovazione">Tecnologia e Innovazione</option>
-                        <option value="creativita-design">Creativita' e Design</option>
-                        <!-- add more sector options, from database? -->
+                <li><label for="settore">Settore:</label>
+                    <select id="settore" name="settore">
+                        <option value="Nessuna">Nessuna</option>
+                        <!-- add more sector options, from database? Done ;) -->
                     </select>
                 </li>
                 <li>
                     <label for="workMode">Modalità:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="workMode1" name="workMode" value="remoto">
+                        <input type="checkbox" id="workMode1" name="remoto" value="1">
                         <label for="workMode1" class="checkbox-label">Da remoto</label>
                     </div>                
                     <div class="checkbox-group">
-                        <input type="checkbox" id="workMode2" name="workMode" value="presenza">
+                        <input type="checkbox" id="workMode2" name="presenza" value="1">
                         <label for="workMode2" class="checkbox-label">In presenza</label>
                     </div>
                 </li>
                 <li>
                     <label for="contractType">Tipo contratto:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="contractType1" name="contractType" value="tempo-determinato">
+                        <input type="checkbox" id="contractType1" name="contratto" value="Tempo determinato">
                         <label for="contractType1" class="checkbox-label">Tempo determinato</label>
                     </div>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="contractType2" name="contractType" value="tempo-indeterminato">
+                        <input type="checkbox" id="contractType2" name="contratto" value="Tempo indeterminato">
                         <label for="contractType2" class="checkbox-label">Tempo indeterminato</label>
                     </div>
                 </li>
                 <li>
                     <label for="educationLevel">Livello istruzione:</label>
-                    <select id="educationLevel" name="educationLevel">
+                    <select id="educationLevel" name="livello_istruzione">
+                        <option value="Nessuna">Nessuna</option>
                         <option value="diploma">Diploma</option>
                         <option value="laurea-triennale">Laurea Triennale</option>
                         <option value="laurea-magistrale">Laurea Magistrale</option>
@@ -100,14 +103,14 @@
                 </li>
                 <li>
                     <label for="experience">Esperienza:</label>          
-                    <input type="range" id="rangeInput" name="experience" min="0" max="10" step="1" value="0">  
+                    <input type="range" id="rangeEsperienza" name="esperienza" min="0" max="10" step="1" value="0">  
                 </li>
                 <li>
                     <label for="salary">Stipendio:</label>
-                    <input type="range" id="rangeInput" name="salary" min="3200" max="4000" step="100" value="3200">
+                    <input type="range" id="rangeSalario" name="stipendio" min="" max="" step="100" value="3200">
                 </li>               
             </ul>  
-            <button type="submit">Cerca</button>          
+            <button id="applica-filtri" type="submit">Cerca</button>          
         </form>       
         
         <ul class="annunci" id="annunci-list">

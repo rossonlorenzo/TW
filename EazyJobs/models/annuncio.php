@@ -71,6 +71,86 @@
       return $stmt;
     }
 
+    public function getFiltered($filters) {
+      // Create the base query
+      $query = 'SELECT annunci.id, azienda_id, titolo, mail, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id WHERE 1';
+  
+      // Create an array to store conditions
+      $conditions = array();
+  
+      // Check and add conditions for each filter parameter
+      if (($filters['nome'])!="Nessuna") {
+          $conditions[] = 'nome = :nome';
+      }
+      if (($filters['locazione'])!="Nessuna") {
+          $conditions[] = 'locazione = :locazione';
+      }
+      if (($filters['settore'])!="Nessuna") {
+          $conditions[] = 'annunci.settore = :settore';
+      }
+      if (($filters['remoto'])!= 'Nessuna') {
+          $conditions[] = 'remoto = :remoto';
+      }
+      if (($filters['presenza'])!= 'Nessuna') {
+        $conditions[] = 'presenza = :presenza';
+    }
+      if (($filters['contratto']) != 'Nessuna') {
+          $conditions[] = 'contratto = :contratto';
+      }
+      if (($filters['livello_istruzione'])!="Nessuna") {
+          $conditions[] = 'livello_istruzione = :livello_istruzione';
+      }
+    //   if (!empty($filters['esperienza'])) {
+    //       $conditions[] = 'esperienza = :esperienza';
+    //   }
+    //   if (!empty($filters['stipendio'])) {
+    //       $conditions[] = 'stipendio <= :stipendio';
+    //   }
+  
+      // If conditions exist, add them to the query
+      if (!empty($conditions)) {
+          $query .= ' AND ' . implode(' AND ', $conditions);
+      }
+  
+      // Prepare statement
+      $stmt = $this->conn->prepare($query);
+  
+      // Bind parameters
+      if (($filters['nome'])!="Nessuna") {
+          $stmt->bindParam(':nome', $filters['nome']);
+      }
+      if (($filters['locazione'])!="Nessuna") {
+          $stmt->bindParam(':locazione', $filters['locazione']);
+      }
+      if (($filters['settore'])!="Nessuna") {
+          $stmt->bindParam(':settore', $filters['settore']);
+      }
+      if (($filters['remoto'])!='Nessuna') {
+          $stmt->bindParam(':remoto', $filters['remoto']);
+      }
+      if (($filters['presenza'])!='Nessuna') {
+        $stmt->bindParam(':presenza', $filters['presenza']);
+      }
+      if (($filters['contratto'])!= 'Nessuna') {
+          $stmt->bindParam(':contratto', $filters['contratto']);
+      }
+      if (($filters['livello_istruzione'])!="Nessuna") {
+          $stmt->bindParam(':livello_istruzione', $filters['livello_istruzione']);
+      }
+    //   if (!empty($filters['esperienza'])) {
+    //       $stmt->bindParam(':esperienza', $filters['esperienza']);
+    //   }
+    //   if (!empty($filters['stipendio'])) {
+    //       $stmt->bindParam(':stipendio', $filters['stipendio']);
+    //   }
+  
+      // Execute query
+      $stmt->execute();
+  
+      return $stmt;
+  }
+  
+
     //Insert new listing
     public function insertNew() {
       $query = 'INSERT INTO ' . $this->table . '

@@ -249,10 +249,12 @@ ul.annunci {
 ul.annunci::-webkit-scrollbar {
     width: 0.5em;
     background-color: #f7e7ce;
+    border-radius: 5px;
 }
 
 ul.annunci::-webkit-scrollbar-thumb {
     background-color: #f8d9a7;
+    border-radius: 5px;
 }
 
 ul.annunci li {

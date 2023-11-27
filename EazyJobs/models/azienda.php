@@ -8,7 +8,7 @@
     public $id;
     public $nome;
     // //public $logo;
-    public $ambito;
+    public $settore;
     public $media;
 
     // Constructor with DB
@@ -23,6 +23,7 @@
       FROM aziende
       INNER JOIN valutazioni ON aziende.id = valutazioni.aziende_id
       GROUP BY aziende.id, aziende.nome, aziende.settore
+
       ORDER BY media ASC';
 
       // Prepare statement

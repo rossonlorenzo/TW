@@ -57,13 +57,13 @@ CREATE TABLE IF NOT EXISTS aziende
 	dipendenti integer NOT NULL,
 	fatturato integer NOT NULL,
 	sede character varying(60) NOT NULL,
-	ambito character varying(60) NOT NULL,
+	settore character varying(60) NOT NULL,
 	`desc` character varying (500) NOT NULL,
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO aziende (mail, password, nome, sito, fondazione, dipendenti, fatturato, sede, ambito, `desc`)
+INSERT INTO aziende (mail, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
 VALUES
     ('alta.tech@altatech.it', 'P@ssw0rd1!', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.'),
     ('innovazione@italiainnovazione.it', 'Str0ngP@$$2@', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.'),
@@ -93,14 +93,15 @@ CREATE TABLE IF NOT EXISTS annunci
     titolo character varying(60) NOT NULL,
 	locazione character varying(60) NOT NULL,
 	data_pub datetime NOT NULL,
-	ambito character varying(60) NOT NULL,
+	settore character varying(60) NOT NULL,
 	remoto boolean NOT NULL,
+    presenza boolean NOT NULL,
 	contratto character varying(60) NOT NULL,
     `desc_breve` character varying(200) NOT NULL,
 	`desc_completa` character varying(500) NOT NULL,
-    titoli_r character varying(90) NOT NULL,
+    livello_istruzione character varying(90) NOT NULL,
 	esperienza integer NOT NULL,
-    paga_m decimal NOT NULL,
+    stipendio decimal NOT NULL,
     azienda_id int NOT NULL,
     PRIMARY KEY (id),
 	FOREIGN KEY (azienda_id)
@@ -110,26 +111,26 @@ CREATE TABLE IF NOT EXISTS annunci
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO annunci (titolo, locazione, data_pub, ambito, remoto, contratto, `desc_breve`, `desc_completa`, titoli_r, esperienza, paga_m, azienda_id)
+INSERT INTO annunci (titolo, locazione, data_pub, settore, remoto, presenza, contratto, `desc_breve`, `desc_completa`, livello_istruzione, esperienza, stipendio, azienda_id)
 VALUES
-    ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore frontend altamente creativo per il nostro progetto web.', 'Se sei appassionato di sviluppo frontend e hai esperienza in HTML, CSS e JavaScript, potresti essere la persona giusta per noi.', 'Laurea Triennale, Informatica, Scienze del Computer', 2, 3200.00, 1),
-    ('Grafico Pubblicitario', 'Roma', '2023-10-30 10:45:00', 'Design', true, 'Tempo determinato', 'Stiamo cercando un grafico pubblicitario talentuoso per creare materiale promozionale.', 'Se sei creativo e hai esperienza nella progettazione di materiale pubblicitario, potremmo avere una posizione per te.', 'Laurea Triennale, Design, Belle Arti', 3, 3400.00, 2),
-    ('Ingegnere Civile', 'Firenze', '2023-10-31 11:30:00', 'Edilizia', true, 'Tempo determinato', 'Cerchiamo un ingegnere civile esperto per la progettazione di strutture edili.', 'Se hai competenze in ingegneria civile e esperienza nella progettazione di strutture, contattaci.', 'Laurea Magistrale, Ingegneria Civile, Architettura', 4, 4000.00, 3),
-    ('Responsabile Marketing', 'Napoli', '2023-11-01 12:00:00', 'Marketing', false, 'Tempo indeterminato', 'Abbiamo bisogno di un esperto di marketing per gestire le nostre strategie digitali.', 'Se hai una passione per il marketing e competenze nelle strategie online, potremmo avere un ruolo per te.', 'Laurea Magistrale, Marketing, Comunicazione', 3, 3500.00, 4),
-    ('Sviluppatore Java', 'Milano', '2023-11-02 14:00:00', 'Tecnologia', true, 'Tempo determinato', 'Cerchiamo uno sviluppatore Java con competenze avanzate per il nostro progetto software.', 'Se hai esperienza in sviluppo Java e vuoi contribuire a un progetto innovativo, sei nel posto giusto.', 'Laurea Triennale, Informatica, Scienze del Computer', 2, 3400.00, 5),
-    ('Architetto d''Interni', 'Roma', '2023-11-03 15:30:00', 'Design', false, 'Tempo indeterminato', 'Stiamo cercando un architetto d''interni talentuoso per progetti di design degli spazi.', 'Se hai una passione per il design degli interni e vuoi creare spazi unici, contattaci.', 'Laurea Triennale, Design, Belle Arti', 3, 3600.00, 6),
-    ('Sviluppatore iOS', 'Firenze', '2023-11-04 09:15:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore iOS esperto per le nostre app mobili.', 'Se hai competenze in sviluppo iOS e vuoi lavorare su progetti mobili entusiasmanti, unisciti a noi.', 'Laurea Triennale, Informatica, Scienze del Computer', 4, 3800.00, 7),
-    ('Assistente Sanitario', 'Napoli', '2023-11-05 08:45:00', 'Sanità', true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sanitario per fornire assistenza a domicilio.', 'Se hai una passione per il settore sanitario e vuoi aiutare le persone, questa potrebbe essere la tua opportunità.', 'Diploma, Sanità, Infermieristica', 2, 3200.00, 8),
-    ('Progettista Web', 'Milano', '2023-11-06 14:30:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo un progettista web creativo per il nostro team di sviluppo.', 'Se hai esperienza nella progettazione di siti web e un''ottima comprensione del design UX/UI, sei il benvenuto.', 'Laurea Triennale, Informatica, Scienze del Computer', 3, 3500.00, 9),
-    ('Gestore Museo', 'Roma', '2023-11-07 15:00:00', 'Cultura', true, 'Tempo determinato', 'Stiamo cercando un gestore di museo appassionato della cultura e delle arti.', 'Se ami la cultura e vuoi gestire un museo, questa potrebbe essere la tua occasione.', 'Laurea Magistrale, Cultura, Belle Arti', 4, 3800.00, 10),
-	('Gestore Progetti', 'Napoli', '2023-11-08 09:30:00', 'Progetti', true, 'Tempo determinato', 'Stiamo cercando un gestore di progetti esperto per coordinare e gestire le attività di progetto.', 'Se hai esperienza nella gestione di progetti e sei un ottimo coordinatore, contattaci.', 'Laurea Magistrale, Gestione Progetti, Business', 4, 3800.00, 11),
-    ('Sviluppatore Mobile', 'Firenze', '2023-11-09 10:45:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore mobile con competenze in sviluppo di app per dispositivi mobili.', 'Se hai esperienza in sviluppo mobile e vuoi lavorare su app innovative, potresti essere la persona giusta per noi.', 'Laurea Triennale, Informatica, Sviluppo Mobile', 3, 3500.00, 12),
-    ('Gestore Risorse Umane', 'Milano', '2023-11-10 11:30:00', 'Risorse Umane', true, 'Tempo determinato', 'Abbiamo bisogno di un esperto di risorse umane per la gestione del personale aziendale.', 'Se hai competenze nelle risorse umane e vuoi contribuire allo sviluppo del nostro team, contattaci.', 'Laurea Magistrale, Risorse Umane, Psicologia', 4, 4000.00, 13),
-    ('Analista Dati', 'Roma', '2023-11-11 12:00:00', 'Tecnologia', false, 'Tempo indeterminato', 'Cerchiamo un analista dati per l''elaborazione e l''analisi dei dati aziendali.', 'Se hai competenze nell''analisi dei dati e la capacità di trarre conclusioni, potresti essere il candidato ideale.', 'Laurea Magistrale, Statistica, Analisi Dati', 3, 3600.00, 14),
-    ('Assistente Sociale', 'Bari', '2023-11-12 14:00:00', 'Servizi Sociali', true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sociale per fornire supporto alle persone in difficoltà.', 'Se hai una passione per il servizio sociale e vuoi aiutare chi ne ha bisogno, questa potrebbe essere la tua opportunità.', 'Laurea Magistrale, Servizio Sociale, Psicologia', 2, 3200.00, 15),
-    ('Ingegnere Elettrico', 'Messina', '2023-11-13 15:30:00', 'Ingegneria', false, 'Tempo indeterminato', 'Stiamo cercando un ingegnere elettrico per il progetto di sistemi elettrici.', 'Se hai competenze in ingegneria elettrica e vuoi lavorare su progetti elettrici, contattaci.', 'Laurea Magistrale, Ingegneria Elettrica, Elettronica', 4, 3800.00, 16),
-    ('Project Manager', 'Napoli', '2023-11-14 09:15:00', 'Progetti', true, 'Tempo determinato', 'Cerchiamo un project manager con esperienza nella gestione di progetti aziendali.', 'Se sei un esperto nella gestione dei progetti e vuoi far parte del nostro team, contattaci.', 'Laurea Magistrale, Gestione Progetti, Business', 3, 3500.00, 17),
-    ('Insegnante Scuola Elementare', 'Bari', '2023-11-15 08:45:00', 'Istruzione', false, 'Tempo indeterminato', 'Abbiamo bisogno di un insegnante per la scuola elementare per l''istruzione dei bambini.', 'Se ami l''educazione e vuoi contribuire allo sviluppo dei giovani studenti, contattaci.', 'Laurea Triennale, Scienze dell''Educazione, Istruzione', 2, 3200.00, 20);
+    ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore frontend altamente creativo per il nostro progetto web.', 'Se sei appassionato di sviluppo frontend e hai esperienza in HTML, CSS e JavaScript, potresti essere la persona giusta per noi.', 'Laurea Triennale, Informatica, Scienze del Computer', 2, 3200.00, 1),
+    ('Grafico Pubblicitario', 'Roma', '2023-10-30 10:45:00', 'Design', true, false, 'Tempo determinato', 'Stiamo cercando un grafico pubblicitario talentuoso per creare materiale promozionale.', 'Se sei creativo e hai esperienza nella progettazione di materiale pubblicitario, potremmo avere una posizione per te.', 'Laurea Triennale, Design, Belle Arti', 3, 3400.00, 2),
+    ('Ingegnere Civile', 'Firenze', '2023-10-31 11:30:00', 'Edilizia', true, true, 'Tempo determinato', 'Cerchiamo un ingegnere civile esperto per la progettazione di strutture edili.', 'Se hai competenze in ingegneria civile e esperienza nella progettazione di strutture, contattaci.', 'Laurea Magistrale, Ingegneria Civile, Architettura', 4, 4000.00, 3),
+    ('Responsabile Marketing', 'Napoli', '2023-11-01 12:00:00', 'Marketing', false, true, 'Tempo indeterminato', 'Abbiamo bisogno di un esperto di marketing per gestire le nostre strategie digitali.', 'Se hai una passione per il marketing e competenze nelle strategie online, potremmo avere un ruolo per te.', 'Laurea Magistrale, Marketing, Comunicazione', 3, 3500.00, 4),
+    ('Sviluppatore Java', 'Milano', '2023-11-02 14:00:00', 'Tecnologia', true, false, 'Tempo determinato', 'Cerchiamo uno sviluppatore Java con competenze avanzate per il nostro progetto software.', 'Se hai esperienza in sviluppo Java e vuoi contribuire a un progetto innovativo, sei nel posto giusto.', 'Laurea Triennale, Informatica, Scienze del Computer', 2, 3400.00, 5),
+    ('Architetto d''Interni', 'Roma', '2023-11-03 15:30:00', 'Design', false, true, 'Tempo indeterminato', 'Stiamo cercando un architetto d''interni talentuoso per progetti di design degli spazi.', 'Se hai una passione per il design degli interni e vuoi creare spazi unici, contattaci.', 'Laurea Triennale, Design, Belle Arti', 3, 3600.00, 6),
+    ('Sviluppatore iOS', 'Firenze', '2023-11-04 09:15:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore iOS esperto per le nostre app mobili.', 'Se hai competenze in sviluppo iOS e vuoi lavorare su progetti mobili entusiasmanti, unisciti a noi.', 'Laurea Triennale, Informatica, Scienze del Computer', 4, 3800.00, 7),
+    ('Assistente Sanitario', 'Napoli', '2023-11-05 08:45:00', 'Sanità', true, true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sanitario per fornire assistenza a domicilio.', 'Se hai una passione per il settore sanitario e vuoi aiutare le persone, questa potrebbe essere la tua opportunità.', 'Diploma, Sanità, Infermieristica', 2, 3200.00, 8),
+    ('Progettista Web', 'Milano', '2023-11-06 14:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo un progettista web creativo per il nostro team di sviluppo.', 'Se hai esperienza nella progettazione di siti web e un''ottima comprensione del design UX/UI, sei il benvenuto.', 'Laurea Triennale, Informatica, Scienze del Computer', 3, 3500.00, 9),
+    ('Gestore Museo', 'Roma', '2023-11-07 15:00:00', 'Cultura', true, false, 'Tempo determinato', 'Stiamo cercando un gestore di museo appassionato della cultura e delle arti.', 'Se ami la cultura e vuoi gestire un museo, questa potrebbe essere la tua occasione.', 'Laurea Magistrale, Cultura, Belle Arti', 4, 3800.00, 10),
+	('Gestore Progetti', 'Napoli', '2023-11-08 09:30:00', 'Progetti', true, false, 'Tempo determinato', 'Stiamo cercando un gestore di progetti esperto per coordinare e gestire le attività di progetto.', 'Se hai esperienza nella gestione di progetti e sei un ottimo coordinatore, contattaci.', 'Laurea Magistrale, Gestione Progetti, Business', 4, 3800.00, 11),
+    ('Sviluppatore Mobile', 'Firenze', '2023-11-09 10:45:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore mobile con competenze in sviluppo di app per dispositivi mobili.', 'Se hai esperienza in sviluppo mobile e vuoi lavorare su app innovative, potresti essere la persona giusta per noi.', 'Laurea Triennale, Informatica, Sviluppo Mobile', 3, 3500.00, 12),
+    ('Gestore Risorse Umane', 'Milano', '2023-11-10 11:30:00', 'Risorse Umane', true, true, 'Tempo determinato', 'Abbiamo bisogno di un esperto di risorse umane per la gestione del personale aziendale.', 'Se hai competenze nelle risorse umane e vuoi contribuire allo sviluppo del nostro team, contattaci.', 'Laurea Magistrale, Risorse Umane, Psicologia', 4, 4000.00, 13),
+    ('Analista Dati', 'Roma', '2023-11-11 12:00:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo un analista dati per l''elaborazione e l''analisi dei dati aziendali.', 'Se hai competenze nell''analisi dei dati e la capacità di trarre conclusioni, potresti essere il candidato ideale.', 'Laurea Magistrale, Statistica, Analisi Dati', 3, 3600.00, 14),
+    ('Assistente Sociale', 'Bari', '2023-11-12 14:00:00', 'Servizi Sociali', true, true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sociale per fornire supporto alle persone in difficoltà.', 'Se hai una passione per il servizio sociale e vuoi aiutare chi ne ha bisogno, questa potrebbe essere la tua opportunità.', 'Laurea Magistrale, Servizio Sociale, Psicologia', 2, 3200.00, 15),
+    ('Ingegnere Elettrico', 'Messina', '2023-11-13 15:30:00', 'Ingegneria', false, true, 'Tempo indeterminato', 'Stiamo cercando un ingegnere elettrico per il progetto di sistemi elettrici.', 'Se hai competenze in ingegneria elettrica e vuoi lavorare su progetti elettrici, contattaci.', 'Laurea Magistrale, Ingegneria Elettrica, Elettronica', 4, 3800.00, 16),
+    ('Project Manager', 'Napoli', '2023-11-14 09:15:00', 'Progetti', true, false, 'Tempo determinato', 'Cerchiamo un project manager con esperienza nella gestione di progetti aziendali.', 'Se sei un esperto nella gestione dei progetti e vuoi far parte del nostro team, contattaci.', 'Laurea Magistrale, Gestione Progetti, Business', 3, 3500.00, 17),
+    ('Insegnante Scuola Elementare', 'Bari', '2023-11-15 08:45:00', 'Istruzione', false, true, 'Tempo indeterminato', 'Abbiamo bisogno di un insegnante per la scuola elementare per l''istruzione dei bambini.', 'Se ami l''educazione e vuoi contribuire allo sviluppo dei giovani studenti, contattaci.', 'Laurea Triennale, Scienze dell''Educazione, Istruzione', 2, 3200.00, 20);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS preferiti
@@ -234,6 +235,3 @@ VALUES
     (9, 8, 'Ho avuto un''ottima opportunità di sviluppo professionale in questa azienda. Sono grato per l''esperienza positiva. Voto 5 su 5.', 5),
     (10, 9, 'Sono molto soddisfatto di lavorare in questa azienda. Ho avuto l''opportunità di crescere professionalmente e di contribuire al successo dell''azienda. Voto 4 su 5.', 4),
     (10, 10, 'L''azienda deve lavorare sullo sviluppo del team e migliorare la comunicazione interna. Spero che facciano progressi. Voto 3 su 5.', 3);
-
-
-
