@@ -54,11 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
           "<img src='./assets/SyncLab-logo.png' alt='SyncLab Logo'>" +
           "</div>" +
           "<div id='azienda-grid'>" +
-<<<<<<< HEAD
           "<h4>settore:</h4> <p>" + val.settore + "</p>" +
-=======
           "<h4>ambito:</h4> <p>" + val.settore + "</p>" +
->>>>>>> f50b236c05fae31e15efded1e67ec15d23398d2d
           "<h4>valutazione:</h4>" +
           "<div class='valutazione-media' data-rating='" + val.media + "'></div>" +
           "</div>" +
