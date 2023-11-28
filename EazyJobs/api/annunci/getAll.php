@@ -1,5 +1,8 @@
 <?php
 // Headers
+
+use function PHPSTORM_META\type;
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
@@ -20,8 +23,8 @@ $remoto = $_GET['remoto'] ?? 'Nessuna';
 $presenza = $_GET['presenza'] ?? 'Nessuna';
 $contratto = $_GET['contratto'] ?? 'Nessuna';
 $livello_istruzione = $_GET['livello_istruzione'] ?? 'Nessuna';
-$esperienza = $_GET['esperienza'] ?? 'Nessuna';
-$stipendio = $_GET['stipendio'] ?? 'Nessuna';
+$esperienza = $_GET['esperienza'] ?? "Nessuna";
+$stipendio = $_GET['stipendio'] ?? "Nessuna";
 
 
 // Crea un array con i filtri non nulli

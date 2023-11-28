@@ -29,7 +29,7 @@
     </div>
 
     <main>
-        <form action="search.html" method="get">   <!--action?-->
+        <form action="Annunci.html" method="get">   <!--action?-->
             <input type="text" id="professione" name="professione" list="suggestions-professione" placeholder="Professione..." required>
             <input type="text" id="locazione" name="locazione" list="suggestions-locazione" placeholder="Provincia..." required>
             <datalist id="suggestions-professione">
@@ -103,11 +103,11 @@
                 </li>
                 <li>
                     <label for="experience">Esperienza:</label>          
-                    <input type="range" id="rangeEsperienza" name="esperienza" min="0" max="10" step="1" value="0">  
+                    <input type="number" id="rangeEsperienza" name="esperienza" min="1" max="5" value="5">  
                 </li>
                 <li>
                     <label for="salary">Stipendio:</label>
-                    <input type="range" id="rangeSalario" name="stipendio" min="" max="" step="100" value="3200">
+                    <input type="range" id="rangeSalario" name="stipendio" min="" max="" step="100" value="">
                 </li>               
             </ul>  
             <button id="applica-filtri" type="submit">Cerca</button>          

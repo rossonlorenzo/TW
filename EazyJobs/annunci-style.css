@@ -188,6 +188,12 @@ button[type="submit"]:hover {
     height: auto;
 }
 
+#filterList li input[type="number"]{
+    width: 30%;
+    margin: auto;
+    height: auto;
+}
+
 #filterList li .checkbox-group {
     display: flex;
     margin: auto;
@@ -197,22 +203,6 @@ button[type="submit"]:hover {
     font-size: 0.8em;
     color: black;
     font-weight: normal;
-}
-
-#filterList li input[type="range"]::before {    /*before:: must verify if necessary*/
-    content: attr(min);
-    position: relative;
-    left: 0;
-    bottom: -1em;
-    font-size: 12px;
-}
-
-#filterList li input[type="range"]::after {     /*after:: must verify if necessary*/
-    content: attr(max);
-    position: relative;
-    right: 0;
-    bottom: -1em;
-    font-size: 12px;
 }
 
 #bottone-filtri {
