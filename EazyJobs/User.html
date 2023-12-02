@@ -2,10 +2,11 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Area Personale</title>
+    <title>Area Personale - EazyJobs</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="user_style.css">
+    <link rel="stylesheet" href="user_style.css" media="screen">
+    <link rel="stylesheet" href="user_style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <nav id="menu">
             <ul>
                 <li lang="en"><a href="Home.html">Home</a></li>
-                <li>Annunci</li>
+                <li><a href="Annunci.html">Annunci</a></li>
                 <li><a href="Aziende.html">Aziende</a></li>
                 <li lang="en"><a href="">Log-out</a></li>
             </ul>
@@ -37,94 +38,152 @@
             <dd><time datetime="2001-01-01">01/01/2001</time></dd>
             <dt>E-mail: </dt>
             <dd>nome.cognome@gmail.com</dd>
+            <dt>Il tuo curriculum:</dt>
+            <dd>nomecurriculum.pdf <span class="lastmodified">(Ultima modifica in data <time datetime="2001-01-01">2001/01/01</time>)</span></dd>
         </dl>
-        <h3>Annunci salvati</h3>
-        <ul class="annunci">
-            <li id="SyncLab">
-                <div class="header-annunci">
-                <h3>Software Developer</h3>
-                <h4>Sync Lab</h4>
-                <img src="./assets/SyncLab-logo.png" alt="">
-                </div>
 
-                <h5>Descrizione:</h5>                
-                <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                
-                <ul class="job-info">
-                    <li><h5>Loco:</h5><p>Padova PD</p></li>
-                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
-                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
-                </ul>
-            </li>
-            <li id="SyncLab">
-                <div class="header-annunci">
-                <h3>Software Developer</h3>
-                <h4>Sync Lab</h4>
-                <img src="./assets/SyncLab-logo.png" alt="">
-                </div>
+        <button id="cv_upload" name="cv" type="button" onclick="">Carica un nuovo curriculum</button>
 
-                <h5>Descrizione:</h5>                
-                <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                
-                <ul class="job-info">
-                    <li><h5>Loco:</h5><p>Padova PD</p></li>
-                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
-                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
-                </ul>
-            </li>
-            <li id="SyncLab">
-                <div class="header-annunci">
-                <h3>Software Developer</h3>
-                <h4>Sync Lab</h4>
-                <img src="./assets/SyncLab-logo.png" alt="">
-                </div>
+        <section>
+            <div id="annunci-header" class="hiding">
+                <h3>Annunci salvati</h3>
+                <button name="annunci" type="button" onclick="showHideCards('annunci');changeButton(name);" aria-expanded="false" aria-controls="annunci">
+                    <!--Mostra annunci  (label bottone da modificre via js per access.)-->
+                    <span class="toggle show"></span>
+                </button>
+            </div>
+            <ul id="annunci" class="hiding">
+                <li id="SyncLab">
+                    <div class="header-annunci">
+                    <h3>Software Developer</h3>
+                    <h4>Sync Lab</h4>
+                    <img src="./assets/SyncLab-logo.png" alt="">
+                    </div>
 
-                <h5>Descrizione:</h5>                
-                <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                
-                <ul class="job-info">
-                    <li><h5>Loco:</h5><p>Padova PD</p></li>
-                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
-                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
-                </ul>
-            </li>
-            <li id="SyncLab">
-                <div class="header-annunci">
-                <h3>Software Developer</h3>
-                <h4>Sync Lab</h4>
-                <img src="./assets/SyncLab-logo.png" alt="">
-                </div>
+                    <h5>Descrizione:</h5>                
+                    <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
+                    
+                    <ul class="job-info">
+                        <li><h5>Loco:</h5><p>Padova PD</p></li>
+                        <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                        <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                    </ul>
 
-                <h5>Descrizione:</h5>                
-                <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                
-                <ul class="job-info">
-                    <li><h5>Loco:</h5><p>Padova PD</p></li>
-                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
-                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
-                </ul>
-            </li>
-            <li id="SyncLab">
-                <div class="header-annunci">
-                <h3>Software Developer</h3>
-                <h4>Sync Lab</h4>
-                <img src="./assets/SyncLab-logo.png" alt="">
-                </div>
+                    <button id="delete_item" type="">Elimina</button>
+                </li>
+                <li id="SyncLab">
+                    <div class="header-annunci">
+                    <h3>Software Developer</h3>
+                    <h4>Sync Lab</h4>
+                    <img src="./assets/SyncLab-logo.png" alt="">
+                    </div>
 
-                <h5>Descrizione:</h5>                
-                <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
-                
-                <ul class="job-info">
-                    <li><h5>Loco:</h5><p>Padova PD</p></li>
-                    <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
-                    <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
-                </ul>
-            </li>
-        </ul>
-        <h3>Le mie recensioni</h3>
-        <ul class="recensioni">
+                    <h5>Descrizione:</h5>                
+                    <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
+                    
+                    <ul class="job-info">
+                        <li><h5>Loco:</h5><p>Padova PD</p></li>
+                        <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                        <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                    </ul>
+                </li>
+                <li id="SyncLab">
+                    <div class="header-annunci">
+                    <h3>Software Developer</h3>
+                    <h4>Sync Lab</h4>
+                    <img src="./assets/SyncLab-logo.png" alt="">
+                    </div>
 
-        </ul>
+                    <h5>Descrizione:</h5>                
+                    <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
+                    
+                    <ul class="job-info">
+                        <li><h5>Loco:</h5><p>Padova PD</p></li>
+                        <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                        <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                    </ul>
+                </li>
+                <li id="SyncLab">
+                    <div class="header-annunci">
+                    <h3>Software Developer</h3>
+                    <h4>Sync Lab</h4>
+                    <img src="./assets/SyncLab-logo.png" alt="">
+                    </div>
+
+                    <h5>Descrizione:</h5>                
+                    <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
+                    
+                    <ul class="job-info">
+                        <li><h5>Loco:</h5><p>Padova PD</p></li>
+                        <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                        <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                    </ul>
+                </li>
+                <li id="SyncLab">
+                    <div class="header-annunci">
+                    <h3>Software Developer</h3>
+                    <h4>Sync Lab</h4>
+                    <img src="./assets/SyncLab-logo.png" alt="">
+                    </div>
+
+                    <h5>Descrizione:</h5>                
+                    <p>Lorem ipsum dolor sit amet. Ab aliquam Quis qui odio ullam ad rerum officiis. Qui dolor cupiditate et minima cupiditate in voluptates tempora ex maiores dolorem. Ab sunt earum et magnam omnis hic amet voluptatem est libero sapiente. Quo soluta esse est deleniti dolorem ex dolore possimus est sunt corrupti eos maxime assumenda in sapiente iure ut veritatis dolorum. Et quaerat consequatur non expedita vitae id culpa voluptas et provident adipisci!</p>
+                    
+                    <ul class="job-info">
+                        <li><h5>Loco:</h5><p>Padova PD</p></li>
+                        <li><h5>Stipendio medio:</h5><p>3500 euro</p></li>
+                        <li><h5>Contatti:</h5><p>synclab@gmail.it</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div id="recensioni-header" class="hiding">
+                <h3>Le mie recensioni</h3>
+                <button name="recensioni" type="button" onclick="showHideCards('recensioni');changeButton(name);" aria-expanded="false" aria-controls="recensioni">
+                    <!-- Mostra recensioni (label bottone da modificre via js per access.)-->
+                    <span class="toggle show"></span>
+                </button>
+            </div>
+            <ul id="recensioni" class="hiding">
+                <li>
+                    <h3>User</h3>
+                    <div class='valutazione'>
+                        <h4>valutazione:</h4><p>4</p>
+                    </div>
+                    <p>Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.</p>
+                </li>
+                <li>
+                    <h3>User</h3>
+                    <div class='valutazione'>
+                        <h4>valutazione:</h4><p>4</p>
+                    </div>
+                    <p>Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.</p>
+                </li>
+                <li>
+                    <h3>User</h3>
+                    <div class='valutazione'>
+                        <h4>valutazione:</h4><p>4</p>
+                    </div>
+                    <p>Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.</p>
+                </li>
+                <li>
+                    <h3>User</h3>
+                    <div class='valutazione'>
+                        <h4>valutazione:</h4><p>4</p>
+                    </div>
+                    <p>Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.</p>
+                </li>
+                <li>
+                    <h3>User</h3>
+                    <div class='valutazione'>
+                        <h4>valutazione:</h4><p>4</p>
+                    </div>
+                    <p>Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.</p>
+                </li>
+            </ul>
+        </section>
     </main>
     <footer>
         <nav id="footer">
@@ -136,3 +195,32 @@
     </footer>
 </body>
 </html>
+
+<script>
+    function showHideCards(id) {
+      var list = document.getElementById(id);
+      var header = document.getElementById(id + "-header");
+      if (list.className == "hiding") {
+        list.className = "showing";
+        header.className = "showing";
+      } else {
+        list.className = "hiding";
+        header.className = "hiding";
+      }
+    }
+
+    function changeButton(name) {
+        var btn = document.getElementsByName(name)[0];
+        var span = btn.children[0];
+        if(span.className == "toggle show") {
+            span.className = "toggle hide";
+            btn.setAttribute("aria-expanded","true");
+            
+        } else {
+            span.className = "toggle show";
+            btn.setAttribute("aria-expanded","false");
+            
+        }
+    }
+    
+</script>

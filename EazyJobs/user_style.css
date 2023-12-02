@@ -20,13 +20,20 @@ html{
     font-family: var(--font-body-family);
     line-height: 1.5em;
     margin: auto;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
     color: var(--headerTxtColor);
     text-align: center;
     padding: 1em;
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto; 
 }
 
@@ -57,7 +64,7 @@ nav a:visited{
     padding: 0.5em;
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    max-width: 75%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -112,7 +119,7 @@ img#profile_picture:hover {
     opacity: 0.4;
 }
 
-dl.user_data {
+.user_data {
     margin-top: 2em;
 }
 
@@ -121,24 +128,43 @@ dl.user_data {
     margin-right: 1em;
 }
 
-main > h3 {
+button {
+    min-width: 44px;
+    min-height: 44px;
+    color: white;
+    background-color: var(--headerTxtColor);
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+button#cv_upload {
+    margin-top: 1.5em;
+    padding: .5em
+}
+
+section > div {
     color: white;
     background-color: var(--headerTxtColor);
     margin-top: 1.5em;
     padding: 0.5em;
     border-radius: 1em 1em 0 0;
     font-size: 1.2em;
+    font-weight: bold;
     clear: right;
 }
 
-main > ul {
+section > ul {
     background-color: var(--bgColor);
     border-radius: 0 0 1em 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 
+section > div > button{
+    display: none;
+}
 
-ul.annunci {
+#annunci {
     width: 100%;
     display: flex;
     overflow-x: auto;
@@ -146,16 +172,16 @@ ul.annunci {
     list-style-type: none;
 }
 
-ul.annunci::-webkit-scrollbar {
+#annunci::-webkit-scrollbar {
     width: 0.5em;
     background-color: #f7e7ce;
 }
 
-ul.annunci::-webkit-scrollbar-thumb {
+#annunci::-webkit-scrollbar-thumb {
     background-color: #f8d9a7;
 }
 
-ul.annunci > li {
+#annunci > li {
     background-color: white;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     border: 0.2em var(--footerTxtColor) solid;
@@ -165,21 +191,21 @@ ul.annunci > li {
     flex: 0 0 25em;
 }
 
-ul.annunci li h3 {
+#annunci li h3 {
     font-size: 1.3em;
     color: var(--footerTxtColor);
 }
 
-ul.annunci li h4 {
+#annunci li h4 {
     font-size: 1em;
 }
 
-ul.annunci li h5 {
+#annunci li h5 {
     font-size: 0.9em;
     font-weight: bold;
 }
 
-ul.annunci li p {
+#annunci li p {
     font-size: 0.8em;
 }
 
@@ -193,7 +219,7 @@ ul.annunci li p {
     margin: auto;
 }
 
-ul.annunci img {
+#annunci img {
     max-width: 15%;
 }
 
@@ -211,14 +237,58 @@ ul.job-info li {
     margin: 0;
 }
 
+button#delete_item {
+    background-color: red;
+    width: 20%;
+    margin-top: 1em;
+}
+
+#recensioni {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-bottom: 1em;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+#recensioni li {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    margin: 0.5em;
+    margin-left: 1em;
+}
+
+#recensioni li > .valutazione {
+    display: flex;
+    gap: 0.5em;
+}
+
+#recensioni li h3 {
+    color: var(--headerTxtColor);
+    font-size: 1em;
+}
+
+#recensioni li h4 {
+    font-size: 0.9em;
+}
+
+#recensioni li p {
+    font-size: 0.8em;
+}
+
 footer {
     background-color: var(--headerBgColor);
     padding: 0.5em;
     border-radius: 1em 1em 0 0;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    max-width: 75%;
-    margin: 0 auto;
-}
+    width: 75%;
+    margin: auto auto 0;
+} 
 
 #footer ul {
     text-align: center;
