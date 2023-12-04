@@ -1,0 +1,75 @@
+
+#navigazione {
+    max-width: 85%;
+}
+
+main {
+    width: 85%;
+}
+
+img#profile_picture {
+    display: none;
+}
+
+section > div {
+    min-height: 44px;
+    padding: 0 0.5em;
+}
+
+section div.hiding {
+   border-radius: 1em;
+   transition: border-radius 0.5s linear 0.4s;
+}
+
+section div.showing {
+    border-radius: 1em 1em 0 0;
+}
+
+section > div > h3 {
+    display: inline-block;
+    margin-top: 0.4em; /* da centrare */
+}
+
+section div button {
+    display: block;
+    float: inline-end;
+    padding: 0 0.5em;
+}
+
+span.toggle{
+    display: inline-block;
+    border: solid white;
+    border-width: 0 0.4em 0.4em 0;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+span.show {
+    transition: transform 0.3s ease-in-out 0.4s;
+    transform: rotate(45deg);
+}
+
+span.hide {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(-135deg);
+}
+
+#annunci{
+    transition: all 0.5s linear;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+section ul.hiding {
+    height: 0vh;
+}
+
+section > ul.showing {
+    height: 80vh;
+}
+
+#recensioni {
+    transition: all 0.5s linear;
+    flex-direction: column;
+    overflow-y: auto; 
+}

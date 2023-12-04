@@ -15,7 +15,7 @@ $db = $database->connect();
 
 $annuncio = new Annuncio($db);
 
-$publicationDate = $_GET['publicationDate'] ?? 'Nessuna';
+$data_pub = $_GET['data_pub'] ?? 'Nessuna';
 $nome = $_GET['nome'] ?? 'Nessuna';
 $locazione = $_GET['locazione'] ?? 'Nessuna';
 $settore = $_GET['settore'] ?? 'Nessuna';
@@ -29,7 +29,7 @@ $stipendio = $_GET['stipendio'] ?? "Nessuna";
 
 // Crea un array con i filtri non nulli
 $filters = array_filter(compact(
-  'publicationDate',
+  'data_pub',
   'nome',
   'locazione',
   'settore',

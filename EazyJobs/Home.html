@@ -2,10 +2,10 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs</title>
-    <meta name="keywords" conent="">
+    <title>EazyJobs: Trova l'annuncio di lavoro che fa per te</title>
+    <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -14,12 +14,11 @@
     <header>
         <h1>EazyJobs</h1>
     </header>
-    <div id="navigazione"> <!--make this a ul-->
+    <div id="navigazione">
         <nav id="menu">
             <ul>
                 <li lang="en">Home</li>
                 <li><a href="Annunci.html">Annunci</a></li>
-                <li><a href="Aziende.html">Aziende</a></li>
                 <li><a href="Accedi.html">Accedi</a></li>
             </ul>
         </nav>
@@ -27,36 +26,22 @@
             <p>Ti trovi in: <span lang="en">Home</span></p>
         </nav>
     </div>
-    <main>
-        <div class="h2-container">
+    <main id="home-main">
+        <div class="delimitatore">
             <h2>Cerca tra gli annunci: </h2>
         </div>
 
-        <form action="Annunci.html" method="get">
-            <input type="text" id="professione" name="professione" list="suggestions-professione" placeholder="Professione..." required>
-            <input type="text" id="locazione" name="locazione" list="suggestions-locazione" placeholder="Provincia..." required>
-            <datalist id="suggestions-professione">
+        <form action="Annunci.html" method="get" id="home-ricerca">
+            <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
+            <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
+            <datalist id="suggerimenti-professione">
             </datalist>
-            <datalist id="suggestions-locazione">
+            <datalist id="suggerimenti-locazione">
             </datalist>
-            <button type="submit"><a>Cerca</a> <img src="./assets/search.png" alt="Cerca"></button>
+            <button type="submit"><a>Cerca</a> <img src="./assets/icons/search.png" alt="Cerca"></button>
         </form>             
-
-        <div class="slider-container">
-            <button id="prevBtn" class="control-button prev-button">&#9664;</button>  
-            <div class="slider">
-              <img class="mySlides" src="./assets/YourJobSearch.png" alt="">
-              <img class="mySlides" src="./assets/DiscoverTopCompanies.png" alt="">
-              <img class="mySlides" src="./assets/FastResults.png" alt="">
-            </div>
-            <button id="nextBtn" class="control-button next-button">&#9654;</button>  
-            <div class="dots-container">
-                <span class="dot" id="dot1"></span>
-                <span class="dot" id="dot2"></span>
-                <span class="dot" id="dot3"></span>
-            </div>
-        </div>        
-        <div class="h2-container">
+  
+        <div class="delimitatore">
             <h2>Le nostre aziende più votate: </h2>
         </div>
         <ul id="aziende">
@@ -71,5 +56,5 @@
         </ul>
     </nav>
     </footer>
-    <script src="./src/home.js"></script>
+    <script src="./src/script.js"></script>
 </body>
