@@ -5,7 +5,7 @@
     <title>EazyJobs Annunci</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -17,36 +17,38 @@
     <div id="navigazione">
         <nav id="menu">
             <ul>
-                <li lang="en"><a href="Home.html">Home</a></li>
-                <li><a href="Annunci.html">Annunci</a></li>
-                <li><a href="Aziende.html">Aziende</a></li>
+                <li lang="en"><a href="Home.php">Home</a></li>
+                <li><a href="Annunci.php">Annunci</a></li>
                 <li>Accedi</li>
             </ul>
         </nav>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="Home.html" lang="en">Home</a> &gt; &gt; Accedi</p>
+            <p>Ti trovi in: <a href="Home.php" lang="en">Home</a> &gt; &gt; Accedi</p>
         </nav>
     </div>
 
     <main id="accedi-main">
-        <form id="loginForm">
-            <label for="mode">Seleziona il tuo ruolo:</label>
-            <select id="mode" name="mode">
+        <form action="http://localhost/TW/EazyJobs/api/login.php" method="post" id="login-form">
+            <label for="ruolo">Seleziona il tuo ruolo:</label>
+            <select id="ruolo" name="ruolo">
                 <option value="candidati">Candidati</option>
                 <option value="aziende">Aziende</option>
             </select>
 
-            <div id="credentials">
+            <div id="credenziali">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
+                <div class="messaggio-errore">email-errore-placeholder</div>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
+                <div class="messaggio-errore">password-errore-placeholder</div>
             </div>
 
-            <button type="submit">Accedi</button>
+            <button type="submit" id="accedi-bottone">Accedi</button>
+            <div class="messaggio-errore">credenziali-errore-placeholder</div>
 
-            <p>Non hai un account? <a href="registrationForm.html">Registrati qui</a>.</p>  <!--implement registration form-->
+            <p>Non hai un account? <a href="Registrati.html">Registrati qui</a>.</p>  <!--implement registration form-->
         </form>
     </main>
     
@@ -58,4 +60,5 @@
         </ul>
     </nav>
     </footer>
+    <script src="./src/script.js"></script>
 </body>

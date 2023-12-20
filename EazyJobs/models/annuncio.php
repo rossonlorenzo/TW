@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
   class Annuncio {
     // DB Stuff
     private $conn;
@@ -20,7 +22,7 @@
     public $stipendio;
     public $azienda_id;
     public $nome;
-    public $mail;
+    public $email;
 
 
     // Constructor with DB
@@ -29,52 +31,60 @@
     }
 
     public static function getById($conn, $id) {
-        $query = 'SELECT * FROM annunci WHERE id = :annuncioId';
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':annuncioId', $id);
-        $stmt->execute();
+      $query = 'SELECT annunci.id AS annuncio_id, annunci.*, aziende.* 
+                FROM annunci 
+                INNER JOIN aziende ON annunci.azienda_id = aziende.id 
+                WHERE annunci.id = :annuncioId';
   
-        $annuncio = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $annuncio;
-      }
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':annuncioId', $id);
+      $stmt->execute();
+  
+      return $stmt;
+  }  
 
-    // Get categories
     public function getAll() {
-      // Create query
       $query = 'SELECT * FROM annunci INNER JOIN aziende ON azienda_id = aziende.id ORDER BY annunci.id DESC';
-
-      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
-      // Execute query
       $stmt->execute();
-
       return $stmt;
     }
 
-    public function getAllbyId() {
-        // Create query
-        $query = 'SELECT 
-        annunci.id AS annuncio_id,  
-        annunci.*, aziende.*
-        FROM annunci
-        INNER JOIN aziende ON annunci.azienda_id = aziende.id
-        WHERE annunci.azienda_id = 1  /*change to the logged in azienda id*/
-        ORDER BY annunci.id DESC
-        ';
+    public function getAllbyId($aziendaId) {
+      // Create query
+      $query = 'SELECT 
+      annunci.id AS annuncio_id,  
+      annunci.*, aziende.*
+      FROM annunci
+      INNER JOIN aziende ON annunci.azienda_id = aziende.id
+      WHERE annunci.azienda_id = :aziendaId
+      ORDER BY annunci.id DESC
+      ';
   
-        // Prepare statement
+      $stmt = $this->conn->prepare($query);
+  
+      $stmt->bindParam(':aziendaId', $aziendaId);
+  
+      $stmt->execute();
+  
+      return $stmt;
+    }  
+
+      public function getAllSaved($userId) {
+        $query = 'SELECT annuncio_id FROM preferiti WHERE utenti_id = :userId';
+    
+        // Prepare and execute the query
         $stmt = $this->conn->prepare($query);
-  
-        // Execute query
+        $stmt->bindParam(':userId', $userId);
         $stmt->execute();
-  
+    
         return $stmt;
-      }
+    }    
 
     public function getFiltered($filters) {
       // Create the base query
-      $query = 'SELECT annunci.id, azienda_id, titolo, mail, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id WHERE 1';
+      $query = 'SELECT annunci.id, azienda_id, titolo, email, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id WHERE 1';
   
       // Create an array to store conditions
       $conditions = array();
@@ -189,13 +199,9 @@
       $stmt->bindParam(':azienda_id', $this->azienda_id);
 
       // Execute query
-      $result = $stmt->execute();
+      $stmt->execute();
 
-      if ($result) {
-          echo 'Success';
-      } else {
-          echo 'Failure';
-      }
+      return $stmt;
     }
 
     public function modifyOld() {
@@ -235,11 +241,7 @@
   
         $stmt->execute();
       
-        if ($stmt->rowCount() > 0) {
-          echo 'Success';
-        } else {
-            echo 'Failure';
-        }
+        return $stmt;
       }
 
       public static function delete($conn, $id) {

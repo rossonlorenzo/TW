@@ -110,6 +110,10 @@ button:hover {
     color: black;
 }
 
+.messaggio-errore {
+    color: red;
+    font-size: 0.8em;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -691,16 +695,32 @@ ul.azioni-aggiuntive li {
     font-weight: bold;
 }
 
-#contenitore-informazioni {
+#aziende-main #contenitore-informazioni {
     display: flex;
 }
 
-dl {
+#aziende-main #contenitore-informazioni dl {
     padding: 20px;
+    background-color: #fff;
+    width: fit-content;
+    padding: 0.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    margin: 0.5em;
 }
 
-dt, dd {
-    display: block;
+#aziende-main #contenitore-informazioni dt {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+#aziende-main #contenitore-informazioni dd {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
 }
 
 #logo-azienda {
@@ -709,16 +729,57 @@ dt, dd {
     padding: 20px;
 }
 
-#bottone-recensione {
-    text-align: right;
-    padding-right: 20px;
+#bottone-recensioni {
+    margin: 1em;
+    margin-left: 85%;
+    margin-top: 10%;
 }
 
 #descrizioneAzienda {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: #fff;
+    width: fit-content;
+    padding: 0.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    margin: 0.5em;
+}
+
+#aziende-recensioni {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-bottom: 1em;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+#aziende-recensioni li {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    margin: 0.5em;
+    margin-left: 1em;
+}
+
+#aziende-recensioni > .valutazione {
+    display: flex;
+    gap: 0.5em;
+}
+
+#aziende-recensioni h3 {
+    color: var(--headerTxtColor);
+    font-size: 1em;
+}
+
+#aziende-recensioni h4 {
+    font-size: 0.9em;
+}
+
+#aziende-recensioni p {
+    font-size: 0.8em;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -737,7 +798,7 @@ dt, dd {
     height: auto;
 }
 
-#loginForm {
+#login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -753,7 +814,7 @@ dt, dd {
     padding: 1em;
 }
 
-#loginForm label {
+#login-form label {
     margin: auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
@@ -762,29 +823,22 @@ dt, dd {
     margin-top: 1em;
 }
 
-#credentials {
+#credenziali {
     display: flex;
     flex-direction: column;
 }
 
-#credentials label {
+#credenziali label {
     font-size: 1.3em;
 }
 
-#loginForm button {
-    padding: 0.5em 1em;
-    background-color: var(--headerTxtColor);
-    color: white;
-    border: none;
-    border-radius: 1em;
-    cursor: pointer;
+#accedi-bottone {
     margin-top: 1em;
     margin-bottom: 2em;
 }
 
-#loginForm button:hover {
-    color: var(--headerTxtColor);
-    background-color: white;
+#accedi-main #login-form .errore {
+    border: 2px solid red;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1203,9 +1257,9 @@ section > div > button {
     margin: auto;
 }
 
-/*.evidenzia-campi-vuoti {
-    border: 1px solid red;
-}*/
+#pubblica-annuncio-main #publishJob-form .errore {
+    border: 2px solid red;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 PUBBLICA_ANNUNCIO CSS [FINE]

@@ -16,6 +16,6 @@
 
     $result = Annuncio::delete($conn, $annuncioId);
     if ($result > 0) {
-        echo 'Success';
+        echo 'Annuncio rimosso';
     }
 }

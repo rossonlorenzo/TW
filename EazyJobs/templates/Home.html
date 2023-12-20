@@ -5,7 +5,7 @@
     <title>EazyJobs: Trova l'annuncio di lavoro che fa per te</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
         <nav id="menu">
             <ul>
                 <li lang="en">Home</li>
-                <li><a href="Annunci.html">Annunci</a></li>
-                <li><a href="Accedi.html">Accedi</a></li>
+                <li><a href="Annunci.php">Annunci</a></li>
+                <li><a href="Accedi.php">Accedi</a></li>
             </ul>
         </nav>
         <nav id="breadcrumb">
@@ -35,8 +35,10 @@
             <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
             <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
             <datalist id="suggerimenti-professione">
+                <!-- suggerimenti-professione-placeholder -->
             </datalist>
             <datalist id="suggerimenti-locazione">
+                <!-- suggerimenti-locazione-placeholder -->
             </datalist>
             <button type="submit"><a>Cerca</a> <img src="./assets/icons/search.png" alt="Cerca"></button>
         </form>             
@@ -44,8 +46,11 @@
         <div class="delimitatore">
             <h2>Le nostre aziende più votate: </h2>
         </div>
+
         <ul id="aziende">
+            <!-- aziende-placeholder -->
         </ul>
+
     </main>
     
     <footer>

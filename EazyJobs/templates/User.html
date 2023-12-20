@@ -5,7 +5,7 @@
     <title>Area Personale - EazyJobs</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="stylesheet.css" media="screen">
+    <link rel="stylesheet" href="./stylesheet.css" media="screen">
     <link rel="stylesheet" href="user_style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +18,9 @@
     <div id="navigazione">
         <nav id="menu">
             <ul>
-                <li lang="en"><a href="Home.html">Home</a></li>
-                <li><a href="Annunci.html">Annunci</a></li>
-                <li><a href="Aziende.html">Aziende</a></li>
-                <li lang="en"><a href="">Log-out</a></li>
+                <li lang="en"><a href="Home.php">Home</a></li>
+                <li><a href="Annunci.php">Annunci</a></li>
+                <li><a href="http://localhost/TW/EazyJobs/api/logout.php">Esci</a></li>
             </ul>
         </nav>
         <nav id="breadcrumb">
@@ -29,41 +28,38 @@
         </nav>
     </div>
     <main id="user-main">
-        <h2>Bentornato, <strong>Nome Cognome</strong></h2>
+        <h2>Bentornato, <strong>nome-placeholder</strong></h2>
         <img id="foto-profilo" src="" alt="La tua foto profilo">
         <dl class="dati-utente">
-            <dt>Nome: </dt>
-            <dd>Nome Cognome</dd>
-            <dt>Data di nascita: </dt>
-            <dd><time datetime="2001-01-01">01/01/2001</time></dd>
-            <dt>E-mail: </dt>
-            <dd>nome.cognome@gmail.com</dd>
-            <dt>Il tuo curriculum:</dt>
-            <dd>nomecurriculum.pdf <span class="lastmodified">(Ultima modifica in data <time datetime="2001-01-01">2001/01/01</time>)</span></dd>
+            <!-- utente-placeholder -->
         </dl>
 
         <button id="cv_upload" name="cv" type="button" onclick="">Carica un nuovo curriculum</button>
 
         <section>
             <div id="user-listaAnnunci-header" class="hiding">
-                <h3>Annunci salvati</h3>
+                <h3>I miei preferiti</h3>
                 <button name="annunci" type="button" onclick="showHideCards('user-listaAnnunci');changeButton(name);" aria-expanded="false" aria-controls="annunci">
-                    <!--Mostra annunci  (label bottone da modificre via js per access.)-->
+                    <!--Mostra annunci  (label bottone da modificare via js per access.)-->
                     <span class="toggle show"></span>
                 </button>
             </div>
-            <ul id="user-listaAnnunci" class="hiding"></ul>
+            <ul id="user-listaAnnunci" class="hiding">
+                <!-- annunci-placeholder -->
+            </ul>
         </section>
 
         <section>
             <div id="user-recensioni-header" class="hiding">
                 <h3>Le mie recensioni</h3>
                 <button name="recensioni" type="button" onclick="showHideCards('user-recensioni');changeButton(name);" aria-expanded="false" aria-controls="recensioni">
-                    <!-- Mostra recensioni (label bottone da modificre via js per access.)-->
+                    <!-- Mostra recensioni (label bottone da modificare via js per access.)-->
                     <span class="toggle show"></span>
                 </button>
             </div>
-            <ul id="user-recensioni" class="hiding"></ul>
+            <ul id="user-recensioni" class="hiding">
+                <!-- recensioni-placeholder -->
+            </ul>
         </section>
     </main>
     <footer>

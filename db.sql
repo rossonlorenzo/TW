@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS aziende;
 CREATE TABLE IF NOT EXISTS utenti
 (
     id int NOT NULL AUTO_INCREMENT,
-    mail character varying(60) NOT NULL,
+    email character varying(60) NOT NULL,
     password character varying(60) NOT NULL,
 	nome character varying(60) NOT NULL,
     cv_path character varying(90) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS utenti
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO utenti(mail, password, nome, cv_path)
+INSERT INTO utenti(email, password, nome, cv_path)
 VALUES
 	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '/assets/cvs/marcorossi_cv.pdf'),
     ('laura.bianchi@hotmail.com', 'X&7[rD2fHb', 'Laura Bianchi', '/assets/cvs/laurabianchi_cv.pdf'),
@@ -49,7 +49,7 @@ VALUES
 CREATE TABLE IF NOT EXISTS aziende
 (
     id int NOT NULL AUTO_INCREMENT,
-    mail character varying(60) NOT NULL,
+    email character varying(60) NOT NULL,
     password character varying(100) NOT NULL,
 	nome character varying(60) NOT NULL,
 	sito character varying(50) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS aziende
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO aziende (mail, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
+INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
 VALUES
     ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.'),
     ('innovazione@italiainnovazione.it', 'a2%G]6.$W>', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.'),
