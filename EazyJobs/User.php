@@ -47,7 +47,7 @@
     
     $str_annunci = "";
     
-    while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {  //choose display if there are no saved annunci or recensioni
       $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
       
       if ($annuncioDetails) {

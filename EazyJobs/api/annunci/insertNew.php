@@ -12,6 +12,7 @@ var_dump($_POST);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $database = new Database();
     $db = $database->connect();
+    session_start();
 
     $annuncio = new Annuncio($db);
 
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $annuncio->livello_istruzione = $_POST['livello_istruzione'];
         $annuncio->esperienza = $_POST['esperienza'];
         $annuncio->stipendio = $_POST['stipendio'];
-        $annuncio->azienda_id = '1';    //replace with the id of the azienda logged in
+        $annuncio->azienda_id = $_SESSION['admin_id'];
 
         $result = $annuncio->insertNew();
         $num = $result->rowCount();

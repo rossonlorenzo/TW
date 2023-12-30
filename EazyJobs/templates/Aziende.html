@@ -43,7 +43,47 @@
             <!-- recensioni-placeholder -->
         </ul>
 
-        <button id="bottone-recensioni" type="submit">Scrivi una recensione</button>
+        <form action="http://localhost/TW/EazyJobs/api/valutazioni/insertNew.php" method="post" id="recensioni-form" class="visibile">
+            <input type="hidden" name="aziendaId" value="aziendaId-placeholder">
+
+            <label for="valutazione">Valutazione:</label>
+            <select id="valutazione" name="valutazione">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+            </select>
+
+            <label for="commento">Commento:</label>
+            <textarea id="commento" name="commento"></textarea>
+            <div class="messaggio-errore">commento-errore-placeholder</div>
+
+            <div class="messaggio-errore">login-errore-placeholder</div>
+            <div class="messaggio-errore">duplicato-errore-placeholder</div>
+            <button type="submit" id="pubblicaRecensione-bottone">Pubblica la tua recensione</button>
+        </form>
+
+        <form action="http://localhost/TW/EazyJobs/api/valutazioni/modifyOld.php" method="post" id="recensioni-modifica-form" class="invisibile">
+            <input type="hidden" name="aziendaId" value="aziendaId-placeholder">
+
+            <label for="valutazione">Valutazione:</label>
+            <select id="valutazione" name="valutazione">
+                <option value="1" 1-placeholder>1</option>
+                <option value="2" 2-placeholder>2</option>
+                <option value="3" 3-placeholder>3</option>
+                <option value="4" 4-placeholder>4</option>
+                <option value="5" 5-placeholder>5</option>
+            </select>
+
+            <label for="commento">Commento:</label>
+            <textarea id="commento" name="commento">commento-placeholder</textarea>
+            <div class="messaggio-errore">commento-errore-placeholder</div>
+
+            <button type="submit" id="modificaRecensione-bottone">Modifica la tua recensione</button>
+        </form>
+
+        <button id="bottone-recensioni" type="submit">Nascondi il form</button>
 
     </main>
     

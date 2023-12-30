@@ -306,7 +306,126 @@ if (annunciSection) {
                                                                 AZIENDE JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-//TODO: implement form to leave reviews
+document.addEventListener('DOMContentLoaded', function() {
+    const recensioniForm = document.getElementById('recensioni-form');
+    const toggleButton = document.getElementById('bottone-recensioni');
+
+    toggleButton.addEventListener('click', function() {
+        recensioniForm.classList.toggle('visibile');
+        recensioniForm.classList.toggle('invisibile');
+
+        const isVisibile = recensioniForm.classList.contains('visibile');
+        if (isVisibile) {
+            toggleButton.textContent = 'Nascondi il form';
+        } else {
+            toggleButton.textContent = 'Scrivi una recensione';
+        }
+    });
+
+    const recensioniModificaForm = document.getElementById('recensioni-modifica-form');
+    const modificaButton = document.getElementById('modifica-recensione');
+
+    modificaButton.addEventListener('click', function() {
+        recensioniModificaForm.classList.toggle('visibile');
+        recensioniModificaForm.classList.toggle('invisibile');
+
+        toggleButton.classList.toggle('invisibile');
+
+        const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
+        if (isModificaVisibile) {
+            modificaButton.textContent = 'Cancella modifica';
+        } else {
+            modificaButton.textContent = 'Modifica';
+        }
+
+        if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
+    });
+});
+
+//Funzione di eliminazione
+document.addEventListener('click', function(event) {
+    if (event.target.id === 'elimina-recensione') {
+        const aziendaId = event.target.getAttribute('data-id');
+
+        //ask for confirmation
+        const confirmation = confirm('Sei sicuro di voler eliminare questa recensione?');     //replace with a custom div
+
+        if (confirmation) {
+            const data = { id: aziendaId };
+            fetch('http://localhost/TW/EazyJobs/api/valutazioni/delete.php', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                return response.text();
+            })
+            .then(data => {
+                // Handle success or failure message from PHP
+                if (data === 'Recensione rimossa') {
+                    console.log('Recensione rimossa');
+                    const deletedItem = document.getElementById("recensione-utente");
+                    if (deletedItem) {
+                        deletedItem.remove();
+                    } else {
+                        console.error('Elemento non trovato');
+    }
+                } else {
+                    console.error('Risposta inaspettata:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
+        }
+        else {
+            console.log('Deletion was cancelled.');
+        }
+    };
+});
+
+//controllo form client side
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    const pubblicaButton = document.getElementById('pubblicaRecensione-bottone');
+    const publishForm = document.getElementById('recensioni-form');
+
+    if (pubblicaButton) {
+        pubblicaButton.addEventListener('click', function(event) {
+
+            const formData = new FormData(publishForm);
+    
+            // Perform client-side validation
+            let isValid = true;
+
+            const commento = document.getElementById('commento');
+            const commentoField = formData.get('commento');
+
+            const minLength = 0;
+            const maxLength = 300;
+    
+            if (!isNaN(commentoField)) {
+                isValid = false;
+                commento.classList.add('errore');
+                //commento.style.border = '2px solid red';
+            } else {
+                commento.classList.remove('errore');
+            }
+            
+            if (commentoField.length < minLength || commentoField.length > maxLength) {
+                isValid = false;
+                commento.classList.add('errore');
+            } else {
+                commento.classList.remove('errore');
+            }
+    
+            if (!isValid) {
+                event.preventDefault();
+                return;
+            }
+        });
+    }
+});
+*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 AZIENDE JS [FINE]

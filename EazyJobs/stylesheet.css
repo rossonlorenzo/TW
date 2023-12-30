@@ -680,6 +680,10 @@ ul.azioni-aggiuntive li {
                                                                 AZIENDE CSS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+#aziende-main {
+    height: auto;
+}
+
 .delimitatore-piccolo {
     color: white;
     background-color: var(--headerTxtColor);
@@ -733,8 +737,6 @@ ul.azioni-aggiuntive li {
 
 #bottone-recensioni {
     margin: 1em;
-    margin-left: 85%;
-    margin-top: 10%;
 }
 
 #descrizioneAzienda {
@@ -783,6 +785,72 @@ ul.azioni-aggiuntive li {
 #aziende-recensioni p {
     font-size: 0.8em;
 }
+
+#recensioni-form, #recensioni-modifica-form {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-width: 50%;
+}
+
+.invisibile {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding: 0;
+    margin: 0; 
+}
+
+.visibile {
+    margin: auto;
+    padding: 1em;
+    max-height: fit-content;
+    border: 3px solid;
+    border-radius: 1em;
+    border-color: var(--headerTxtColor);
+}
+
+#recensioni-form label, #recensioni-modifica-form label {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+    width: 20%;
+}
+
+#recensioni-form textarea,
+#recensioni-modifica-form textarea,
+#recensioni-form select,
+#recensioni-modifica-form select,
+#recensioni-form button
+#recensioni-modifica-form button {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+#recensioni-form #valutazione,
+#recensioni-modifica-form #valutazione {
+    margin-left: 0;
+    width: 10%;
+}
+
+#recensioni-form #commento,
+#recensioni-modifica-form #commento {
+    resize: vertical;
+    padding: 0.5em;
+    box-sizing: border-box;
+    vertical-align: top;
+    overflow-y: auto;
+}
+
+#aziende-main #recensioni-form .errore {
+    border: 2px solid red !important;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 AZIENDE CSS [FINE]
@@ -1167,6 +1235,11 @@ section > div > button {
 
 #admin-recensioni p {
     font-size: 0.8em;
+}
+
+#controllo-recensione {
+    display: flex;
+    gap: 0.5em;
 }
 
 @media (max-width: 768px) {

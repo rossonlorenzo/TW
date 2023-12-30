@@ -16,6 +16,62 @@
       $this->conn = $db;
     }
 
+    public static function getById($conn, $utenteId, $aziendaId) {
+      $query = 'SELECT * FROM valutazioni WHERE utenti_id = :utenteId AND aziende_id = :aziendaId';
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':utenteId', $utenteId);
+      $stmt->bindParam(':aziendaId', $aziendaId);
+      $stmt->execute();
+  
+      return $stmt;
+  }  
+
+    public function insertNew() {
+      $query = 'INSERT INTO valutazioni (utenti_id, aziende_id, commento, voto) VALUES (:utenti_id, :aziende_id, :commento, :voto)';
+  
+      $stmt = $this->conn->prepare($query);
+  
+      $stmt->bindParam(':utenti_id', $this->utenti_id);
+      $stmt->bindParam(':aziende_id', $this->aziende_id);
+      $stmt->bindParam(':commento', $this->commento);
+      $stmt->bindParam(':voto', $this->voto);
+  
+      $stmt->execute();
+      return $stmt;
+  }
+
+  public function modifyOld() {
+    $query = 'UPDATE valutazioni 
+        SET 
+            commento = :commento,
+            voto = :voto
+        WHERE utenti_id = :utenteId AND aziende_id = :aziendaId';
+
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->bindParam(':commento', $this->commento);
+    $stmt->bindParam(':voto', $this->voto);
+    $stmt->bindParam(':utenteId', $this->utenti_id);
+    $stmt->bindParam(':aziendaId', $this->aziende_id);
+
+    $stmt->execute();
+  
+    return $stmt;
+}
+
+  public function checkDuplicate() {
+    $query = "SELECT COUNT(*) as count FROM valutazioni WHERE utenti_id = :utenti_id AND aziende_id = :aziende_id";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':utenti_id', $this->utenti_id);
+    $stmt->bindParam(':aziende_id', $this->aziende_id);
+
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return ($row['count'] > 0);
+  }
+
     //get all Valutazioni filtered by azienda_id
     public function getAll_byAziendaId($aziendaId) {
         $query = 'SELECT valutazioni.*, utenti.nome AS nome
@@ -50,8 +106,16 @@
     
         return $stmt;
     }
-    
 
+    public static function delete($conn, $utenteId, $aziendaId) {
+      $query = 'DELETE FROM valutazioni WHERE utenti_id = :utenteId AND aziende_id = :aziendaId';
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':utenteId', $utenteId);
+      $stmt->bindParam(':aziendaId', $aziendaId);
+      $stmt->execute();
+  
+      return $stmt->rowCount();
+    }
 }
 
 

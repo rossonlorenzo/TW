@@ -25,7 +25,7 @@
           $str_aziende .= 
           "<li id='aziende-" . $id . "'>\n" .
           "<div id='header-aziende'>\n" .
-          "<h3>" . $nome . "</h3>\n" .
+          "<h3><a href='Aziende.php?id=" . $id . "'>" . $nome . "</a></h3>\n" .
           "<img src='../assets/logos/SyncLab-logo.png' alt='SyncLab Logo'>\n" .
           "</div>\n" .
           "<div id='azienda-grid'>\n" .
