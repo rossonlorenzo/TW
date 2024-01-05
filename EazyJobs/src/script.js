@@ -310,36 +310,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const recensioniForm = document.getElementById('recensioni-form');
     const toggleButton = document.getElementById('bottone-recensioni');
 
-    toggleButton.addEventListener('click', function() {
-        recensioniForm.classList.toggle('visibile');
-        recensioniForm.classList.toggle('invisibile');
-
-        const isVisibile = recensioniForm.classList.contains('visibile');
-        if (isVisibile) {
-            toggleButton.textContent = 'Nascondi il form';
-        } else {
-            toggleButton.textContent = 'Scrivi una recensione';
-        }
-    });
-
-    const recensioniModificaForm = document.getElementById('recensioni-modifica-form');
-    const modificaButton = document.getElementById('modifica-recensione');
-
-    modificaButton.addEventListener('click', function() {
-        recensioniModificaForm.classList.toggle('visibile');
-        recensioniModificaForm.classList.toggle('invisibile');
-
-        toggleButton.classList.toggle('invisibile');
-
-        const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
-        if (isModificaVisibile) {
-            modificaButton.textContent = 'Cancella modifica';
-        } else {
-            modificaButton.textContent = 'Modifica';
-        }
-
-        if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
-    });
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            recensioniForm.classList.toggle('visibile');
+            recensioniForm.classList.toggle('invisibile');
+    
+            const isVisibile = recensioniForm.classList.contains('visibile');
+            if (isVisibile) {
+                toggleButton.textContent = 'Nascondi il form';
+            } else {
+                toggleButton.textContent = 'Scrivi una recensione';
+            }
+        });
+    
+        const recensioniModificaForm = document.getElementById('recensioni-modifica-form');
+        const modificaButton = document.getElementById('modifica-recensione');
+    
+        modificaButton.addEventListener('click', function() {
+            recensioniModificaForm.classList.toggle('visibile');
+            recensioniModificaForm.classList.toggle('invisibile');
+    
+            toggleButton.classList.toggle('invisibile');
+    
+            const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
+            if (isModificaVisibile) {
+                modificaButton.textContent = 'Cancella modifica';
+            } else {
+                modificaButton.textContent = 'Modifica';
+            }
+    
+            if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
+        });
+    }
 });
 
 //Funzione di eliminazione
@@ -382,108 +384,9 @@ document.addEventListener('click', function(event) {
         }
     };
 });
-
-//controllo form client side
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const pubblicaButton = document.getElementById('pubblicaRecensione-bottone');
-    const publishForm = document.getElementById('recensioni-form');
-
-    if (pubblicaButton) {
-        pubblicaButton.addEventListener('click', function(event) {
-
-            const formData = new FormData(publishForm);
-    
-            // Perform client-side validation
-            let isValid = true;
-
-            const commento = document.getElementById('commento');
-            const commentoField = formData.get('commento');
-
-            const minLength = 0;
-            const maxLength = 300;
-    
-            if (!isNaN(commentoField)) {
-                isValid = false;
-                commento.classList.add('errore');
-                //commento.style.border = '2px solid red';
-            } else {
-                commento.classList.remove('errore');
-            }
-            
-            if (commentoField.length < minLength || commentoField.length > maxLength) {
-                isValid = false;
-                commento.classList.add('errore');
-            } else {
-                commento.classList.remove('errore');
-            }
-    
-            if (!isValid) {
-                event.preventDefault();
-                return;
-            }
-        });
-    }
-});
-*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 AZIENDE JS [FINE]
-
---------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                            
-                                                                ACCEDI JS [INZIO]
-
---------------------------------------------------------------------------------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function() {
-    const accediButton = document.getElementById('accedi-bottone');
-    const loginForm = document.getElementById('login-form');
-
-    if (accediButton) {
-        accediButton.addEventListener('click', function(event) {
-            const formData = new FormData(loginForm);
-    
-            // Perform client-side validation
-            let isValid = true;
-    
-            const emailField = formData.get('email');
-            const emailElement = document.getElementById('email');
-    
-            if (!emailField.trim()) {
-                isValid = false;
-                emailElement.classList.add('errore');
-                emailElement.setAttribute('placeholder', 'Inserire un\'email valida.');
-            } else {
-                emailElement.classList.remove('errore');
-                emailElement.setAttribute('placeholder', '');
-            }
-    
-            const passwordField = formData.get('password');
-            const passwordElement = document.getElementById('password');
-    
-            if (!passwordField.trim()) {
-                isValid = false;
-                passwordElement.classList.add('errore');
-                passwordElement.setAttribute('placeholder', 'Inserire una password valida.');
-            } else {
-                passwordElement.classList.remove('errore');
-                passwordElement.setAttribute('placeholder', '');
-            }
-    
-            if (!isValid) {
-                event.preventDefault();
-                return;
-            }
-        });   
-    }
-});
-/*--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                            
-                                                                ACCEDI JS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -624,82 +527,81 @@ document.addEventListener('click', function(event) {
                                                                 ADMIN JS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+//validazione dei form
+document.addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.dataset.validation === 'validateFields') {
+        const formElement = target.closest('form');
+        if (formElement) {
+            const isValid = validateForm(formElement);
 
+            if (!isValid) {
+                event.preventDefault();
+            }
+        }
+    }
+});
 
+//aggiungere lunghezze
+const fieldValidation = {
+    nome: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un nome valido'},
+    email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
+    password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},
+    cv: {check: /\.(pdf)$/i, error: 'Inserire un cv valido (formato PDF)'},
+    commento: {check: /^.{0,300}$/, error: 'Inserire un commento valido (0-300 caratteri)'},
+    titolo: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un titolo valido'},
+    desc_breve: {check: /^.{50,200}$/, error: 'Inserire una descrizione breve (50-200 caratteri)'},
+    desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa (100-500 caratteri)'},
+    locazione: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire una provincia valida'},
+    settore: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un settore valido'},
+    stipendio: {check:/^\d+$/, error: 'Inserire uno stipendio valido'}
+};
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                            
-                                                                PUBBLICA_ANNUNCIO JS [INZIO]
+function validateForm(formElement) {
+    const fields = formElement.elements;
+    let flag = true;
 
---------------------------------------------------------------------------------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function() {
-    const pubblicaButton = document.getElementById('pubblicaAnnuncio-bottone');
-    const publishForm = document.getElementById('publishJob-form');
+    for (let i = 0; i < fields.length; i++) {
+        const field = fields[i];
 
-    if (pubblicaButton) {
-        pubblicaButton.addEventListener('click', function(event) {
+        if (field.name in fieldValidation) {
+            const validation = fieldValidation[field.name];
+            const regex = validation.check;
+            const element = document.getElementById(field.name);
+            const error = document.getElementById(field.name + '-errore');
 
-            const formData = new FormData(publishForm);
-    
-            // Perform client-side validation
-            let isValid = true;
-            const requiredFields = ['titolo', 'desc_breve', 'desc_completa', 'locazione', 'settore'];
-    
-            requiredFields.forEach(fieldName => {
-                const field = formData.get(fieldName);
-                const inputElement = document.getElementById(fieldName);
-    
-                if (!field.trim() || !isNaN(field)) {
-                    isValid = false;
-                    inputElement.classList.add('errore');
-                    inputElement.setAttribute('placeholder', 'Campo obbligatorio. Inserire del testo.');
-                } else {
-                    inputElement.classList.remove('errore');
-                    inputElement.setAttribute('placeholder', '');
-                }
-            });
-    
-            const remotoCheckbox = document.getElementById('modalità-remoto');
-            const presenzaCheckbox = document.getElementById('modalità-presenza');
+            if (!regex.test(field.value)) {
+                element.classList.add('errore');
+                error.innerHTML = validation.error;
+                flag = false;
+            } else {
+                element.classList.remove('errore');
+                error.innerHTML = '';
+            }
+        } else if (field.type == 'checkbox') {
             const checkboxGroup = document.querySelector('.checkbox-group');
-            if (!remotoCheckbox.checked && !presenzaCheckbox.checked) {
-                isValid = false;
+            const checkboxes = formElement.querySelectorAll('input[type="checkbox"]');
+            const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+            if (!isChecked) {
+                flag = false;
                 checkboxGroup.classList.add('errore');
             } else {
                 checkboxGroup.classList.remove('errore');
             }
-    
-            const determinatoRadio = document.getElementById('determinato');
-            const indeterminatoRadio = document.getElementById('indeterminato');
+        } else if (field.type == 'radio') {
             const radioGroup = document.querySelector('.radio-group');
-            if (!determinatoRadio.checked && !indeterminatoRadio.checked) {
-                isValid = false;
+            const radioButtons = formElement.querySelectorAll('input[type="radio"]');
+            const isAnyChecked = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isAnyChecked) {
+                flag = false;
                 radioGroup.classList.add('errore');
             } else {
                 radioGroup.classList.remove('errore');
             }
-    
-            const stipendioField = formData.get('stipendio');
-            const stipendioElement = document.getElementById('stipendio');
-    
-            if (isNaN(stipendioField) || stipendioField === '') {
-                isValid = false;
-                stipendioElement.classList.add('errore');
-                stipendioElement.setAttribute('placeholder', 'Campo obbligatorio. Inserire un numero.');
-            } else {
-                stipendioElement.classList.remove('errore');
-                stipendioElement.setAttribute('placeholder', '');
-            }
-    
-            if (!isValid) {
-                event.preventDefault();
-                return;
-            }
-        });
+        }
     }
-});
-/*--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                            
-                                                                PUBBLICA_ANNUNCIO JS [FINE]
 
---------------------------------------------------------------------------------------------------------------------------------------------------*/
+    return flag;
+}

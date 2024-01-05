@@ -102,14 +102,14 @@
 
       //$result->free();
 
-      $nomefile = "./templates/Admin.html";
-      $contenuto = file_get_contents($nomefile);
-      
-      $contenuto = str_replace("nome-placeholder", strval($aziendaName), $contenuto);
-      $contenuto = str_replace("<!-- azienda-placeholder -->", $str_azienda, $contenuto);
-      $contenuto = str_replace("<!-- annunci-placeholder -->", $str_annunci, $contenuto);
-      $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);
-      
-      echo $contenuto;
+  $nomefile = "./templates/Admin.html";
+  $contenuto = file_get_contents($nomefile);
+  
+  $contenuto = str_replace("nome-placeholder", strval($aziendaName), $contenuto);
+  $contenuto = str_replace("<!-- azienda-placeholder -->", $str_azienda, $contenuto);
+  $contenuto = str_replace("<!-- annunci-placeholder -->", $str_annunci, $contenuto);
+  $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);
+  
+  echo $contenuto;
 }
 ?>

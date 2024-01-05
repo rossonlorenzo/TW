@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs Annunci</title>
+    <title>EazyJobs: Accedi</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" href="./stylesheet.css">
@@ -38,17 +38,18 @@
             <div id="credenziali">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
-                <div class="messaggio-errore">email-errore-placeholder</div>
+                <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
-                <div class="messaggio-errore">password-errore-placeholder</div>
+                <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
             </div>
 
-            <button type="submit" id="accedi-bottone">Accedi</button>
+            <button type="submit" id="accedi-bottone" data-validation="validateFields">Accedi</button>
             <div class="messaggio-errore">credenziali-errore-placeholder</div>
 
-            <p>Non hai un account? <a href="Registrati.html">Registrati qui</a>.</p>  <!--implement registration form-->
+            <p>Non hai un account?</p>
+            <p>Registrati da <a href="RegistraUser.php">candidato</a> o da <a href="RegistraAdmin.php">azienda</a>.</p>
         </form>
     </main>
     

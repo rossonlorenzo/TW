@@ -57,11 +57,11 @@
 
             <label for="commento">Commento:</label>
             <textarea id="commento" name="commento"></textarea>
-            <div class="messaggio-errore">commento-errore-placeholder</div>
+            <div id="commento-errore" class="messaggio-errore">commento-errore-placeholder</div>
 
             <div class="messaggio-errore">login-errore-placeholder</div>
             <div class="messaggio-errore">duplicato-errore-placeholder</div>
-            <button type="submit" id="pubblicaRecensione-bottone">Pubblica la tua recensione</button>
+            <button type="submit" id="pubblicaRecensione-bottone" data-validation="validateFields">Pubblica la tua recensione</button>
         </form>
 
         <form action="http://localhost/TW/EazyJobs/api/valutazioni/modifyOld.php" method="post" id="recensioni-modifica-form" class="invisibile">
@@ -78,9 +78,9 @@
 
             <label for="commento">Commento:</label>
             <textarea id="commento" name="commento">commento-placeholder</textarea>
-            <div class="messaggio-errore">commento-errore-placeholder</div>
+            <div id="commento-errore" class="messaggio-errore">commento-errore-placeholder</div>
 
-            <button type="submit" id="modificaRecensione-bottone">Modifica la tua recensione</button>
+            <button type="submit" id="modificaRecensione-bottone" data-validation="validateFields">Modifica la tua recensione</button>
         </form>
 
         <button id="bottone-recensioni" type="submit">Nascondi il form</button>

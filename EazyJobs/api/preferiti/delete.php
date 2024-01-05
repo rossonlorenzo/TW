@@ -21,6 +21,8 @@ ini_set('display_errors', 1);
         $data = json_decode(file_get_contents("php://input"));
         $annuncioId = $data->id;
         $userId = $_SESSION['user_id'];
+        var_dump($annuncioId);
+        var_dump($userId);
 
         $result = Preferito::delete($conn, $annuncioId, $userId);
         if ($result > 0) {

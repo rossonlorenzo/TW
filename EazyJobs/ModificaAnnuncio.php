@@ -94,7 +94,7 @@
         }    
         } else {
                 echo json_encode(
-                array('message' => 'No annunci Found')
+                array('message' => 'Nessun annuncio trovato')
                 );
         }
 

@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Area Personale - EazyJobs</title>
+    <title>EazyJobs: Area Personale</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" href="./stylesheet.css" media="screen">
@@ -29,12 +29,17 @@
     </div>
     <main id="user-main">
         <h2>Bentornato, <strong>nome-placeholder</strong></h2>
-        <img id="foto-profilo" src="" alt="La tua foto profilo">
         <dl class="dati-utente">
             <!-- utente-placeholder -->
+            <form action="http://localhost/TW/EazyJobs/api/utenti/modifyCV.php" method="post" id="upload-cv-form" enctype="multipart/form-data">
+                <label for="cv">Modifica Curriculum:</label>
+                <input type="file" id="cv" name="cv">
+                <button type="submit" data-validation="validateFields">Upload</button>
+                <div id="cv-errore" class="messaggio-errore">cv-errore-placeholder</div>
+            </form>
         </dl>
 
-        <button id="cv_upload" name="cv" type="button" onclick="">Carica un nuovo curriculum</button>
+        <a href="http://localhost/TW/EazyJobs/ModificaUser.php">Modifica i tuoi dati</a>
 
         <section>
             <div id="user-listaAnnunci-header" class="hiding">

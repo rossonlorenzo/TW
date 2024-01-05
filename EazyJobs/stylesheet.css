@@ -111,7 +111,8 @@ button:hover {
 }
 
 .messaggio-errore {
-    color: red;
+    color: #4D0F12;
+    text-align: center;
     font-size: 0.8em;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -920,6 +921,75 @@ ul.azioni-aggiuntive li {
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
+                                                                REGISTRA_USER CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+#registrazione-main {
+    height: auto;
+    background-color: white;
+    box-shadow: none;
+}
+
+#registrazione-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--headerBgColor);
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    max-width: 50%;
+    min-width: fit-content;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+#registrazione-main input {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+#registrazione-form label {
+    margin: auto;
+    white-space: nowrap;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+#credenziali {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+#credenziali label {
+    font-size: 1.3em;
+}
+
+#cv {
+    width: 50%;
+}
+
+#registrazione-main #registrazione-form .errore {
+    border: 2px solid red;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                REGISTRA_USER CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
                                                                 USER CSS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1082,6 +1152,15 @@ section > div > button {
 
 #user-recensioni p {
     font-size: 0.8em;
+}
+
+#cv-section {
+    margin-top: 1em;
+}
+
+#cv-preview {
+    width: 75%;
+    height: 50%;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
