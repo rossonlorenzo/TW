@@ -364,7 +364,7 @@ form {
 }
 
 #filtri-ricerca {
-    max-width: 15em;
+    width: 15em;
 }
 
 #filtri {
@@ -515,7 +515,17 @@ ul.job-info li {
     margin: 0;
 }
 
-#annuncio-completo {    
+/* da guardare meglio lo stile, ciò che serve o meno. (ho fatto copia incolla da annuncio completo, e graficamente è ok) */
+#annunci-completi{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+}
+
+.annuncio-completo {    
     background-color: #fff;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     border: 0.2em var(--footerTxtColor) solid;
@@ -529,42 +539,47 @@ ul.job-info li {
     overflow-y: auto;
     overflow-x: hidden;
     white-space: normal;
-    min-height: 50vh;
+    min-height: 40vh;
 }
 
-#bottone-annunci {
+.annuncio-completo-hidden {    
+    display: none;
+    height: 0;
+}
+
+.bottone-annunci {
     display: none;
 }
 
-#annuncio-completo img {
+.annuncio-completo img {
     max-width: 15%;
 }
 
-#annuncio-completo h3 {
+.annuncio-completo h3 {
     font-size: 1.4em;
     color: var(--headerTxtColor);
 }
 
-#annuncio-completo h4 {
+.annuncio-completo h4 {
     font-size: 1.1em;
     margin-left: 9em;
 }
 
-#annuncio-completo h5 {
+.annuncio-completo h5 {
     font-size: 1em;
     font-weight: bold;
 }
 
-#annuncio-completo p {
+.annuncio-completo p {
     font-size: 0.9em;
 }
 
-#annuncio-completo ul h5 {
+.annuncio-completo ul h5 {
     font-size: 0.9em;
     font-weight: bold;
 }
 
-#annuncio-completo ul p {
+.annuncio-completo ul p {
     font-size: 0.8em;
 }
 
@@ -578,7 +593,7 @@ ul.annuncio-info li {
     gap: 0.5em;
 }
 
-#dettagli {
+.dettagli {
     display: none;
     margin-top: 1em;
 }
@@ -614,7 +629,7 @@ ul.azioni-aggiuntive li {
     margin: 1em 0;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     ul.annunci li h5 {
         white-space: nowrap;
         overflow: visible;
@@ -667,7 +682,7 @@ ul.azioni-aggiuntive li {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-}
+} */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]

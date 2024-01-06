@@ -5,7 +5,8 @@
     <title>EazyJobs: Annunci</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css" media="screen">
+    <link rel="stylesheet" href="annunci_style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -23,17 +24,19 @@
             </ul>
         </nav>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="Home.html" lang="en">Home</a> &gt; &gt; Annunci</p>
+            <p>Ti trovi in: <a href="Annunci.php" lang="en">Annunci</a> &gt; &gt; Annunci</p>
         </nav>
     </div>
 
     <main id="annunci-main">
-        <form action="Annunci.html" method="get" id="annunci-ricerca">
+        <form action="Annunci.php" method="get" id="annunci-ricerca">
             <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
             <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
             <datalist id="suggerimenti-professione">
+                <!--titolo-placeholder-->
             </datalist>
             <datalist id="suggerimenti-locazione">
+                <!--locazione-placeholder-->
             </datalist>
             <button type="submit">Cerca</button>
         </form> 
@@ -55,16 +58,19 @@
                     <input type="text" id="azienda" name="nome" list="suggerimenti-azienda" placeholder="Cerca Azienda..." required>
                     <datalist id="suggerimenti-azienda">
                             <option value="Nessuna">Nessuna</option>
+                            <!--nome-placeholder-->
                     </datalist>
                 </li>
                 <li><label for="province">Provincia:</label>
                     <select id="province" name="locazione">
                         <option value="Nessuna">Nessuna</option>
+                        <!--provincie-placeholder-->
                     </select>
                 </li>
                 <li><label for="settore">Settore:</label>
                     <select id="settore" name="settore">
                         <option value="Nessuna">Nessuna</option>
+                        <!--settore-placeholder-->
                     </select>
                 </li>
                 <li>
@@ -106,15 +112,18 @@
                 </li>
                 <li>
                     <label for="salario">Stipendio:</label>
-                    <input type="range" id="rangeSalario" name="stipendio" min="" max="" step="100" value="">
+                    <input type="range" id="rangeSalario" name="stipendio" min="min-placeholder" max="max-placeholder" step="100" value="">
                 </li>               
             </ul>  
             <button id="applica-filtri" type="submit">Cerca</button>          
         </form>       
         
-        <ul class="annunci" id="annunci-listaAnnunci"></ul>
-
-        <article id="annuncio-completo"></article>
+        <ul class="annunci" id="annunci-listaAnnunci">
+            <!--annunci-placeholder-->
+        </ul>
+        <div id ="annunci-completi">
+            <!--completo-placeholder-->
+        </div>
         </div>
 
     </main>

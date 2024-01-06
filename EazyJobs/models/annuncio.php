@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
   class Annuncio {
     // DB Stuff
     private $conn;
@@ -22,7 +20,7 @@ ini_set('display_errors', 1);
     public $stipendio;
     public $azienda_id;
     public $nome;
-    public $email;
+    public $mail;
 
 
     // Constructor with DB
@@ -31,90 +29,82 @@ ini_set('display_errors', 1);
     }
 
     public static function getById($conn, $id) {
-      $query = 'SELECT annunci.id AS annuncio_id, annunci.*, aziende.* 
-                FROM annunci 
-                INNER JOIN aziende ON annunci.azienda_id = aziende.id 
-                WHERE annunci.id = :annuncioId';
+        $query = 'SELECT * FROM annunci WHERE id = :annuncioId';
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':annuncioId', $id);
+        $stmt->execute();
   
-      $stmt = $conn->prepare($query);
-      $stmt->bindParam(':annuncioId', $id);
-      $stmt->execute();
-  
-      return $stmt;
-  }  
+        $annuncio = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $annuncio;
+      }
 
+    // Get categories
     public function getAll() {
+      // Create query
       $query = 'SELECT * FROM annunci INNER JOIN aziende ON azienda_id = aziende.id ORDER BY annunci.id DESC';
+
+      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
+      // Execute query
       $stmt->execute();
+
       return $stmt;
     }
 
-    public function getAllbyId($aziendaId) {
-      // Create query
-      $query = 'SELECT 
-      annunci.id AS annuncio_id,  
-      annunci.*, aziende.*
-      FROM annunci
-      INNER JOIN aziende ON annunci.azienda_id = aziende.id
-      WHERE annunci.azienda_id = :aziendaId
-      ORDER BY annunci.id DESC
-      ';
+    public function getAllbyId() {
+        // Create query
+        $query = 'SELECT 
+        annunci.id AS annuncio_id,  
+        annunci.*, aziende.*
+        FROM annunci
+        INNER JOIN aziende ON annunci.azienda_id = aziende.id
+        WHERE annunci.azienda_id = 1  /*change to the logged in azienda id*/
+        ORDER BY annunci.id DESC
+        ';
   
-      $stmt = $this->conn->prepare($query);
-  
-      $stmt->bindParam(':aziendaId', $aziendaId);
-  
-      $stmt->execute();
-  
-      return $stmt;
-    }  
-
-      public function getAllSaved($userId) {
-        $query = 'SELECT annuncio_id FROM preferiti WHERE utenti_id = :userId';
-    
-        // Prepare and execute the query
+        // Prepare statement
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':userId', $userId);
+  
+        // Execute query
         $stmt->execute();
-    
+  
         return $stmt;
-    }    
+      }
 
     public function getFiltered($filters) {
       // Create the base query
-      $query = 'SELECT annunci.id, azienda_id, titolo, email, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id WHERE 1';
+      $query = 'SELECT annunci.id, azienda_id, titolo, mail, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id WHERE 1';
   
       // Create an array to store conditions
       $conditions = array();
   
       // Check and add conditions for each filter parameter
-      if (($filters['nome'])!="Nessuna") {
+      if (isset($filters['nome']) && $filters['nome'] != null) {
           $conditions[] = 'nome = :nome';
       }
-      if (($filters['locazione'])!="Nessuna") {
+      if (isset($filters['locazione']) && $filters['locazione'] != null) {
           $conditions[] = 'locazione = :locazione';
       }
-      if (($filters['settore'])!="Nessuna") {
+      if (isset($filters['settore']) && $filters['settore'] != null) {
           $conditions[] = 'annunci.settore = :settore';
       }
-      if (($filters['remoto'])!= 'Nessuna') {
+      if (isset($filters['remoto']) && $filters['remoto'] != null) {
           $conditions[] = 'remoto = :remoto';
       }
-      if (($filters['presenza'])!= 'Nessuna') {
+      if (isset($filters['presenza']) && $filters['presenza'] != null) {
         $conditions[] = 'presenza = :presenza';
     }
-      if (($filters['contratto']) != 'Nessuna') {
+      if (isset($filters['contratto']) && $filters['contratto'] != null) {
           $conditions[] = 'contratto = :contratto';
       }
-      if (($filters['livello_istruzione'])!="Nessuna") {
+      if (isset($filters['livello_istruzione']) && $filters['livello_istruzione'] != null) {
           $conditions[] = 'livello_istruzione = :livello_istruzione';
       }
-      if (($filters['esperienza']) != "Nessuna") {   
+      if (isset($filters['esperienza']) && ($filters['esperienza']) != null) {   
           $conditions[] = 'esperienza <= :esperienza';
       }
-      if (($filters['stipendio']) != "Nessuna") {
+      if (isset($filters['stipendio']) && ($filters['stipendio']) != null) {
           $conditions[] = 'stipendio >= :stipendio';
       }
   
@@ -122,36 +112,35 @@ ini_set('display_errors', 1);
       if (!empty($conditions)) {
           $query .= ' AND ' . implode(' AND ', $conditions);
       }
-  
       // Prepare statement
       $stmt = $this->conn->prepare($query);
   
       // Bind parameters
-      if (($filters['nome'])!="Nessuna") {
+      if (isset($filters['nome']) && $filters['nome'] != null) {
           $stmt->bindParam(':nome', $filters['nome']);
       }
-      if (($filters['locazione'])!="Nessuna") {
+      if (isset($filters['locazione']) && $filters['locazione'] != null) {
           $stmt->bindParam(':locazione', $filters['locazione']);
       }
-      if (($filters['settore'])!="Nessuna") {
+      if (isset($filters['settore']) && $filters['settore'] != null) {
           $stmt->bindParam(':settore', $filters['settore']);
       }
-      if (($filters['remoto'])!='Nessuna') {
+      if (isset($filters['remoto']) && $filters['remoto'] != null) {
           $stmt->bindParam(':remoto', $filters['remoto']);
       }
-      if (($filters['presenza'])!='Nessuna') {
+      if (isset($filters['presenza']) && $filters['presenza'] != null) {
         $stmt->bindParam(':presenza', $filters['presenza']);
       }
-      if (($filters['contratto'])!= 'Nessuna') {
+      if (isset($filters['contratto']) && $filters['contratto'] != null) {
           $stmt->bindParam(':contratto', $filters['contratto']);
       }
-      if (($filters['livello_istruzione'])!="Nessuna") {
+      if (isset($filters['livello_istruzione']) && $filters['livello_istruzione'] != null) {
           $stmt->bindParam(':livello_istruzione', $filters['livello_istruzione']);
       }
-      if (($filters['esperienza']) != "Nessuna") {
+      if (isset($filters['esperienza']) &&($filters['esperienza']) != null) {
           $stmt->bindParam(':esperienza', $filters['esperienza']);
       }
-      if (($filters['stipendio']) != "Nessuna") {
+      if (isset($filters['stipendio']) &&($filters['stipendio']) != null) {
           $stmt->bindParam(':stipendio', $filters['stipendio']);
       }
   
@@ -199,9 +188,13 @@ ini_set('display_errors', 1);
       $stmt->bindParam(':azienda_id', $this->azienda_id);
 
       // Execute query
-      $stmt->execute();
+      $result = $stmt->execute();
 
-      return $stmt;
+      if ($result) {
+          echo 'Success';
+      } else {
+          echo 'Failure';
+      }
     }
 
     public function modifyOld() {
@@ -241,7 +234,11 @@ ini_set('display_errors', 1);
   
         $stmt->execute();
       
-        return $stmt;
+        if ($stmt->rowCount() > 0) {
+          echo 'Success';
+        } else {
+            echo 'Failure';
+        }
       }
 
       public static function delete($conn, $id) {

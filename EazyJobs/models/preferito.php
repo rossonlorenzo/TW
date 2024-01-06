@@ -13,6 +13,18 @@
       $this->conn = $db;
     }
 
+    public static function insertNew($conn, $annuncioId, $userId) {
+      $query = 'INSERT INTO preferiti (utenti_id, annunci_id) VALUES (:userId ,:annuncioId)';
+
+      $stmt = $conn->prepare($query);
+
+      $stmt->bindParam(':userId', $userId);
+      $stmt->bindParam(':annuncioId', $annuncioId);
+
+      $stmt->execute();
+      return $stmt->rowCount();
+  }
+
     public static function delete($conn, $annuncioId, $userId) {
         $query = 'DELETE FROM preferiti WHERE utenti_id = :userId AND annuncio_id = :annuncioId';
 
