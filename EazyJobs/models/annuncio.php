@@ -47,7 +47,7 @@ class Annuncio
 
   public function getAll()
   {
-    $query = 'SELECT * FROM annunci INNER JOIN aziende ON azienda_id = aziende.id ORDER BY annunci.id DESC';
+    $query = 'SELECT annunci.id, azienda_id, titolo, email, desc_completa, desc_breve, data_pub, nome, locazione, annunci.settore, remoto, presenza, contratto, livello_istruzione, esperienza, stipendio FROM annunci INNER JOIN aziende ON azienda_id = aziende.id ORDER BY annunci.id DESC';
     $stmt = $this->conn->prepare($query);
 
     $stmt->execute();

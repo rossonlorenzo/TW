@@ -9,10 +9,28 @@ header('Content-Type: text/html; charset=utf-8');
 
 include_once 'config/connection.php';
 include_once 'models/annuncio.php';
+include_once 'models/preferito.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
+session_start();
+
+// da fare che se utente loggato, non si mostra bottone salva, ma banner "già salvato"
+$preferiti = array();
+if (isset($_SESSION['user_id'])) {
+    $utenteID = $_SESSION['user_id'];
+    $preferito = new Preferito($db);
+
+    $result = $preferito->getAllFromID($utenteID);
+    $num = $result->rowCount();
+    if ($num > 0) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            array_push($preferiti, $annuncio_id);
+        }
+    }
+}
 
 $annuncio = new Annuncio($db);
 
@@ -131,8 +149,8 @@ if ($num > 0) {
         $str_annunci .=
             "<li id='" . $id . "'>" .
             "<div class='header-annunci'>" .
-            "<a href='?id=" . $id . "' class='annuncio-link' data-target='annuncio-" . $id ."'>" .
-            "<h3>" . $titolo . "</h3>" .
+            "<a href='#id=" . $id . "' class='annuncio-link' data-target='annuncio-" . $id ."'>" .
+            "<h3>" . $titolo . " #". $id ."</h3>" .
             "</a>" .
             "<h4>" . $nome . "</h4>" .
             //logo
@@ -145,7 +163,7 @@ if ($num > 0) {
             "<ul class='job-info'>" .
             "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
             "<li><h5>Stipendio medio:</h5><p>" . $stipendio . "€</p></li>" .
-            "<li><h5>Contatti:</h5><p>" . $mail . "</p></li>" .
+            "<li><h5>Contatti:</h5><p>" . $email . "</p></li>" .
             "</ul>" .
             "</li>";
 
@@ -198,17 +216,22 @@ if ($num > 0) {
                 "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
                 "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
                 "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
-                "<li><h5>Contatti:</h5><p>s" . $mail . "</p></li>" .
+                "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
                 "</ul>" .
                 "</div>" .
 
                 "<ul class='azioni-aggiuntive'>" .
                 "<li><button class='bottone-dettagli'>Mostra più dettagli</button></li>" .
-                "<li><button type='submit' class='bottone-candidati'>Candidati</button></li>" .
-                "<li><button type='submit' class='bottone-salva' data-id='" . $id ."'>Salva</button></li>" .
-                "</ul>".
-                "<button class='bottone-annunci' data-target='annuncio-" . $id ."'>Torna agli annunci</button>" .
-                "</article>";
+                "<li><button type='submit' class='bottone-candidati'>Candidati</button></li>" ;
+                if(!in_array($id, $preferiti)){
+                    $str_completo .= "<li><button type='submit' class='bottone-salva' data-id='" . $id ."'>Salva</button></li>" ;
+                } else{
+                    $str_completo .= "<a id='salvato'>Annuncio già salavato.</a>" ;
+                }
+                $str_completo .= 
+                    "</ul>".
+                    "<button class='bottone-annunci' data-target='annuncio-" . $id ."'>Torna agli annunci</button>" .
+                    "</article>";
         
     }
 } else {

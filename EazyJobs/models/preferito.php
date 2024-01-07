@@ -13,8 +13,20 @@
       $this->conn = $db;
     }
 
+    public function getAllFromID($utenteId) {
+      $query = 'SELECT * FROM preferiti WHERE utenti_id = :utenteId';
+
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(':utenteId', $utenteId);
+
+      $stmt->execute();
+
+      return $stmt;
+  }
+
     public static function insertNew($conn, $annuncioId, $userId) {
-      $query = 'INSERT INTO preferiti (utenti_id, annunci_id) VALUES (:userId ,:annuncioId)';
+      $query = 'INSERT INTO preferiti (utenti_id, annuncio_id) VALUES (:userId ,:annuncioId)';
 
       $stmt = $conn->prepare($query);
 
