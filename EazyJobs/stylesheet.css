@@ -754,7 +754,6 @@ ul.azioni-aggiuntive li {
     padding: 20px;
 }
 
-
 #bottone-recensioni {
     margin: 1em;
 }
@@ -956,7 +955,8 @@ ul.azioni-aggiuntive li {
     padding: 1em;
 }
 
-#registrazione-main input {
+#registrazione-main input,
+#registrazione-main textarea {
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -973,7 +973,7 @@ ul.azioni-aggiuntive li {
     margin-top: 1em;
 }
 
-#credenziali {
+#credenziali, #dati-azienda {
     display: flex;
     flex-direction: column;
     width: 55%;
@@ -983,7 +983,16 @@ ul.azioni-aggiuntive li {
     font-size: 1.3em;
 }
 
-#cv {
+#desc_completa {
+    resize: vertical;
+    padding: 0.5em;
+    box-sizing: border-box;
+    vertical-align: top;
+    overflow-y: auto;
+    height: 20vh;
+}
+
+#cv, #logo {
     width: 50%;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1415,38 +1424,6 @@ section > div > button {
 
 #pubblicaAnnuncio-bottone {
     margin: auto;
-}
-
-#modifica-annuncio-main {
-    background-color: var(--bgColor);
-    width: 25em;
-    height: auto;
-}
-
-#modifica-annuncio-main form {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-#modifica-annuncio-main label {
-    margin-top: 0.1em;
-    margin-bottom: 0.1em;
-    color: var(--headerTxtColor);
-    font-weight: bold;
-}
-
-#modifica-annuncio-main input[type="text"],
-#modifica-annuncio-main textarea,
-#modifica-annuncio-main select,
-#modifica-annuncio-main button {
-    margin-bottom: 1em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    border: 1px solid #ccc;
-    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             

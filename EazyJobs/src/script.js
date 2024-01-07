@@ -366,7 +366,6 @@ document.addEventListener('click', function(event) {
         const formElement = target.closest('form');
         if (formElement) {
             const isValid = validateForm(formElement);
-
             if (!isValid) {
                 event.preventDefault();
             }
@@ -386,7 +385,11 @@ const fieldValidation = {
     desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa valida (100-500 caratteri)'},
     locazione: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida'},
     settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un settore valido'},
-    stipendio: {check:/^\d+$/, error: 'Inserire uno stipendio valido'}
+    stipendio: {check: /^\d+$/, error: 'Inserire uno stipendio valido'},
+    logo: {check: /\.(png)$/i, error: 'Inserire un logo valido (formato PNG)'},
+    sito: {check: /^(ftp|http|https):\/\/[^ "]+$/, error: 'Inserire un sito valido'},
+    dipendenti: {check: /^\d+$/, error: 'Inserire un numero di dipendenti valido'},
+    fatturato: {check: /^\d+$/, error: 'Inserire un fatturato valido'},
 };
 
 function validateForm(formElement) {
@@ -431,6 +434,19 @@ function validateForm(formElement) {
                 radioGroup.classList.add('errore');
             } else {
                 radioGroup.classList.remove('errore');
+            }
+        } else if (field.type == 'number') {
+            const element = document.getElementById(field.name);
+            const error = document.getElementById(field.name + '-errore');
+            var currentYear = new Date().getFullYear();
+
+            if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
+                element.classList.add('errore');
+                error.innerHTML = 'Inserire un anno valido';
+                flag = false;
+            } else {
+                element.classList.remove('errore');
+                error.innerHTML = '';
             }
         }
     }
