@@ -95,33 +95,35 @@ annuncioLinks.forEach(function (link) {
 });
 
 const salvaButtons = document.querySelectorAll(".bottone-salva");
-salvaButtons.forEach((button) =>{
-    button.addEventListener("click", () => {        
+
+salvaButtons.forEach((button) => {
+    button.addEventListener("click", () => {
         const annuncioId = button.getAttribute('data-id');
-                const data = { id: annuncioId };
-                fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    return response.text();
-                })
-                .then(data => {
-                    // Handle success or failure message from PHP
-                    if (data === 'Annuncio aggiunto ai preferiti') {
-                        console.log('Annuncio aggiunto  ai preferiti');
-                    } else {
-                        console.error('Risposta inaspettata:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('Errore:', error);
-                });
-            });
-})
+        const data = { id: annuncioId };
+
+        fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            return response.text();
+        })
+        .then(data => {
+            if (data === 'Annuncio aggiunto ai preferiti') {
+                console.log('Annuncio aggiunto ai preferiti');
+            } else {
+                console.error('Risposta inaspettata:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Errore:', error);
+        });
+    });
+});
+
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             

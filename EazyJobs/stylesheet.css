@@ -633,6 +633,10 @@ ul.azioni-aggiuntive li {
     margin: 1em 0;
 }
 
+#salvato{
+    margin-top: 1.5em;
+}
+
 /* @media (max-width: 1200px) {
     ul.annunci li h5 {
         white-space: nowrap;
