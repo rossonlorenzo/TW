@@ -81,15 +81,17 @@ annuncioLinks.forEach(function (link) {
     const filterButton = document.getElementById("bottone-filtri");
     const filtriRicerca = document.getElementById("filtri-ricerca");
 
-    filterButton.addEventListener("click", function () {
-        if (filtriRicerca.style.display === "none" || filtriRicerca.style.display === "") {
-            filtriRicerca.style.display = "block";
-            filterButton.textContent = "Nascondi filtri";
-        } else {
-            filtriRicerca.style.display = "none";
-            filterButton.textContent = "Mostra filtri";
-        }
-    });
+    if (filterButton) {
+        filterButton.addEventListener("click", function () {
+            if (filtriRicerca.style.display === "none" || filtriRicerca.style.display === "") {
+                filtriRicerca.style.display = "block";
+                filterButton.textContent = "Nascondi filtri";
+            } else {
+                filtriRicerca.style.display = "none";
+                filterButton.textContent = "Mostra filtri";
+            }
+        });
+    }
 });
 
 const salvaButtons = document.querySelectorAll(".bottone-salva");
@@ -154,21 +156,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const recensioniModificaForm = document.getElementById('recensioni-modifica-form');
         const modificaButton = document.getElementById('modifica-recensione');
     
-        modificaButton.addEventListener('click', function() {
-            recensioniModificaForm.classList.toggle('visibile');
-            recensioniModificaForm.classList.toggle('invisibile');
-    
-            toggleButton.classList.toggle('invisibile');
-    
-            const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
-            if (isModificaVisibile) {
-                modificaButton.textContent = 'Cancella modifica';
-            } else {
-                modificaButton.textContent = 'Modifica';
-            }
-    
-            if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
-        });
+        if (modificaButton) {
+            modificaButton.addEventListener('click', function() {
+                recensioniModificaForm.classList.toggle('visibile');
+                recensioniModificaForm.classList.toggle('invisibile');
+        
+                toggleButton.classList.toggle('invisibile');
+        
+                const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
+                if (isModificaVisibile) {
+                    modificaButton.textContent = 'Cancella modifica';
+                } else {
+                    modificaButton.textContent = 'Modifica';
+                }
+        
+                if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
+            });
+        }
     }
 });
 
@@ -372,16 +376,16 @@ document.addEventListener('click', function(event) {
 
 //aggiungere lunghezze
 const fieldValidation = {
-    nome: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un nome valido'},
+    nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
     password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},
     cv: {check: /\.(pdf)$/i, error: 'Inserire un cv valido (formato PDF)'},
     commento: {check: /^.{0,300}$/, error: 'Inserire un commento valido (0-300 caratteri)'},
-    titolo: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un titolo valido'},
-    desc_breve: {check: /^.{50,200}$/, error: 'Inserire una descrizione breve (50-200 caratteri)'},
-    desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa (100-500 caratteri)'},
-    locazione: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire una provincia valida'},
-    settore: {check: /^[a-zA-Z\u00C0-\u00FF'][a-zA-Z\s\u00C0-\u00FF']$/, error: 'Inserire un settore valido'},
+    titolo: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un titolo valido'},
+    desc_breve: {check: /^.{50,200}$/, error: 'Inserire una descrizione breve valida (50-200 caratteri)'},
+    desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa valida (100-500 caratteri)'},
+    locazione: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida'},
+    settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un settore valido'},
     stipendio: {check:/^\d+$/, error: 'Inserire uno stipendio valido'}
 };
 

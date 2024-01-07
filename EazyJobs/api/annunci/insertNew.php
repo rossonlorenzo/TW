@@ -7,8 +7,6 @@ header("Access-Control-Allow-Origin: *");
 include_once '../../config/connection.php';
 include_once '../../models/annuncio.php';
 
-var_dump($_POST);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $database = new Database();
     $db = $database->connect();
@@ -21,8 +19,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     foreach ($requiredFields as $field) {
-        if (empty($_POST[$field]) || is_numeric($_POST[$field])) {
-            $errors[$field] = "Campo obbligatorio. Inserire del testo.";
+        if ($field == 'titolo') {
+            $max_length = 60;
+            if (empty($_POST[$field]) || is_numeric($_POST[$field]) || strlen($_POST[$field]) > $max_length) {
+                $errors[$field] = "Inserire un titolo valido";
+            }
+
+        } else if ($field == 'desc_breve') {
+            $min_length = 50;
+            $max_length = 200;
+            if (empty($_POST[$field]) || is_numeric($_POST[$field]) || strlen($_POST[$field]) < $min_length || strlen($_POST[$field]) > $max_length) {
+                $errors[$field] = "Inserire una descrizione breve valida ({$min_length}-{$max_length} caratteri)";
+            }
+        } else if ($field == 'desc_completa') {
+            $min_length = 100;
+            $max_length = 500;
+            if (empty($_POST[$field]) || is_numeric($_POST[$field]) || strlen($_POST[$field]) < $min_length || strlen($_POST[$field]) > $max_length) {
+                $errors[$field] = "Inserire una descrizione completa valida ({$min_length}-{$max_length} caratteri)";
+            }
+        } else if ($field == 'locazione') {
+            $max_length = 60;
+            if (empty($_POST[$field]) || is_numeric($_POST[$field]) || strlen($_POST[$field]) > $max_length) {
+                $errors[$field] = "Inserire una provincia valida";
+            }
+        } else if ($field == 'settore') {
+            $max_length = 60;
+            if (empty($_POST[$field]) || is_numeric($_POST[$field]) || strlen($_POST[$field]) > $max_length) {
+                $errors[$field] = "Inserire un settore valido";
+            }
         }
     }
 
@@ -35,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!is_numeric($_POST['stipendio']) || $_POST['stipendio'] === '') {
-        $errors['stipendio'] = "Campo obbligatorio. Inserire un numero.";
+        $errors['stipendio'] = "Inserire uno stipendio valido";
     }
 
     // If there are errors, handle them (e.g., display error messages or prevent form submission)

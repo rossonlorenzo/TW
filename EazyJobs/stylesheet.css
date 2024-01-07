@@ -115,6 +115,10 @@ button:hover {
     text-align: center;
     font-size: 0.8em;
 }
+
+.errore {
+    border: 2px solid red !important;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -862,11 +866,6 @@ ul.azioni-aggiuntive li {
     vertical-align: top;
     overflow-y: auto;
 }
-
-#aziende-main #recensioni-form .errore {
-    border: 2px solid red !important;
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 AZIENDE CSS [FINE]
@@ -921,10 +920,6 @@ ul.azioni-aggiuntive li {
 #accedi-bottone {
     margin-top: 1em;
     margin-bottom: 2em;
-}
-
-#accedi-main #login-form .errore {
-    border: 2px solid red;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -990,10 +985,6 @@ ul.azioni-aggiuntive li {
 
 #cv {
     width: 50%;
-}
-
-#registrazione-main #registrazione-form .errore {
-    border: 2px solid red;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1426,8 +1417,36 @@ section > div > button {
     margin: auto;
 }
 
-#pubblica-annuncio-main #publishJob-form .errore {
-    border: 2px solid red;
+#modifica-annuncio-main {
+    background-color: var(--bgColor);
+    width: 25em;
+    height: auto;
+}
+
+#modifica-annuncio-main form {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+#modifica-annuncio-main label {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+}
+
+#modifica-annuncio-main input[type="text"],
+#modifica-annuncio-main textarea,
+#modifica-annuncio-main select,
+#modifica-annuncio-main button {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             

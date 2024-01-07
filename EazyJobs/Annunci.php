@@ -13,6 +13,8 @@ include_once 'models/annuncio.php';
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
+session_start();
+
 
 $annuncio = new Annuncio($db);
 
@@ -105,7 +107,7 @@ if ($num > 0) {
         };
 } else {
     echo json_encode(
-        array('message' => 'No annunci Found')
+        array('message' => 'Nessun annuncio trovato')
     );
 }
 
@@ -145,7 +147,7 @@ if ($num > 0) {
             "<ul class='job-info'>" .
             "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
             "<li><h5>Stipendio medio:</h5><p>" . $stipendio . "€</p></li>" .
-            "<li><h5>Contatti:</h5><p>" . $mail . "</p></li>" .
+            "<li><h5>Contatti:</h5><p>" . $email . "</p></li>" .
             "</ul>" .
             "</li>";
 
@@ -198,7 +200,7 @@ if ($num > 0) {
                 "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
                 "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
                 "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
-                "<li><h5>Contatti:</h5><p>s" . $mail . "</p></li>" .
+                "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
                 "</ul>" .
                 "</div>" .
 
@@ -213,12 +215,23 @@ if ($num > 0) {
     }
 } else {
     echo json_encode(
-        array('message' => 'No annunci Found')
+        array('message' => 'Nessun annuncio trovato')
     );
 }
 
 $nomefile = "./templates/Annunci.html";
 $contenuto = file_get_contents($nomefile);
+
+if (isset($_SESSION['user_id'])) {
+    $contenuto = str_replace("php-placeholder", "User.php", $contenuto);
+    $contenuto = str_replace("link-placeholder", "Area personale", $contenuto);
+} else if (isset($_SESSION['admin_id'])) {
+    $contenuto = str_replace("php-placeholder", "Admin.php", $contenuto);
+    $contenuto = str_replace("link-placeholder", "Area personale", $contenuto);
+} else {
+    $contenuto = str_replace("php-placeholder", "Accedi.php", $contenuto);
+    $contenuto = str_replace("link-placeholder", "Accedi", $contenuto);
+}
 
 $contenuto = str_replace("<!--annunci-placeholder-->", $str_annunci, $contenuto);
 $contenuto = str_replace("<!--completo-placeholder-->", $str_completo, $contenuto);
