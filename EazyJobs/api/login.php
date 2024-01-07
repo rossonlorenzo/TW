@@ -21,11 +21,13 @@ ini_set('display_errors', 1);
         $errors = [];
 
         if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = "Inserire un'email valida.";
+            $errors['email'] = "Inserire un'email valida";
         }
 
-        if (empty($_POST['password'])) {
-            $errors['password'] = "Inserire una password valida.";
+        $min_length = 8;
+        $max_length = 12;
+        if (empty($_POST['password']) || strlen($_POST['password']) < $min_length || strlen($_POST['password']) > $max_length) {
+            $errors['password'] = "Inserire una password valida ({$min_length}-{$max_length} caratteri)";
         }
 
         if (!empty($errors)) {
@@ -53,6 +55,7 @@ ini_set('display_errors', 1);
                 header("Location: http://localhost/TW/EazyJobs/Accedi.php?errors=".urlencode(json_encode($errors)));
                 exit();
             }
+
         } else if ($ruolo = 'aziende') {
             $azienda = new Azienda($db);
 

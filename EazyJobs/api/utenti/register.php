@@ -16,26 +16,23 @@ ini_set('display_errors', 1);
     //server-side validation
     $errors = [];
 
-    if (empty($_POST['nome'])) {
-        $errors['nome'] = "Inserire un nome valido.";
+    $max_name_length = 60;
+    if (empty($_POST['nome']) || is_numeric($_POST['nome']) || strlen($_POST['nome']) > $max_name_length) {
+        $errors['nome'] = "Inserire un nome valido";
     }
 
     if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = "Inserire un'email valida.";
+        $errors['email'] = "Inserire un'email valida";
     }
 
-    $minLength = 8;
-    $maxLength = 12;
-    if (!empty($_POST['password']) && (strlen($_POST['password']) < $minLength || strlen($_POST['password']) > $maxLength)) {
-        $errors['password'] = "La password deve avere tra $minLength e $maxLength caratteri.";
-    }
-
-    if (empty($_POST['password'])) {
-        $errors['password'] = "Inserire una password valida.";
+    $min_length = 8;
+    $max_length = 12;
+    if (empty($_POST['password']) || strlen($_POST['password']) < $min_length || strlen($_POST['password']) > $max_length) {
+        $errors['password'] = "Inserire una password valida ({$min_length}-{$max_length} caratteri)";
     }
 
     if ($_FILES['cv']['type'] !== 'application/pdf') {
-        $errors['cv'] = "Il file deve essere di tipo PDF.";
+        $errors['cv'] = "Inserire un cv valido (formato PDF)";
     }
 
     if (!empty($errors)) {

@@ -19,15 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_POST['commento'])) {
         $commento = $_POST['commento'];
-        $minLength = 0;
         $maxLength = 300;
     
-        if (is_numeric($_POST['commento'])) {
-            $errors['commento'] = "Inserire del testo.";
-        }
-    
-        if (strlen($commento) < $minLength || strlen($commento) > $maxLength) {
-            $errors['commento'] = "Il commento deve avere tra $minLength e $maxLength caratteri.";
+        if (is_numeric($_POST['commento']) || strlen($commento) > $maxLength) {
+            $errors['commento'] = "Inserire un commento valido (0-{$max_length} caratteri)";
         }
     }    
 

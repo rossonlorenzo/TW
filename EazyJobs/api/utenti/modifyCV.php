@@ -18,7 +18,7 @@ ini_set('display_errors', 1);
     $errors = [];
 
     if ($_FILES['cv']['type'] !== 'application/pdf') {
-        $errors['cv'] = "Il file deve essere di tipo PDF.";
+        $errors['cv'] = "Inserire un cv valido (formato PDF)";
     }
 
     if (!empty($errors)) {

@@ -15,30 +15,30 @@
         <h1>EazyJobs</h1>
     </header>
 
-<main id="pubblica-annuncio-main">
+<main id="modifica-annuncio-main">
 
-    <form action="http://localhost/TW/EazyJobs/api/annunci/modifyOld.php" method="post" id="publishJob-form">
+    <form action="http://localhost/TW/EazyJobs/api/annunci/modifyOld.php" method="post" id="modifyJob-form">
         <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
 
         <label for="titolo">Titolo:</label>
         <input type="text" id="titolo" name="titolo" value="titolo-placeholder">
-        <div class="messaggio-errore">titolo-errore-placeholder</div>
+        <div id="titolo-errore" class="messaggio-errore">titolo-errore-placeholder</div>
         
         <label for="desc_breve">Breve descrizione:</label>
         <textarea id="desc_breve" name="desc_breve">desc-breve-placeholder</textarea>
-        <div class="messaggio-errore">desc-breve-errore-placeholder</div>
+        <div id="desc_breve-errore"class="messaggio-errore">desc-breve-errore-placeholder</div>
 
         <label for="desc_completa">Descrizione completa:</label>
         <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
-        <div class="messaggio-errore">desc-completa-errore-placeholder</div>
+        <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
 
         <label for="locazione">Provincia:</label>
         <input type="text" id="locazione" name="locazione" value="locazione-placeholder">
-        <div class="messaggio-errore">locazione-errore-placeholder</div>
+        <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
         <label for="settore">Settore:</label>
         <input type="text" id="settore" name="settore" value="settore-placeholder">
-        <div class="messaggio-errore">settore-errore-placeholder</div>
+        <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
         <label for="modalità">Modalità di lavoro:</label>
         <div class="checkbox-group">
@@ -48,7 +48,7 @@
             <input type="checkbox" id="modalità-presenza" name="modalità-presenza" presenza-placeholder>
             <label for="modalità-presenza" class="checkbox-label">In presenza</label>
         </div>
-        <div class="messaggio-errore">checkbox-errore-placeholder</div>
+        <div id="checkbox-errore" class="messaggio-errore">checkbox-errore-placeholder</div>
 
         <label for="contratto">Tipo contratto:</label>
         <div class="radio-group">
@@ -81,9 +81,9 @@
 
         <label for="stipendio">Stipendio:</label>
         <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder">
-        <div class="messaggio-errore">stipendio-errore-placeholder</div>
+        <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
 
-        <button type="submit" id="pubblicaAnnuncio-bottone">Modifica Annuncio</button>
+        <button type="submit" id="modificaAnnuncio-bottone" data-validation="validateFields">Modifica Annuncio</button>
     </form>
     
 </main>
