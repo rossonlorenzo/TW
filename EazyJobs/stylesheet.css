@@ -751,7 +751,6 @@ ul.azioni-aggiuntive li {
     padding: 20px;
 }
 
-
 #bottone-recensioni {
     margin: 1em;
 }
@@ -953,7 +952,8 @@ ul.azioni-aggiuntive li {
     padding: 1em;
 }
 
-#registrazione-main input {
+#registrazione-main input,
+#registrazione-main textarea {
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -970,7 +970,7 @@ ul.azioni-aggiuntive li {
     margin-top: 1em;
 }
 
-#credenziali {
+#credenziali, #dati-azienda {
     display: flex;
     flex-direction: column;
     width: 55%;
@@ -980,7 +980,16 @@ ul.azioni-aggiuntive li {
     font-size: 1.3em;
 }
 
-#cv {
+#desc_completa {
+    resize: vertical;
+    padding: 0.5em;
+    box-sizing: border-box;
+    vertical-align: top;
+    overflow-y: auto;
+    height: 20vh;
+}
+
+#cv, #logo {
     width: 50%;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------

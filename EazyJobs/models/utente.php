@@ -151,5 +151,5 @@
     $stmt->bindParam(':userId', $userId);
 
     $stmt->execute();
-}
+  }
 }
