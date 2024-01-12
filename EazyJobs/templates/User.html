@@ -34,7 +34,7 @@
             <form action="http://localhost/TW/EazyJobs/api/utenti/modifyCV.php" method="post" id="upload-cv-form" enctype="multipart/form-data">
                 <label for="cv">Modifica Curriculum:</label>
                 <input type="file" id="cv" name="cv">
-                <button type="submit" data-validation="validateFields">Upload</button>
+                <input type="submit" data-validation="validateFields" value="Upload">
                 <div id="cv-errore" class="messaggio-errore">cv-errore-placeholder</div>
             </form>
         </dl>
@@ -44,7 +44,7 @@
         <section>
             <div id="user-listaAnnunci-header" class="hiding">
                 <h3>I miei preferiti</h3>
-                <button name="annunci" type="button" onclick="showHideCards('user-listaAnnunci');changeButton(name);" aria-expanded="false" aria-controls="annunci">
+                <button id="annunci-toggle" name="annunci" type="button" onclick="showHideCards('user-listaAnnunci');changeButton(name);" aria-expanded="false" aria-controls="annunci">
                     <!--Mostra annunci  (label bottone da modificare via js per access.)-->
                     <span class="toggle show"></span>
                 </button>
@@ -57,7 +57,7 @@
         <section>
             <div id="user-recensioni-header" class="hiding">
                 <h3>Le mie recensioni</h3>
-                <button name="recensioni" type="button" onclick="showHideCards('user-recensioni');changeButton(name);" aria-expanded="false" aria-controls="recensioni">
+                <button id="recensioni-toggle" name="recensioni" type="button" onclick="showHideCards('user-recensioni');changeButton(name);" aria-expanded="false" aria-controls="recensioni">
                     <!-- Mostra recensioni (label bottone da modificare via js per access.)-->
                     <span class="toggle show"></span>
                 </button>

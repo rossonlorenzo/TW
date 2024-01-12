@@ -1,3 +1,11 @@
+<!-- VALIDATO -->
+<!-- html ok -->
+<!-- button ok -->
+<!-- form -->
+<!-- img ok -->
+<!-- tabindex -->
+<!-- da controllare la post-->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -18,72 +26,85 @@
 <main id="pubblica-annuncio-main">
 
     <form action="http://localhost/TW/EazyJobs/api/annunci/insertNew.php" method="post" id="publishJob-form">
+        <fieldset id="contenuti" class="visible-fieldset">
+        <legend>Contenuti</legend>
+        <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
+
         <label for="titolo">Titolo:</label>
-        <input type="text" id="titolo" name="titolo" value="titolo-placeholder">
+        <input type="text" id="titolo" name="titolo" placeholder="Scrivi qui il titolo dell'annuncio">
         <div id="titolo-errore" class="messaggio-errore">titolo-errore-placeholder</div>
         
         <label for="desc_breve">Breve descrizione:</label>
-        <textarea id="desc_breve" name="desc_breve">desc-breve-placeholder</textarea>
-        <div id="desc_breve-errore"class="messaggio-errore">desc-breve-errore-placeholder</div>
+        <textarea id="desc_breve" name="desc_breve" placeholder="Scrivi qui una breve descrizione"></textarea>
+        <div id="desc_breve-errore" class="messaggio-errore">desc-breve-errore-placeholder</div>
 
         <label for="desc_completa">Descrizione completa:</label>
-        <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
+        <textarea id="desc_completa" name="desc_completa" placeholder="Scrivi qui una versione più completa della descrizione"></textarea>
         <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
-
+        </fieldset>
+        <fieldset id="caratteristiche" class="hidden-fieldset">
+            <legend>Caratteristiche</legend>
         <label for="locazione">Provincia:</label>
-        <input type="text" id="locazione" name="locazione" value="locazione-placeholder">
+        <input type="text" id="locazione" name="locazione" placeholder="Scrivi qui la località di lavoro">
         <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
         <label for="settore">Settore:</label>
-        <input type="text" id="settore" name="settore" value="settore-placeholder">
+        <input type="text" id="settore" name="settore" placeholder="Scrivi qui il settore">
         <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
-        <label for="modalità">Modalità di lavoro:</label>
+        <label>Modalità di lavoro:</label>
         <div class="checkbox-group">
-            <input type="checkbox" id="modalità-remoto" name="modalità-remoto" remoto-placeholder>
+            <input type="checkbox" id="modalità-remoto" name="modalità-remoto">
             <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
 
-            <input type="checkbox" id="modalità-presenza" name="modalità-presenza" presenza-placeholder>
+            <input type="checkbox" id="modalità-presenza" name="modalità-presenza">
             <label for="modalità-presenza" class="checkbox-label">In presenza</label>
         </div>
         <div id="checkbox-errore" class="messaggio-errore">checkbox-errore-placeholder</div>
 
-        <label for="contratto">Tipo contratto:</label>
+        <label>Tipo contratto:</label>
         <div class="radio-group">
-            <input type="radio" id="determinato" name="contratto" value="Tempo determinato" determinato-placeholder>
+            <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
             <label for="determinato" class="radio-label">Tempo determinato</label>
 
-            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato" indeterminato-placeholder>
+            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
             <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
         </div>
         <div class="messaggio-errore">radio-errore-placeholder</div>
-
+    </fieldset>
+    <fieldset id="requisiti" class="hidden-fieldset">
+        <legend>Requisiti</legend>
         <label for="livello_istruzione">Livello istruzione richiesto:</label>
         <select id="livello_istruzione" name="livello_istruzione">
-            <option value="Diploma" diploma-placeholder>Diploma</option>
-            <option value="Laurea Triennale" triennale-placeholder>Laurea Triennale</option>
-            <option value="Laurea Magistrale" magistrale-placeholder>Laurea Magistrale</option>
-            <option value="Dottorato" dottorato-placeholder>Dottorato</option>
+            <option value="Diploma" >Diploma</option>
+            <option value="Laurea Triennale" >Laurea Triennale</option>
+            <option value="Laurea Magistrale" >Laurea Magistrale</option>
+            <option value="Dottorato" >Dottorato</option>
         </select>
         <div class="messaggio-errore">istruzione-errore-placeholder</div>
 
         <label for="esperienza">Anni di esperienza richiesti:</label>
         <select id="esperienza" name="esperienza">
-            <option value="1" 1-placeholder>1</option>
-            <option value="2" 2-placeholder>2</option>
-            <option value="3" 3-placeholder>3</option>
-            <option value="4" 4-placeholder>4</option>
-            <option value="5" 5-placeholder>5</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
         </select>
         <div class="messaggio-errore">esperienza-errore-placeholder</div>
 
         <label for="stipendio">Stipendio:</label>
-        <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder">
+        <input type="text" id="stipendio" name="stipendio" value="0">
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
-
-        <button type="submit" id="pubblicaAnnuncio-bottone" data-validation="validateFields">Pubblica Annuncio</button>
-    </form>
+    </fieldset>
+    <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Pubblica Annunci' disabled="true">
+</form>
+    <div id="buttons">
+        <input type="submit" id="prev" value="Precedente">
+        <input type="submit" id="next" value="Successivo">
+    </div>
     
 </main>
 <script src="./src/script.js"></script>
 </body>
+

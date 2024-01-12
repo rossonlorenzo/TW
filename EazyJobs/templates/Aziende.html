@@ -1,3 +1,4 @@
+<!-- DA validare-->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -61,7 +62,7 @@
 
             <div class="messaggio-errore">login-errore-placeholder</div>
             <div class="messaggio-errore">duplicato-errore-placeholder</div>
-            <button type="submit" id="pubblicaRecensione-bottone" data-validation="validateFields">Pubblica la tua recensione</button>
+            <input type="submit" id="pubblicaRecensione-bottone" data-validation="validateFields" value='Pubblica la tua recensione'>
         </form>
 
         <form action="http://localhost/TW/EazyJobs/api/valutazioni/modifyOld.php" method="post" id="recensioni-modifica-form" class="invisibile">
@@ -80,10 +81,10 @@
             <textarea id="commento" name="commento">commento-placeholder</textarea>
             <div id="commento-errore" class="messaggio-errore">commento-errore-placeholder</div>
 
-            <button type="submit" id="modificaRecensione-bottone" data-validation="validateFields">Modifica la tua recensione</button>
+            <input type="submit" id="modificaRecensione-bottone" data-validation="validateFields" value='Modifica la tua recensione'>
         </form>
 
-        <button id="bottone-recensioni" type="submit">Nascondi il form</button>
+        <input id="bottone-recensioni" type="submit" value='Nascondi il form'>
 
     </main>
     

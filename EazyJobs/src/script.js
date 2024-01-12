@@ -439,3 +439,53 @@ function validateForm(formElement) {
 
     return flag;
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                ModicaAnnuncio JS [INZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+//Funzione di modifica
+
+document.addEventListener('DOMContentLoaded', function() {
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const mod = document.getElementById("disabled-modificaAnnuncio-bottone");
+
+    const contenuti = document.getElementById("contenuti");
+    const caratteristiche = document.getElementById("caratteristiche");
+    const requisiti = document.getElementById("requisiti");
+
+    prev.addEventListener("click", () => {
+        if(contenuti.getAttribute("class") === "visible-fieldset"){
+            return;
+        }
+        if(caratteristiche.getAttribute("class") === "visible-fieldset"){
+            contenuti.setAttribute("class", "visible-fieldset");
+            caratteristiche.setAttribute("class","hidden-fieldset");
+        }
+        if(requisiti.getAttribute("class") === "visible-fieldset"){
+            caratteristiche.setAttribute("class", "visible-fieldset");
+            requisiti.setAttribute("class","hidden-fieldset");
+            mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
+            mod.setAttribute("disabled", "true");
+        }
+    })
+
+    next.addEventListener("click", () => {
+        if(requisiti.getAttribute("class") === "visible-fieldset"){
+            return;
+        }
+        if(caratteristiche.getAttribute("class") === "visible-fieldset"){
+            mod.setAttribute("id","modificaAnnuncio-bottone");
+            mod.removeAttribute("disabled")
+            requisiti.setAttribute("class", "visible-fieldset");
+            caratteristiche.setAttribute("class","hidden-fieldset");
+        }
+        if(contenuti.getAttribute("class") === "visible-fieldset"){
+            caratteristiche.setAttribute("class", "visible-fieldset");
+            contenuti.setAttribute("class","hidden-fieldset");
+            caratteristiche.focus();
+        }
+    })
+});

@@ -1,3 +1,10 @@
+<!-- VALIDATO -->
+<!-- html ok -->
+<!-- button ok -->
+<!-- form ok (dubbio su alcune label) -->
+<!-- img ok -->
+<!-- tabindex ok (da controllare fieldsets) -->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -18,6 +25,8 @@
 <main id="modifica-annuncio-main">
 
     <form action="http://localhost/TW/EazyJobs/api/annunci/modifyOld.php" method="post" id="modifyJob-form">
+        <fieldset id="contenuti" class="visible-fieldset">
+        <legend>Contenuti</legend>
         <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
 
         <label for="titolo">Titolo:</label>
@@ -26,12 +35,14 @@
         
         <label for="desc_breve">Breve descrizione:</label>
         <textarea id="desc_breve" name="desc_breve">desc-breve-placeholder</textarea>
-        <div id="desc_breve-errore"class="messaggio-errore">desc-breve-errore-placeholder</div>
+        <div id="desc_breve-errore" class="messaggio-errore">desc-breve-errore-placeholder</div>
 
         <label for="desc_completa">Descrizione completa:</label>
         <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
         <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
-
+        </fieldset>
+        <fieldset id="caratteristiche" class="hidden-fieldset">
+            <legend>Caratteristiche</legend>
         <label for="locazione">Provincia:</label>
         <input type="text" id="locazione" name="locazione" value="locazione-placeholder">
         <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
@@ -40,7 +51,7 @@
         <input type="text" id="settore" name="settore" value="settore-placeholder">
         <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
-        <label for="modalità">Modalità di lavoro:</label>
+        <label>Modalità di lavoro:</label>
         <div class="checkbox-group">
             <input type="checkbox" id="modalità-remoto" name="modalità-remoto" remoto-placeholder>
             <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
@@ -50,16 +61,18 @@
         </div>
         <div id="checkbox-errore" class="messaggio-errore">checkbox-errore-placeholder</div>
 
-        <label for="contratto">Tipo contratto:</label>
+        <label>Tipo contratto:</label>
         <div class="radio-group">
             <input type="radio" id="determinato" name="contratto" value="Tempo determinato" determinato-placeholder>
             <label for="determinato" class="radio-label">Tempo determinato</label>
 
-            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato" indeterminato-placeholder>
+            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato" indeter-placeholder>
             <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
         </div>
         <div class="messaggio-errore">radio-errore-placeholder</div>
-
+    </fieldset>
+    <fieldset id="requisiti" class="hidden-fieldset">
+        <legend>Requisiti</legend>
         <label for="livello_istruzione">Livello istruzione richiesto:</label>
         <select id="livello_istruzione" name="livello_istruzione">
             <option value="Diploma" diploma-placeholder>Diploma</option>
@@ -82,9 +95,13 @@
         <label for="stipendio">Stipendio:</label>
         <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder">
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
-
-        <button type="submit" id="modificaAnnuncio-bottone" data-validation="validateFields">Modifica Annuncio</button>
+    </fieldset>
+        <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Modifica Annuncio' disabled>
     </form>
+    <div id="buttons">
+        <input type="submit" id="prev" value="Precedente">
+        <input type="submit" id="next" value="Successivo">
+    </div>
     
 </main>
 <script src="./src/script.js"></script>

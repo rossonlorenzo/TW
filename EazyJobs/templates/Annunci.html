@@ -1,3 +1,12 @@
+<!-- VALIDATO -->
+<!-- html ok -->
+<!-- button ok -->
+<!-- form ok (dubbio su alcune label) -->
+<!-- img ok -->
+<!-- tabindex ok -->
+
+<!-- attenzione: <option value='Architetto d' Interni '>  'Architetto d' Interni ' cambiare nome nel db -->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -38,10 +47,10 @@
             <datalist id="suggerimenti-locazione">
                 <!--locazione-placeholder-->
             </datalist>
-            <button type="submit">Cerca</button>
+            <input type="submit" value="Cerca">
         </form> 
 
-        <button id="bottone-filtri">Mostra filtri</button>
+        <input id="bottone-filtri" type="submit" value="Mostra filtri">
         <div id="ricerca-avanzata">
         <form id="filtri-ricerca" method="get">
             <ul id="filtri">
@@ -74,7 +83,7 @@
                     </select>
                 </li>
                 <li>
-                    <label for="modalità">Modalità:</label>
+                    <label >Modalità:</label>
                     <div class="checkbox-modalità">
                         <input type="checkbox" id="modalità-remoto" name="remoto" value="1">
                         <label for="modalità-remoto">Da remoto</label>
@@ -85,7 +94,7 @@
                     </div>
                 </li>
                 <li>
-                    <label for="contratto">Tipo contratto:</label>
+                    <label>Tipo contratto:</label>
                     <div class="radio-contratto">
                         <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
                         <label for="determinato">Tempo determinato</label>
@@ -107,15 +116,15 @@
                 </li>
 
                 <li>
-                    <label for="esperienza">Esperienza:</label>          
+                    <label for="rangeEsperienza">Esperienza:</label>          
                     <input type="number" id="rangeEsperienza" name="esperienza" min="1" max="5" value="5">  
                 </li>
                 <li>
-                    <label for="salario">Stipendio:</label>
-                    <input type="range" id="rangeSalario" name="stipendio" min="min-placeholder" max="max-placeholder" step="100" value="">
+                    <label for="rangeSalario">Stipendio:</label>
+                    <input type="range" id="rangeSalario" name="stipendio" min="min-placeholder" max="max-placeholder" step="100" value="value-placeholder">
                 </li>               
             </ul>  
-            <button id="applica-filtri" type="submit">Cerca</button>          
+            <input id="applica-filtri" type="submit" value="Cerca">     
         </form>       
         
         <ul class="annunci" id="annunci-listaAnnunci">

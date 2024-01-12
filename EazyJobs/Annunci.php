@@ -147,7 +147,7 @@ if ($num > 0) {
     while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $str_annunci .=
-            "<li id='" . $id . "'>" .
+            "<li id='#" . $id . "'>" .
             "<div class='header-annunci'>" .
             "<a href='#id=" . $id . "' class='annuncio-link' data-target='annuncio-" . $id ."'>" .
             "<h3>" . $titolo . " #". $id ."</h3>" .
@@ -221,16 +221,16 @@ if ($num > 0) {
                 "</div>" .
 
                 "<ul class='azioni-aggiuntive'>" .
-                "<li><button class='bottone-dettagli'>Mostra più dettagli</button></li>" .
-                "<li><button type='submit' class='bottone-candidati'>Candidati</button></li>" ;
+                "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli'></li>" .
+                "<li><input type='submit' class='bottone-candidati' value='Candidati'></li>" ;
                 if(!in_array($id, $preferiti)){
-                    $str_completo .= "<li><button type='submit' class='bottone-salva' data-id='" . $id ."'>Salva</button></li>" ;
+                    $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva'></li>" ;
                 } else{
                     $str_completo .= "<a id='salvato'>Annuncio già salavato.</a>" ;
                 }
                 $str_completo .= 
                     "</ul>".
-                    "<button class='bottone-annunci' data-target='annuncio-" . $id ."'>Torna agli annunci</button>" .
+                    "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci'>" .
                     "</article>";
         
     }
@@ -263,4 +263,5 @@ $contenuto = str_replace("<!--nome-placeholder-->", $str_nome, $contenuto);
 $contenuto = str_replace("<!--settore-placeholder-->", $str_settore, $contenuto);
 $contenuto = str_replace("min-placeholder", $min, $contenuto);
 $contenuto = str_replace("max-placeholder", $max, $contenuto);
+$contenuto = str_replace("value-placeholder", $max, $contenuto);
 echo $contenuto;
