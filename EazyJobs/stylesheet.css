@@ -119,6 +119,25 @@ button:hover {
 .errore {
     border: 2px solid red !important;
 }
+
+.nessun-trovato {
+    padding: 1em;
+    color: var(--headerTxtColor);
+    text-align: left;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.nascosto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -1338,6 +1357,35 @@ section > div > button {
 #controllo-recensione {
     display: flex;
     gap: 0.5em;
+}
+
+#admin-links {
+    display: flex;
+    gap: 1em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 20% auto;
+    padding: 1em;
+    width: 50%;
+    text-align: center;
+    border-radius: 1em;
+}
+
+#confirmButton, #cancelButton {
+    margin: 0.5em;
 }
 
 @media (max-width: 768px) {

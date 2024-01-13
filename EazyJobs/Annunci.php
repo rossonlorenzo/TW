@@ -226,7 +226,7 @@ if ($num > 0) {
                 if(!in_array($id, $preferiti)){
                     $str_completo .= "<li><button type='submit' class='bottone-salva' data-id='" . $id ."'>Salva</button></li>" ;
                 } else{
-                    $str_completo .= "<a id='salvato'>Annuncio già salavato.</a>" ;
+                    $str_completo .= "<a id='salvato'>Annuncio già salvato.</a>" ;
                 }
                 $str_completo .= 
                     "</ul>".

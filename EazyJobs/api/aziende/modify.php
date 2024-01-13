@@ -12,6 +12,7 @@ ini_set('display_errors', 1);
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $database = new Database();
     $db = $database->connect();
+    session_start();
 
     //server-side validation
     $errors = [];
@@ -64,53 +65,70 @@ ini_set('display_errors', 1);
         $errors['desc_completa'] = "Inserire una descrizione completa valida ({$min_desc_length}-{$max_desc_length} caratteri)";
     }
 
-    if ($_FILES['logo']['type'] !== 'application/png') {
-        $errors['logo'] = "Inserire un logo valido (formato PNG)";
-    }
+    if (!empty($_FILES['logo']['name'])) {
+        $file_info = pathinfo($_FILES['logo']['name']);
+        $file_extension = strtolower($file_info['extension']);
+    
+        if ($file_extension !== 'png') {
+            $errors['logo'] = "Inserire un logo valido (formato PNG)";
+        }
+    }    
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
+        header("Location: http://localhost/TW/EazyJobs/ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
     //form implementation
-    $azienda = new Azienda($db);
+    if (isset($_SESSION['admin_id'])) {
+        $adminId = $_SESSION['admin_id'];
+        $azienda = new Azienda($db);
+        
+        $azienda->id = $adminId;
+        $azienda->nome = $_POST['nome'];
+        $azienda->email = $_POST['email'];
+        $azienda->password = $_POST['password'];
+        $azienda->sito = $_POST['sito'];
+        $azienda->fondazione = $_POST['fondazione'];
+        $azienda->dipendenti = $_POST['dipendenti'];
+        $azienda->fatturato = $_POST['fatturato'];
+        $azienda->sede = $_POST['locazione'];
+        $azienda->settore = $_POST['settore'];
+        $azienda->desc = $_POST['desc_completa'];
 
-    $azienda->nome = $_POST['nome'];
-    $azienda->email = $_POST['email'];
-    $azienda->password = $_POST['password'];
-    $azienda->sito = $_POST['sito'];
-    $azienda->fondazione = $_POST['fondazione'];
-    $azienda->dipendenti = $_POST['dipendenti'];
-    $azienda->fatturato = $_POST['fatturato'];
-    $azienda->sede = $_POST['locazione'];
-    $azienda->settore = $_POST['settore'];
-    $azienda->desc = $_POST['desc_completa'];
-
-    if ($azienda->findEmailMatch() || $azienda->findMatch()) {
-        $errors['credenziali'] = "Le credenziali inserite sono già in uso.";
-        header("Location: http://localhost/TW/EazyJobs/RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
-        exit();
-    }
-
-    $result = $azienda->insertNew();
-    $num = $result->rowCount();
-
-    if($num > 0) {
-        $adminIdInserito = Azienda::getLastInsertedId($db);
-    
-        $uploadDirectory = '../../assets/logos/';
-        $newFileName = $adminIdInserito . '_logo.png';
-    
-        if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadDirectory . $newFileName)) {
-            $azienda->logo_path = $uploadDirectory . $newFileName;
-            $azienda->updateLogoPath($adminIdInserito);
+        $emailCorrente = $azienda->getEmail();
+        if ($azienda->email !== $emailCorrente) {
+            var_dump($azienda->email);
+            var_dump($emailCorrente);
+            if ($azienda->findEmailMatch()) {
+                $errors['email'] = "L'email inserita è già in uso.";
+                header("Location: http://localhost/TW/EazyJobs/ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
+                exit();
+            }
         }
 
-        header("Location: http://localhost/TW/EazyJobs/Accedi.php");
-        exit();
+        if ($_FILES['logo']['size'] > 0) {
+            $uploadDirectory = '../../assets/logos/';
+            $currentLogoPath = $azienda->getLogoPath();
+            $newFileName = $adminId . '_logo.png';
+
+            if (file_exists($currentLogoPath)) {
+                unlink($currentLogoPath);
+            }
+            if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadDirectory . $newFileName)) {
+                $azienda->logo_path = $uploadDirectory . $newFileName;
+                $azienda->updateLogoPath($adminId);
+            }
+        }   
+
+        $result = $azienda->modifyOld();
+
+        if($result) {
+            header("Location: http://localhost/TW/EazyJobs/Admin.php");
+            exit();
+        }
+        else {}
     }
-    else {}
 }
 
   

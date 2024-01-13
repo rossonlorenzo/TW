@@ -55,39 +55,37 @@
     $resultSet = $annuncio->getAllSaved($userId);
     
     $str_annunci = "";
-    
-    while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {  //choose display if there are no saved annunci or recensioni
-      $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
-      
-      if ($annuncioDetails) {
-          // Fetch the result as an associative array
-          $annuncio = $annuncioDetails->fetch(PDO::FETCH_ASSOC);
 
-          // Process the fetched announcement data
-          if ($annuncio) {
-              $str_annunci .= "
-                  <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
-                      <div class='header-annunci'>
-                          <h3>" . $annuncio['titolo'] . "</h3>
-                      </div>
-                      <h4>" . $annuncio['nome'] . "</h4>
-                      <img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>
-                      <h5>Descrizione:</h5>
-                      <p>" . $annuncio['desc_breve'] . "</p>
-                      <ul class='job-info'>
-                          <li><h5>Loco:</h5><p>" . $annuncio['locazione'] . "</p></li>
-                          <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
-                          <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
-                      </ul>
-                      <button class='bottone-rimuovi-preferiti' data-id='" . $annuncio['annuncio_id'] . "'>Rimuovi dai preferiti</button>
-                  </li>";
-          }
-      } else {
-        echo json_encode(
-          array('message' => 'Nessun annuncio trovato')
-        );
+    if ($resultSet->rowCount() > 0) {
+      while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {
+        $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
+        
+        if ($annuncioDetails) {
+            $annuncio = $annuncioDetails->fetch(PDO::FETCH_ASSOC);
+
+            if ($annuncio) {
+                $str_annunci .= "
+                    <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
+                        <div class='header-annunci'>
+                            <h3>" . $annuncio['titolo'] . "</h3>
+                        </div>
+                        <h4>" . $annuncio['nome'] . "</h4>
+                        <img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>
+                        <h5>Descrizione:</h5>
+                        <p>" . $annuncio['desc_breve'] . "</p>
+                        <ul class='job-info'>
+                            <li><h5>Loco:</h5><p>" . $annuncio['locazione'] . "</p></li>
+                            <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
+                            <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
+                        </ul>
+                        <button class='bottone-rimuovi-preferiti' data-id='" . $annuncio['annuncio_id'] . "'>Rimuovi dai preferiti</button>
+                    </li>";
+            }
         }
-    }
+      }
+    } else {
+      $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
+  }  
 
     $valutazione = new Valutazione($db);
     $result = $valutazione->getAll_byUtenteId($userId);
@@ -110,10 +108,8 @@
 
       // result->free()
   } else {
-    echo json_encode(
-      array('message' => 'Nessuna recensione trovata')
-    );
-  }
+    $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
+  } 
 
   $nomefile = "./templates/User.html";
   $contenuto = file_get_contents($nomefile);

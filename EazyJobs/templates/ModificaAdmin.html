@@ -16,60 +16,61 @@
     </header>
 
     <main id="registrazione-main">
-        <form action="http://localhost/TW/EazyJobs/api/aziende/register.php" method="post" id="registrazione-form" enctype="multipart/form-data">
+        <form action="http://localhost/TW/EazyJobs/api/aziende/modify.php" method="post" id="registrazione-form" enctype="multipart/form-data">
 
             <div id="credenziali">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome">
+                <input type="text" id="nome" name="nome" placeholder="Nome" value="nome-placeholder">
                 <div id="nome-errore" class="messaggio-errore">nome-errore-placeholder</div>
         
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="nome@gmail.com">
+                <input type="email" id="email" name="email" placeholder="nome@gmail.com" value="email-placeholder">
                 <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
         
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Deve contenere da 8 a 12 caratteri">
+                <input type="password" id="password" name="password" placeholder="Deve contenere da 8 a 12 caratteri" value="password-placeholder">
                 <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
             </div>
 
             <div id="dati-azienda">
                 <label for="sito">Sito web:</label>
-                <input type="url" id="sito" name="sito" placeholder="https://nome.it">
+                <input type="url" id="sito" name="sito" placeholder="https://nome.it" value="sito-placeholder">
                 <div id="sito-errore" class="messaggio-errore">sito-errore-placeholder</div>
 
                 <label for="fondazione">Anno di fondazione:</label>
-                <input type="number" id="fondazione" name="fondazione" min="1800" max="currentYear-placeholder">
+                <input type="number" id="fondazione" name="fondazione" min="1800" max="currentYear-placeholder" value="fondazione-placeholder">
                 <div id="fondazione-errore" class="messaggio-errore">fondazione-errore-placeholder</div>
 
                 <label for="dipendenti">Numero di dipendenti:</label>
-                <input type="text" id="dipendenti" name="dipendenti">
+                <input type="text" id="dipendenti" name="dipendenti" value="dipendenti-placeholder">
                 <div id="dipendenti-errore" class="messaggio-errore">dipendenti-errore-placeholder</div>
 
                 <label for="fatturato">Fatturato:</label>
-                <input type="text" id="fatturato" name="fatturato">
+                <input type="text" id="fatturato" name="fatturato" value="fatturato-placeholder">
                 <div id="fatturato-errore" class="messaggio-errore">fatturato-errore-placeholder</div>
 
                 <label for="locazione">Sede centrale (provincia):</label>
-                <input type="text" id="locazione" name="locazione">
+                <input type="text" id="locazione" name="locazione" value="locazione-placeholder">
                 <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
                 <label for="settore">Settore:</label>
-                <input type="text" id="settore" name="settore">
+                <input type="text" id="settore" name="settore" value="settore-placeholder">
                 <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
                 <label for="desc_completa">Descrizione:</label>
-                <textarea id="desc_completa" name="desc_completa"></textarea>
+                <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
                 <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
             </div>
-            
-            <label for="logo">Logo:</label>
+        
+            <label for="logo">Logo (opzionale):</label>
             <input type="file" id="logo" name="logo">
             <div id="logo-errore" class="messaggio-errore">logo-errore-placeholder</div>
-            
-            <button type="submit" id="registrati-bottone" data-validation="validateFields">Registrati</button>
-            <div class="messaggio-errore">credenziali-errore-placeholder</div>
         
+            <button type="submit" id="modifica-bottone" data-validation="validateFields">Applica modifiche</button>
+            <div class="messaggio-errore">credenziali-errore-placeholder</div>
+            
         </form>        
+
     </main>
     
     <script src="./src/script.js"></script>

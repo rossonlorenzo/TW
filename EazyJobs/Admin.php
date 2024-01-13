@@ -71,10 +71,8 @@
                 "</li>\n";
         }    
       } else {
-            echo json_encode(
-              array('message' => 'Nessun annuncio trovato')
-            );
-      }
+        $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
+      } 
 
       $valutazione = new Valutazione($db);
       $result = $valutazione->getAll_byAziendaId($aziendaId);
@@ -95,10 +93,8 @@
                 "</li>\n";
         }    
       } else {
-            echo json_encode(
-              array('message' => 'Nessuna recensione trovata')
-            );
-      }
+        $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
+      } 
 
       //$result->free();
 

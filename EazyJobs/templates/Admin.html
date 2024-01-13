@@ -34,12 +34,23 @@
             <!-- azienda-placeholder -->
         </dl>
 
-        <a href="http://localhost/TW/EazyJobs/PubblicaAnnuncio.php" id="pubblica">Pubblica un annuncio</a>
+        <div id="admin-links">
+            <a href="http://localhost/TW/EazyJobs/ModificaAdmin.php" id="modifica-admin">Modifica i tuoi dati</a>
+            <a href="http://localhost/TW/EazyJobs/PubblicaAnnuncio.php" id="pubblica-annuncio">Pubblica un annuncio</a>
+        </div>
 
         <h3>Annunci pubblicati</h3>
         <ul class="annunci" id="admin-listaAnnunci">
             <!-- annunci-placeholder -->
         </ul>
+
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p>Sei sicuro di voler eliminare questo annuncio?</p>
+                <button id="confirmButton">Conferma</button>
+                <button id="cancelButton">Annulla</button>
+            </div>
+        </div>
 
         <h3>Recensioni ricevute</h3>
         <ul id="admin-recensioni">

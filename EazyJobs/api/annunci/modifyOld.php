@@ -61,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // If there are errors, handle them (e.g., display error messages or prevent form submission)
     if (!empty($errors)) {
-        $userValues = $_POST;
         $annuncioId = $_POST['annuncioId'];
         header("Location: http://localhost/TW/EazyJobs/ModificaAnnuncio.php?id=$annuncioId&errors=" . urlencode(json_encode($errors)));
     exit();

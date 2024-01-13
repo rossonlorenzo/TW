@@ -112,7 +112,7 @@ salvaButtons.forEach((button) => {
             return response.text();
         })
         .then(data => {
-            if (data === 'Annuncio aggiunto ai preferiti') {
+            if (data == 'Annuncio aggiunto ai preferiti') {
                 console.log('Annuncio aggiunto ai preferiti');
             } else {
                 console.error('Risposta inaspettata:', data);
@@ -184,9 +184,11 @@ document.addEventListener('click', function(event) {
         const aziendaId = event.target.getAttribute('data-id');
 
         //ask for confirmation
-        const confirmation = confirm('Sei sicuro di voler eliminare questa recensione?');     //replace with a custom div
+        const confirmationModal = document.getElementById('confirmationModal');
+        confirmationModal.style.display = 'block';
 
-        if (confirmation) {
+        const confirmButton = document.getElementById('confirmButton');
+        confirmButton.onclick = function() {
             const data = { id: aziendaId };
             fetch('http://localhost/TW/EazyJobs/api/valutazioni/delete.php', {
                 method: 'POST',
@@ -208,14 +210,18 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
+                confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
+                confirmationModal.style.display = 'none';
             });
         }
-        else {
-            console.log('Deletion was cancelled.');
-        }
+        const cancelButton = document.getElementById('cancelButton');
+        cancelButton.onclick = function() {
+            console.log('Cancellazione annullata.');
+            confirmationModal.style.display = 'none';
+        };
     };
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -250,7 +256,7 @@ document.addEventListener('click', function(event) {
         })
         .then(data => {
             // Handle success or failure message from PHP
-            if (data === 'Annuncio rimosso dai preferiti') {
+            if (data == 'Annuncio rimosso dai preferiti') {
                 console.log('Annuncio rimosso dai preferiti');
                 const deletedItem = document.getElementById("annuncio-" + annuncioId);
                 if (deletedItem) {
@@ -322,9 +328,11 @@ document.addEventListener('click', function(event) {
         const annuncioId = event.target.getAttribute('data-id');
 
         //ask for confirmation
-        const confirmation = confirm('Sei sicuro di voler eliminare questo annuncio?');     //replace with a custom div
+        const confirmationModal = document.getElementById('confirmationModal');
+        confirmationModal.style.display = 'block';
 
-        if (confirmation) {
+        const confirmButton = document.getElementById('confirmButton');
+        confirmButton.onclick = function() {
             const data = { id: annuncioId };
             fetch('http://localhost/TW/EazyJobs/api/annunci/delete.php', {
                 method: 'POST',
@@ -346,14 +354,18 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
+                confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
+                confirmationModal.style.display = 'none';
             });
         }
-        else {
-            console.log('Deletion was cancelled.');
-        }
+        const cancelButton = document.getElementById('cancelButton');
+        cancelButton.onclick = function() {
+            console.log('Cancellazione annullata.');
+            confirmationModal.style.display = 'none';
+        };
     };
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -386,9 +398,9 @@ const fieldValidation = {
     desc_breve: {check: /^.{50,200}$/, error: 'Inserire una descrizione breve valida (50-200 caratteri)'},
     desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa valida (100-500 caratteri)'},
     locazione: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida'},
-    settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un settore valido'},
+    settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+){0,2}$/, error: 'Inserire un settore valido'},
     stipendio: {check: /^\d+$/, error: 'Inserire uno stipendio valido'},
-    logo: {check: /\.(png)$/i, error: 'Inserire un logo valido (formato PNG)'},
+    logo: {check: /^$|(\.png)$/i, error: 'Inserire un logo valido (formato PNG)'},
     sito: {check: /^(ftp|http|https):\/\/[^ "]+$/, error: 'Inserire un sito valido'},
     dipendenti: {check: /^\d+$/, error: 'Inserire un numero di dipendenti valido'},
     fatturato: {check: /^\d+$/, error: 'Inserire un fatturato valido'},
@@ -410,10 +422,16 @@ function validateForm(formElement) {
             if (!regex.test(field.value)) {
                 element.classList.add('errore');
                 error.innerHTML = validation.error;
+                element.setAttribute("aria-invalid", "true");
+                element.setAttribute("aria-describedby", field.name + '-errore');
+                element.setAttribute("aria-live", "assertive");
                 flag = false;
             } else {
                 element.classList.remove('errore');
                 error.innerHTML = '';
+                element.removeAttribute("aria-invalid");
+                element.removeAttribute("aria-describedby");
+                element.removeAttribute("aria-live");
             }
         } else if (field.type == 'checkbox') {
             const checkboxGroup = document.querySelector('.checkbox-group');
@@ -423,8 +441,14 @@ function validateForm(formElement) {
             if (!isChecked) {
                 flag = false;
                 checkboxGroup.classList.add('errore');
+                checkboxGroup.setAttribute("aria-invalid", "true");
+                checkboxGroup.setAttribute("aria-describedby", "checkbox-errore");
+                checkboxGroup.setAttribute("aria-live", "assertive");
             } else {
                 checkboxGroup.classList.remove('errore');
+                checkboxGroup.removeAttribute("aria-invalid");
+                checkboxGroup.removeAttribute("aria-describedby");
+                checkboxGroup.removeAttribute("aria-live");
             }
         } else if (field.type == 'radio') {
             const radioGroup = document.querySelector('.radio-group');
@@ -434,8 +458,14 @@ function validateForm(formElement) {
             if (!isAnyChecked) {
                 flag = false;
                 radioGroup.classList.add('errore');
+                radioGroup.setAttribute("aria-invalid", "true");
+                radioGroup.setAttribute("aria-live", "assertive");
+                radioGroup.setAttribute("aria-describedby", "radio-group-errore");
             } else {
                 radioGroup.classList.remove('errore');
+                radioGroup.removeAttribute("aria-invalid");
+                radioGroup.removeAttribute("aria-live");
+                radioGroup.removeAttribute("aria-describedby");
             }
         } else if (field.type == 'number') {
             const element = document.getElementById(field.name);
@@ -445,10 +475,16 @@ function validateForm(formElement) {
             if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
                 element.classList.add('errore');
                 error.innerHTML = 'Inserire un anno valido';
+                element.setAttribute("aria-invalid", "true");
+                element.setAttribute("aria-describedby", field.name + '-errore');
+                element.setAttribute("aria-live", "assertive");
                 flag = false;
             } else {
                 element.classList.remove('errore');
                 error.innerHTML = '';
+                element.removeAttribute("aria-invalid");
+                element.removeAttribute("aria-describedby");
+                element.removeAttribute("aria-live");
             }
         }
     }
