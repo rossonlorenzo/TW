@@ -374,20 +374,6 @@ document.addEventListener('click', function(event) {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-document.addEventListener('click', function(event) {
-    const target = event.target;
-    if (target.dataset.validation === 'validateFields') {
-        const formElement = target.closest('form');
-        if (formElement) {
-            const isValid = validateForm(formElement);
-            if (!isValid) {
-                event.preventDefault();
-            }
-        }
-    }
-});
-
-//aggiungere lunghezze
 const fieldValidation = {
     nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
@@ -406,6 +392,140 @@ const fieldValidation = {
     fatturato: {check: /^\d+$/, error: 'Inserire un fatturato valido'},
 };
 
+function validateRegex(field) {
+    const validation = fieldValidation[field.name];
+    const regex = validation.check;
+    const element = document.getElementById(field.name);
+    const error = document.getElementById(field.name + '-errore');
+
+    if (!regex.test(field.value)) {
+        element.classList.add('errore');
+        error.innerHTML = validation.error;
+        element.setAttribute("aria-invalid", "true");
+        element.setAttribute("aria-describedby", field.name + '-errore');
+        element.setAttribute("aria-live", "assertive");
+        return false;
+    } else {
+        element.classList.remove('errore');
+        error.innerHTML = '';
+        element.removeAttribute("aria-invalid");
+        element.removeAttribute("aria-describedby");
+        element.removeAttribute("aria-live");
+    }
+    return true;
+}
+
+function validateCheckbox(formElement, field) {
+    const checkboxGroup = document.querySelector('.checkbox-group');
+    const checkboxes = formElement.querySelectorAll('input[type="checkbox"]');
+    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    if (!isChecked) {
+        checkboxGroup.classList.add('errore');
+        checkboxGroup.setAttribute("aria-invalid", "true");
+        checkboxGroup.setAttribute("aria-describedby", "checkbox-errore");
+        checkboxGroup.setAttribute("aria-live", "assertive");
+        return false;
+    } else {
+        checkboxGroup.classList.remove('errore');
+        checkboxGroup.removeAttribute("aria-invalid");
+        checkboxGroup.removeAttribute("aria-describedby");
+        checkboxGroup.removeAttribute("aria-live");
+    }
+    return true;
+}
+
+function validateRadio(formElement, field) {
+    const radioGroup = document.querySelector('.radio-group');
+    const radioButtons = formElement.querySelectorAll('input[type="radio"]');
+    const isAnyChecked = Array.from(radioButtons).some(radio => radio.checked);
+
+    if (!isAnyChecked) {
+        radioGroup.classList.add('errore');
+        radioGroup.setAttribute("aria-invalid", "true");
+        radioGroup.setAttribute("aria-live", "assertive");
+        radioGroup.setAttribute("aria-describedby", "radio-group-errore");
+        return false;
+    } else {
+        radioGroup.classList.remove('errore');
+        radioGroup.removeAttribute("aria-invalid");
+        radioGroup.removeAttribute("aria-live");
+        radioGroup.removeAttribute("aria-describedby");
+    }
+    return true;
+}
+
+function validateYear(field) {
+    const element = document.getElementById(field.name);
+    const error = document.getElementById(field.name + '-errore');
+    var currentYear = new Date().getFullYear();
+
+    if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
+        element.classList.add('errore');
+        error.innerHTML = 'Inserire un anno valido';
+        element.setAttribute("aria-invalid", "true");
+        element.setAttribute("aria-describedby", field.name + '-errore');
+        element.setAttribute("aria-live", "assertive");
+        return false;
+    } else {
+        element.classList.remove('errore');
+        error.innerHTML = '';
+        element.removeAttribute("aria-invalid");
+        element.removeAttribute("aria-describedby");
+        element.removeAttribute("aria-live");
+    }
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const forms = document.querySelectorAll('form');
+
+    function validateField(form, field) {
+        if (field.name in fieldValidation) {
+            return validateRegex(field);
+
+        } else if (field.type == 'checkbox') {
+            return validateCheckbox(form, field);
+
+        } else if (field.type == 'radio') {
+            return validateRadio(form, field);
+
+        } else if (field.type == 'number') {
+            return validateYear(field);
+        }
+    }
+
+    function handleFieldInteraction(event) {
+        const field = event.target;
+        const form = field.closest('form');
+
+        if (form && (field.tagName == 'INPUT' || field.tagName == 'TEXTAREA' || field.tagName == 'SELECT')) {
+            validateField(form, field);
+        } else if (form && (field.type == 'checkbox' || field.type == 'radio')) {
+            validateField(form, field);
+        }
+    }
+
+    forms.forEach(function (form) {
+        form.addEventListener('input', handleFieldInteraction);
+        form.addEventListener('change', handleFieldInteraction);
+    });
+});
+
+
+document.addEventListener('click', function (event) {
+    const target = event.target;
+    if (target.dataset.validation === 'validateFields') {
+        const formElement = target.closest('form');
+        if (formElement) {
+            const isValid = validateForm(formElement);
+            if (!isValid) {
+                event.preventDefault();
+            }
+        }
+    }
+});
+
 function validateForm(formElement) {
     const fields = formElement.elements;
     let flag = true;
@@ -414,84 +534,18 @@ function validateForm(formElement) {
         const field = fields[i];
 
         if (field.name in fieldValidation) {
-            const validation = fieldValidation[field.name];
-            const regex = validation.check;
-            const element = document.getElementById(field.name);
-            const error = document.getElementById(field.name + '-errore');
-
-            if (!regex.test(field.value)) {
-                element.classList.add('errore');
-                error.innerHTML = validation.error;
-                element.setAttribute("aria-invalid", "true");
-                element.setAttribute("aria-describedby", field.name + '-errore');
-                element.setAttribute("aria-live", "assertive");
-                flag = false;
-            } else {
-                element.classList.remove('errore');
-                error.innerHTML = '';
-                element.removeAttribute("aria-invalid");
-                element.removeAttribute("aria-describedby");
-                element.removeAttribute("aria-live");
-            }
+            if (!validateRegex(field)) {flag = false;}
         } else if (field.type == 'checkbox') {
-            const checkboxGroup = document.querySelector('.checkbox-group');
-            const checkboxes = formElement.querySelectorAll('input[type="checkbox"]');
-            const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
-            if (!isChecked) {
-                flag = false;
-                checkboxGroup.classList.add('errore');
-                checkboxGroup.setAttribute("aria-invalid", "true");
-                checkboxGroup.setAttribute("aria-describedby", "checkbox-errore");
-                checkboxGroup.setAttribute("aria-live", "assertive");
-            } else {
-                checkboxGroup.classList.remove('errore');
-                checkboxGroup.removeAttribute("aria-invalid");
-                checkboxGroup.removeAttribute("aria-describedby");
-                checkboxGroup.removeAttribute("aria-live");
-            }
+            if (!validateCheckbox(formElement, field)) {flag = false;}
         } else if (field.type == 'radio') {
-            const radioGroup = document.querySelector('.radio-group');
-            const radioButtons = formElement.querySelectorAll('input[type="radio"]');
-            const isAnyChecked = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isAnyChecked) {
-                flag = false;
-                radioGroup.classList.add('errore');
-                radioGroup.setAttribute("aria-invalid", "true");
-                radioGroup.setAttribute("aria-live", "assertive");
-                radioGroup.setAttribute("aria-describedby", "radio-group-errore");
-            } else {
-                radioGroup.classList.remove('errore');
-                radioGroup.removeAttribute("aria-invalid");
-                radioGroup.removeAttribute("aria-live");
-                radioGroup.removeAttribute("aria-describedby");
-            }
+            if (!validateRadio(formElement, field)) {flag = false;}
         } else if (field.type == 'number') {
-            const element = document.getElementById(field.name);
-            const error = document.getElementById(field.name + '-errore');
-            var currentYear = new Date().getFullYear();
-
-            if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
-                element.classList.add('errore');
-                error.innerHTML = 'Inserire un anno valido';
-                element.setAttribute("aria-invalid", "true");
-                element.setAttribute("aria-describedby", field.name + '-errore');
-                element.setAttribute("aria-live", "assertive");
-                flag = false;
-            } else {
-                element.classList.remove('errore');
-                error.innerHTML = '';
-                element.removeAttribute("aria-invalid");
-                element.removeAttribute("aria-describedby");
-                element.removeAttribute("aria-live");
-            }
+            if (!validateYear(field)) {flag = false;}
         }
     }
 
     return flag;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 MODIFICA_ANNUNCIO JS [INZIO]
