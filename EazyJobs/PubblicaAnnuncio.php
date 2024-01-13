@@ -37,43 +37,43 @@
   $stipendioErrore = isset($errors['stipendio']) ? htmlspecialchars($errors['stipendio']) : '';
 
   //string replacement
-  $contenuto = str_replace("titolo-placeholder", $titolo, $contenuto);
-  $contenuto = str_replace("desc-breve-placeholder", $descBreve, $contenuto);
-  $contenuto = str_replace("desc-completa-placeholder", $descCompleta, $contenuto);
-  $contenuto = str_replace("locazione-placeholder", $locazione, $contenuto);
-  $contenuto = str_replace("settore-placeholder", $settore, $contenuto);
+  // $contenuto = str_replace("titolo-placeholder", $titolo, $contenuto);
+  // $contenuto = str_replace("desc-breve-placeholder", $descBreve, $contenuto);
+  // $contenuto = str_replace("desc-completa-placeholder", $descCompleta, $contenuto);
+  // $contenuto = str_replace("locazione-placeholder", $locazione, $contenuto);
+  // $contenuto = str_replace("settore-placeholder", $settore, $contenuto);
 
-  if ($remoto == 'on') {$contenuto = str_replace("remoto-placeholder", "checked", $contenuto);}
-  if ($presenza == 'on') {$contenuto = str_replace("presenza-placeholder", "checked", $contenuto);}
-  if ($contratto == "Tempo determinato") {
-    $contenuto = str_replace("determinato-placeholder", "checked", $contenuto);
-  } elseif ($contratto == "Tempo indeterminato") {
-      $contenuto = str_replace("indeterminato-placeholder", "checked", $contenuto);
-  }
+  // if ($remoto == 'on') {$contenuto = str_replace("remoto-placeholder", "checked", $contenuto);}
+  // if ($presenza == 'on') {$contenuto = str_replace("presenza-placeholder", "checked", $contenuto);}
+  // if ($contratto == "Tempo determinato") {
+  //   $contenuto = str_replace("determinato-placeholder", "checked", $contenuto);
+  // } elseif ($contratto == "Tempo indeterminato") {
+  //     $contenuto = str_replace("indeterminato-placeholder", "checked", $contenuto);
+  // }
 
-  if ($livello_istruzione === 'Diploma') {
-    $contenuto = str_replace("diploma-placeholder", "selected", $contenuto);
-  } elseif ($livello_istruzione === 'Laurea Triennale') {
-      $contenuto = str_replace("triennale-placeholder", "selected", $contenuto);
-  } elseif ($livello_istruzione === 'Laurea Magistrale') {
-      $contenuto = str_replace("magistrale-placeholder", "selected", $contenuto);
-  } elseif ($livello_istruzione === 'Dottorato') {
-      $contenuto = str_replace("dottorato-placeholder", "selected", $contenuto);
-  }
+  // if ($livello_istruzione === 'Diploma') {
+  //   $contenuto = str_replace("diploma-placeholder", "selected", $contenuto);
+  // } elseif ($livello_istruzione === 'Laurea Triennale') {
+  //     $contenuto = str_replace("triennale-placeholder", "selected", $contenuto);
+  // } elseif ($livello_istruzione === 'Laurea Magistrale') {
+  //     $contenuto = str_replace("magistrale-placeholder", "selected", $contenuto);
+  // } elseif ($livello_istruzione === 'Dottorato') {
+  //     $contenuto = str_replace("dottorato-placeholder", "selected", $contenuto);
+  // }
 
-  if ($esperienza == 1) {
-    $contenuto = str_replace("1-placeholder", "selected", $contenuto);
-  } elseif ($esperienza == 2) {
-    $contenuto = str_replace("2-placeholder", "selected", $contenuto);
-  } elseif ($esperienza == 3) {
-    $contenuto = str_replace("3-placeholder", "selected", $contenuto);
-  } elseif ($esperienza == 4) {
-    $contenuto = str_replace("4-placeholder", "selected", $contenuto);
-  } elseif ($esperienza == 5) {
-    $contenuto = str_replace("5-placeholder", "selected", $contenuto);
-  }
+  // if ($esperienza == 1) {
+  //   $contenuto = str_replace("1-placeholder", "selected", $contenuto);
+  // } elseif ($esperienza == 2) {
+  //   $contenuto = str_replace("2-placeholder", "selected", $contenuto);
+  // } elseif ($esperienza == 3) {
+  //   $contenuto = str_replace("3-placeholder", "selected", $contenuto);
+  // } elseif ($esperienza == 4) {
+  //   $contenuto = str_replace("4-placeholder", "selected", $contenuto);
+  // } elseif ($esperienza == 5) {
+  //   $contenuto = str_replace("5-placeholder", "selected", $contenuto);
+  // }
   
-  $contenuto = str_replace("stipendio-placeholder", $stipendio, $contenuto);
+  // $contenuto = str_replace("stipendio-placeholder", $stipendio, $contenuto);
 
   $contenuto = str_replace("titolo-errore-placeholder", $titoloErrore, $contenuto);
   $contenuto = str_replace("desc-breve-errore-placeholder", $descBreveErrore, $contenuto);

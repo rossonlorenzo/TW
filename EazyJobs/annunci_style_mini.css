@@ -99,7 +99,7 @@ form {
     margin: 1em;
 }
 
-#filtri-ricerca button {
+#filtri-ricerca input[type="submit"] {
     width: auto;
     margin: auto;
 }

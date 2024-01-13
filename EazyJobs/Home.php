@@ -25,11 +25,11 @@
 
           $str_aziende .= 
           "<li id='aziende-" . $id . "'>\n" .
-          "<div id='header-aziende'>\n" .
+          "<div class='header-aziende'>\n" .
           "<h3><a href='Aziende.php?id=" . $id . "'>" . $nome . "</a></h3>\n" .
           "<img src='../assets/logos/SyncLab-logo.png' alt='SyncLab Logo'>\n" .
           "</div>\n" .
-          "<div id='azienda-grid'>\n" .
+          "<div class='azienda-grid'>\n" .
           "<h4>settore:</h4> <p>" . $settore . "</p>\n" .
           "<h4>valutazione:</h4>\n" .
           "<div class='valutazione-media' data-rating='" . $media . "'></div>\n" .

@@ -94,7 +94,7 @@ main {
     height: 75vh;
 }
 
-button {
+button{
     padding: 0.5em 1em;
     background-color: var(--headerTxtColor);
     color: white;
@@ -105,7 +105,23 @@ button {
     max-width: fit-content;
 }
 
-button:hover {
+button:hover{
+    background-color: var(--footerBgColor);
+    color: black;
+}
+
+input[type="submit"]{
+    padding: 0.5em 1em;
+    background-color: var(--headerTxtColor);
+    color: white;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    margin-top: 0.5em;
+    max-width: fit-content;
+}
+
+input[type="submit"]:hover {
     background-color: var(--footerBgColor);
     color: black;
 }
@@ -184,21 +200,11 @@ form {
     border-bottom-right-radius: 1em;
 }
 
-#home-main button[type="submit"] {
+#home-main input[type="submit"] {
     max-width: 20%;
     margin-right: 0.5em;
     position: relative;
     margin: 0.5em 0;
-}
-
-#home-main button[type="submit"] img {
-    display: none;
-    max-width: 50%;
-    max-height: 50%;
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
 }
 
 ul#aziende {
@@ -224,12 +230,12 @@ ul#aziende li {
     margin: 0.5em;
 }
 
-#header-aziende{
+.header-aziende{
     display: flex;
     justify-content: space-between;
 }
 
-#azienda-grid{
+.azienda-grid{
     margin: auto 0;
     width: fit-content;
     display: grid;
@@ -307,20 +313,7 @@ ul#aziende img {
 
     form h2{
         display: none;
-    }
-    #home-main button[type="submit"] {
-        vertical-align: middle;
-        padding: 1em;
-        border-radius: 100%;
-    }
-    #home-main button[type="submit"] a{
-        display: none;
-    }
-
-    #home-main button[type="submit"] img{
-        display: inline;
-    }
-    
+    } 
 }
 
 @media (max-width: 768px) {
@@ -447,7 +440,7 @@ form {
     display: none;
 }
 
-#filtri-ricerca button {
+#filtri-ricerca input[type="submit"] {
     width: auto;
     margin: auto;
 }
@@ -865,8 +858,8 @@ ul.azioni-aggiuntive li {
 #recensioni-modifica-form textarea,
 #recensioni-form select,
 #recensioni-modifica-form select,
-#recensioni-form button
-#recensioni-modifica-form button {
+#recensioni-form input[type="submit"]
+#recensioni-modifica-form input[type="submit"] {
     margin-bottom: 1em;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -1068,7 +1061,7 @@ img#foto-profilo:hover {
     margin-right: 1em;
 }
 
-button#cv_upload {
+input[type="submit"] #cv_upload {
     margin-top: 1.5em;
     padding: .5em;
 }
@@ -1090,7 +1083,7 @@ section > ul {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 
-section > div > button {
+section > div > button{
     display: none;
 }
 
@@ -1422,7 +1415,7 @@ section > div > button {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #pubblica-annuncio-main {
     background-color: var(--bgColor);
-    width: 25em;
+    width: 80%;
     height: auto;
 }
 
@@ -1432,6 +1425,11 @@ section > div > button {
     overflow: auto;
     max-width: 90%;
     margin: 0 auto;
+}
+
+#pubblica-annuncio-main input[type="submit"] {
+    margin: 0.5em;
+    margin-top: 1em;
 }
 
 #pubblica-annuncio-main label {
@@ -1444,7 +1442,8 @@ section > div > button {
 #pubblica-annuncio-main input[type="text"],
 #pubblica-annuncio-main textarea,
 #pubblica-annuncio-main select,
-#pubblica-annuncio-main button {
+#pubblica-annuncio-main input[type="submit"] {
+    width: 70%;
     margin-bottom: 1em;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -1474,8 +1473,59 @@ section > div > button {
     font-weight: normal;
 }
 
-#pubblicaAnnuncio-bottone {
-    margin: auto;
+#modifica-annuncio-main input[type="submit"] {
+    margin: 0.5em;
+    margin-top: 1em;
+}
+
+#modifica-annuncio-main {
+    background-color: var(--bgColor);
+    width: 80%;
+    height: auto;
+}
+
+#modifica-annuncio-main form {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+#modifica-annuncio-main label {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+}
+
+#modifica-annuncio-main input[type="text"],
+#modifica-annuncio-main textarea,
+#modifica-annuncio-main select,
+#modifica-annuncio-main input[type="submit"] {
+    width: 70%;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+.visibile-fieldset{
+    display: block;
+}
+
+.hidden-fieldset{
+    display: none;
+}
+
+#buttons{
+    display: flex;
+}
+#disabled-modificaAnnuncio-bottone{
+    color: #fff;
+    background-color: #ccc;
+    opacity: 0.7;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             

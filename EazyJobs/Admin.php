@@ -55,7 +55,6 @@
                 "<li id='annuncio-" . $annuncio_id . "'>\n" .
                 "<div class='header-annunci'>\n" .
                 "<h3>" . $titolo . "</h3>\n" .
-                "</div>\n" .
                 "<h4>" . $nome . "</h4>\n" .
                 "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>\n" .
                 "</div>\n" .
