@@ -18,7 +18,9 @@
     <main id="registrazione-main">
         <form action="http://localhost/TW/EazyJobs/api/aziende/register.php" method="post" id="registrazione-form" enctype="multipart/form-data">
 
-            <div id="credenziali">
+            <fieldset id="credenziali" class="visible-fieldset">
+                <legend>Credenziali</legend>
+
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome">
                 <div id="nome-errore" class="messaggio-errore">nome-errore-placeholder</div>
@@ -30,9 +32,11 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Deve contenere da 8 a 12 caratteri">
                 <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
-            </div>
+            </fieldset>
 
-            <div id="dati-azienda">
+            <fieldset id="dettagli" class="hidden-fieldset">
+                <legend>Dettagli di interesse</legend>
+
                 <label for="sito">Sito web:</label>
                 <input type="url" id="sito" name="sito" placeholder="https://nome.it">
                 <div id="sito-errore" class="messaggio-errore">sito-errore-placeholder</div>
@@ -48,6 +52,10 @@
                 <label for="fatturato">Fatturato:</label>
                 <input type="text" id="fatturato" name="fatturato">
                 <div id="fatturato-errore" class="messaggio-errore">fatturato-errore-placeholder</div>
+            </fieldset>
+
+            <fieldset id="dati" class="hidden-fieldset">
+                <legend>Dati rilevanti</legend>
 
                 <label for="locazione">Sede centrale (provincia):</label>
                 <input type="text" id="locazione" name="locazione">
@@ -60,16 +68,19 @@
                 <label for="desc_completa">Descrizione:</label>
                 <textarea id="desc_completa" name="desc_completa"></textarea>
                 <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
-            </div>
-            
-            <label for="logo">Logo:</label>
-            <input type="file" id="logo" name="logo">
-            <div id="logo-errore" class="messaggio-errore">logo-errore-placeholder</div>
-            
-            <button type="submit" id="registrati-bottone" data-validation="validateFields">Registrati</button>
-            <div class="messaggio-errore">credenziali-errore-placeholder</div>
+
+                <label for="logo">Logo (opzionale):</label>
+                <input type="file" id="logo" name="logo">
+                <div id="logo-errore" class="messaggio-errore">logo-errore-placeholder</div>
+            </fieldset>
         
-        </form>        
+            <input type="submit" id="disabled-modificaAdmin-bottone" data-validation="validateFields" value='Applica modifiche' disabled>
+            <div class="messaggio-errore">credenziali-errore-placeholder</div>
+        </form>    
+        <div id="admin-buttons">
+            <input type="submit" id="prev" value="Precedente">
+            <input type="submit" id="next" value="Successivo">
+        </div>      
     </main>
     
     <script src="./src/script.js"></script>

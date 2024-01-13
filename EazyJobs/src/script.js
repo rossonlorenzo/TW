@@ -494,11 +494,9 @@ function validateForm(formElement) {
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
-                                                                ModicaAnnuncio JS [INZIO]
+                                                                MODIFICA_ANNUNCIO JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-//Funzione di modifica
-
 document.addEventListener('DOMContentLoaded', function() {
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
@@ -508,6 +506,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const caratteristiche = document.getElementById("caratteristiche");
     const requisiti = document.getElementById("requisiti");
 
+    function setFocusToFirstInput(section) {
+        const firstInput = section.querySelector('input, textarea, select');
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }
+
     prev.addEventListener("click", () => {
         if(contenuti.getAttribute("class") === "visible-fieldset"){
             return;
@@ -515,12 +520,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if(caratteristiche.getAttribute("class") === "visible-fieldset"){
             contenuti.setAttribute("class", "visible-fieldset");
             caratteristiche.setAttribute("class","hidden-fieldset");
+            setFocusToFirstInput(contenuti);
         }
         if(requisiti.getAttribute("class") === "visible-fieldset"){
             caratteristiche.setAttribute("class", "visible-fieldset");
             requisiti.setAttribute("class","hidden-fieldset");
             mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
             mod.setAttribute("disabled", "true");
+            setFocusToFirstInput(caratteristiche);
         }
     })
 
@@ -533,11 +540,74 @@ document.addEventListener('DOMContentLoaded', function() {
             mod.removeAttribute("disabled")
             requisiti.setAttribute("class", "visible-fieldset");
             caratteristiche.setAttribute("class","hidden-fieldset");
+            setFocusToFirstInput(requisiti);
         }
         if(contenuti.getAttribute("class") === "visible-fieldset"){
             caratteristiche.setAttribute("class", "visible-fieldset");
             contenuti.setAttribute("class","hidden-fieldset");
-            caratteristiche.focus();
+            setFocusToFirstInput(caratteristiche);
         }
     })
 });
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                MODIFICA_ADMIN JS [INZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', function() {
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const mod = document.getElementById("disabled-modificaAdmin-bottone");
+
+    const credenziali = document.getElementById("credenziali");
+    const dettagli = document.getElementById("dettagli");
+    const dati = document.getElementById("dati");
+
+    function setFocusToFirstInput(section) {
+        const firstInput = section.querySelector('input, textarea, select');
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }
+
+    prev.addEventListener("click", () => {
+        if(credenziali.getAttribute("class") === "visible-fieldset"){
+            return;
+        }
+        if(dettagli.getAttribute("class") === "visible-fieldset"){
+            credenziali.setAttribute("class", "visible-fieldset");
+            dettagli.setAttribute("class","hidden-fieldset");
+            setFocusToFirstInput(credenziali);
+        }
+        if(dati.getAttribute("class") === "visible-fieldset"){
+            dettagli.setAttribute("class", "visible-fieldset");
+            dati.setAttribute("class","hidden-fieldset");
+            mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
+            mod.setAttribute("disabled", "true");
+            setFocusToFirstInput(dettagli);
+        }
+    })
+
+    next.addEventListener("click", () => {
+        if(dati.getAttribute("class") === "visible-fieldset"){
+            return;
+        }
+        if(dettagli.getAttribute("class") === "visible-fieldset"){
+            mod.setAttribute("id","modificaAnnuncio-bottone");
+            mod.removeAttribute("disabled")
+            dati.setAttribute("class", "visible-fieldset");
+            dettagli.setAttribute("class","hidden-fieldset");
+            setFocusToFirstInput(dati);
+        }
+        if(credenziali.getAttribute("class") === "visible-fieldset"){
+            dettagli.setAttribute("class", "visible-fieldset");
+            credenziali.setAttribute("class","hidden-fieldset");
+            setFocusToFirstInput(dettagli);
+        }
+    })
+});
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                MODIFICA_ADMIN JS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/

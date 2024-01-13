@@ -25,9 +25,10 @@
 <main id="pubblica-annuncio-main">
 
     <form action="http://localhost/TW/EazyJobs/api/annunci/modifyOld.php" method="post" id="modifyJob-form">
+        <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
+
         <fieldset id="contenuti" class="visible-fieldset">
         <legend>Contenuti</legend>
-        <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
 
         <label for="titolo">Titolo:</label>
         <input type="text" id="titolo" name="titolo" value="titolo-placeholder">
@@ -41,6 +42,7 @@
         <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
         <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
         </fieldset>
+
         <fieldset id="caratteristiche" class="hidden-fieldset">
             <legend>Caratteristiche</legend>
         <label for="locazione">Provincia:</label>
@@ -71,6 +73,7 @@
         </div>
         <div class="messaggio-errore">radio-errore-placeholder</div>
     </fieldset>
+    
     <fieldset id="requisiti" class="hidden-fieldset">
         <legend>Requisiti</legend>
         <label for="livello_istruzione">Livello istruzione richiesto:</label>
