@@ -1554,6 +1554,63 @@ section > div > button{
                                                                 PUBBLICA_ANNUNCIO CSS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI_SIAMO CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#chi_siamo-main {
+    height: auto;
+}
+
+#chi_siamo-block {
+    background-color: #fff;
+    width: fit-content;
+    padding-left: 0.7em;
+    padding-bottom: 0.7em;
+    padding-right: 0.7em;
+    padding-bottom: 1.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    margin: 0.5em;
+}
+
+h3.chi_siamo {
+    color: var(--footerTxtColor);
+    font-size: 1.15em;
+    padding-top: 0.7em;
+    padding-bottom: 0.5em;
+}
+
+div.blocco {
+    padding: 5em;
+}
+
+#chi_siamo_img1, #chi_siamo_img3 {
+    float: right;
+    width: 30%;
+    margin-top: 0.7em;
+    height: 30%;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+}
+
+#chi_siamo_img2 {
+    float: left;
+    width: 30%;
+    margin-right: 3em;
+    margin-bottom: 3em;
+    height: 30%;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI_SIAMO CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 footer {
     background-color: var(--headerBgColor);
