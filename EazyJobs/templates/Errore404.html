@@ -1,18 +1,11 @@
-<!-- VALIDATO -->
-<!-- html ok -->
-<!-- button ok -->
-<!-- form ok -->
-<!-- img ok -->
-<!-- tabindex ok -->
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Accedi</title>
+    <title>Pagina non trovata - EazyJobs</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -40,47 +33,35 @@
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li><a href="Annunci.php">Annunci</a></li>
-                <li>Accedi</li>
+                <li><a href="./api/login.php">Accedi</a></li>
                 <li><a href="Contattaci.html">Contattaci</a></li>
                 <li><a href="Chi_siamo.php">Chi siamo</a></li>
             </ul>
         </nav>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="Home.php" lang="en">Home</a> &gt; &gt; Accedi</p>
+            <p>Ti trovi nella tua Area Personale</p>
         </nav>
     </div>
+    <main id="errore404-main">
+        <h2>Non abbiamo trovato la pagina che stai cercando.</h2>
+        <img src="./assets/illustrations/undraw_location_search_re_ttoj.svg" alt="">
+        <a href="Home.php">Torna alla <span lang="en">home</span></a>
 
-    <main id="accedi-main">
-        <form action="http://localhost/TW/EazyJobs/api/login.php" method="post" id="login-form">
-            <label for="ruolo">Seleziona il tuo ruolo:</label>
-            <select id="ruolo" name="ruolo">
-                <option value="candidati">Candidati</option>
-                <option value="aziende">Aziende</option>
-            </select>
-
-            <div id="credenziali">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
-            </div>
-
-            <input type="submit" id="accedi-bottone" data-validation="validateFields" value="Accedi">
-            <div class="messaggio-errore">credenziali-errore-placeholder</div>
-
-            <p>Non hai un account?</p>
-            <p>Registrati da <a href="RegistraUser.php">candidato</a> o da <a href="RegistraAdmin.php">azienda</a>.</p>
-        </form>
+        <section id="help">
+            <h3>Cosa potrebbe essere successo?</h3>
+            <ul>
+                <li>la pagina che hai cercato non esiste più</li>
+                <li>c'è un errore di battitura nel link che stai cercando</li>
+                <li>i nostri sistemi al momento non rispondono correttamente, ci stiamo occupando del problema</li>
+            </ul>
+            <p>Se il problema persiste <a href="Contattaci.html">contattaci</a>.</p>
+        </section>
     </main>
-    
     <footer>
         <nav id="footer">
             <ul>
                 <li><a href="Contattaci.html">Contattaci</a></li>
-                <li><a href="Chi_siamo.php">Chi siamo</a></li>
+                <li><a href="Chi_siamo.html">Chi siamo</a></li>
             </ul>
         </nav>
         <p lang="en">&copy; 2024 EazyJobs - All rights reserved.</p>

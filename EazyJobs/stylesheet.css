@@ -1,8 +1,10 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/*  palette precedente
 :root {
     --headerBgColor: #f7e7ce;
     --headerTxtColor: #52154e;
@@ -14,12 +16,26 @@
     --visitedLinkColor: #b48e92;
     --font-body-family: "Roboto Condensed", sans-serif;
 }
+*/
+
+:root {
+    --headerBgColor: #EBEEFF;
+    --headerTxtColor: #023E8A;
+    --bgColor: #799CF0;
+    --txtColor: rgb(0,0,0);
+    --footerBgColor: #EBEEFF;
+    --footerTxtColor: #023E8A;
+    --linkColor: #023E8A;
+    --visitedLinkColor: #799CF0;
+    --font-body-family: "Roboto Condensed", sans-serif;
+}
 
 html {
     font-size: 100%;
     font-family: var(--font-body-family);
     line-height: 1.5em;
     margin: auto;
+    height: 100%;
 }
 
 header {
@@ -28,7 +44,11 @@ header {
     padding: 1em;
     max-width: 100%;
     margin: 0 auto; 
-    margin-bottom: 2em;
+    /* margin-bottom: 1em; */
+}
+
+.header-actions, .header-burger {
+    display: none;
 }
 
 header h1 {
@@ -62,6 +82,18 @@ a:visited {
     margin: 0 auto;
 }
 
+a[href*="Accedi"] {
+    padding: 0.5em 1em;
+    background-color: var(--headerTxtColor);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.7em; 
+}
+
+a[href*="Accedi"]:hover {
+    text-decoration: underline;
+}
+
 #menu ul {
     list-style-type: none;
     display: flex;
@@ -74,8 +106,13 @@ a:visited {
     flex: 1;
 }
 
-#menu ul li:last-child {
+#menu ul li:nth-child(3) {  /* show accedi/logout */
+    display: block;
     text-align: right;
+}
+
+#menu ul li:nth-child(4), #menu ul li:nth-child(5) {    /* hide last 2 */
+    display: none;
 }
 
 #breadcrumb {
@@ -94,7 +131,7 @@ main {
     height: 75vh;
 }
 
-button{
+button, input[type="button"], input[type="submit"] {
     padding: 0.5em 1em;
     background-color: var(--headerTxtColor);
     color: white;
@@ -105,7 +142,7 @@ button{
     max-width: fit-content;
 }
 
-button:hover{
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
     background-color: var(--footerBgColor);
     color: black;
 }
@@ -162,6 +199,133 @@ input[type="submit"]:hover {
 .hidden-fieldset{
     display: none;
 }
+@media (max-width: 1024px) {
+    
+    #navigazione {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    main {
+        width: 90%;
+        margin-top: 0;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: visible;
+        justify-content: space-between;
+        background-color: var(--headerBgColor);
+        width: 100%;
+        max-height: 20vh;
+        margin-bottom: 0;
+    }
+    
+    header .header-logo h1 {
+        font-size: 2em;
+    }
+
+    .header-actions, .header-burger {
+        display: block;
+    }
+
+    a[href*="Accedi"] {
+        display: inline-block;
+        padding: 0 0.5em;
+        min-height: 44px;
+        line-height: 44px;
+        border-radius: 0.8em;
+    }
+
+    button, input[type="button"], input[type="submit"] {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+    }
+    
+    button.hamburger {
+        border-radius: 0;
+        background-color: inherit;
+    }
+    
+    button.hamburger .burger {
+        display: block;
+    }
+    
+    button.hamburger .burger .line {
+        background-color: var(--headerTxtColor);
+        transform-origin: center;
+        height: 0.3em;
+        width: 80%;
+        border-radius: 1em;
+        margin: 0.3em auto 0.3em;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    button.hamburger .close .line:nth-of-type(1) {
+        transform: translateY(0.6em) rotate(45deg);
+    }
+    
+    button.hamburger .close .line:nth-of-type(2) {
+        opacity: 0;
+    }
+      
+    button.hamburger .close .line:nth-of-type(3) {
+        transform: translateY(-0.6em) rotate(-45deg);
+    }
+
+    #navigazione {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    #menu, #menu.showing {
+        max-height: 80vh;
+        transition: max-height 0.25s linear;
+        overflow: hidden;
+        
+    }
+    
+    #menu.hiding {
+        max-height: 0vh;
+        transition: none;
+    }
+    
+    #menu ul {
+        flex-direction: column;
+    }
+    
+    #menu ul li:nth-child(3) {  /* hide accedi/logout */
+        display: none;
+    }
+    
+    #menu ul li:nth-child(4), #menu ul li:nth-child(5) {    /* show last 2 */
+        display: block;
+    }
+    
+    #menu ul li {
+        border-top: 2px solid var(--headerBgColor);
+        text-align: center;
+        font-size: 2em; 
+        height: 2em;
+        line-height: 2em;
+    }
+    
+    #menu ul li a{
+        display: block;
+        background-color: var(--headerTxtColor);
+        color: var(--headerBgColor);
+        border-radius: 0.4em;
+        height: inherit;
+    }
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -169,6 +333,9 @@ input[type="submit"]:hover {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #home-main {
     height: auto;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .delimitatore {
@@ -187,8 +354,20 @@ form {
     margin: 0.5em 0;
 }
 
-#home-ricerca #professione,
-#home-ricerca #locazione {
+#barra-ricerca {
+    margin-bottom: 1em;
+}
+
+#barra-ricerca form {
+    background-color: var(--bgColor);
+    border-radius: 1em;
+    text-align: center;
+    margin: 0.5em auto;
+    padding: 0.5em 0;
+    width: 80%;
+}
+
+#professione, #locazione {
     border: none;
     padding: 0.5em;
     margin: 0.5em 0;
@@ -196,23 +375,128 @@ form {
     width: 30%;
 }
 
-#home-ricerca #professione {
+#professione {
     margin-left: 0.5em;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
 }
 
-#home-ricerca #locazione {
+#locazione {
     margin-right: 0.5em;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
 }
 
-#home-main input[type="submit"] {
+form[action="Annunci.php"] button[type="submit"] {
     max-width: 20%;
     margin-right: 0.5em;
     position: relative;
     margin: 0.5em 0;
+}
+
+form[action="Annunci.php"] button[type="submit"] img {
+    display: none;
+    max-width: 50%;
+    max-height: 50%;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+section#cosa-offriamo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 1em;
+    background: url("./assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 25% no-repeat,
+                url("./assets/illustrations/undraw_doctors_p6aq.svg") left 25% top 32% no-repeat,
+                url("./assets/illustrations/undraw_cooking_p7m1.svg") center bottom no-repeat,
+                url("./assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat,
+                url("./assets/illustrations/undraw_scientist_ft0o.svg") left bottom 12% no-repeat,
+                url("./assets/illustrations/undraw_automobile_repair_ywci.svg") right bottom no-repeat;
+                
+    
+    background-size: 15%, 21%, 15%, 22%, 20%, 22%;
+}
+
+section#cosa-offriamo h2{
+    font-size: 3em;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    width: 50%;
+}
+
+section#cosa-offriamo h2 em {
+    text-decoration: var(--bgColor) underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 0.04em;
+    font-style: normal;
+}
+
+section#cosa-offriamo:hover h2 em {
+    text-decoration-color: var(--headerTxtColor); /*536dfe  4644EC */
+    font-style: oblique;
+    transition: all 0.8s ease-out;
+}
+
+section#cosa-offriamo > img {
+    width: 50%;
+}
+
+section#cosa-offriamo > section {
+    border: 0.2em solid white;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    margin-top: 1.5em;
+    width: 30%;
+    transition: all 0.5s ease-in-out;
+}
+
+section#cosa-offriamo > section h3 {
+    display: inline;
+    font-size: 1.5em;
+    background: 
+    linear-gradient(to right, white, white),
+    linear-gradient(to right, var(--bgColor), var(--bgColor));
+    background-size: 100% 0.15em, 0 0.15em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s;
+}
+
+section#cosa-offriamo > section:hover {
+    border-color: var(--headerTxtColor);
+    box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+}
+
+section#cosa-offriamo > section:hover h3 {
+    background-size: 0 0.15em, 100% 0.15em;
+}
+
+.features-list {
+    padding: 0.8em;
+    background-color: inherit;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.features-list li {
+    margin-bottom: 0.4em;
+    font-size: 1.1em;
+}
+
+section#cosa-offriamo > section:hover .features-list li::marker {
+    color: var(--bgColor);
+    transition: all 0.4s ease-in-out;
+}
+
+section#container-aziende {
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    margin-top: 1em;
+    border-radius: 1em;
 }
 
 ul#aziende {
@@ -220,9 +504,9 @@ ul#aziende {
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
-    height: 20vh;
+    
     gap: 0.5em;
-    border-radius: 0 0 1em;
+    border-radius: 0 0 1em 1em;
     max-width: 100%;
     margin: 0 auto 1em;
     overflow-x: auto;
@@ -282,6 +566,24 @@ ul#aziende img {
 }
 
 @media (max-width: 1200px) {
+
+    #barra-ricerca form {
+        width: 100%;
+    }
+    
+    section#cosa-offriamo {
+        background: none;
+    }
+
+    section#cosa-offriamo h2 {
+        font-size: 2.5em;
+        letter-spacing: -0.05em;
+    }
+
+    section#cosa-offriamo > section {
+        width: 40%;
+    }
+
     ul#aziende {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -291,10 +593,11 @@ ul#aziende img {
         justify-content: center;
         align-items: center;
     }
+
     ul#aziende li {
         justify-self: center;
-        height: 15vh;
-        width: 80%;
+        min-height: 20vh;
+        width: 87%;
         overflow-x: hidden;
     }
 
@@ -321,12 +624,77 @@ ul#aziende img {
 
     form h2{
         display: none;
-    } 
+    }
+
+    form[action="Annunci.php"] button[type="submit"] {
+        vertical-align: middle;
+        padding: 1em;
+        border-radius: 100%;
+        width: 2.3em;
+        height: 2.3em;
+    }
+
+    form[action="Annunci.php"] button[type="submit"] span{
+        display: none;
+    }
+
+    form[action="Annunci.php"] button[type="submit"] img{
+        display: inline;
+    }
+    
 }
 
 @media (max-width: 768px) {
-    #home-main{
+
+    #home-main {
         width: 100%;
+        height: auto;
+    }
+
+    div#content {
+        width: 90%;
+        margin: 0 auto 10vh;
+        padding-top: 1em;
+        background-color: inherit;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    #barra-ricerca {
+        background-color: var(--headerBgColor);
+        margin-bottom: 0;
+        padding: 0.5em 5%;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        max-height: 22vh;
+    }
+
+    #barra-ricerca h2 {
+        font-size: 1.2em;
+    }
+
+    #professione, #locazione  {
+        width: 40%;
+    }
+
+    section#cosa-offriamo {
+        flex-direction: column;
+    }
+
+    section#cosa-offriamo h2 {
+        width: 100%;
+    }
+
+    section#cosa-offriamo > img {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    section#cosa-offriamo > section {
+        width: 80%;
+        align-self: center;
     }
 
     ul#aziende {
@@ -342,6 +710,11 @@ ul#aziende img {
     ul#aziende li {
         overflow-x: unset;
     }
+
+    #home footer {
+        display: none;
+    }
+
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -387,8 +760,13 @@ form {
     display: flex;
 }
 
-#filtri-ricerca {
+#filtri-ricerca {  
+    display: block; 
     width: 15em;
+}
+
+#filtri-ricerca.showing, #filtri-ricerca.hiding {          /* passando da visualizzazione mobile a desktop la barra dei filtri */
+    display: block;                                        /* torna visibile in ogni caso */ 
 }
 
 #filtri {
@@ -453,24 +831,25 @@ form {
     margin: auto;
 }
 
-ul.annunci {
+ul.annunci, ul.annunci.nascosto {               /* lista annunci sempre visibile da desktop */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
-    max-height: 75vh;
+    max-height: 85vh;
+    /* width: 40%; */
     list-style-type: none;
     overflow-x: unset;
 }
 
-ul.annunci::-webkit-scrollbar {
+ul.annunci::-webkit-scrollbar, ul#aziende::-webkit-scrollbar {
     width: 0.5em;
-    background-color: #f7e7ce;
+    background-color: var(--headerBgColor);
     border-radius: 5px;
 }
 
-ul.annunci::-webkit-scrollbar-thumb {
-    background-color: #f8d9a7;
+ul.annunci::-webkit-scrollbar-thumb, ul#aziende::-webkit-scrollbar-thumb {
+    background-color: var(--headerTxtColor);
     border-radius: 5px;
 }
 
@@ -556,7 +935,6 @@ ul.job-info li {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
-
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -566,9 +944,9 @@ ul.job-info li {
     min-height: 40vh;
 }
 
-.annuncio-completo-hidden {    
+.nascosto {    
     display: none;
-    height: 0;
+    max-height: 0;
 }
 
 .bottone-annunci {
@@ -645,19 +1023,20 @@ ul.job-complete-info li p {/* [...] effect */
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
-    gap: 1em;
+    flex-wrap: wrap;
+    column-gap: 1em;
 }
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
-    margin: 1em 0;
+    margin-top: 1em;
 }
 
 #salvato{
     margin-top: 1.5em;
 }
-
-/* @media (max-width: 1200px) {
+/*
+ @media (max-width: 1200px) {
     ul.annunci li h5 {
         white-space: nowrap;
         overflow: visible;
@@ -667,9 +1046,13 @@ ul.azioni-aggiuntive li {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-}
+}*/
 
 @media (max-width: 1024px) {
+    #annunci-main {
+        width: 90%;
+    }
+    /*
     #annuncio-completo {
         display: none;
     }
@@ -684,9 +1067,9 @@ ul.azioni-aggiuntive li {
     }
     ul.annunci li p {
         text-wrap: wrap;
-    }
+    }*/
 }
-
+/*
 @media (max-width: 768px) {
     #annunci-main {
         width: 100%;
@@ -711,6 +1094,7 @@ ul.azioni-aggiuntive li {
         text-overflow: ellipsis;
     }
 } */
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -986,7 +1370,7 @@ ul.azioni-aggiuntive li {
     border-radius: 0.5em;
     border: 1px solid #ccc;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    width: 90%;
+width: 90%;
     margin: auto;
     margin-bottom: 1.5em;
 }
@@ -997,7 +1381,7 @@ ul.azioni-aggiuntive li {
     color: var(--headerTxtColor);
     font-weight: bold;
     font-size: 1em;
-}
+    }
 
 #credenziali, #dettagli, #dati {
     display: flex;
@@ -1020,7 +1404,7 @@ ul.azioni-aggiuntive li {
 
 #cv, #logo {
     max-width: 60%;
-    margin: auto;
+margin: auto;
 }
 
 #admin-buttons {
@@ -1095,7 +1479,7 @@ input[type="submit"] #cv_upload {
     padding: .5em;
 }
 
-section > div {
+#user-main section > div {
     color: white;
     background-color: var(--headerTxtColor);
     margin-top: 1.5em;
@@ -1106,13 +1490,13 @@ section > div {
     clear: right;
 }
 
-section > ul {
+#user-main section > ul {
     background-color: var(--bgColor);
     border-radius: 0 0 1em 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 
-section > div > button{
+section > div > button {
     display: none;
 }
 
@@ -1127,11 +1511,11 @@ section > div > button{
 
 #user-listaAnnunci::-webkit-scrollbar {
     width: 0.5em;
-    background-color: #f7e7ce;
+    background-color: var(--headerBgColor);
 }
 
 #user-listaAnnunci::-webkit-scrollbar-thumb {
-    background-color: #f8d9a7;
+    background-color: var(--headerTxtColor);
 }
 
 #user-listaAnnunci > li {
@@ -1289,11 +1673,11 @@ section > div > button{
 
 #admin-listaAnnunci::-webkit-scrollbar {
     width: 0.5em;
-    background-color: #f7e7ce;
+    background-color: var(--headerBgColor);
 }
 
 #admin-listaAnnunci::-webkit-scrollbar-thumb {
-    background-color: #f8d9a7;
+    background-color: var(--headerTxtColor);
 }
 
 #admin-listaAnnunci > li {
@@ -1472,7 +1856,7 @@ section > div > button{
 #pubblica-annuncio-main textarea,
 #pubblica-annuncio-main select,
 #pubblica-annuncio-main input[type="submit"] {
-    width: 70%;
+width: 70%;
     margin-bottom: 1em;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -1554,6 +1938,7 @@ section > div > button{
                                                                 PUBBLICA_ANNUNCIO CSS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 CHI_SIAMO CSS [INIZIO]
@@ -1612,6 +1997,84 @@ div.blocco {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                ERRORE_404 CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#errore404-main {
+    background-color: white;
+    color: var(--txtColor);
+    margin: 0 auto;
+    margin-top: 1em;
+    border-radius: 0;
+    box-shadow: none;
+    width: 75%;
+    height: auto;
+}
+
+#errore404-main h2 {
+    font-size: 2em;
+    margin: 1em 0 0 0;
+    font-family: var(--font-body-family);
+}
+
+#errore404-main img {
+    margin: 2em auto;
+    display: block;
+    width: 50%;
+}
+
+#errore404-main > a {
+    display: block;
+    background-color: var(--headerTxtColor);
+    color: white;
+    text-decoration: none;
+    border-radius: 1em;
+    min-height: 44px;
+    width: fit-content;
+    padding: 0.5em;
+    margin: 1em auto;
+}
+
+#errore404-main > a:hover {
+    background-color: var(--footerBgColor);
+    color: black;
+}
+
+section#help {
+    margin: 1em;
+}
+
+section#help ul {
+    background-color: inherit;
+    border-radius: 0;
+    box-shadow: none;
+    margin-left: 1em;
+}
+
+section#help p{
+    margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+
+    #errore404-main {
+        width: 90%;
+    }
+
+    #errore404-main img {
+        width: 70%;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                ERRORE_404 CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 footer {
     background-color: var(--headerBgColor);
     padding: 0.5em;
@@ -1619,17 +2082,43 @@ footer {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     max-width: 75%;
     margin: 2em auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: smaller;
 }
 
 #footer ul {
     text-align: center;
     list-style-type: none;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 0.5em;
 }
 
 #footer li {
     display: inline;
     flex: 1;
+}
+
+@media (max-width: 1024px) {
+
+    footer {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    footer {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+        margin: auto auto 0;
+    }
+
+    footer nav {
+        display: none;
+    }
 }

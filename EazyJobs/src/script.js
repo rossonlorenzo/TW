@@ -36,93 +36,105 @@ starRating.innerHTML = stars;
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", function () {
 
-const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
-const dettagliList = document.querySelectorAll(".dettagli");
-
-showDetailsButtons.forEach(function (showDetailsButton, index) {
-    showDetailsButton.addEventListener("click", () => {
-        const dettagli = dettagliList[index];
-
-        if (dettagli.style.display === "none" || dettagli.style.display === "") {
-            dettagli.style.display = "block";
-            showDetailsButton.textContent = "Nascondi dettagli";
-        } else {
-            dettagli.style.display = "none";
-            showDetailsButton.textContent = "Mostra più dettagli";
-        }
-    });
-});
-
-const annunciButtons = document.querySelectorAll(".bottone-annunci");
-
-annunciButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const target = button.getAttribute("data-target");
-        const annuncioCompleto = document.getElementById(target);
-        annuncioCompleto.setAttribute("class", "annuncio-completo-hidden");
-        document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-const annuncioLinks = document.querySelectorAll(".annuncio-link");
-annuncioLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
-        event.preventDefault();
-        const target = link.getAttribute("data-target");
-        const annuncioCompleto = document.getElementById(target);
-        const annuncioTrue = document.getElementsByClassName("annuncio-completo")[0];
-        if(annuncioTrue!= null)
-            document.getElementsByClassName("annuncio-completo")[0].setAttribute("class", "annuncio-completo-hidden");
-        annuncioCompleto.setAttribute("class", "annuncio-completo");
-        annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-    const filterButton = document.getElementById("bottone-filtri");
-    const filtriRicerca = document.getElementById("filtri-ricerca");
-
-    if (filterButton) {
-        filterButton.addEventListener("click", function () {
-            if (filtriRicerca.style.display === "none" || filtriRicerca.style.display === "") {
-                filtriRicerca.style.display = "block";
-                filterButton.textContent = "Nascondi filtri";
-            } else {
-                filtriRicerca.style.display = "none";
-                filterButton.textContent = "Mostra filtri";
-            }
-        });
+    if (window.innerWidth < 768 && document.title == "EazyJobs: Annunci") {
+        const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
+        annuncioCompletoIniziale.classList.add("nascosto");
     }
-});
 
-const salvaButtons = document.querySelectorAll(".bottone-salva");
-
-salvaButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const annuncioId = button.getAttribute('data-id');
-        const data = { id: annuncioId };
-
-        fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            return response.text();
-        })
-        .then(data => {
-            if (data == 'Annuncio aggiunto ai preferiti') {
-                console.log('Annuncio aggiunto ai preferiti');
+    const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
+    const dettagliList = document.querySelectorAll(".dettagli");
+    
+    showDetailsButtons.forEach(function (showDetailsButton, index) {
+        showDetailsButton.addEventListener("click", () => {
+            const dettagli = dettagliList[index];
+    
+            if (dettagli.style.display === "none" || dettagli.style.display === "") {
+                dettagli.style.display = "block";
+                showDetailsButton.value = "Nascondi dettagli";
             } else {
-                console.error('Risposta inaspettata:', data);
+                dettagli.style.display = "none";
+                showDetailsButton.value = "Mostra più dettagli";
             }
-        })
-        .catch(error => {
-            console.error('Errore:', error);
         });
     });
+    
+    const annunciButtons = document.querySelectorAll(".bottone-annunci");
+    const listaAnnunci = document.getElementById("annunci-listaAnnunci");
+    
+    annunciButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const target = button.getAttribute("data-target");
+            const annuncioCompleto = document.getElementById(target);
+            annuncioCompleto.setAttribute("class", "annuncio-completo nascosto");
+            listaAnnunci.setAttribute("class", "annunci");
+            document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+    const annuncioLinks = document.querySelectorAll(".annuncio-link");
+    
+    annuncioLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const target = link.getAttribute("data-target");
+            const annuncioCompleto = document.getElementById(target);
+            const annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
+            if(annuncioTrue != null) {
+                annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
+            } 
+            listaAnnunci.setAttribute("class", "annunci nascosto");
+            annuncioCompleto.setAttribute("class", "annuncio-completo");
+            annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+        const filterButton = document.getElementById("bottone-filtri");
+        const filtriRicerca = document.getElementById("filtri-ricerca");
+    
+        if (filterButton) {
+            filterButton.addEventListener("click", function () {
+                if (filtriRicerca.className === "showing") {
+                    filtriRicerca.className = "hiding";
+                    filterButton.className = "hiding";
+                    filterButton.textContent = "Mostra filtri";
+                } else {
+                    filtriRicerca.className = "showing";
+                    filterButton.className = "showing";
+                    filterButton.textContent = "Nascondi filtri";
+                }
+            });
+        }
 });
+    
+    const salvaButtons = document.querySelectorAll(".bottone-salva");
+    
+    salvaButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const annuncioId = button.getAttribute('data-id');
+            const data = { id: annuncioId };
+    
+            fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                return response.text();
+            })
+            .then(data => {
+                if (data == 'Annuncio aggiunto ai preferiti') {
+                    console.log('Annuncio aggiunto ai preferiti');
+                } else {
+                    console.error('Risposta inaspettata:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
+        });
+    });
 
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +226,7 @@ document.addEventListener('click', function(event) {
             })
             .catch(error => {
                 console.error('Errore:', error);
-                confirmationModal.style.display = 'none';
+            confirmationModal.style.display = 'none';
             });
         }
         const cancelButton = document.getElementById('cancelButton');
@@ -278,26 +290,55 @@ function showHideCards(id) {
     var list = document.getElementById(id);
     var header = document.getElementById(id + "-header");
     if (list.className == "hiding") {
-      list.className = "showing";
-      header.className = "showing";
+        list.className = "showing";
+        header.className = "showing";
+        changeButton(id);
+        setTimeout(() => {list.scrollIntoView({behavior: "smooth", block: "center"});}, 250);   /* scroll to the section after opening */ 
     } else {
-      list.className = "hiding";
-      header.className = "hiding";
+        list.className = "hiding";
+        header.className = "hiding";
+        changeButton(id);
     }
 }
 
 function changeButton(name) {
     var btn = document.getElementsByName(name)[0];
     var span = btn.children[0];
-    if(span.className == "toggle show") {
+    if(span.className == "toggle hide") {
+        span.className = "toggle show";
+        btn.setAttribute("aria-expanded","false");
+    } else {
         span.className = "toggle hide";
+        btn.setAttribute("aria-expanded","true");
+    }
+}
+
+function showHideNav() { 
+    var btn = document.querySelector('button.hamburger');
+    var span = btn.children[0];
+    if(span.className == "burger open") {
+        span.className = "burger close";
         btn.setAttribute("aria-expanded","true");
         
     } else {
-        span.className = "toggle show";
+        span.className = "burger open";
         btn.setAttribute("aria-expanded","false");
         
     }
+    
+    var nav = document.getElementById("menu");
+    if (nav.className == "hiding") {
+        nav.className = "showing";
+    } else {
+        nav.className = "hiding";
+    }
+
+}
+
+function hideAll() {
+    showHideCards("annunci");
+    showHideCards("recensioni");
+    showHideNav();
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -456,21 +497,21 @@ function validateRadio(formElement, field) {
 }
 
 function validateYear(field) {
-    const element = document.getElementById(field.name);
-    const error = document.getElementById(field.name + '-errore');
-    var currentYear = new Date().getFullYear();
+            const element = document.getElementById(field.name);
+            const error = document.getElementById(field.name + '-errore');
+            var currentYear = new Date().getFullYear();
 
-    if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
-        element.classList.add('errore');
-        error.innerHTML = 'Inserire un anno valido';
-        element.setAttribute("aria-invalid", "true");
+            if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
+                element.classList.add('errore');
+                error.innerHTML = 'Inserire un anno valido';
+                element.setAttribute("aria-invalid", "true");
         element.setAttribute("aria-describedby", field.name + '-errore');
         element.setAttribute("aria-live", "assertive");
         return false;
-    } else {
-        element.classList.remove('errore');
-        error.innerHTML = '';
-        element.removeAttribute("aria-invalid");
+            } else {
+                element.classList.remove('errore');
+                error.innerHTML = '';
+            element.removeAttribute("aria-invalid");
         element.removeAttribute("aria-describedby");
         element.removeAttribute("aria-live");
     }

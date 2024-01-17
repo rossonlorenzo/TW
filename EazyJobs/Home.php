@@ -27,7 +27,7 @@
           "<li id='aziende-" . $id . "'>\n" .
           "<div class='header-aziende'>\n" .
           "<h3><a href='Aziende.php?id=" . $id . "'>" . $nome . "</a></h3>\n" .
-          "<img src='../assets/logos/SyncLab-logo.png' alt='SyncLab Logo'>\n" .
+          "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab Logo'>\n" .
           "</div>\n" .
           "<div class='azienda-grid'>\n" .
           "<h4>settore:</h4> <p>" . $settore . "</p>\n" .

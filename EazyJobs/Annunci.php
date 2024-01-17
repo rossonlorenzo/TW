@@ -173,7 +173,7 @@ if ($num > 0) {
             $first = false;
         }else{
             $str_completo .=
-            "<article id='annuncio-" . $id . "' class='annuncio-completo-hidden'>";
+            "<article id='annuncio-" . $id . "' class='annuncio-completo nascosto'>";
         }
             $ml = "";
 

@@ -1,9 +1,115 @@
-#navigazione {
-    max-width: 85%;
+:root{
+    --headerBgColor: #EBEEFF;
+    --headerTxtColor: #023E8A;
+    --bgColor: #799CF0;
+    --txtColor: rgb(0,0,0);
+    --footerBgColor: #EBEEFF;
+    --footerTxtColor: #023E8A;
+    --linkColor: #023E8A;
+    --visitedLinkColor: #799CF0;
+    --font-body-family: "Roboto Condensed", sans-serif;
 }
 
 main {
-    width: 85%;
+    width: 90%;
+}
+
+header.header-desktop {
+    display: none;
+}
+
+header.header-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+    justify-content: space-between;
+    background-color: var(--headerBgColor);
+    width: 100%;
+    
+}
+
+header.header-mobile .header-logo h1 {
+    font-size: 2em;
+}
+
+button.hamburger {
+    border-radius: 0;
+    background-color: inherit;
+}
+
+button.hamburger .burger {
+    display: block;
+}
+
+button.hamburger .burger .line {
+    background-color: var(--headerTxtColor);
+    transform-origin: center;
+    height: 0.3em;
+    width: 80%;
+    border-radius: 1em;
+    margin: 0.3em auto 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+button.hamburger .close .line:nth-of-type(1) {
+    transform: translateY(0.6em) rotate(45deg);
+}
+
+button.hamburger .close .line:nth-of-type(2) {
+    opacity: 0;
+}
+  
+button.hamburger .close .line:nth-of-type(3) {
+    transform: translateY(-0.6em) rotate(-45deg);
+}
+
+#navigazione, footer {
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+}
+
+#navigazione {
+    padding: 0;
+}
+
+
+#menu, #menu.showing {
+    max-height: 80vh;
+    transition: max-height 0.25s linear;
+    overflow: hidden;
+    
+}
+
+#menu.hiding {
+    max-height: 0vh;
+}
+
+#menu ul {
+    flex-direction: column;
+}
+
+#menu ul li:nth-child(4) {  /* hide logout */
+    display: none;
+}
+
+#menu ul li:nth-child(5), #menu ul li:nth-child(6) {    /* show last 2*/
+    display: block;
+}
+
+#menu ul li {
+    border-top: 2px solid var(--headerBgColor);
+    text-align: center;
+}
+
+#menu ul li a{
+    display: block;
+    background-color: var(--headerTxtColor);
+    color: var(--headerBgColor);
+    font-size: 2em;
+    padding-top: 0.5em;
+    height: 2em;
 }
 
 img#profile_picture {
@@ -13,11 +119,12 @@ img#profile_picture {
 section > div {
     min-height: 44px;
     padding: 0 0.5em;
+    border-radius: 1em 1em 0 0;     /* default == show */
 }
 
-section div.hiding {
+section div.hiding {     
    border-radius: 1em;
-   transition: border-radius 0.5s linear 0.4s;
+   transition: border-radius 0.2s linear 0.3s;
 }
 
 section div.showing {
@@ -25,13 +132,14 @@ section div.showing {
 }
 
 section > div > h3 {
-    display: inline-block;
-    margin-top: 0.4em; /* da centrare */
+    
+    float: left;
+    margin: 0.4em 0 0.4em; /* da centrare */
 }
 
 section div button {
     display: block;
-    float: inline-end;
+    float: right;
     padding: 0 0.5em;
 }
 
@@ -44,7 +152,7 @@ span.toggle{
 }
 
 span.show {
-    transition: transform 0.3s ease-in-out 0.4s;
+    transition: transform 0.3s ease-in-out 0.3s;
     transform: rotate(45deg);
 }
 
@@ -53,22 +161,20 @@ span.hide {
     transform: rotate(-135deg);
 }
 
-#annunci{
-    transition: all 0.5s linear;
+#annunci, #recensioni{
+    transition: all 0.25s linear;
     flex-direction: column;
     overflow-y: auto;
 }
 
-section ul.hiding {
+section ul.hiding {     
     height: 0vh;
 }
 
-section > ul.showing {
+section > ul, section ul.showing {      /* default == show */
     height: 80vh;
 }
 
-#recensioni {
-    transition: all 0.5s linear;
-    flex-direction: column;
-    overflow-y: auto; 
+footer nav {
+    display: none;
 }

@@ -10,7 +10,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Trova l'annuncio di lavoro che fa per te</title>
+    <title>EazyJobs</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" href="./stylesheet.css">
@@ -18,16 +18,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body onload="showHideNav()">
     <header>
-        <h1>EazyJobs</h1>
+        <div class="header-actions">
+            <a href="Accedi.php">Accedi</a>
+        </div>
+        <div class="header-logo">
+            <h1>EazyJobs</h1>
+        </div>
+        <div class="header-burger">
+            <button type="button" class="hamburger" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
+                <span class="burger close">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </span>
+            </button>
+        </div>
     </header>
-    <div id="navigazione">
+    <div id="navigazione"> 
         <nav id="menu">
             <ul>
                 <li lang="en">Home</li>
                 <li><a href="Annunci.php">Annunci</a></li>
-                <li><a href=php-placeholder>link-placeholder</a></li>
+                <li><a href="./api/login.php">Accedi</a></li>
+                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Chi_siamo.html">Chi siamo</a></li>
             </ul>
         </nav>
         <nav id="breadcrumb">
@@ -35,39 +52,69 @@
         </nav>
     </div>
     <main id="home-main">
-        <div class="delimitatore">
-            <h2>Cerca tra gli annunci: </h2>
+        <div id="barra-ricerca">
+            <h2>Cerca tra gli annunci</h2>
+            
+            <form action="Annunci.php" method="get" id="home-ricerca">
+                <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
+                <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
+                <datalist id="suggerimenti-professione">
+                    <!-- suggerimenti-professione-placeholder -->
+                </datalist>
+                <datalist id="suggerimenti-locazione">
+                    <!-- suggerimenti-locazione-placeholder -->
+                </datalist>
+                <button type="submit"><span class="screen-reader">Cerca</span> <img src="./assets/icons/search.png" alt=""></button>
+            </form>
         </div>
 
-        <form action="Annunci.html" method="get" id="home-ricerca">
-            <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
-            <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
-            <datalist id="suggerimenti-professione">
-                <!-- suggerimenti-professione-placeholder -->
-            </datalist>
-            <datalist id="suggerimenti-locazione">
-                <!-- suggerimenti-locazione-placeholder -->
-            </datalist>
-            <input type="submit" value="Cerca">
-        </form>             
-  
-        <div class="delimitatore">
-            <h2>Le nostre aziende più votate: </h2>
+        <div id="content">
+            <section id="cosa-offriamo">
+                <h2>Troviamo il <em><span lang="en">match</span> perfetto</em> tra aziende e professionisti</h2>
+                <img src="./assets/illustrations/undraw_business_deal_re_up4u.svg" alt="">
+                
+                <section id="candidati-card">
+                    <h3>Stai cercando nuove opportunità di lavoro?</h3>
+                    <ul class="features-list">
+                        <li>Cerca tra migliaia di annunci differenti</li>
+                        <li>Filtra in base alle tue preferenze</li>
+                        <li>Salva i tuoi annunci preferiti</li>
+                        <li>Consulta le informazioni di ciasun azienda e leggi le recensioni lasciate dai dipendenti</li>
+                        
+                    </ul>
+                </section>
+
+                <section id="aziende-card">
+                    <h3>Sei un'azienda in cerca di personale?</h3>
+                    <ul class="features-list">
+                        <li>Fatti conoscere nella comunità di EazyJobs</li>
+                        <li>Crea e pubblica i tuoi annunci</li>
+                        <li>Consulta la lista dei candidati</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section id="container-aziende">
+                <div class="delimitatore">
+                    <h2>Le nostre aziende più votate: </h2>
+                </div>
+
+                <ul id="aziende">
+                    <!-- aziende-placeholder -->
+                </ul>
+            </section>
         </div>
-
-        <ul id="aziende">
-            <!-- aziende-placeholder -->
-        </ul>
-
     </main>
-    
+
     <footer>
-    <nav id="footer">
-        <ul>
-            <li><a href="Contattaci.html">Contattaci</a></li>
-            <li><a href="Chi_siamo.html">Chi siamo</a></li>
-        </ul>
-    </nav>
+        <nav id="footer">
+            <ul>
+                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Chi_siamo.php">Chi siamo</a></li>
+            </ul>
+        </nav>
+        <p lang="en">&copy; 2024 EazyJobs - All rights reserved.</p>
     </footer>
     <script src="./src/script.js"></script>
 </body>
+</html>

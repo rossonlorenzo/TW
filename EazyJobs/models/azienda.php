@@ -158,25 +158,25 @@
       }
   }
 
-  public function findMatch() {
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email AND password = :password';
-  
-      $stmt = $this->conn->prepare($query);
-  
-      $stmt->bindParam(':email', $this->email);
-      $stmt->bindParam(':password', $this->password);
-  
-      $stmt->execute();
-  
-      if ($stmt->rowCount() > 0) {
-          $row = $stmt->fetch(PDO::FETCH_ASSOC);
-          $adminId = $row['id'];
-  
-          return $adminId;
-      } else {
-          return null;
-      }
-  }
+    public function findMatch() {
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email AND password = :password';
+    
+        $stmt = $this->conn->prepare($query);
+    
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password);
+    
+        $stmt->execute();
+    
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $adminId = $row['id'];
+    
+            return $adminId;
+        } else {
+            return null;
+        }
+    }
 
   public static function getLastInsertedId($db) {
     $query = "SELECT LAST_INSERT_ID() as last_id";

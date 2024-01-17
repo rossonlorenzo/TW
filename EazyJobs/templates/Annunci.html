@@ -15,135 +15,157 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link rel="stylesheet" href="./stylesheet.css" media="screen">
-    <link rel="stylesheet" href="annunci_style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./print.css" media="print">
+    <link rel="stylesheet" href="./annunci_style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="showHideNav()">
     <header>
-        <h1>EazyJobs</h1>
+        <div class="header-actions">
+            <a href="Accedi.php">Accedi</a>
+        </div>
+        <div class="header-logo">
+            <h1>EazyJobs</h1>
+        </div>
+        <div class="header-burger">
+            <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
+                <span class="burger close">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </span>
+            </button>
+        </div>
     </header>
     <div id="navigazione">
         <nav id="menu">
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li>Annunci</li>
-                <li><a href=php-placeholder>link-placeholder</a></li>
+                <li><a href="Accedi.php">Accedi</a></li>
+                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Chi_siamo.html">Chi siamo</a></li>
             </ul>
         </nav>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="Annunci.php" lang="en">Annunci</a> &gt; &gt; Annunci</p>
+            <p>Ti trovi in: <a href="Home.php" lang="en">Home</a> &gt;&gt; Annunci</p>
         </nav>
     </div>
 
     <main id="annunci-main">
-        <form action="Annunci.php" method="get" id="annunci-ricerca">
-            <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
-            <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
-            <datalist id="suggerimenti-professione">
-                <!--titolo-placeholder-->
-            </datalist>
-            <datalist id="suggerimenti-locazione">
-                <!--locazione-placeholder-->
-            </datalist>
-            <input type="submit" value="Cerca">
-        </form> 
-
-        <input id="bottone-filtri" type="submit" value="Mostra filtri">
-        <div id="ricerca-avanzata">
-        <form id="filtri-ricerca" method="get">
-            <ul id="filtri">
-                <li><label for="data_pub">Data:</label>
-                    <select id="data_pub" name="data_pub">
-                        <option value="Nessuna">Nessuna</option>
-                        <option value="ultime-24-ore">Ultime 24 ore</option>
-                        <option value="ultimi-3-giorni">Ultimi 3 giorni</option>
-                        <option value="ultimi-7-giorni">Ultimi 7 giorni</option>
-                        <option value="ultimi-14-giorni">Ultimi 14 giorni</option>
-                    </select>
-                </li>
-                <li><label for="azienda">Azienda:</label>
-                    <input type="text" id="azienda" name="nome" list="suggerimenti-azienda" placeholder="Cerca Azienda..." required>
-                    <datalist id="suggerimenti-azienda">
-                            <option value="Nessuna">Nessuna</option>
-                            <!--nome-placeholder-->
-                    </datalist>
-                </li>
-                <li><label for="province">Provincia:</label>
-                    <select id="province" name="locazione">
-                        <option value="Nessuna">Nessuna</option>
-                        <!--provincie-placeholder-->
-                    </select>
-                </li>
-                <li><label for="settore">Settore:</label>
-                    <select id="settore" name="settore">
-                        <option value="Nessuna">Nessuna</option>
-                        <!--settore-placeholder-->
-                    </select>
-                </li>
-                <li>
-                    <label >Modalità:</label>
-                    <div class="checkbox-modalità">
-                        <input type="checkbox" id="modalità-remoto" name="remoto" value="1">
-                        <label for="modalità-remoto">Da remoto</label>
-                    </div>                
-                    <div class="checkbox-modalità">
-                        <input type="checkbox" id="modalità-presenza" name="presenza" value="1">
-                        <label for="modalità-presenza">In presenza</label>
-                    </div>
-                </li>
-                <li>
-                    <label>Tipo contratto:</label>
-                    <div class="radio-contratto">
-                        <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
-                        <label for="determinato">Tempo determinato</label>
-                    </div>
-                    <div class="radio-contratto">
-                        <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
-                        <label for="indeterminato">Tempo indeterminato</label>
-                    </div>
-                </li>
-                <li>
-                    <label for="livello_istruzione">Livello istruzione:</label>
-                    <select id="livello_istruzione" name="livello_istruzione">
-                        <option value="Nessuna">Nessuna</option>
-                        <option value="diploma">Diploma</option>
-                        <option value="laurea-triennale">Laurea Triennale</option>
-                        <option value="laurea-magistrale">Laurea Magistrale</option>
-                        <option value="dottorato">Dottorato</option>
-                    </select>
-                </li>
-
-                <li>
-                    <label for="rangeEsperienza">Esperienza:</label>          
-                    <input type="number" id="rangeEsperienza" name="esperienza" min="1" max="5" value="5">  
-                </li>
-                <li>
-                    <label for="rangeSalario">Stipendio:</label>
-                    <input type="range" id="rangeSalario" name="stipendio" min="min-placeholder" max="max-placeholder" step="100" value="value-placeholder">
-                </li>               
-            </ul>  
-            <input id="applica-filtri" type="submit" value="Cerca">     
-        </form>       
-        
-        <ul class="annunci" id="annunci-listaAnnunci">
-            <!--annunci-placeholder-->
-        </ul>
-        <div id ="annunci-completi">
-            <!--completo-placeholder-->
+        <div id="barra-ricerca">
+            <form action="Annunci.php" method="get" id="annunci-ricerca">
+                <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
+                <input type="text" id="locazione" name="locazione" list="suggerimenti-locazione" placeholder="Provincia..." required>
+                <datalist id="suggerimenti-professione">
+                    <!--titolo-placeholder-->
+                </datalist>
+                <datalist id="suggerimenti-locazione">
+                    <!--locazione-placeholder-->
+                </datalist>
+                <button type="submit"><span class="screen-reader">Cerca</span> <img src="./assets/icons/search.png" alt=""></button>
+            </form> 
         </div>
+
+        <div id="content">
+            <input id="bottone-filtri" type="submit" value="Mostra filtri">
+            <div id="ricerca-avanzata">
+                <form id="filtri-ricerca" method="get">
+                    <ul id="filtri">
+                        <li><label for="data_pub">Data:</label>
+                            <select id="data_pub" name="data_pub">
+                                <option value="Nessuna">Nessuna</option>
+                                <option value="ultime-24-ore">Ultime 24 ore</option>
+                                <option value="ultimi-3-giorni">Ultimi 3 giorni</option>
+                                <option value="ultimi-7-giorni">Ultimi 7 giorni</option>
+                                <option value="ultimi-14-giorni">Ultimi 14 giorni</option>
+                            </select>
+                        </li>
+                        <li><label for="azienda">Azienda:</label>
+                            <input type="text" id="azienda" name="nome" list="suggerimenti-azienda" placeholder="Cerca Azienda..." required>
+                            <datalist id="suggerimenti-azienda">
+                                    <option value="Nessuna">Nessuna</option>
+                                    <!--nome-placeholder-->
+                            </datalist>
+                        </li>
+                        <li><label for="province">Provincia:</label>
+                            <select id="province" name="locazione">
+                                <option value="Nessuna">Nessuna</option>
+                                <!--provincie-placeholder-->
+                            </select>
+                        </li>
+                        <li><label for="settore">Settore:</label>
+                            <select id="settore" name="settore">
+                                <option value="Nessuna">Nessuna</option>
+                                <!--settore-placeholder-->
+                            </select>
+                        </li>
+                        <li>
+                            <label >Modalità:</label>
+                            <div class="checkbox-modalità">
+                                <input type="checkbox" id="modalità-remoto" name="remoto" value="1">
+                                <label for="modalità-remoto">Da remoto</label>
+                            </div>                
+                            <div class="checkbox-modalità">
+                                <input type="checkbox" id="modalità-presenza" name="presenza" value="1">
+                                <label for="modalità-presenza">In presenza</label>
+                            </div>
+                        </li>
+                        <li>
+                            <label>Tipo contratto:</label>
+                            <div class="radio-contratto">
+                                <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
+                                <label for="determinato">Tempo determinato</label>
+                            </div>
+                            <div class="radio-contratto">
+                                <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
+                                <label for="indeterminato">Tempo indeterminato</label>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="livello_istruzione">Livello istruzione:</label>
+                            <select id="livello_istruzione" name="livello_istruzione">
+                                <option value="Nessuna">Nessuna</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="laurea-triennale">Laurea Triennale</option>
+                                <option value="laurea-magistrale">Laurea Magistrale</option>
+                                <option value="dottorato">Dottorato</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <label for="rangeEsperienza">Esperienza:</label>          
+                            <input type="number" id="rangeEsperienza" name="esperienza" min="1" max="5" value="5">  
+                        </li>
+                        <li>
+                            <label for="rangeSalario">Stipendio:</label>
+                            <input type="range" id="rangeSalario" name="stipendio" min="min-placeholder" max="max-placeholder" step="100" value="value-placeholder">
+                        </li>               
+                    </ul>  
+                    <input id="applica-filtri" type="submit" value="Cerca">          
+                </form>       
+            
+                <ul class="annunci" id="annunci-listaAnnunci">
+                    <!--annunci-placeholder-->
+                </ul>
+                <div id ="annunci-completi">
+                    <!--completo-placeholder-->
+                </div>
+            </div>
         </div>
 
     </main>
     
     <footer>
-    <nav id="footer">
-        <ul>
-            <li><a href="Contattaci.html">Contattaci</a></li>
-            <li><a href="Chi_siamo.html">Chi siamo</a></li>
-        </ul>
-    </nav>
+        <nav id="footer">
+            <ul>
+                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Chi_siamo.php">Chi siamo</a></li>
+            </ul>
+        </nav>
+        <p lang="en">&copy; 2024 EazyJobs - All rights reserved.</p>
     </footer>
     <script src="./src/script.js"></script>
 </body>

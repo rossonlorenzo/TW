@@ -70,8 +70,8 @@
                 "</li>\n";
         }    
       } else {
-        $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
-      } 
+            $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
+      }
 
       $valutazione = new Valutazione($db);
       $result = $valutazione->getAll_byAziendaId($aziendaId);
@@ -92,8 +92,8 @@
                 "</li>\n";
         }    
       } else {
-        $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
-      } 
+            $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
+      }
 
       //$result->free();
 

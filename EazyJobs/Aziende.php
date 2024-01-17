@@ -80,12 +80,12 @@
                   "<h4>Valutazione:</h4><p>" . $voto . "</p>\n" .
                   "</div>\n" .
                   "<p>" . $commento . "</p>\n" .
-                  "</li>\n";    
+                  "</li>\n";
             }
         }    
       } else {
-        $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
-      } 
+            $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
+      }
 
   $nomefile = "./templates/Aziende.html";
   $contenuto = file_get_contents($nomefile);
