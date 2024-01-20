@@ -653,9 +653,10 @@ ul#aziende img {
 
     div#content {
         width: 90%;
-        margin: 0 auto 10vh;
+        height: auto;
+        margin: 0 auto 6em;
         padding-top: 1em;
-        background-color: inherit;
+        background-color: white;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -668,7 +669,7 @@ ul#aziende img {
         position: fixed;
         bottom: 0;
         width: 100%;
-        max-height: 22vh;
+        max-height: 15em;
     }
 
     #barra-ricerca h2 {
@@ -697,12 +698,16 @@ ul#aziende img {
         align-self: center;
     }
 
+    section#container-aziende {
+        border-radius: 1em 1em 0 0;
+    }
+
     ul#aziende {
         display: flex;
         overflow-y: auto;
         overflow-x: unset;
         flex-direction: column;
-        height: 45vh;
+        height: 50vh;
         align-items: center;
         justify-content: unset;
     }
@@ -731,6 +736,10 @@ ul#aziende img {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #annunci-main {
     height: auto;
+}
+
+#annunci-main #content {
+    background-color: var(--bgColor);
 }
 
 form {
@@ -831,7 +840,7 @@ form {
     margin: auto;
 }
 
-ul.annunci, ul.annunci.nascosto {               /* lista annunci sempre visibile da desktop */
+ul.annunci, ul.annunci.hidden {               /* lista annunci sempre visibile da desktop */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -844,7 +853,6 @@ ul.annunci, ul.annunci.nascosto {               /* lista annunci sempre visibile
 
 ul.annunci::-webkit-scrollbar, ul#aziende::-webkit-scrollbar {
     width: 0.5em;
-    background-color: var(--headerBgColor);
     border-radius: 5px;
 }
 
@@ -944,7 +952,7 @@ ul.job-info li {
     min-height: 40vh;
 }
 
-.nascosto {    
+.hidden {    
     display: none;
     max-height: 0;
 }

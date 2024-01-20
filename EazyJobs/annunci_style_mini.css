@@ -116,7 +116,7 @@ ul.annunci {
     overflow-x: unset;
 }
 
-ul.annunci.nascosto {    
+ul.annunci.hidden {    
     display: none;
     max-height: 0;
 }
@@ -204,6 +204,7 @@ ul.job-info li {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
+    
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
