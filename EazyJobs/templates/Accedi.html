@@ -1,85 +1,83 @@
 <!-- VALIDATO -->
-<!-- html ok -->
-<!-- button ok -->
-<!-- form ok -->
-<!-- img ok -->
-<!-- tabindex ok -->
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Accedi</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>Accedi - EazyJobs</title>
+    <meta name="keywords" content="EazyJobs, accedi, ruolo, aziende, candidati, registrati">
+    <meta name="description" content="Accedi alla tua area personale in EazyJobs">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
 <body onload="showHideNav()">
+    <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
         <div class="header-actions">
             <a href="">Log-out</a>
         </div>
         <div class="header-logo">
-            <h1>EazyJobs</h1>
+            <h1><span lang="en">EazyJobs</span></h1>
         </div>
         <div class="header-burger">
             <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
                 <span class="burger close">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </span>
             </button>
         </div>
     </header>
     <div id="navigazione">
-        <nav id="menu">
+        <nav id="menu" aria-label="Menu principale">
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li><a href="Annunci.php">Annunci</a></li>
                 <li>Accedi</li>
-                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Contattaci.php">Contattaci</a></li>
                 <li><a href="Chi_siamo.php">Chi siamo</a></li>
             </ul>
         </nav>
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" aria-label="Navigazione breadcrumb">
             <p>Ti trovi in: <a href="Home.php" lang="en">Home</a> &gt; &gt; Accedi</p>
         </nav>
     </div>
 
     <main id="accedi-main">
-        <form action="http://localhost/TW/EazyJobs/api/login.php" method="post" id="login-form">
-            <label for="ruolo">Seleziona il tuo ruolo:</label>
-            <select id="ruolo" name="ruolo">
-                <option value="candidati">Candidati</option>
-                <option value="aziende">Aziende</option>
-            </select>
+        <div id="primoContenuto">
+            <form action="./api/login.php" method="post" id="login-form">
+                <label for="ruolo">Seleziona il tuo ruolo:</label>
+                <select id="ruolo" name="ruolo">
+                    <option value="candidati">Candidati</option>
+                    <option value="aziende">Aziende</option>
+                </select>
 
-            <div id="credenziali">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
+                <div id="credenziali">
+                    <label for="email"><span lang="en">Email:</span></label>
+                    <input type="email" id="email" name="email">
+                    <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
-            </div>
+                    <label for="password"><span lang="en">Password:</span></label>
+                    <input type="password" id="password" name="password">
+                    <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
+                </div>
 
-            <input type="submit" id="accedi-bottone" data-validation="validateFields" value="Accedi">
-            <div class="messaggio-errore">credenziali-errore-placeholder</div>
+                <input type="submit" id="accedi-bottone" data-validation="validateFields" value="Accedi">
+                <div class="messaggio-errore" aria-live="assertive">credenziali-errore-placeholder</div>
 
-            <p>Non hai un account?</p>
-            <p>Registrati da <a href="RegistraUser.php">candidato</a> o da <a href="RegistraAdmin.php">azienda</a>.</p>
-        </form>
+                <p>Non hai un account?</p>
+                <p>Registrati da <a href="RegistraUser.php" aria-label="Registrati da candidato">candidato</a> o da <a href="RegistraAdmin.php" aria-label="Registrati da azienda">azienda</a>.</p>
+            </form>
+        </div>
     </main>
     
     <footer>
-        <nav id="footer">
+        <nav id="footer" aria-label="Piè di pagina">
             <ul>
-                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="Contattaci.php">Contattaci</a></li>
                 <li><a href="Chi_siamo.php">Chi siamo</a></li>
             </ul>
         </nav>

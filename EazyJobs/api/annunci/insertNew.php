@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // If there are errors, handle them (e.g., display error messages or prevent form submission)
     if (!empty($errors)) {
         $userValues = $_POST;
-        header("Location: http://localhost/TW/EazyJobs/PubblicaAnnuncio.php?errors=".urlencode(json_encode($errors))
+        header("Location: ../../PubblicaAnnuncio.php?errors=".urlencode(json_encode($errors))
         ."&userValues=".urlencode(json_encode($userValues)));
     exit();
 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $num = $result->rowCount();
 
         if($num > 0) {
-            header("Location: http://localhost/TW/EazyJobs/Admin.php");
+            header("Location: ../../Admin.php");
             exit();
         }
         else {}     //think of suitable error message to pass onto PubblicaAnnuncio.php

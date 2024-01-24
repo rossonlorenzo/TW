@@ -1,10 +1,12 @@
+<!-- VALIDATO -->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Chi siamo</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>Chi siamo - EazyJobs</title>
+    <meta name="keywords" content="EazyJobs, chi siamo, storia, mondo professionale, professionisti, ricerca del lavoro, fondatori, missione, carriere gratificanti, inclusiva">
+    <meta name="description" content="La storia di EazyJobs, nato per semplificare il mondo del lavoro, collegando talenti con opportunità e creando connessioni significative nel mondo professionale.">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="stylesheet" href="chi_siamo_style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,25 +14,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
 <body onload="showHideNav()">
+    <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
         <div class="header-actions">
-            <a href="Accedi.php">Accedi</a>
+            <a href="Chi_siamo.php">Accedi</a>
         </div>
         <div class="header-logo">
-            <h1>EazyJobs</h1>
+            <h1><span lang="en">EazyJobs</span></h1>
         </div>
         <div class="header-burger">
             <button type="button" class="hamburger" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
                 <span class="burger close">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </span>
             </button>
         </div>
     </header>
     <div id="navigazione">
-        <nav id="menu">
+        <nav id="menu" aria-label="Menu principale">
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li><a href="Annunci.php">Annunci</a></li>
@@ -39,7 +42,7 @@
                 <li>Chi siamo</li>
             </ul>
         </nav>
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" aria-label="Navigazione breadcrumb">
             <p>Ti trovi in: Chi siamo</p>
         </nav>
     </div>
@@ -49,20 +52,22 @@
             <h2>Chi siamo</h2>
         </div>
         <div id="chi_siamo-block">
-            <img id="chi_siamo_img1" src="./assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash.jpg">
-            <div class="blocco">
-                <h3 class="chi_siamo">La nostra storia</h3>
-                <p>
-                    EazyJobs è nato con l'obiettivo di semplificare il mondo del lavoro, collegando 
-                    talenti con opportunità e creando connessioni significative nel mondo 
-                    professionale. Fondata da un gruppo appassionato di professionisti, il nostro team
-                    è composto da individui dedicati e orientati all'innovazione che credono nel 
-                    potenziale di trasformare la ricerca del lavoro in un'esperienza più efficace e 
-                    gratificante.
-                </p>
+            <img id="chi_siamo_img1" src="./assets/imgs/marvin-meyer-SYTO3xs06fU-unsplash.jpg" alt="">
+            <div id="primoContenuto">
+                <div class="blocco">
+                    <h3 class="chi_siamo">La nostra storia</h3>
+                    <p>
+                        EazyJobs è nato con l'obiettivo di semplificare il mondo del lavoro, collegando 
+                        talenti con opportunità e creando connessioni significative nel mondo 
+                        professionale. Fondata da un gruppo appassionato di professionisti, il nostro team
+                        è composto da individui dedicati e orientati all'innovazione che credono nel 
+                        potenziale di trasformare la ricerca del lavoro in un'esperienza più efficace e 
+                        gratificante.
+                    </p>
+                </div>
             </div>
             
-            <img id="chi_siamo_img2" src="./assets/imgs/hannah-busing-Zyx1bK9mqmA-unsplash.jpg">
+            <img id="chi_siamo_img2" src="./assets/imgs/hannah-busing-Zyx1bK9mqmA-unsplash.jpg" alt="">
             <div class="blocco">
                 <h3 class="chi_siamo">I fondatori</h3>
                 <p>
@@ -74,7 +79,7 @@
                 </p>
             </div>
             
-            <img id="chi_siamo_img3" src="./assets/imgs/krakenimages-376KN_ISplE-unsplash.jpg">
+            <img id="chi_siamo_img3" src="./assets/imgs/krakenimages-376KN_ISplE-unsplash.jpg" alt="">
             <div class="blocco">
                 <h3 class="chi_siamo">La nostra missione</h3>
                 <p>
@@ -88,7 +93,7 @@
     </main>
     
     <footer>
-        <nav id="footer">
+        <nav id="footer" aria-label="Piè di pagina">
             <ul>
                 <li><a href="Contattaci.html">Contattaci</a></li>
                 <li>Chi siamo</li>

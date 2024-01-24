@@ -69,7 +69,7 @@ ini_set('display_errors', 1);
     }
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -89,7 +89,7 @@ ini_set('display_errors', 1);
 
     if ($azienda->findEmailMatch() || $azienda->findMatch()) {
         $errors['credenziali'] = "Le credenziali inserite sono già in uso.";
-        header("Location: http://localhost/TW/EazyJobs/RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../RegistraAdmin.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -107,7 +107,7 @@ ini_set('display_errors', 1);
             $azienda->updateLogoPath($adminIdInserito);
         }
 
-        header("Location: http://localhost/TW/EazyJobs/Accedi.php");
+        header("Location: ../../Accedi.php");
         exit();
     }
     else {}

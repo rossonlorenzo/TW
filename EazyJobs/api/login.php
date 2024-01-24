@@ -31,7 +31,7 @@ ini_set('display_errors', 1);
         }
 
         if (!empty($errors)) {
-            header("Location: http://localhost/TW/EazyJobs/Accedi.php?errors=".urlencode(json_encode($errors)));
+            header("Location: ./../Accedi.php?errors=".urlencode(json_encode($errors)));
             exit();
         }
 
@@ -46,13 +46,13 @@ ini_set('display_errors', 1);
 
             if ($userID) {
                 $_SESSION['user_id'] = $userID;
-                header("Location: http://localhost/TW/EazyJobs/User.php");
+                header("Location: ./../User.php");
                 exit();
             } else {
                 $errors = [];
                 $errors['credenziali'] = "Credenziali non valide.";
 
-                header("Location: http://localhost/TW/EazyJobs/Accedi.php?errors=".urlencode(json_encode($errors)));
+                header("Location: ./../Accedi.php?errors=".urlencode(json_encode($errors)));
                 exit();
             }
 
@@ -67,13 +67,13 @@ ini_set('display_errors', 1);
 
             if ($aziendaID) {
                 $_SESSION['admin_id'] = $aziendaID;
-                header("Location: http://localhost/TW/EazyJobs/Admin.php");
+                header("Location: ./../Admin.php");
                 exit();
             } else {
                 $errors = [];
                 $errors['credenziali'] = "Credenziali non valide.";
 
-                header("Location: http://localhost/TW/EazyJobs/Accedi.php?errors=".urlencode(json_encode($errors)));
+                header("Location: ./../Accedi.php?errors=".urlencode(json_encode($errors)));
                 exit();
             }
         }

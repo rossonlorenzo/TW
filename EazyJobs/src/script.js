@@ -36,11 +36,6 @@ starRating.innerHTML = stars;
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", function () {
 
-    if (window.innerWidth < 768 && document.title == "EazyJobs: Annunci") {
-        const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
-        annuncioCompletoIniziale.classList.add("nascosto");
-    }
-
     const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
     const dettagliList = document.querySelectorAll(".dettagli");
     
@@ -59,32 +54,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     const annunciButtons = document.querySelectorAll(".bottone-annunci");
-    const listaAnnunci = document.getElementById("annunci-listaAnnunci");
     
     annunciButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = button.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            annuncioCompleto.setAttribute("class", "annuncio-completo nascosto");
-            listaAnnunci.setAttribute("class", "annunci");
+            annuncioCompleto.setAttribute("class", "annuncio-completo-hidden");
             document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
         });
     });
     
     const annuncioLinks = document.querySelectorAll(".annuncio-link");
-    
     annuncioLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const target = link.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            const annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
-            if(annuncioTrue != null) {
-                annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
-            } 
-            listaAnnunci.setAttribute("class", "annunci nascosto");
+            const annuncioTrue = document.getElementsByClassName("annuncio-completo")[0];
+            if(annuncioTrue!= null)
+                document.getElementsByClassName("annuncio-completo")[0].setAttribute("class", "annuncio-completo-hidden");
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
+    
+            //focus su annuncio-completo (on and off)
+            const visibleAnnuncio = document.querySelector('.annuncio-completo .annuncio-completo-contenitore');
+            const prevElement = document.querySelector(`[data-target='${target}']`);
+            const buttonElement = document.querySelector('.annuncio-completo .bottone-dettagli');
+
+            if (visibleAnnuncio) {
+                visibleAnnuncio.focus();
+                visibleAnnuncio.addEventListener('focusout', function () {
+                    setTimeout(function () {
+                        if (document.activeElement !== buttonElement) {
+                            prevElement.focus();
+                        }
+                    }, 0);
+                });
+            }
+          
         });
     });
     
@@ -93,18 +100,16 @@ document.addEventListener("DOMContentLoaded", function () {
     
         if (filterButton) {
             filterButton.addEventListener("click", function () {
-                if (filtriRicerca.className === "showing") {
-                    filtriRicerca.className = "hiding";
-                    filterButton.className = "hiding";
-                    filterButton.textContent = "Mostra filtri";
+                if (filtriRicerca.style.display === "none" || filtriRicerca.style.display === "") {
+                    filtriRicerca.style.display = "block";
+                    filterButton.value = "Nascondi filtri";
                 } else {
-                    filtriRicerca.className = "showing";
-                    filterButton.className = "showing";
-                    filterButton.textContent = "Nascondi filtri";
+                    filtriRicerca.style.display = "none";
+                    filterButton.value = "Mostra filtri";
                 }
             });
         }
-});
+    });
     
     const salvaButtons = document.querySelectorAll(".bottone-salva");
     
@@ -113,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const annuncioId = button.getAttribute('data-id');
             const data = { id: annuncioId };
     
-            fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
+            fetch('./api/preferiti/insertNew.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -135,8 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI JS [FINE]
@@ -161,9 +164,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
             const isVisibile = recensioniForm.classList.contains('visibile');
             if (isVisibile) {
-                toggleButton.textContent = 'Nascondi il form';
+                toggleButton.value = 'Nascondi il form';
+
+                //focus sul primo input
+                const selectElement = document.getElementById('valutazione');
+                if (selectElement) {
+                    selectElement.focus();
+                }
             } else {
-                toggleButton.textContent = 'Scrivi una recensione';
+                toggleButton.value = 'Scrivi una recensione';
             }
         });
     
@@ -179,9 +188,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
                 const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
                 if (isModificaVisibile) {
-                    modificaButton.textContent = 'Cancella modifica';
+                    modificaButton.value = 'Cancella modifica';
+                    
+                    //focus sul primo input
+                    const selectElement = document.getElementById('modifica-valutazione');
+                    if (selectElement) {
+                        selectElement.focus();
+                    }
                 } else {
-                    modificaButton.textContent = 'Modifica';
+                    modificaButton.value = 'Modifica';
                 }
         
                 if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
@@ -200,9 +215,11 @@ document.addEventListener('click', function(event) {
         confirmationModal.style.display = 'block';
 
         const confirmButton = document.getElementById('confirmButton');
+        confirmButton.focus();
+
         confirmButton.onclick = function() {
             const data = { id: aziendaId };
-            fetch('http://localhost/TW/EazyJobs/api/valutazioni/delete.php', {
+            fetch('./api/valutazioni/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
@@ -256,7 +273,7 @@ document.addEventListener('click', function(event) {
         const data = { id: annuncioId };
 
         // Perform a POST request to delete.php
-        fetch('http://localhost/TW/EazyJobs/api/preferiti/delete.php', {
+        fetch('./api/preferiti/delete.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -359,7 +376,7 @@ document.addEventListener('click', function(event) {
         const annuncioId = event.target.getAttribute('data-id');
         const data = { id: annuncioId };
         const formData = new URLSearchParams(data).toString();
-        window.location.href = `http://localhost/TW/EazyJobs/ModificaAnnuncio.php?${formData}`;
+        window.location.href = `./ModificaAnnuncio.php?${formData}`;
     }
 });   
 
@@ -373,9 +390,11 @@ document.addEventListener('click', function(event) {
         confirmationModal.style.display = 'block';
 
         const confirmButton = document.getElementById('confirmButton');
+        confirmButton.focus();
+
         confirmButton.onclick = function() {
             const data = { id: annuncioId };
-            fetch('http://localhost/TW/EazyJobs/api/annunci/delete.php', {
+            fetch('./api/annunci/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
@@ -415,7 +434,7 @@ document.addEventListener('click', function(event) {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-const fieldValidation = {
+        const fieldValidation = {
     nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
     password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},

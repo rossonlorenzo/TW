@@ -34,7 +34,7 @@ ini_set('display_errors', 1);
 
     //inserisci errore nel caso in cui i dati non siano cambiati affatto (volendo)
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/ModificaUser.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../ModificaUser.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -52,7 +52,7 @@ ini_set('display_errors', 1);
         if ($utente->email !== $emailCorrente) {
             if ($utente->findEmailMatch()) {
                 $errors['email'] = "L'email inserita è già in uso.";
-                header("Location: http://localhost/TW/EazyJobs/ModificaUser.php?errors=".urlencode(json_encode($errors)));
+                header("Location: ../../ModificaUser.php?errors=".urlencode(json_encode($errors)));
                 exit();
             }
         }
@@ -60,7 +60,7 @@ ini_set('display_errors', 1);
         $result = $utente->modifyOld();
     
         if ($result) {
-            header("Location: http://localhost/TW/EazyJobs/User.php");
+            header("Location: ../../User.php");
             exit();
         }
         else {}

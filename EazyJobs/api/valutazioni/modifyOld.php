@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $aziendaId = $_POST['aziendaId'];
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
+        header("Location: ./../../Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
         exit();
 
     } else {
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $num = $result->rowCount();
 
             if($num > 0) {
-                header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId");
+                header("Location: ./../../Aziende.php?id=$aziendaId");
                 exit();
             }
             else {}     //messaggio da inviare a Aziende.php

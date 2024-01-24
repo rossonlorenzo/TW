@@ -22,7 +22,7 @@ ini_set('display_errors', 1);
     }
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/User.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../User.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -41,7 +41,7 @@ ini_set('display_errors', 1);
                 unlink($currentCVPath);
             }
             if (move_uploaded_file($_FILES['cv']['tmp_name'], $uploadDirectory . $newFileName)) {
-                header("Location: http://localhost/TW/EazyJobs/User.php");
+                header("Location: ../../User.php");
                 exit();
             }
         }   

@@ -22,18 +22,21 @@
         $str_aziende = "";
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);
+          $abbreviatedMedia = number_format($media, 0);
 
           $str_aziende .= 
           "<li id='aziende-" . $id . "'>\n" .
           "<div class='header-aziende'>\n" .
-          "<h3><a href='Aziende.php?id=" . $id . "'>" . $nome . "</a></h3>\n" .
-          "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab Logo'>\n" .
+          "<h3><a href='Aziende.php?id=" . $id . "' aria-label=\"Scopri l'azienda " . $nome . "\">" . $nome . "</a></h3>\n" .
+          "<img src='../assets/logos/". $id ."_logo.png' alt='Logo azienda " . $nome ."'>\n" .
           "</div>\n" .
           "<div class='azienda-grid'>\n" .
           "<h4>settore:</h4> <p>" . $settore . "</p>\n" .
           "<h4>valutazione:</h4>\n" .
-          "<div class='valutazione-media' data-rating='" . $media . "'></div>\n" .
-          "</div>\n" .
+          "<div class='valutazione-container'>\n" .
+              "<span class='nascosto'>" . $abbreviatedMedia . " su 5</span>\n" .
+              "<div class='valutazione-media' aria-hidden='true' data-rating='" . $media . "'></div>\n" .          
+          "</div>\n" .          
           "</li>" . "\n";
         }
   } else {

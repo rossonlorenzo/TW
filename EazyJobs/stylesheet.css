@@ -760,17 +760,11 @@ form {
     display: flex;
 }
 
-#filtri-ricerca {  
-    display: block; 
+#filtri-ricerca {
     width: 15em;
 }
 
-#filtri-ricerca.showing, #filtri-ricerca.hiding {          /* passando da visualizzazione mobile a desktop la barra dei filtri */
-    display: block;                                        /* torna visibile in ogni caso */ 
-}
-
 #filtri {
-    list-style-type: none;
     max-width: 90%;
     background-color: var(--headerBgColor);
     border-radius: 1em;
@@ -780,13 +774,14 @@ form {
     border: 0.15em var(--footerTxtColor) solid;
 }
 
-#filtri li {
+#filtri div {
     padding: 0.3em;
     background-color: var(--footerBgColor);  
     margin: 0.3em;
 }
 
-#filtri li label {
+#filtri div label, 
+#filtri div legend {
     width: 90%;
     margin: auto;
     white-space: nowrap;
@@ -794,28 +789,44 @@ form {
     font-weight: bold;
 }
 
-#filtri li select,
-#filtri li input[type="text"],
-#filtri li input[type="range"] {
+#filtri #modalità legend {
+    width: 55%;
+}
+
+#filtri #contratto legend {
+    width: 85%;
+}
+
+#annunci-main #filtri div p {
+    width: 90%;
+    margin: auto;
+    white-space: nowrap;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+}
+
+#filtri div select,
+#filtri div input[type="text"],
+#filtri div input[type="range"] {
     width: 100%;
     margin: auto;
     height: auto;
 }
 
-#filtri li input[type="number"]{
+#filtri div input[type="number"]{
     width: 30%;
     margin: auto;
     height: auto;
 }
 
-#filtri li .checkbox-modalità,
-#filtri li .radio-contratto {
+#filtri div .checkbox-modalità,
+#filtri div .radio-contratto {
     display: flex;
     margin: auto;
 }
 
-#filtri li .checkbox-modalità label,
-#filtri li .radio-contratto label {
+#filtri div .checkbox-modalità label,
+#filtri div .radio-contratto label {
     font-size: 0.8em;
     color: black;
     font-weight: normal;
@@ -831,29 +842,28 @@ form {
     margin: auto;
 }
 
-ul.annunci, ul.annunci.nascosto {               /* lista annunci sempre visibile da desktop */
+ul.annunci {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
-    max-height: 85vh;
-    /* width: 40%; */
+    max-height: 75vh;
     list-style-type: none;
     overflow-x: unset;
 }
 
-ul.annunci::-webkit-scrollbar, ul#aziende::-webkit-scrollbar {
+ul.annunci::-webkit-scrollbar {
     width: 0.5em;
-    background-color: var(--headerBgColor);
+    background-color: #f7e7ce;
     border-radius: 5px;
 }
 
-ul.annunci::-webkit-scrollbar-thumb, ul#aziende::-webkit-scrollbar-thumb {
-    background-color: var(--headerTxtColor);
+ul.annunci::-webkit-scrollbar-thumb {
+    background-color: #f8d9a7;
     border-radius: 5px;
 }
 
-ul.annunci li {
+ul.annunci li {         
     background-color: white;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     border: 0.2em var(--footerTxtColor) solid;
@@ -904,14 +914,16 @@ ul.annunci img {
     max-width: 15%;
 }
 
-ul.job-info {
-    list-style-type: none;
+.job-info {
     margin-top: 1em;
 }
 
-ul.job-info li {
-    display: flex;
-    gap: 0.5em;
+.job-info dt {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.job-info dd {
     border: none;
     box-shadow: none;
     padding: 0;
@@ -935,6 +947,7 @@ ul.job-info li {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -944,9 +957,9 @@ ul.job-info li {
     min-height: 40vh;
 }
 
-.nascosto {    
+.annuncio-completo-hidden {    
     display: none;
-    max-height: 0;
+    height: 0;
 }
 
 .bottone-annunci {
@@ -976,23 +989,19 @@ ul.job-info li {
     font-size: 0.9em;
 }
 
-.annuncio-completo ul h5 {
+.annuncio-completo dl h5 {
     font-size: 0.9em;
     font-weight: bold;
 }
 
-.annuncio-completo ul p {
+.annuncio-completo dl p,
+.annuncio-completo dl time {
     font-size: 0.8em;
 }
 
-ul.annuncio-info {
-    list-style-type: none;
-    margin-top: 1em;
-}
-
-ul.annuncio-info li {
-    display: flex;
-    gap: 0.5em;
+.annuncio-info dt {
+    float: left;
+    margin-right: 0.5em;
 }
 
 .dettagli {
@@ -1000,21 +1009,22 @@ ul.annuncio-info li {
     margin-top: 1em;
 }
 
-ul.job-complete-info {
-    list-style-type: none;
+.job-complete-info dt {
+    float: left;
+    margin-right: 0.5em;
 }
 
-ul.job-complete-info li {
+.job-complete-info dd {
     display: flex;
     gap: 0.5em;
 }
 
-ul.job-complete-info li h5 {
+.job-complete-info h5 {
     white-space: nowrap;
     overflow:visible;
 }
 
-ul.job-complete-info li p {/* [...] effect */
+.job-complete-info p {/* [...] effect */
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1023,20 +1033,19 @@ ul.job-complete-info li p {/* [...] effect */
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 1em;
+    gap: 1em;
 }
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
-    margin-top: 1em;
+    margin: 1em 0;
 }
 
 #salvato{
     margin-top: 1.5em;
 }
-/*
- @media (max-width: 1200px) {
+
+/* @media (max-width: 1200px) {
     ul.annunci li h5 {
         white-space: nowrap;
         overflow: visible;
@@ -1046,13 +1055,9 @@ ul.azioni-aggiuntive li {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-}*/
+}
 
 @media (max-width: 1024px) {
-    #annunci-main {
-        width: 90%;
-    }
-    /*
     #annuncio-completo {
         display: none;
     }
@@ -1067,9 +1072,9 @@ ul.azioni-aggiuntive li {
     }
     ul.annunci li p {
         text-wrap: wrap;
-    }*/
+    }
 }
-/*
+
 @media (max-width: 768px) {
     #annunci-main {
         width: 100%;
@@ -1094,7 +1099,6 @@ ul.azioni-aggiuntive li {
         text-overflow: ellipsis;
     }
 } */
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -1195,9 +1199,9 @@ ul.azioni-aggiuntive li {
     margin-left: 1em;
 }
 
-#aziende-recensioni > .valutazione {
-    display: flex;
-    gap: 0.5em;
+#aziende-recensioni .valutazione dt {
+    float: left;
+    margin-right: 0.5em;
 }
 
 #aziende-recensioni h3 {
@@ -1218,23 +1222,22 @@ ul.azioni-aggiuntive li {
     flex-direction: column;
     overflow: auto;
     max-width: 50%;
-}
 
-.invisibile {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    padding: 0;
-    margin: 0; 
-}
-
-.visibile {
     margin: auto;
     padding: 1em;
     max-height: fit-content;
     border: 3px solid;
     border-radius: 1em;
     border-color: var(--headerTxtColor);
+}
+
+.invisibile {
+    visibility: hidden;
+    height: 0;
+}
+
+.visibile {
+    visibility: visible;
 }
 
 #recensioni-form label, #recensioni-modifica-form label {
@@ -1262,7 +1265,6 @@ ul.azioni-aggiuntive li {
 #recensioni-form #valutazione,
 #recensioni-modifica-form #valutazione {
     margin-left: 0;
-    width: 10%;
 }
 
 #recensioni-form #commento,
