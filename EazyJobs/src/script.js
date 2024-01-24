@@ -36,9 +36,15 @@ starRating.innerHTML = stars;
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", function () {
 
-    if (window.innerWidth < 768 && document.title == "EazyJobs: Annunci") {
-        const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
-        annuncioCompletoIniziale.classList.add("nascosto");
+    const listaAnnunci = document.getElementById("annunci-listaAnnunci");
+
+    if (document.title == "EazyJobs: Annunci") {
+        if (window.innerWidth <= 768) {
+            const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
+            annuncioCompletoIniziale.classList.add("hidden");
+        } else {
+            listaAnnunci.classList.add("hidden");
+        }
     }
 
     const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
@@ -59,13 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     const annunciButtons = document.querySelectorAll(".bottone-annunci");
-    const listaAnnunci = document.getElementById("annunci-listaAnnunci");
     
     annunciButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = button.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            annuncioCompleto.setAttribute("class", "annuncio-completo nascosto");
+            annuncioCompleto.setAttribute("class", "annuncio-completo hidden");
             listaAnnunci.setAttribute("class", "annunci");
             document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
         });
@@ -78,9 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const target = link.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            const annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
+            const annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
             if(annuncioTrue != null) {
-                annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
+                annuncioTrue.setAttribute("class", "annuncio-completo hidden");
             } 
             var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             if(screenWidth <= 768)
@@ -232,7 +237,7 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
-                confirmationModal.style.display = 'none';
+confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
@@ -405,11 +410,11 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
-                confirmationModal.style.display = 'none';
+confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
-                confirmationModal.style.display = 'none';
+            confirmationModal.style.display = 'none';
             });
         }
         const cancelButton = document.getElementById('cancelButton');
