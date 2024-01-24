@@ -148,10 +148,11 @@ if ($num > 0) {
         extract($row);
         $str_annunci .=
             "<li id='#" . $id . "'>" .
-            "<div class='header-annunci'>" .
             "<a href='annuncio-" . $id . "' class='annuncio-link' aria-label=\"Scopri l'annuncio " . $titolo . " #" . $id ."\" data-target='annuncio-" . $id ."'>" . 
             "<h3>" . $titolo . " #". $id ."</h3>" .
             "</a>" .
+
+            "<div class='header-annunci'>" .
             "<h4>" . $nome . "</h4>" .
             "<img src='./assets/logos/". $azienda_id ."_logo.png' alt='Logo azienda " . $nome ."'>" .
             "</div>" .
@@ -172,7 +173,7 @@ if ($num > 0) {
             $first = false;
         }else{
             $str_completo .=
-            "<article id='annuncio-" . $id . "' class='annuncio-completo-hidden'>";
+            "<article id='annuncio-" . $id . "' class='annuncio-completo hidden'>";
         }
             $ml = "";
 
@@ -190,35 +191,34 @@ if ($num > 0) {
         $datePart = date('Y-m-d', strtotime($data_pub));
         $str_completo .=
             "<div class='annuncio-completo-contenitore' tabindex='0'>" .
-            "<div class='header-annunci'>" .
-            "<h3>" . $titolo . "</h3>" .
-            "<h4>" . $nome . "</h4>" .
-            "<img src='./assets/logos/". $azienda_id ."_logo.png' alt='Logo azienda " . $nome ."'>" .
-            "</div>" .
+                "<h3>" . $titolo . "</h3>" .
+                "<div class='header-annunci'>" .
+                "<h4>" . $nome . "</h4>" .
+                "<img src='./assets/logos/". $azienda_id ."_logo.png' alt='Logo azienda " . $nome ."'>" .
+                "</div>" .
 
-            "<h5>Descrizione:</h5>" .
-            "<p>" . $desc_completa . "</p>" .
+                "<h5>Descrizione:</h5>" .
+                "<p>" . $desc_completa . "</p>" .
 
-            "<ul class='annuncio-info'>" .
-
+                "<ul class='annuncio-info'>" .
                 "<li><h5>Candidati all'annuncio:</h5><p>5</p></li>" .
                 "<li><h5>Recensioni dell'azienda:</h5><p>20</p></li>" .
                 "</ul>" .
 
                 "<div class='dettagli' aria-live='polite'>" .
-                "<ul class='job-complete-info'>" .
-                "<li><h5>Data di pubblicazione:</h5><time datetime=\"$datePart\">" . $datePart . "</time></li>" .
-                "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
-                "<li><h5>Settore:</h5><p>" . $settore . "</p></li>" .
-                "<li><h5>Modalita' di lavoro:</h5><p>" . $ml . "</p></li>" .
-                "<li><h5>Tipo di contratto:</h5><p>" . $contratto . "</p></li>" .
-                "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
-                "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
-                "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
-                "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
-                "</ul>" .
+                    "<ul class='job-complete-info'>" .
+                    "<li><h5>Data di pubblicazione:</h5><time datetime=\"$datePart\">" . $datePart . "</time></li>" .
+                    "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
+                    "<li><h5>Settore:</h5><p>" . $settore . "</p></li>" .
+                    "<li><h5>Modalita' di lavoro:</h5><p>" . $ml . "</p></li>" .
+                    "<li><h5>Tipo di contratto:</h5><p>" . $contratto . "</p></li>" .
+                    "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
+                    "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
+                    "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
+                    "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
+                    "</ul>" .
                 "</div>" .
-                "</div>" .
+            "</div>" .
 
             "<ul class='azioni-aggiuntive'>" .
             "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>" .
@@ -230,7 +230,7 @@ if ($num > 0) {
             }
             $str_completo .= 
                 "</ul>".
-                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value=\"Esci dall'annuncio #{$id}\">" .
+                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio #{$id}\">" .
                 "</article>";
     }
 } else {

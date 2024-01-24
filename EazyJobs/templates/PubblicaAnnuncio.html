@@ -1,18 +1,12 @@
 <!-- VALIDATO -->
-<!-- html ok -->
-<!-- button ok -->
-<!-- form -->
-<!-- img ok -->
-<!-- tabindex -->
-<!-- da controllare la post-->
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Pubblica Annuncio - EazyJobs</title>
-    <meta name="keywords" content="EazyJobs, annuncio, lavoro, annunci di lavoro, azienda, pubblica, contenuti, caratteristiche, requisiti">
-    <meta name="description" content="La pagina Pubblica Annuncio su EazyJobs offre alle aziende la possibilità di pubblicare nuovi annunci specificando tutte le informazioni rilevanti.">
+    <meta name="keywords" content="EazyJobs, pubblica, annuncio">
+    <meta name="description" content="Form di pubblicazione annunci per le aziende di EazyJobs">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +14,7 @@
 </head>
 <body>
     <header>
-        <h1>EazyJobs</h1>
+        <h1><span lang="en">EazyJobs</span></h1>
     </header>
 
 <main id="pubblica-annuncio-main">
@@ -52,24 +46,28 @@
         <input type="text" id="settore" name="settore" placeholder="Scrivi qui il settore">
         <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
-        <label>Modalità di lavoro:</label>
-        <div class="checkbox-group">
-            <input type="checkbox" id="modalità-remoto" name="modalità-remoto">
-            <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
+        <fieldset id="modalità">
+            <legend>Modalità di lavoro:</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="modalità-remoto" name="modalità-remoto">
+                    <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
 
-            <input type="checkbox" id="modalità-presenza" name="modalità-presenza">
-            <label for="modalità-presenza" class="checkbox-label">In presenza</label>
-        </div>
+                    <input type="checkbox" id="modalità-presenza" name="modalità-presenza">
+                    <label for="modalità-presenza" class="checkbox-label">In presenza</label>
+                </div>
+        </fieldset>
         <div id="checkbox-errore" class="messaggio-errore">checkbox-errore-placeholder</div>
 
-        <label>Tipo contratto:</label>
-        <div class="radio-group">
-            <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
-            <label for="determinato" class="radio-label">Tempo determinato</label>
+        <fieldset id="contratto">
+            <legend>Tipo contratto:</legend>
+                <div class="radio-group">
+                    <input type="radio" id="determinato" name="contratto" value="Tempo determinato">
+                    <label for="determinato" class="radio-label">Tempo determinato</label>
 
-            <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
-            <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
-        </div>
+                    <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato">
+                    <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
+                </div>
+        </fieldset>
         <div class="messaggio-errore">radio-errore-placeholder</div>
 </fieldset>
     <fieldset id="requisiti" class="hidden-fieldset">
@@ -97,7 +95,7 @@
         <input type="text" id="stipendio" name="stipendio" value="0">
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
 </fieldset>
-    <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Pubblica Annunci' disabled="true">
+    <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Pubblica Annunci' disabled>
     </form>
 <div id="buttons">
         <input type="submit" id="prev" value="Precedente">

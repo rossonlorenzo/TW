@@ -110,8 +110,6 @@
               "<p>" . $commento . "</p>\n" .
               "</li>\n";
       }
-
-      // result->free()
   } else {
     $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
   }

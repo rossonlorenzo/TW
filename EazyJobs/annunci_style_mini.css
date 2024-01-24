@@ -34,6 +34,9 @@ form {
 }
 
 #filtri {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style-type: none;
     background-color: var(--headerBgColor);
     border-radius: 0;
@@ -43,6 +46,7 @@ form {
 }
 
 #filtri li {
+    width: 50%;
     padding: 0.3em;
     background-color: var(--footerBgColor);  
     margin: 0.3em;
@@ -116,7 +120,7 @@ ul.annunci {
     overflow-x: unset;
 }
 
-ul.annunci.nascosto {    
+ul.annunci.hidden {    
     display: none;
     max-height: 0;
 }
@@ -204,6 +208,7 @@ ul.job-info li {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
+    
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;

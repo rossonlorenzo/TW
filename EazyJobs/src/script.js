@@ -36,6 +36,17 @@ starRating.innerHTML = stars;
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", function () {
 
+    const listaAnnunci = document.getElementById("annunci-listaAnnunci");
+
+    if (document.title == "EazyJobs: Annunci") {
+        if (window.innerWidth <= 768) {
+            const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
+            annuncioCompletoIniziale.classList.add("hidden");
+        } else {
+            listaAnnunci.classList.add("hidden");
+        }
+    }
+
     const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
     const dettagliList = document.querySelectorAll(".dettagli");
     
@@ -59,23 +70,29 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", () => {
             const target = button.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            annuncioCompleto.setAttribute("class", "annuncio-completo-hidden");
+            annuncioCompleto.setAttribute("class", "annuncio-completo hidden");
+            listaAnnunci.setAttribute("class", "annunci");
             document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
         });
     });
     
     const annuncioLinks = document.querySelectorAll(".annuncio-link");
+    
     annuncioLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const target = link.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
-            const annuncioTrue = document.getElementsByClassName("annuncio-completo")[0];
-            if(annuncioTrue!= null)
-                document.getElementsByClassName("annuncio-completo")[0].setAttribute("class", "annuncio-completo-hidden");
+            const annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
+            if(annuncioTrue != null) {
+                annuncioTrue.setAttribute("class", "annuncio-completo hidden");
+            } 
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if(screenWidth <= 768)
+            listaAnnunci.setAttribute("class", "annunci nascosto");
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
-    
+
             //focus su annuncio-completo (on and off)
             const visibleAnnuncio = document.querySelector('.annuncio-completo .annuncio-completo-contenitore');
             const prevElement = document.querySelector(`[data-target='${target}']`);
@@ -91,25 +108,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     }, 0);
                 });
             }
-          
         });
     });
     
         const filterButton = document.getElementById("bottone-filtri");
         const filtriRicerca = document.getElementById("filtri-ricerca");
+        var annuncioTrue = null
     
         if (filterButton) {
             filterButton.addEventListener("click", function () {
-                if (filtriRicerca.style.display === "none" || filtriRicerca.style.display === "") {
-                    filtriRicerca.style.display = "block";
-                    filterButton.value = "Nascondi filtri";
+                if (filtriRicerca.className === "showing") {
+                    filtriRicerca.className = "hiding";
+                    filterButton.className = "hiding";
+                    filterButton.setAttribute("value", "Mostra filtri");
+                    if(annuncioTrue != null) {
+                        annuncioTrue.setAttribute("class", "annuncio-completo");
+                    } 
                 } else {
-                    filtriRicerca.style.display = "none";
-                    filterButton.value = "Mostra filtri";
+                    filtriRicerca.className = "showing";
+                    filterButton.className = "showing";
+                    filterButton.setAttribute("value", "Nascondi filtri");
+                    annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
+                    if(annuncioTrue != null) {
+                        annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
+                    } 
                 }
             });
         }
-    });
+});
     
     const salvaButtons = document.querySelectorAll(".bottone-salva");
     
@@ -118,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const annuncioId = button.getAttribute('data-id');
             const data = { id: annuncioId };
     
-            fetch('./api/preferiti/insertNew.php', {
+            fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -239,7 +265,7 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
-                confirmationModal.style.display = 'none';
+confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
@@ -414,11 +440,11 @@ document.addEventListener('click', function(event) {
                 } else {
                     console.error('Risposta inaspettata:', data);
                 }
-                confirmationModal.style.display = 'none';
+confirmationModal.style.display = 'none';
             })
             .catch(error => {
                 console.error('Errore:', error);
-                confirmationModal.style.display = 'none';
+            confirmationModal.style.display = 'none';
             });
         }
         const cancelButton = document.getElementById('cancelButton');

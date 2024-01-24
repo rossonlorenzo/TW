@@ -1,12 +1,12 @@
-<!--needs to be validated-->
+<!-- VALIDATO -->
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Registrazione Azienda - EazyJobs</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="EazyJobs, registrazione, azienda">
+    <meta name="description" content="Form di registrazione per le aziende di EazyJobs">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <h1>EazyJobs</h1>
+        <h1><span lang="en">EazyJobs</span></h1>
     </header>
 
     <main id="registrazione-main">
@@ -27,11 +27,11 @@
                 <input type="text" id="nome" name="nome" placeholder="Nome">
                 <div id="nome-errore" class="messaggio-errore">nome-errore-placeholder</div>
         
-                <label for="email">Email:</label>
+                <label for="email"><span lang="en">Email</span>:</label>
                 <input type="email" id="email" name="email" placeholder="nome@gmail.com">
                 <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
         
-                <label for="password">Password:</label>
+                <label for="password"><span lang="en">Password</span>:</label>
                 <input type="password" id="password" name="password" placeholder="Deve contenere da 8 a 12 caratteri">
                 <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
             </fieldset>
@@ -39,7 +39,7 @@
             <fieldset id="dettagli" class="hidden-fieldset">
                 <legend>Dettagli di interesse</legend>
 
-                <label for="sito">Sito web:</label>
+                <label for="sito">Sito <span lang="en">web</span>:</label>
                 <input type="url" id="sito" name="sito" placeholder="https://nome.it">
                 <div id="sito-errore" class="messaggio-errore">sito-errore-placeholder</div>
 
@@ -54,7 +54,7 @@
                 <label for="fatturato">Fatturato:</label>
                 <input type="text" id="fatturato" name="fatturato">
                 <div id="fatturato-errore" class="messaggio-errore">fatturato-errore-placeholder</div>
-</fieldset>
+            </fieldset>
 
             <fieldset id="dati" class="hidden-fieldset">
                 <legend>Dati rilevanti</legend>
@@ -74,7 +74,7 @@
             <label for="logo">Logo (opzionale):</label>
             <input type="file" id="logo" name="logo">
             <div id="logo-errore" class="messaggio-errore">logo-errore-placeholder</div>
-</fieldset>
+            </fieldset>
             
             <input type="submit" id="disabled-modificaAdmin-bottone" data-validation="validateFields" value='Registrati' disabled>
             <div class="messaggio-errore" aria-live="assertive">credenziali-errore-placeholder</div>
