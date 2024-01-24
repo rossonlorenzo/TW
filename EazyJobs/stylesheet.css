@@ -427,19 +427,6 @@ section#cosa-offriamo h2{
     width: 50%;
 }
 
-section#cosa-offriamo h2 em {
-    text-decoration: var(--bgColor) underline;
-    text-decoration-skip-ink: none;
-    text-underline-offset: 0.04em;
-    font-style: normal;
-}
-
-section#cosa-offriamo:hover h2 em {
-    text-decoration-color: var(--headerTxtColor); /*536dfe  4644EC */
-    font-style: oblique;
-    transition: all 0.8s ease-out;
-}
-
 section#cosa-offriamo > img {
     width: 50%;
 }
@@ -458,13 +445,13 @@ section#cosa-offriamo > section {
 section#cosa-offriamo > section h3 {
     display: inline;
     font-size: 1.5em;
-    background: 
+    /* background: 
     linear-gradient(to right, white, white),
     linear-gradient(to right, var(--bgColor), var(--bgColor));
     background-size: 100% 0.15em, 0 0.15em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
-    transition: background-size 0.5s;
+    transition: background-size 0.5s; */
 }
 
 section#cosa-offriamo > section:hover {
@@ -588,7 +575,7 @@ ul#aziende img {
         display: grid;
         grid-template-columns: 50% 50%;
         overflow-y: auto;
-        overflow-x: unset;
+        overflow-x: hidden;
         height: 45vh;
         justify-content: center;
         align-items: center;
@@ -775,7 +762,6 @@ form {
     background-color: var(--headerBgColor);
     border-radius: 1em;
     margin: 1em;
-    margin-top: 0;
     padding: 0.3em;
     border: 0.15em var(--footerTxtColor) solid;
 }
@@ -886,18 +872,19 @@ ul.annunci li h5 {
 
 ul.annunci li p {
     font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-annunci {
     display: flex;
-    align-items: center;
     text-wrap: nowrap;
     overflow: hidden;
     gap: 1em;
 }
 
 .header-annunci h4, .header-annunci img {
-    margin: auto;
+    margin: auto 0;
 }
 
 ul.annunci img {
@@ -964,7 +951,6 @@ ul.job-info li {
 
 .annuncio-completo h4 {
     font-size: 1.1em;
-    margin-left: 9em;
 }
 
 .annuncio-completo h5 {
@@ -1031,9 +1017,16 @@ ul.azioni-aggiuntive li {
     max-width: fit-content;
     margin-top: 1em;
 }
+#filtri li .checkbox-modalità label {
+    font-size: 0.8em;
+    color: black;
+    font-weight: normal;
+}
 
 #salvato{
     margin-top: 1.5em;
+    font-size: 14px;
+    color: #023E8A;
 }
 /*
  @media (max-width: 1200px) {
@@ -1048,10 +1041,47 @@ ul.azioni-aggiuntive li {
     }
 }*/
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     #annunci-main {
         width: 90%;
     }
+
+    #filtri-ricerca {
+        display: none;
+        margin-top: 0;
+        background-color: var(--headerBgColor);
+        border-radius: 1em;
+        padding-bottom: 0.5em;
+        order: 0;
+    }
+    
+    #filtri-ricerca.hiding {
+        display: none;
+    }
+    
+    #filtri-ricerca.showing {
+        display: block;
+    }
+
+    #bottone-filtri {
+        width: auto;
+        display: block;
+        align-self: end;
+        margin: 1em 1em 0 1em;
+    }
+    
+    #bottone-filtri.showing {
+        border-radius: 1em 1em 0 0;
+        background-color: var(--footerBgColor);
+        color: black;
+    }
+    
+    #bottone-filtri.hiding {
+        border-radius: 1em;
+    }
+
+
+
     /*
     #annuncio-completo {
         display: none;
@@ -1286,8 +1316,10 @@ ul.azioni-aggiuntive li {
                                                                 ACCEDI CSS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-#accedi-main {
-    height: auto;
+#accedi-main{
+    display: flex;
+    align-items: center;
+    margin-top: 2em;
 }
 
 #login-form {
@@ -1512,10 +1544,12 @@ section > div > button {
 #user-listaAnnunci::-webkit-scrollbar {
     width: 0.5em;
     background-color: var(--headerBgColor);
+    border-radius: 5px;
 }
 
 #user-listaAnnunci::-webkit-scrollbar-thumb {
     background-color: var(--headerTxtColor);
+    border-radius: 5px;
 }
 
 #user-listaAnnunci > li {
@@ -2115,7 +2149,9 @@ footer p {
         border-radius: 0;
         box-shadow: none;
         max-width: 100%;
-        margin: auto auto 0;
+
+        
+
     }
 
     footer nav {

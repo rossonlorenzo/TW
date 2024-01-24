@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if(annuncioTrue != null) {
                 annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
             } 
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if(screenWidth <= 768)
             listaAnnunci.setAttribute("class", "annunci nascosto");
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
@@ -90,17 +92,25 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const filterButton = document.getElementById("bottone-filtri");
         const filtriRicerca = document.getElementById("filtri-ricerca");
+        var annuncioTrue = null
     
         if (filterButton) {
             filterButton.addEventListener("click", function () {
                 if (filtriRicerca.className === "showing") {
                     filtriRicerca.className = "hiding";
                     filterButton.className = "hiding";
-                    filterButton.textContent = "Mostra filtri";
+                    filterButton.setAttribute("value", "Mostra filtri");
+                    if(annuncioTrue != null) {
+                        annuncioTrue.setAttribute("class", "annuncio-completo");
+                    } 
                 } else {
                     filtriRicerca.className = "showing";
                     filterButton.className = "showing";
-                    filterButton.textContent = "Nascondi filtri";
+                    filterButton.setAttribute("value", "Nascondi filtri");
+                    annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
+                    if(annuncioTrue != null) {
+                        annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
+                    } 
                 }
             });
         }

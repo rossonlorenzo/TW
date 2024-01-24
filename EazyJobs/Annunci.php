@@ -148,10 +148,11 @@ if ($num > 0) {
         extract($row);
         $str_annunci .=
             "<li id='#" . $id . "'>" .
-            "<div class='header-annunci'>" .
             "<a href='#id=" . $id . "' class='annuncio-link' data-target='annuncio-" . $id ."'>" .
-            "<h3>" . $titolo . " #". $id ."</h3>" .
+            "<h3>" . $titolo . "</h3>" .
             "</a>" .
+
+            "<div class='header-annunci'>" .
             "<h4>" . $nome . "</h4>" .
             //logo
             "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>" .
@@ -189,9 +190,9 @@ if ($num > 0) {
             }
 
             $str_completo .=
+                "<h3>" . $titolo . "</h3>" .
 
                 "<div class='header-annunci'>" .
-                "<h3>" . $titolo . "</h3>" .
                 "<h4>" . $nome . "</h4>" .
                 //logo
                 "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>" .
@@ -226,7 +227,7 @@ if ($num > 0) {
                 if(!in_array($id, $preferiti)){
                     $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva'></li>" ;
                 } else{
-                    $str_completo .= "<a id='salvato'>Annuncio già salvato.</a>" ;
+                    $str_completo .= "<p id='salvato'>Annuncio già salvato.</p>" ;
                 }
                 $str_completo .= 
                     "</ul>".
