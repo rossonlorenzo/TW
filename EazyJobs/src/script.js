@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     annuncioLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             event.preventDefault();
-            const target = link.getAttribute("data-target");
+            const target = link.getAttribute("data-target");    
             const annuncioCompleto = document.getElementById(target);
             const annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
             if(annuncioTrue != null) {
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
 
-            //focus su annuncio-completo (on and off)
-            const visibleAnnuncio = document.querySelector('.annuncio-completo .annuncio-completo-contenitore');
-            const prevElement = document.querySelector(`[data-target='${target}']`);
-            const buttonElement = document.querySelector('.annuncio-completo .bottone-dettagli');
+            //focus su annuncio-completo (on and off)   
+            const visibleAnnuncio = annuncioCompleto.querySelector('.annuncio-completo-contenitore');
+            const prevElement = link;
+            const buttonElement = annuncioCompleto.querySelector('.bottone-dettagli');
 
             if (visibleAnnuncio) {
                 visibleAnnuncio.focus();
