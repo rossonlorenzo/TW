@@ -28,7 +28,7 @@
           "<li id='aziende-" . $id . "'>\n" .
           "<div class='header-aziende'>\n" .
           "<h3><a href='Aziende.php?id=" . $id . "' aria-label=\"Scopri l'azienda " . $nome . "\">" . $nome . "</a></h3>\n" .
-          "<img src='../assets/logos/". $id ."_logo.png' alt='Logo azienda " . $nome ."'>\n" .
+          "<img src='./assets/logos/". $id ."_logo.png' alt='Logo azienda " . $nome ."'>\n" .
           "</div>\n" .
           "<div class='azienda-grid'>\n" .
           "<h4>settore:</h4> <p>" . $settore . "</p>\n" .

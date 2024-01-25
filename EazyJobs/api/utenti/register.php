@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
     }
 
     if (!empty($errors)) {
-        header("Location: ./../../RegistraUser.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../RegistraUser.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 

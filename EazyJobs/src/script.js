@@ -366,7 +366,6 @@ function showHideNav() {
     } else {
         span.className = "burger open";
         btn.setAttribute("aria-expanded","false");
-        
     }
     
     var nav = document.getElementById("menu");
@@ -378,9 +377,9 @@ function showHideNav() {
 
 }
 
-function hideAll() {
-    showHideCards("annunci");
-    showHideCards("recensioni");
+function hideAll(role) {
+    showHideCards(role + "-listaAnnunci");
+    showHideCards(role + "-recensioni");
     showHideNav();
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------

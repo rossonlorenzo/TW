@@ -8,16 +8,16 @@
     <meta name="keywords" content="EazyJobs, area personale, candidato, curriculum, modifica, annunci, preferiti, recensioni">
     <meta name="description" content="Area personale dedicata ai candidati iscritti a EazyJobs, in modo che possano modificare i propri dati e visualizzare sia gli annunci salvati che le proprie recensioni">
     <link rel="stylesheet" href="./stylesheet.css">
-    <link rel="stylesheet" href="user_style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
-<body onload="hideAll()">
+<body onload="hideAll('user')">
     <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
         <div class="header-actions">
-            <a href="">Log-out</a>
+            <a href="./api/logout.php">Esci</a>
         </div>
         <div class="header-logo">
             <h1><span lang="en">EazyJobs</span></h1>
@@ -25,9 +25,9 @@
         <div class="header-burger">
             <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
                 <span class="burger close">
-                    <span class="line"></div>
-                    <span class="line"></div>
-                    <span class="line"></div>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </span>
             </button>
         </div>
@@ -38,7 +38,6 @@
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li><a href="Annunci.php">Annunci</a></li>
                 <li><a href="./api/logout.php">Esci</a></li>
-                <li><a href="Contattaci.html">Contattaci</a></li>
                 <li><a href="Chi_siamo.php">Chi siamo</a></li>
             </ul>
         </nav>
@@ -63,8 +62,7 @@
         <section>
             <div id="user-listaAnnunci-header" class="hiding">
                 <h3>I miei preferiti</h3>
-                <button id="annunci-toggle" name="annunci" type="button" aria-label="Cambia la visibilità dei preferiti" onclick="showHideCards('user-listaAnnunci');changeButton(name);" aria-expanded="false" aria-controls="annunci-toggle">
-                    <!--Mostra annunci  (label bottone da modificare via js per access.)-->
+                <button id="annunci-toggle" name="user-listaAnnunci" type="button" aria-label="Cambia la visibilità dei preferiti" onclick="showHideCards('user-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
                     <span class="toggle show"></span>
                 </button>
             </div>
@@ -76,8 +74,7 @@
         <section>
             <div id="user-recensioni-header" class="hiding">
                 <h3>Le mie recensioni</h3>
-                <button id="recensioni-toggle" name="recensioni" type="button" aria-label="Cambia la visibilità delle recensioni" onclick="showHideCards('user-recensioni');changeButton(name);" aria-expanded="false" aria-controls="recensioni-toggle">
-                    <!-- Mostra recensioni (label bottone da modificare via js per access.)-->
+                <button id="recensioni-toggle" name="user-recensioni" type="button" aria-label="Cambia la visibilità delle recensioni" onclick="showHideCards('user-recensioni');" aria-expanded="false" aria-controls="recensioni-toggle">
                     <span class="toggle show"></span>
                 </button>
             </div>

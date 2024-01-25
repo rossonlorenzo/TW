@@ -29,7 +29,7 @@
       $aziendaName = $nome;
         
       $str_azienda = "
-        <img id='logo-azienda' src='../assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>
+        <img id='logo-azienda' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>
         <dl>
             <dt class='info-azienda'>Fondazione: </dt>
             <dd><time datetime='" . $fondazione . "'>" . $fondazione . "</time></dd>

@@ -40,7 +40,7 @@
                 <dt>Sito <span lang="en">web:</span>:</dt>
                 <dd>' . $sito . '</dd>';
 
-          $str_logo = "<img id='foto-profilo' src='../assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>";
+          $str_logo = "<img id='foto-profilo' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>";
         }
       }
 

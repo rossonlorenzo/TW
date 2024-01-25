@@ -4,20 +4,6 @@
     box-sizing: border-box;
 }
 
-/*  palette precedente
-:root {
-    --headerBgColor: #f7e7ce;
-    --headerTxtColor: #52154e;
-    --bgColor: #b48e92;
-    --txtColor: rgb(0,0,0);
-    --footerBgColor: #f7e7ce;
-    --footerTxtColor: #52154e;
-    --linkColor: #52154e;
-    --visitedLinkColor: #b48e92;
-    --font-body-family: "Roboto Condensed", sans-serif;
-}
-*/
-
 :root {
     --headerBgColor: #EBEEFF;
     --headerTxtColor: #023E8A;
@@ -143,7 +129,7 @@ button, input[type="button"], input[type="submit"] {
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: var(--footerBgColor);
+    background-color: var(--bgColor);
     color: black;
 }
 
@@ -159,18 +145,23 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover {
-    background-color: var(--footerBgColor);
+    background-color: var(--bgColor);
     color: black;
 }
 
 .messaggio-errore {
-    color: #4D0F12;
+    color: #a42327;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #fcc;
+    border-radius: 0.5em;
+    width: 90%;
+    margin: 0.5em auto;
 }
 
 .errore {
-    border: 2px solid red !important;
+    border: 2px solid #a42327 !important;
 }
 
 .nessun-trovato {
@@ -199,133 +190,13 @@ input[type="submit"]:hover {
 .hidden-fieldset{
     display: none;
 }
+
 @media (max-width: 1024px) {
     
     #navigazione {
         max-width: 90%;
     }
 }
-
-@media (max-width: 768px) {
-
-    main {
-        width: 90%;
-        margin-top: 0;
-    }
-
-    header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        overflow: visible;
-        justify-content: space-between;
-        background-color: var(--headerBgColor);
-        width: 100%;
-        max-height: 20vh;
-        margin-bottom: 0;
-    }
-    
-    header .header-logo h1 {
-        font-size: 2em;
-    }
-
-    .header-actions, .header-burger {
-        display: block;
-    }
-
-    a[href*="Accedi"] {
-        display: inline-block;
-        padding: 0 0.5em;
-        min-height: 44px;
-        line-height: 44px;
-        border-radius: 0.8em;
-    }
-
-    button, input[type="button"], input[type="submit"] {
-        min-width: 44px;
-        min-height: 44px;
-        padding: 0;
-    }
-    
-    button.hamburger {
-        border-radius: 0;
-        background-color: inherit;
-    }
-    
-    button.hamburger .burger {
-        display: block;
-    }
-    
-    button.hamburger .burger .line {
-        background-color: var(--headerTxtColor);
-        transform-origin: center;
-        height: 0.3em;
-        width: 80%;
-        border-radius: 1em;
-        margin: 0.3em auto 0.3em;
-        transition: all 0.3s ease-in-out;
-    }
-    
-    button.hamburger .close .line:nth-of-type(1) {
-        transform: translateY(0.6em) rotate(45deg);
-    }
-    
-    button.hamburger .close .line:nth-of-type(2) {
-        opacity: 0;
-    }
-      
-    button.hamburger .close .line:nth-of-type(3) {
-        transform: translateY(-0.6em) rotate(-45deg);
-    }
-
-    #navigazione {
-        border-radius: 0;
-        box-shadow: none;
-        max-width: 100%;
-        padding: 0;
-    }
-    
-    #menu, #menu.showing {
-        max-height: 80vh;
-        transition: max-height 0.25s linear;
-        overflow: hidden;
-        
-    }
-    
-    #menu.hiding {
-        max-height: 0vh;
-        transition: none;
-    }
-    
-    #menu ul {
-        flex-direction: column;
-    }
-    
-    #menu ul li:nth-child(3) {  /* hide accedi/logout */
-        display: none;
-    }
-    
-    #menu ul li:nth-child(4), #menu ul li:nth-child(5) {    /* show last 2 */
-        display: block;
-    }
-    
-    #menu ul li {
-        border-top: 2px solid var(--headerBgColor);
-        text-align: center;
-        font-size: 2em; 
-        height: 2em;
-        line-height: 2em;
-    }
-    
-    #menu ul li a{
-        display: block;
-        background-color: var(--headerTxtColor);
-        color: var(--headerBgColor);
-        border-radius: 0.4em;
-        height: inherit;
-    }
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -629,84 +500,6 @@ ul#aziende img {
         display: inline;
     }
     
-}
-
-@media (max-width: 768px) {
-
-    #home-main {
-        width: 100%;
-        height: auto;
-    }
-
-    div#content {
-        width: 90%;
-        height: auto;
-        margin: 0 auto 6em;
-        padding-top: 1em;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-    }
-
-    #barra-ricerca {
-        background-color: var(--headerBgColor);
-        margin-bottom: 0;
-        padding: 0.5em 5%;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        max-height: 15em;
-    }
-
-    #barra-ricerca h2 {
-        font-size: 1.2em;
-    }
-
-    #professione, #locazione  {
-        width: 40%;
-    }
-
-    section#cosa-offriamo {
-        flex-direction: column;
-    }
-
-    section#cosa-offriamo h2 {
-        width: 100%;
-    }
-
-    section#cosa-offriamo > img {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    section#cosa-offriamo > section {
-        width: 80%;
-        align-self: center;
-    }
-
-    section#container-aziende {
-        border-radius: 1em 1em 0 0;
-    }
-
-    ul#aziende {
-        display: flex;
-        overflow-y: auto;
-        overflow-x: unset;
-        flex-direction: column;
-        height: 50vh;
-        align-items: center;
-        justify-content: unset;
-    }
-
-    ul#aziende li {
-        overflow-x: unset;
-    }
-
-    #home footer {
-        display: none;
-    }
-
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1106,8 +899,6 @@ ul.azioni-aggiuntive li {
         border-radius: 1em;
     }
 
-
-
     /*
     #annuncio-completo {
         display: none;
@@ -1125,32 +916,6 @@ ul.azioni-aggiuntive li {
         text-wrap: wrap;
     }*/
 }
-/*
-@media (max-width: 768px) {
-    #annunci-main {
-        width: 100%;
-    }
-    #filtri-ricerca {
-        max-width: 12em;
-    }
-    #filtri-ricerca {
-        display: none;
-    }
-    #bottone-filtri { 
-        display: inline;
-        margin-left: 1em;
-    }
-    ul.annunci li h5 {
-        white-space: nowrap;
-        overflow: visible;
-    }
-    ul.annunci li p {
-        text-wrap: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-} */
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -1430,9 +1195,13 @@ ul.azioni-aggiuntive li {
     border-radius: 0.5em;
     border: 1px solid #ccc;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-width: 90%;
+    width: 90%;
     margin: auto;
-    margin-bottom: 1.5em;
+}
+
+#registrazione-main form label {
+    display: inline-block;
+    margin-top: 1em;
 }
 
 #registrazione-form label {
@@ -1441,12 +1210,13 @@ width: 90%;
     color: var(--headerTxtColor);
     font-weight: bold;
     font-size: 1em;
-    }
+}
 
 #credenziali, #dettagli, #dati {
     display: flex;
     flex-direction: column;
     width: 65%;
+    padding: 0.5em;
 }
 
 #credenziali label {
@@ -1855,26 +1625,6 @@ section > div > button {
 #confirmButton, #cancelButton {
     margin: 0.5em;
 }
-
-@media (max-width: 768px) {
-    #admin-main {
-        width: 100%;
-    }
-    #admin-main > h2 {
-        margin-left: 0.5em;
-    }
-    #dati-admin {
-        margin-left: 1em;
-    }
-    #admin-listaAnnunci {
-        flex-direction: column;
-        overflow-y: scroll;
-        max-height: 50vh;
-    }
-    #admin-recensioni {
-        max-height: 25vh;
-    }
-}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ADMIN CSS [FINE]
@@ -1889,7 +1639,7 @@ section > div > button {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #pubblica-annuncio-main {
-    background-color: var(--bgColor);
+    background-color: var(--headerBgColor);
     width: 80%;
     height: auto;
 }
@@ -1930,6 +1680,10 @@ section > div > button {
     border: 1px solid #ccc;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     margin: auto;
+}
+
+#pubblica-annuncio-main .messaggio-errore {
+    width: 70%;
 }
 
 #desc_breve, #desc_completa {
@@ -2095,18 +1849,6 @@ section#help ul {
 section#help p{
     margin-top: 1em;
 }
-
-@media (max-width: 768px) {
-
-    #errore404-main {
-        width: 90%;
-    }
-
-    #errore404-main img {
-        width: 70%;
-    }
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ERRORE_404 CSS [FINE]
@@ -2144,21 +1886,5 @@ footer p {
 
     footer {
         max-width: 90%;
-    }
-}
-
-@media (max-width: 768px) {
-
-    footer {
-        border-radius: 0;
-        box-shadow: none;
-        max-width: 100%;
-
-        
-
-    }
-
-    footer nav {
-        display: none;
     }
 }

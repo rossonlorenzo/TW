@@ -9,4 +9,5 @@
   $nomefile = "./templates/Errore404.html";
   $contenuto = file_get_contents($nomefile);
   echo $contenuto;
+
 ?>

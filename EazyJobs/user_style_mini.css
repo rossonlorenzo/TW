@@ -43,6 +43,7 @@ button.hamburger .burger {
 }
 
 button.hamburger .burger .line {
+    display: block;
     background-color: var(--headerTxtColor);
     transform-origin: center;
     height: 0.3em;
