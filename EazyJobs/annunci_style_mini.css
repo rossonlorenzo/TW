@@ -1,7 +1,10 @@
 #annunci-main {
     height: auto;
     width: 100%;
-    
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: 0;
 }
 
 form {
@@ -304,6 +307,10 @@ ul.azioni-aggiuntive li {
 
 .bottone-annunci{
     margin-bottom: 1em;
+}
+
+#barra-ricerca{
+    order: 1;
 }
 
 /* @media (max-width: 1200px) {

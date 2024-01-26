@@ -107,9 +107,8 @@ button.hamburger .close .line:nth-of-type(3) {
     display: block;
     background-color: var(--headerTxtColor);
     color: var(--headerBgColor);
-    font-size: 2em;
-    padding-top: 0.5em;
-    height: 2em;
+    border-radius: 0.4em;
+    height: inherit;
 }
 
 img#profile_picture {
