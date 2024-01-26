@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     annuncioLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             event.preventDefault();
-            const target = link.getAttribute("data-target");
+            const target = link.getAttribute("data-target");    
             const annuncioCompleto = document.getElementById(target);
             const annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
             if(annuncioTrue != null) {
@@ -92,6 +92,22 @@ document.addEventListener("DOMContentLoaded", function () {
             listaAnnunci.setAttribute("class", "annunci nascosto");
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
+
+            //focus su annuncio-completo (on and off)   
+            const visibleAnnuncio = annuncioCompleto.querySelector('.annuncio-completo-contenitore');
+            const prevElement = link;
+            const buttonElement = annuncioCompleto.querySelector('.bottone-dettagli');
+
+            if (visibleAnnuncio) {
+                visibleAnnuncio.focus();
+                visibleAnnuncio.addEventListener('focusout', function () {
+                    setTimeout(function () {
+                        if (document.activeElement !== buttonElement) {
+                            prevElement.focus();
+                        }
+                    }, 0);
+                });
+            }
         });
     });
     
@@ -150,8 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI JS [FINE]
@@ -176,9 +190,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
             const isVisibile = recensioniForm.classList.contains('visibile');
             if (isVisibile) {
-                toggleButton.textContent = 'Nascondi il form';
+                toggleButton.value = 'Nascondi il form';
+
+                //focus sul primo input
+                const selectElement = document.getElementById('valutazione');
+                if (selectElement) {
+                    selectElement.focus();
+                }
             } else {
-                toggleButton.textContent = 'Scrivi una recensione';
+                toggleButton.value = 'Scrivi una recensione';
             }
         });
     
@@ -194,9 +214,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
                 const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
                 if (isModificaVisibile) {
-                    modificaButton.textContent = 'Cancella modifica';
+                    modificaButton.value = 'Cancella modifica';
+                    
+                    //focus sul primo input
+                    const selectElement = document.getElementById('modifica-valutazione');
+                    if (selectElement) {
+                        selectElement.focus();
+                    }
                 } else {
-                    modificaButton.textContent = 'Modifica';
+                    modificaButton.value = 'Modifica';
                 }
         
                 if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
@@ -215,9 +241,11 @@ document.addEventListener('click', function(event) {
         confirmationModal.style.display = 'block';
 
         const confirmButton = document.getElementById('confirmButton');
+        confirmButton.focus();
+
         confirmButton.onclick = function() {
             const data = { id: aziendaId };
-            fetch('http://localhost/TW/EazyJobs/api/valutazioni/delete.php', {
+            fetch('./api/valutazioni/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
@@ -271,7 +299,7 @@ document.addEventListener('click', function(event) {
         const data = { id: annuncioId };
 
         // Perform a POST request to delete.php
-        fetch('http://localhost/TW/EazyJobs/api/preferiti/delete.php', {
+        fetch('./api/preferiti/delete.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -338,7 +366,6 @@ function showHideNav() {
     } else {
         span.className = "burger open";
         btn.setAttribute("aria-expanded","false");
-        
     }
     
     var nav = document.getElementById("menu");
@@ -350,9 +377,9 @@ function showHideNav() {
 
 }
 
-function hideAll() {
-    showHideCards("annunci");
-    showHideCards("recensioni");
+function hideAll(role) {
+    showHideCards(role + "-listaAnnunci");
+    showHideCards(role + "-recensioni");
     showHideNav();
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -374,7 +401,7 @@ document.addEventListener('click', function(event) {
         const annuncioId = event.target.getAttribute('data-id');
         const data = { id: annuncioId };
         const formData = new URLSearchParams(data).toString();
-        window.location.href = `http://localhost/TW/EazyJobs/ModificaAnnuncio.php?${formData}`;
+        window.location.href = `./ModificaAnnuncio.php?${formData}`;
     }
 });   
 
@@ -388,9 +415,11 @@ document.addEventListener('click', function(event) {
         confirmationModal.style.display = 'block';
 
         const confirmButton = document.getElementById('confirmButton');
+        confirmButton.focus();
+
         confirmButton.onclick = function() {
             const data = { id: annuncioId };
-            fetch('http://localhost/TW/EazyJobs/api/annunci/delete.php', {
+            fetch('./api/annunci/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
@@ -430,7 +459,7 @@ confirmationModal.style.display = 'none';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-const fieldValidation = {
+        const fieldValidation = {
     nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
     password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},

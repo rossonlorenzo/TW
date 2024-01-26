@@ -1,10 +1,12 @@
+<!-- VALIDATO -->
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Registrazione</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>Registrazione Candidato - EazyJobs</title>
+    <meta name="keywords" content="EazyJobs, registrazione, candidato, curriculum">
+    <meta name="description" content="Form di registrazione per i candidati di EazyJobs">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +14,22 @@
 </head>
 <body>
     <header>
-        <h1>EazyJobs</h1>
+        <h1><span lang="en">EazyJobs</span></h1>
     </header>
 
     <main id="registrazione-main">
-        <form action="http://localhost/TW/EazyJobs/api/utenti/register.php" method="post" id="registrazione-form" enctype="multipart/form-data">
+        <form action="./api/utenti/register.php" method="post" id="registrazione-form" enctype="multipart/form-data">
 
             <div id="credenziali">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome Cognome">
                 <div id="nome-errore" class="messaggio-errore">nome-errore-placeholder</div>
         
-                <label for="email">Email:</label>
+                <label for="email"><span lang="en">Email</span>:</label>
                 <input type="email" id="email" name="email" placeholder="nome.cognome@gmail.com">
                 <div id="email-errore" class="messaggio-errore">email-errore-placeholder</div>
         
-                <label for="password">Password:</label>
+                <label for="password"><span lang="en">Password</span>:</label>
                 <input type="password" id="password" name="password" placeholder="Deve contenere da 8 a 12 caratteri">
                 <div id="password-errore" class="messaggio-errore">password-errore-placeholder</div>
             </div>
@@ -37,7 +39,7 @@
             <div id="cv-errore" class="messaggio-errore">cv-errore-placeholder</div>
         
             <input type="submit" id="registrati-bottone" data-validation="validateFields" value='Registrati'>
-            <div class="messaggio-errore">credenziali-errore-placeholder</div>
+            <div class="messaggio-errore" aria-live="assertive">credenziali-errore-placeholder</div>
         
         </form>        
     </main>

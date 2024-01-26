@@ -48,14 +48,14 @@ form {
     border: none;
 }
 
-#filtri li {
+#filtri div {
     width: 50%;
     padding: 0.3em;
     background-color: var(--footerBgColor);  
     margin: 0.3em;
 }
 
-#filtri li label {
+#filtri div label {
     width: 90%;
     margin: auto;
     white-space: nowrap;
@@ -63,31 +63,39 @@ form {
     font-weight: bold;
 }
 
-#filtri li select,
-#filtri li input[type="text"],
-#filtri li input[type="range"] {
+#filtri div select,
+#filtri div input[type="text"],
+#filtri div input[type="range"] {
     width: 100%;
     margin: auto;
     height: auto;
 }
 
-#filtri li input[type="number"]{
+#filtri div input[type="number"]{
     width: 30%;
     margin: auto;
     height: auto;
 }
 
-#filtri li .checkbox-modalità,
-#filtri li .radio-contratto {
+#filtri div .checkbox-modalità,
+#filtri div .radio-contratto {
     display: flex;
     margin: auto;
 }
 
-#filtri li .checkbox-modalità label,
-#filtri li .radio-contratto label {
+#filtri div .checkbox-modalità label,
+#filtri div .radio-contratto label {
     font-size: 0.8em;
     color: black;
     font-weight: normal;
+}
+
+#filtri #modalità legend {
+    width: 30%;
+}
+
+#filtri #contratto legend {
+    width: 50%;
 }
 
 #bottone-filtri {

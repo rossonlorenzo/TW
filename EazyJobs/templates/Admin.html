@@ -1,88 +1,100 @@
 <!-- VALIDATO -->
-<!-- html ok -->
-<!-- button ok -->
-<!-- form ok -->
-<!-- img ok -->
-<!-- tabindex ok -->
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EazyJobs: Area Personale</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>Area Personale Azienda - EazyJobs</title>
+    <meta name="keywords" content="EazyJobs, area personale, annunci pubblicati, recensioni ricevute, modifica, pubblica">
+    <meta name="description" content="Area personale dedicata alle aziende iscritte a EazyJobs, in modo che possano pubblicare nuovi annunci e visualizzare le recensioni ricevute dai candidati.">
     <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
-<body onload="showHideNav()">
+<body onload="hideAll('admin')">
+    <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
         <div class="header-actions">
-            <a href="Accedi.php">Log-out</a>
+            <a href="./api/logout.php">Esci</a>
         </div>
         <div class="header-logo">
-            <h1>EazyJobs</h1>
+            <h1><span lang="en">EazyJobs</span></h1>
         </div>
         <div class="header-burger">
             <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
                 <span class="burger close">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </span>
             </button>
         </div>
     </header>
     <div id="navigazione">
-        <nav id="menu">
+        <nav id="menu" aria-label="Menu principale">
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>
                 <li><a href="Annunci.php">Annunci</a></li>
-                <li><a href="http://localhost/TW/EazyJobs/api/logout.php">Esci</a></li>
-                <li><a href="Contattaci.html">Contattaci</a></li>
+                <li><a href="./api/logout.php">Esci</a></li>
                 <li><a href="Chi_siamo.html">Chi siamo</a></li>
             </ul>
         </nav>
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" aria-label="Navigazione breadcrumb">
             <p>Ti trovi nella tua Area Personale</p>
         </nav>
     </div>
 
     <main id="admin-main">
-        <h2>Bentornato, <strong>nome-placeholder</strong></h2>
-        <img id="foto-profilo" src="image-placeholder" alt="Il tuo logo aziendale">
-        <dl id="dati-admin">
-            <!-- azienda-placeholder -->
-        </dl>
+        <div id="primoContenuto">
+            <h2>Bentornato, <strong>nome-placeholder</strong></h2>
+                <!-- logo-placeholder -->
+            <dl id="dati-admin">
+                <!-- azienda-placeholder -->
+            </dl>
 
-        <div id="admin-links">
-            <a href="http://localhost/TW/EazyJobs/ModificaAdmin.php" id="modifica-admin">Modifica i tuoi dati</a>
-            <a href="http://localhost/TW/EazyJobs/PubblicaAnnuncio.php" id="pubblica-annuncio">Pubblica un annuncio</a>
-</div>
-
-        <h3>Annunci pubblicati</h3>
-        <ul class="annunci" id="admin-listaAnnunci">
-            <!-- annunci-placeholder -->
-        </ul>
-
-        <div id="confirmationModal" class="modal">
-            <div class="modal-content">
-                <p>Sei sicuro di voler eliminare questo annuncio?</p>
-                <button id="confirmButton">Conferma</button>
-                <button id="cancelButton">Annulla</button>
+            <div id="admin-links">
+                <a href="./ModificaAdmin.php" id="modifica-admin">Modifica i tuoi dati</a>
+                <a href="./PubblicaAnnuncio.php" id="pubblica-annuncio">Pubblica un annuncio</a>
             </div>
         </div>
 
-        <h3>Recensioni ricevute</h3>
-        <ul id="admin-recensioni">
-            <!-- recensioni-placeholder -->
+    <section>
+        <div id="admin-listaAnnunci-header" class="hiding">
+            <h3>Annunci pubblicati</h3>
+            <button id="annunci-toggle" name="admin-listaAnnunci" type="button" aria-label="Cambia la visibilità degli annunci salvati" onclick="showHideCards('admin-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
+                <span class="toggle show"></span>
+            </button>
+        </div>
+        <ul class="annunci" class="hiding" id="admin-listaAnnunci">
+            <!-- annunci-placeholder -->
         </ul>
+    </section>
+
+    <div id="confirmationModal" class="modal" aria-live="polite">
+        <div class="modal-content">
+            <p>Sei sicuro di voler eliminare questo annuncio?</p>
+            <input type="button" id="confirmButton" value="Conferma">
+            <input type="button" id="cancelButton" value="Annulla">
+        </div>
+    </div>
+
+    <section>
+        <div id="admin-recensioni-header" class="hiding">
+            <h3>Recensioni ricevute</h3>
+            <button id="recensioni-toggle" name="admin-recensioni" type="button" aria-label="Cambia la visibilità delle recensioni" onclick="showHideCards('admin-recensioni');" aria-expanded="false" aria-controls="recensioni-toggle">
+                <span class="toggle show"></span>
+            </button>
+        </div>
+            <ul id="admin-recensioni" class="hiding">
+                <!-- recensioni-placeholder -->
+            </ul>
+    </section>
     </main>
     
     <footer>
-        <nav id="footer">
+        <nav id="footer" aria-label="Piè di pagina">
             <ul>
                 <li><a href="Contattaci.html">Contattaci</a></li>
                 <li><a href="Chi_siamo.php">Chi siamo</a></li>

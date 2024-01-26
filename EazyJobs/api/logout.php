@@ -9,6 +9,6 @@ $_SESSION = [];
 session_destroy();
 
 // Redirect to the login or homepage
-header("Location: http://localhost/TW/EazyJobs/Home.php");
+header("Location: ./../Home.php");
 exit();
 ?>

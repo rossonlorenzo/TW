@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $aziendaId = $_POST['aziendaId'];
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
+        header("Location: ./../../Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
         exit();
 
     } else {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors = [];
                 $errors['duplicato'] = "Non è possibile pubblicare più di una recensione per azienda. Modificare o eliminare la recensione già pubblicata.";
 
-                header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
+                header("Location: ./../../Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
                 exit();
             }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $num = $result->rowCount();
 
             if($num > 0) {
-                header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId");
+                header("Location: ./../../Aziende.php?id=$aziendaId");
                 exit();
             }
             else {}     //messaggio da inviare a Aziende.php
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = [];
             $errors['login'] = "Bisogna aver effettuato il login da candidato per poter pubblicare una recensione.";
 
-            header("Location: http://localhost/TW/EazyJobs/Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
+            header("Location: ./../../Aziende.php?id=$aziendaId&errors=" . urlencode(json_encode($errors)));
             exit();
         }
     }

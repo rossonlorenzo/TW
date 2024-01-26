@@ -18,13 +18,14 @@
       $db = $database->connect();
 
       $azienda = new Azienda($db);
-      $aziendaId = $_SESSION['admin_id'];
+      $aziendaId = $_SESSION['admin_id'];     
       $result = $azienda->getById($aziendaId);
       $num = $result->rowCount();
 
       if($num > 0) {
       $aziendaName = "";
       $str_azienda = "";
+      $str_logo = "";
 
       while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);
@@ -34,10 +35,12 @@
           $str_azienda .= '
                 <dt>Nome: </dt>
                 <dd>' . $nome . '</dd>
-                <dt>E-mail: </dt>
+                <dt><span lang="en">E-mail</span>:</dt>
                 <dd>' . $email . '</dd>
-                <dt>Sito web:</dt>
+                <dt>Sito <span lang="en">web:</span>:</dt>
                 <dd>' . $sito . '</dd>';
+
+          $str_logo = "<img id='foto-profilo' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>";
         }
       }
 
@@ -56,7 +59,7 @@
                 "<div class='header-annunci'>\n" .
                 "<h3>" . $titolo . "</h3>\n" .
                 "<h4>" . $nome . "</h4>\n" .
-                "<img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>\n" .
+                "<img src='./assets/logos/". $azienda_id ."_logo.png' alt='Logo azienda " . $nome ."'>" .
                 "</div>\n" .
                 "<h5>Descrizione:</h5>\n" .
                 "<p>" . $desc_breve . "</p>\n" .
@@ -65,8 +68,8 @@
                 "<li><h5>Stipendio medio:</h5><p>" . $stipendio . "€</p></li>\n" .
                 "<li><h5>Contatti:</h5><p>" . $email . "</p></li>\n" .
                 "</ul>\n" .
-                "<button class='bottone-modifica' data-id='" . $annuncio_id . "'>Modifica</button>\n" .
-                "<button class='bottone-elimina' data-id='" . $annuncio_id . "'>Elimina</button>\n" .
+                "<button class='bottone-modifica' aria-label=\"Modifica l'annuncio " . $titolo . "\" data-id='" . $annuncio_id . "'>Modifica</button>\n" .
+                "<button class='bottone-elimina' aria-label=\"Elimina l'annuncio " . $titolo . "\" data-id='" . $annuncio_id . "'>Elimina</button>\n" .                             
                 "</li>\n";
         }    
       } else {
@@ -95,12 +98,12 @@
             $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
       }
 
-      //$result->free();
 
   $nomefile = "./templates/Admin.html";
   $contenuto = file_get_contents($nomefile);
   
   $contenuto = str_replace("nome-placeholder", strval($aziendaName), $contenuto);
+  $contenuto = str_replace("<!-- logo-placeholder -->", $str_logo, $contenuto);
   $contenuto = str_replace("<!-- azienda-placeholder -->", $str_azienda, $contenuto);
   $contenuto = str_replace("<!-- annunci-placeholder -->", $str_annunci, $contenuto);
   $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);

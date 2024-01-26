@@ -59,60 +59,60 @@
             }
             if ($contratto == "Tempo determinato") {
                 $contenuto = str_replace("determinato-placeholder", "checked", $contenuto);
-$contenuto = str_replace("indeter-placeholder", "", $contenuto);
+                $contenuto = str_replace("indeter-placeholder", "", $contenuto);
             } elseif ($contratto == "Tempo indeterminato") {
                 $contenuto = str_replace("indeter-placeholder", "checked", $contenuto);
-$contenuto = str_replace("determinato-placeholder", "", $contenuto);
+                $contenuto = str_replace("determinato-placeholder", "", $contenuto);
             }
 
             if ($livello_istruzione === 'Diploma') {
                 $contenuto = str_replace("diploma-placeholder", "selected", $contenuto);
-$contenuto = str_replace("triennale-placeholder", "", $contenuto);
+                $contenuto = str_replace("triennale-placeholder", "", $contenuto);
                 $contenuto = str_replace("magistrale-placeholder", "", $contenuto);
                 $contenuto = str_replace("dottorato-placeholder", "", $contenuto);
             } elseif ($livello_istruzione === 'Laurea Triennale') {
-$contenuto = str_replace("diploma-placeholder", "", $contenuto);
+                $contenuto = str_replace("diploma-placeholder", "", $contenuto);
                 $contenuto = str_replace("triennale-placeholder", "selected", $contenuto);
-$contenuto = str_replace("magistrale-placeholder", "", $contenuto);
+                $contenuto = str_replace("magistrale-placeholder", "", $contenuto);
                 $contenuto = str_replace("dottorato-placeholder", "", $contenuto);
             } elseif ($livello_istruzione === 'Laurea Magistrale') {
-$contenuto = str_replace("diploma-placeholder", "", $contenuto);
+                $contenuto = str_replace("diploma-placeholder", "", $contenuto);
                 $contenuto = str_replace("triennale-placeholder", "", $contenuto);
                 $contenuto = str_replace("magistrale-placeholder", "selected", $contenuto);
-$contenuto = str_replace("dottorato-placeholder", "", $contenuto);
+                $contenuto = str_replace("dottorato-placeholder", "", $contenuto);
             } elseif ($livello_istruzione === 'Dottorato') {
-$contenuto = str_replace("diploma-placeholder", "", $contenuto);
+                $contenuto = str_replace("diploma-placeholder", "", $contenuto);
                 $contenuto = str_replace("triennale-placeholder", "", $contenuto);
                 $contenuto = str_replace("magistrale-placeholder", "", $contenuto);
                 $contenuto = str_replace("dottorato-placeholder", "selected", $contenuto);
             }
 
-            if ($esperienza === '1') {
+            if ($esperienza == '1') {
                 $contenuto = str_replace("1-placeholder", "selected", $contenuto);
-            $contenuto = str_replace("2-placeholder", "", $contenuto);
+                $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($esperienza === '2') {
-$contenuto = str_replace("1-placeholder", "", $contenuto);
+            } elseif ($esperienza == '2') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "selected", $contenuto);
-            $contenuto = str_replace("3-placeholder", "", $contenuto);
+                $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($esperienza === '3') {
-$contenuto = str_replace("1-placeholder", "", $contenuto);
+            } elseif ($esperienza == '3') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "selected", $contenuto);
-            $contenuto = str_replace("4-placeholder", "", $contenuto);
+                $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($esperienza === '4') {
-$contenuto = str_replace("1-placeholder", "", $contenuto);
+            } elseif ($esperienza == '4') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "selected", $contenuto);
-            $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($esperienza === '5') {
-$contenuto = str_replace("1-placeholder", "", $contenuto);
+                $contenuto = str_replace("5-placeholder", "", $contenuto);
+            } elseif ($esperienza == '5') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);

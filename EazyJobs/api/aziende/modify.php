@@ -75,7 +75,7 @@ ini_set('display_errors', 1);
     }    
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -102,7 +102,7 @@ ini_set('display_errors', 1);
             var_dump($emailCorrente);
             if ($azienda->findEmailMatch()) {
                 $errors['email'] = "L'email inserita è già in uso.";
-                header("Location: http://localhost/TW/EazyJobs/ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
+                header("Location: ../../ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
                 exit();
             }
         }
@@ -124,7 +124,7 @@ ini_set('display_errors', 1);
         $result = $azienda->modifyOld();
 
         if($result) {
-            header("Location: http://localhost/TW/EazyJobs/Admin.php");
+            header("Location: ../../Admin.php");
             exit();
         }
         else {}

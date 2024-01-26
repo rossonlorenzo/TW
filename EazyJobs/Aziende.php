@@ -29,6 +29,7 @@
       $aziendaName = $nome;
         
       $str_azienda = "
+        <img id='logo-azienda' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>
         <dl>
             <dt class='info-azienda'>Fondazione: </dt>
             <dd><time datetime='" . $fondazione . "'>" . $fondazione . "</time></dd>
@@ -61,13 +62,13 @@
               $str_valutazioni .= 
                 "<li id='recensione-utente'>\n" .
                 "<h3>" . $nome . "</h3>\n" .
-                "<div class='valutazione'>\n" .
-                "<h4>Valutazione:</h4><p>" . $voto . "</p>\n" .
-                "</div>\n" .
+                "<dl class='valutazione'>\n" .
+                "<dt>Valutazione:</dt><dd><p>" . $voto . "</p></dd>\n" .
+                "</dl>\n" .
                 "<p>" . $commento . "</p>\n" .
                 "<div id='controllo-recensione'>\n" . 
-                "<button id='modifica-recensione' data-id='" . $aziendaId . "'>Modifica</button>\n" .
-                "<button id='elimina-recensione' data-id='" . $aziendaId . "'>Elimina</button>\n" .
+                "<input type='submit' id='modifica-recensione' aria-label='Modifica la tua recensione' data-id='" . $aziendaId . "' value='Modifica'>\n" . 
+                "<input type='submit' id='elimina-recensione' aria-label='Elimina la tua recensione' data-id='" . $aziendaId . "' value='Elimina '>\n" . 
                 "</div>\n" . 
                 "</li>\n";
 
@@ -76,16 +77,16 @@
               $str_valutazioni .= 
                   "<li>\n" .
                   "<h3>" . $nome . "</h3>\n" .
-                  "<div class='valutazione'>\n" .
-                  "<h4>Valutazione:</h4><p>" . $voto . "</p>\n" .
-                  "</div>\n" .
+                  "<dl class='valutazione'>\n" .
+                  "<dt>Valutazione:</dt><dd><p>" . $voto . "</p></dd>\n" .
+                  "</dl>\n" .
                   "<p>" . $commento . "</p>\n" .
-                  "</li>\n";
+                  "</li>\n";    
             }
         }    
       } else {
-            $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
-      }
+        $str_valutazioni = '<li class="nessun-trovato">(!) Nessuna recensione trovata</li>';
+      } 
 
   $nomefile = "./templates/Aziende.html";
   $contenuto = file_get_contents($nomefile);
@@ -125,23 +126,49 @@
     if($num > 0) {
       while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-
-        if ($voto === 1) {
-          $contenuto = str_replace("1-placeholder", "selected", $contenuto);
-        } elseif ($voto === 2) {
-            $contenuto = str_replace("2-placeholder", "selected", $contenuto);
-        } elseif ($voto === 3) {
-            $contenuto = str_replace("3-placeholder", "selected", $contenuto);
-        } elseif ($voto === 4) {
-            $contenuto = str_replace("4-placeholder", "selected", $contenuto);
-        } elseif ($voto === 5) {
-            $contenuto = str_replace("5-placeholder", "selected", $contenuto);
-        }  
+        
+        if ($voto === '1') {
+                $contenuto = str_replace("1-placeholder", "selected", $contenuto);
+                $contenuto = str_replace("2-placeholder", "", $contenuto);
+                $contenuto = str_replace("3-placeholder", "", $contenuto);
+                $contenuto = str_replace("4-placeholder", "", $contenuto);
+                $contenuto = str_replace("5-placeholder", "", $contenuto);
+            } elseif ($voto === '2') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
+                $contenuto = str_replace("2-placeholder", "selected", $contenuto);
+                $contenuto = str_replace("3-placeholder", "", $contenuto);
+                $contenuto = str_replace("4-placeholder", "", $contenuto);
+                $contenuto = str_replace("5-placeholder", "", $contenuto);
+            } elseif ($voto === '3') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
+                $contenuto = str_replace("2-placeholder", "", $contenuto);
+                $contenuto = str_replace("3-placeholder", "selected", $contenuto);
+                $contenuto = str_replace("4-placeholder", "", $contenuto);
+                $contenuto = str_replace("5-placeholder", "", $contenuto);
+            } elseif ($voto === '4') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
+                $contenuto = str_replace("2-placeholder", "", $contenuto);
+                $contenuto = str_replace("3-placeholder", "", $contenuto);
+                $contenuto = str_replace("4-placeholder", "selected", $contenuto);
+                $contenuto = str_replace("5-placeholder", "", $contenuto);
+            } elseif ($voto === '5') {
+                $contenuto = str_replace("1-placeholder", "", $contenuto);
+                $contenuto = str_replace("2-placeholder", "", $contenuto);
+                $contenuto = str_replace("3-placeholder", "", $contenuto);
+                $contenuto = str_replace("4-placeholder", "", $contenuto);
+                $contenuto = str_replace("5-placeholder", "selected", $contenuto);
+            }   
       
         $contenuto = str_replace("commento-placeholder", strval($commento), $contenuto);
       }
     }
-  }
+  } else {
+    $contenuto = str_replace("1-placeholder", "", $contenuto);
+    $contenuto = str_replace("2-placeholder", "", $contenuto);
+    $contenuto = str_replace("3-placeholder", "", $contenuto);
+    $contenuto = str_replace("4-placeholder", "", $contenuto);
+    $contenuto = str_replace("5-placeholder", "", $contenuto);
+  } 
 
   echo $contenuto;
 ?>

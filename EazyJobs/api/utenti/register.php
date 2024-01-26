@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
     }
 
     if (!empty($errors)) {
-        header("Location: http://localhost/TW/EazyJobs/RegistraUser.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../RegistraUser.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -49,7 +49,7 @@ ini_set('display_errors', 1);
 
     if ($utente->findEmailMatch() || $utente->findMatch()) {
         $errors['credenziali'] = "Le credenziali inserite sono già in uso.";
-        header("Location: http://localhost/TW/EazyJobs/RegistraUser.php?errors=".urlencode(json_encode($errors)));
+        header("Location: ../../RegistraUser.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
@@ -67,7 +67,7 @@ ini_set('display_errors', 1);
             $utente->updateCVPath($userIdInserito);
         }
 
-        header("Location: http://localhost/TW/EazyJobs/Accedi.php");
+        header("Location: ../../Accedi.php");
         exit();
     }
     else {}
