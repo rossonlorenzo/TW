@@ -75,7 +75,7 @@
                             <h3>" . $annuncio['titolo'] . "</h3>
                         </div>
                         <h4>" . $annuncio['nome'] . "</h4>
-                        <img src='./assets/logos/SyncLab-logo.png' alt='SyncLab-logo'>
+                        <img src='./assets/logos/". $annuncio['azienda_id'] ."_logo.png' alt='Logo azienda " . $annuncio['nome'] ."'>
                         <h5>Descrizione:</h5>
                         <p>" . $annuncio['desc_breve'] . "</p>
                         <ul class='job-info'>

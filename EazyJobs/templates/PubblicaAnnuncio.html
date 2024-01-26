@@ -25,25 +25,25 @@
         <input type="hidden" name="annuncioId" value="annuncioId-placeholder">
 
         <label for="titolo">Titolo:</label>
-        <input type="text" id="titolo" name="titolo" placeholder="Scrivi qui il titolo dell'annuncio">
+        <input type="text" id="titolo" name="titolo" placeholder="Scrivi qui il titolo dell'annuncio" required>
         <div id="titolo-errore" class="messaggio-errore">titolo-errore-placeholder</div>
         
         <label for="desc_breve">Breve descrizione:</label>
-        <textarea id="desc_breve" name="desc_breve" placeholder="Scrivi qui una breve descrizione"></textarea>
+        <textarea id="desc_breve" name="desc_breve" placeholder="Scrivi qui una breve descrizione" required></textarea>
         <div id="desc_breve-errore" class="messaggio-errore">desc-breve-errore-placeholder</div>
 
         <label for="desc_completa">Descrizione completa:</label>
-        <textarea id="desc_completa" name="desc_completa" placeholder="Scrivi qui una versione più completa della descrizione"></textarea>
+        <textarea id="desc_completa" name="desc_completa" placeholder="Scrivi qui una versione più completa della descrizione" required></textarea>
         <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
 </fieldset>
         <fieldset id="caratteristiche" class="hidden-fieldset">
             <legend>Caratteristiche</legend>
         <label for="locazione">Provincia:</label>
-        <input type="text" id="locazione" name="locazione" placeholder="Scrivi qui la località di lavoro">
+        <input type="text" id="locazione" name="locazione" placeholder="Scrivi qui la località di lavoro" required>
         <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
         <label for="settore">Settore:</label>
-        <input type="text" id="settore" name="settore" placeholder="Scrivi qui il settore">
+        <input type="text" id="settore" name="settore" placeholder="Scrivi qui il settore" required>
         <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
         <fieldset id="modalità">
@@ -73,7 +73,7 @@
     <fieldset id="requisiti" class="hidden-fieldset">
         <legend>Requisiti</legend>
         <label for="livello_istruzione">Livello istruzione richiesto:</label>
-        <select id="livello_istruzione" name="livello_istruzione">
+        <select id="livello_istruzione" name="livello_istruzione" required>
             <option value="Diploma" >Diploma</option>
             <option value="Laurea Triennale" >Laurea Triennale</option>
             <option value="Laurea Magistrale" >Laurea Magistrale</option>
@@ -82,7 +82,7 @@
         <div class="messaggio-errore">istruzione-errore-placeholder</div>
 
         <label for="esperienza">Anni di esperienza richiesti:</label>
-        <select id="esperienza" name="esperienza">
+        <select id="esperienza" name="esperienza" required>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -92,7 +92,7 @@
         <div class="messaggio-errore">esperienza-errore-placeholder</div>
 
         <label for="stipendio">Stipendio:</label>
-        <input type="text" id="stipendio" name="stipendio" value="0">
+        <input type="text" id="stipendio" name="stipendio" value="0" required>
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
 </fieldset>
     <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Pubblica Annunci' disabled>
