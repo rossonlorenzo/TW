@@ -68,18 +68,6 @@ a:visited {
     margin: 0 auto;
 }
 
-a[href*="Accedi"] {
-    padding: 0.5em 1em;
-    background-color: var(--headerTxtColor);
-    color: white;
-    text-decoration: none;
-    border-radius: 0.7em; 
-}
-
-a[href*="Accedi"]:hover {
-    text-decoration: underline;
-}
-
 #menu ul {
     list-style-type: none;
     display: flex;
@@ -217,10 +205,6 @@ input[type="submit"]:hover {
 form {
     text-align: center;
     margin: 0.5em 0;
-}
-
-#barra-ricerca {
-    margin-bottom: 1em;
 }
 
 #barra-ricerca form {
@@ -510,10 +494,12 @@ ul#aziende img {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #annunci-main {
     height: auto;
+    margin: 2em auto;
 }
 
 #annunci-main #content {
     background-color: var(--bgColor);
+    border-radius: 1em;
 }
 
 form {
@@ -1102,7 +1088,7 @@ ul.azioni-aggiuntive li {
 #accedi-main {
     display: flex;
     align-items: center;
-    margin-top: 2em;
+    margin: 2em auto;
 }
 
 #accedi-main #primoContenuto {
@@ -1734,6 +1720,7 @@ section > div > button {
 
 #chi_siamo-main {
     height: auto;
+    margin: 1em auto;
 }
 
 #chi_siamo-block {
@@ -1756,13 +1743,14 @@ h3.chi_siamo {
 }
 
 div.blocco {
-    padding: 5em;
+    padding: 2em;
+    margin: auto 2em;
 }
 
 #chi_siamo_img1, #chi_siamo_img3 {
     float: right;
     width: 30%;
-    margin-top: 0.7em;
+    margin: 1em;
     height: 30%;
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
@@ -1771,8 +1759,7 @@ div.blocco {
 #chi_siamo_img2 {
     float: left;
     width: 30%;
-    margin-right: 3em;
-    margin-bottom: 3em;
+    margin: 1em;
     height: 30%;
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
@@ -1856,8 +1843,8 @@ footer {
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     max-width: 75%;
-    margin: 2em auto;
     text-align: center;
+    margin: auto;
 }
 
 footer p {
@@ -1905,5 +1892,6 @@ ul #contattaci {
 
     footer {
         max-width: 90%;
+        margin: auto;
     }
 }
