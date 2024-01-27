@@ -218,16 +218,18 @@ if ($num > 0) {
                     "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
                     "</ul>" .
                 "</div>" .
-            "</div>" .
+            "</div>" ;
 
+            if(in_array($id, $preferiti)){
+                $str_completo .= "<strong id='salvato'>Annuncio già salvato.</strong>" ;
+            }
+            $str_completo .= 
             "<ul class='azioni-aggiuntive'>" .
             "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>" .
             "<li><input type='submit' class='bottone-candidati' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
             if(!in_array($id, $preferiti)){
                 $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio #{$id}\"></li>" ;
-            } else{
-                $str_completo .= "<a id='salvato'>Annuncio già salvato.</a>" ;
-            }
+            } 
             $str_completo .= 
                 "</ul>".
                 "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio #{$id}\">" .

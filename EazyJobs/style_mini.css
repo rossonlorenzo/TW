@@ -21,6 +21,8 @@ header .header-logo h1 {
 
 .header-actions, .header-burger {
     display: block;
+    text-align: right;
+    background-color: var(--headerBgColor);
 }
 
 a [href*="Accedi"] {
@@ -45,6 +47,7 @@ button.hamburger {
     min-width: 44px;
     min-height: 44px;
     padding: 0;
+    margin-right: 1em;
 }
 
 button.hamburger .burger {
@@ -129,10 +132,11 @@ button.hamburger .close .line:nth-of-type(3) {
 #home-main {
     width: 100%;
     height: auto;
+    padding-bottom: 130px;
 }
 
 #home-main div#content {
-    width: 90%;
+    width: 95%;
     height: auto;
     margin: auto auto;
     padding-top: 1em;
@@ -150,6 +154,7 @@ button.hamburger .close .line:nth-of-type(3) {
     bottom: 0;
     width: 100%;
     max-height: 15em;
+    border-radius: 0;
 }
 
 #barra-ricerca h2 {
@@ -174,7 +179,7 @@ section#cosa-offriamo > img {
 }
 
 section#cosa-offriamo > section {
-    width: 80%;
+    width: 100%;
     align-self: center;
 }
 
@@ -188,6 +193,7 @@ section#cosa-offriamo > section {
     overflow-x: unset;
     flex-direction: column;
     align-items: center;
+    justify-content: unset;
 }
 
 #home-main ul#aziende li {
@@ -292,6 +298,18 @@ img#profile_picture {
 #user-main section > ul, #user-main section ul.showing {      /* default == show */
     height: fit-content;
 }
+
+#user-listaAnnunci {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    max-height: 50vh;
+    list-style-type: none;
+}
+
+
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 USER CSS [FINE]
@@ -479,11 +497,10 @@ ul.annunci li p {
 
 .header-annunci {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: start;
     text-wrap: nowrap;
     overflow: hidden;
-    gap: 1em;
 }
 
 .header-annunci h4, .header-annunci img {
@@ -536,10 +553,6 @@ ul.job-info li {
 
 .bottone-annunci {
     display: block;
-}
-
-.annuncio-completo img {
-    display: none;
 }
 
 .annuncio-completo h3 {
@@ -607,12 +620,15 @@ ul.job-complete-info li p {/* [...] effect */
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
-    gap: 1em;
+}
+
+#salvato{
+    margin: 1em 0 0.5em 0;
 }
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
-    margin: 1em 0;
+    margin: 0;
 }
 
 .bottone-annunci{
@@ -627,9 +643,9 @@ ul.azioni-aggiuntive li {
 
 #annunci-main #content {
     background-color: var(--bgColor);
-    border-radius: 1em;
+    border-radius: 0;
     padding: 0.5em;
-    padding-bottom: 100px;
+    padding-bottom: 130px;
 }
 
 /* @media (max-width: 1200px) {
@@ -777,6 +793,15 @@ ul.azioni-aggiuntive li {
 
 #admin-main section > ul, #admin-main section ul.showing {      /* default == show */
     height: fit-content;
+}
+
+#admin-listaAnnunci {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 50vh;
+    list-style-type: none;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------

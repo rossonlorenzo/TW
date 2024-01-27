@@ -95,12 +95,10 @@ a:visited {
 }
 
 main {
-    background-color: var(--bgColor);
     color: var(--txtColor);
     margin: 0 auto;
     margin-top: 2em;
     border-radius: 1em;
-    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     width: 75%;
     height: 75vh;
 }
@@ -112,8 +110,8 @@ button, input[type="button"], input[type="submit"] {
     border: none;
     border-radius: 1em;
     cursor: pointer;
-    margin-top: 0.5em;
     max-width: fit-content;
+    margin-top: 0.5em;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
@@ -128,7 +126,7 @@ input[type="submit"]{
     border: none;
     border-radius: 1em;
     cursor: pointer;
-    margin-top: 0.5em;
+    margin-top: 1em;
     max-width: fit-content;
 }
 
@@ -207,6 +205,14 @@ form {
     margin: 0.5em 0;
 }
 
+#barra-ricerca{
+    background-color: var(--headerBgColor);
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    margin-bottom: 1em;
+}
+
 #barra-ricerca form {
     background-color: var(--bgColor);
     border-radius: 1em;
@@ -258,12 +264,9 @@ section#cosa-offriamo {
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 1em;
-    background: url("./assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 25% no-repeat,
+    background: url("./assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 27% no-repeat,
                 url("./assets/illustrations/undraw_doctors_p6aq.svg") left 25% top 32% no-repeat,
-                url("./assets/illustrations/undraw_cooking_p7m1.svg") center bottom no-repeat,
-                url("./assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat,
-                url("./assets/illustrations/undraw_scientist_ft0o.svg") left bottom 12% no-repeat,
-                url("./assets/illustrations/undraw_automobile_repair_ywci.svg") right bottom no-repeat;
+                url("./assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat;
                 
     
     background-size: 15%, 21%, 15%, 22%, 20%, 22%;
@@ -271,7 +274,7 @@ section#cosa-offriamo {
 
 section#cosa-offriamo h2{
     font-size: 3em;
-    line-height: 90%;
+    line-height: 1em;
     letter-spacing: -0.01em;
     width: 50%;
 }
@@ -287,7 +290,7 @@ section#cosa-offriamo > section {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     padding: 1.5em;
     margin-top: 1.5em;
-    width: 30%;
+    width: 40%;
     transition: all 0.5s ease-in-out;
 }
 
@@ -682,12 +685,8 @@ ul.annunci li p {
     gap: 1em;
 }
 
-.header-annunci h4, .header-annunci img {
-    margin: auto 0;
-}
-
 ul.annunci img {
-    max-width: 15%;
+    height: 0;
 }
 
 ul.job-info {
@@ -1256,6 +1255,7 @@ margin: auto;
     font-size: 2em;
     margin: 2em 0 0 0;
     font-family: var(--font-body-family);
+    line-height: 1em;
 }
 
 #user-main strong {
@@ -1336,7 +1336,6 @@ section > div > button {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
-    flex: 0 0 25em;
 }
 
 #user-listaAnnunci li h3 {
@@ -1355,16 +1354,16 @@ section > div > button {
 
 #user-listaAnnunci li p {
     font-size: 0.8em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #user-listaAnnunci.header-annunci {
     display: flex;
     align-items: center;
     gap: 1em;
-}
-
-#user-main .header-annunci h4, #user-main .header-annunci img {
-    margin: auto;
 }
 
 #user-listaAnnunci img {
@@ -1440,6 +1439,7 @@ section > div > button {
     font-size: 2em;
     margin: 2em 0 0 0;
     font-family: var(--font-body-family);
+    line-height: 1em;
 }
 
 #admin-main strong {
@@ -1499,7 +1499,6 @@ section > div > button {
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
-    flex: 0 0 25em;
 }
 
 #admin-listaAnnunci li h3 {
@@ -1518,16 +1517,16 @@ section > div > button {
 
 #admin-listaAnnunci li p {
     font-size: 0.8em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #admin-listaAnnunci .header-annunci {
     display: flex;
     align-items: center;
     gap: 1em;
-}
-
-#admin-main .header-annunci h4, #admin-main .header-annunci img {
-    margin: auto;
 }
 
 #admin-listaAnnunci img {
@@ -1721,6 +1720,7 @@ section > div > button {
     height: auto;
     margin: 1em auto;
     padding-bottom: 0.2em;
+    background-color: var(--bgColor);
 }
 
 #chi_siamo-block {
