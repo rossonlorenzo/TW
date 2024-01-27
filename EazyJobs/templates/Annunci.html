@@ -47,7 +47,7 @@
     </div>
 
     <main id="annunci-main">
-        <div id="primoContenuto">
+        <span id="primoContenuto">
             <div id="barra-ricerca">
                 <form action="Annunci.php" method="get" id="annunci-ricerca">
                     <label for="professione" class="nascosto">Professione</label>
@@ -64,7 +64,7 @@
                     <button type="submit" aria-label="Cerca per professione e provincia"><span class="screen-reader">Cerca</span> <img src="./assets/icons/search.png" alt="Icona ricerca"></button>
                 </form> 
             </div>
-        </div>
+        </span>
 
         <div id="content">
             <input id="bottone-filtri" type="submit" value="Mostra filtri">
@@ -147,13 +147,14 @@
                     </div>  
                     <input id="applica-filtri" type="submit" value="Cerca" aria-label="Cerca applicando i filtri">          
                 </form>       
-            
+                <div id="annunci-temp">
                 <ul class="annunci" id="annunci-listaAnnunci">
                     <!--annunci-placeholder-->
                 </ul>
                 <div id ="annunci-completi">
                     <!--completo-placeholder-->
                 </div>
+            </div>
             </div>
         </div>
 

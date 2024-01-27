@@ -263,7 +263,7 @@ section#cosa-offriamo {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-bottom: 1em;
+    padding: 1em;
     background: url("./assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 25% no-repeat,
                 url("./assets/illustrations/undraw_doctors_p6aq.svg") left 25% top 32% no-repeat,
                 url("./assets/illustrations/undraw_cooking_p7m1.svg") center bottom no-repeat,
@@ -291,7 +291,7 @@ section#cosa-offriamo > section {
     background-color: white;
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    padding: 0.5em;
+    padding: 1.5em;
     margin-top: 1.5em;
     width: 30%;
     transition: all 0.5s ease-in-out;
@@ -370,7 +370,7 @@ ul#aziende li {
 }
 
 .azienda-grid{
-    margin: auto 0;
+    margin-top: 2em;
     width: fit-content;
     display: grid;
     gap: 0;
@@ -378,8 +378,8 @@ ul#aziende li {
 }
 
 ul#aziende h3 {
-    font-size: 1em;
-    margin: auto 1em;
+    font-size: 1.2em;
+    margin: auto 0.5em;
     color: var(--linkColor);
 }
 
@@ -423,7 +423,7 @@ ul#aziende img {
     }
 
     section#cosa-offriamo > section {
-        width: 40%;
+        width: 80%;
     }
 
     ul#aziende {
@@ -431,14 +431,14 @@ ul#aziende img {
         grid-template-columns: 50% 50%;
         overflow-y: auto;
         overflow-x: hidden;
-        height: 45vh;
+        max-height: 50vh;
         justify-content: center;
         align-items: center;
     }
 
     ul#aziende li {
         justify-self: center;
-        min-height: 20vh;
+        min-height: 17vh;
         width: 87%;
         overflow-x: hidden;
     }
@@ -506,6 +506,7 @@ ul#aziende img {
 #annunci-main #content {
     background-color: var(--bgColor);
     border-radius: 1em;
+    padding: 0.5em;
 }
 
 form {
@@ -537,7 +538,7 @@ form {
 
 #filtri-ricerca {  
     display: block; 
-    width: 15em;
+    width: 25%;
 }
 
 #filtri-ricerca.showing, #filtri-ricerca.hiding {          /* passando da visualizzazione mobile a desktop la barra dei filtri */
@@ -833,57 +834,46 @@ ul.azioni-aggiuntive li {
     font-size: 14px;
     color: #023E8A;
 }
-/*
+
+#annunci-temp{
+    display: flex;
+    width: 80%;
+}
+
  @media (max-width: 1200px) {
+    #annunci-main{
+        width: 92%;
+    }
+
     ul.annunci li h5 {
         white-space: nowrap;
         overflow: visible;
     }
     ul.annunci li p {
-        text-wrap: nowrap;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* Number of lines to show */
         overflow: hidden;
         text-overflow: ellipsis;
     }
-}*/
-
-@media (max-width: 1100px) {
-    #annunci-main {
-        width: 90%;
+    #annunci-temp{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
     }
 
-    #filtri-ricerca {
-        display: none;
-        margin-top: 0;
-        background-color: var(--headerBgColor);
-        border-radius: 1em;
-        padding-bottom: 0.5em;
-        order: 0;
-    }
-    
-    #filtri-ricerca.hiding {
-        display: none;
-    }
-    
-    #filtri-ricerca.showing {
-        display: block;
+    .annuncio-completo{
+        margin-top: 2em;
     }
 
-    #bottone-filtri {
-        width: auto;
-        display: block;
-        align-self: end;
-        margin: 1em 1em 0 1em;
+    #filtri-ricerca {  
+        display: block; 
+        width: 30%;
+        border-right: solid var(--footerTxtColor);
     }
-    
-    #bottone-filtri.showing {
-        border-radius: 1em 1em 0 0;
-        background-color: var(--footerBgColor);
-        color: black;
-    }
-    
-    #bottone-filtri.hiding {
-        border-radius: 1em;
-    }
+}
+
+
 
     /*
     #annuncio-completo {
@@ -901,7 +891,7 @@ ul.azioni-aggiuntive li {
     ul.annunci li p {
         text-wrap: wrap;
     }*/
-}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -917,6 +907,7 @@ ul.azioni-aggiuntive li {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #aziende-main {
     height: auto;
+    margin: 1em auto;
 }
 
 .delimitatore-piccolo {
@@ -1037,6 +1028,8 @@ ul.azioni-aggiuntive li {
 .invisibile {
     visibility: hidden;
     height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .visibile {
@@ -1077,6 +1070,12 @@ ul.azioni-aggiuntive li {
     box-sizing: border-box;
     vertical-align: top;
     overflow-y: auto;
+}
+
+#aziende-main .header-aziende {
+    display: flex;
+    justify-content: unset;
+    margin: 1em 0.5em;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1726,6 +1725,7 @@ section > div > button {
 #chi_siamo-main {
     height: auto;
     margin: 1em auto;
+    padding-bottom: 0.2em;
 }
 
 #chi_siamo-block {

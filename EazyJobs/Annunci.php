@@ -148,8 +148,8 @@ if ($num > 0) {
         extract($row);
         $str_annunci .=
             "<li id='#" . $id . "'>" .
-            "<a href='annuncio-" . $id . "' class='annuncio-link' aria-label=\"Scopri l'annuncio " . $titolo . " #" . $id ."\" data-target='annuncio-" . $id ."'>" . 
-            "<h3>" . $titolo . " #". $id ."</h3>" .
+            "<a href='annuncio-" . $id . "' class='annuncio-link' aria-label=\"Scopri l'annuncio " . $titolo ."\" data-target='annuncio-" . $id ."'>" . 
+            "<h3>" . $titolo . "</h3>" .
             "</a>" .
 
             "<div class='header-annunci'>" .

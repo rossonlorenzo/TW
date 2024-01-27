@@ -31,8 +31,8 @@
           "<img src='./assets/logos/". $id ."_logo.png' alt='Logo azienda " . $nome ."'>\n" .
           "</div>\n" .
           "<div class='azienda-grid'>\n" .
-          "<h4>settore:</h4> <p>" . $settore . "</p>\n" .
-          "<h4>valutazione:</h4>\n" .
+          "<h4>Settore:</h4> <p>" . $settore . "</p>\n" .
+          "<h4>Valutazione:</h4>\n" .
           "<div class='valutazione-container'>\n" .
               "<span class='nascosto'>" . $abbreviatedMedia . " su 5</span>\n" .
               "<div class='valutazione-media' aria-hidden='true' data-rating='" . $media . "'></div>\n" .          

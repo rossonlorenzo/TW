@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.title == "EazyJobs: Annunci") {
         if (window.innerWidth <= 768) {
             const annuncioCompletoIniziale = document.querySelector(".annuncio-completo");
-            annuncioCompletoIniziale.classList.add("hidden");
-        } else {
-            listaAnnunci.classList.add("hidden");
+            annuncioCompletoIniziale.setAttribute("class", "annuncio-completo hidden");
         }
     }
 
@@ -128,9 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     filtriRicerca.className = "showing";
                     filterButton.className = "showing";
                     filterButton.setAttribute("value", "Nascondi filtri");
-                    annuncioTrue = document.querySelector(".annuncio-completo:not(.nascosto)");
+                    annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
                     if(annuncioTrue != null) {
-                        annuncioTrue.setAttribute("class", "annuncio-completo nascosto");
+                        annuncioTrue.setAttribute("class", "annuncio-completo hidden");
                     } 
                 }
             });
