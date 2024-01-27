@@ -348,9 +348,16 @@ function changeButton(name) {
     if(span.className == "toggle hide") {
         span.className = "toggle show";
         btn.setAttribute("aria-expanded","false");
+        if (btn.id == "annunci-toggle") {
+            btn.setAttribute("aria-label","Mostra gli annunci");
+        } else {btn.setAttribute("aria-label","Mostra le recensioni");}
+
     } else {
         span.className = "toggle hide";
         btn.setAttribute("aria-expanded","true");
+        if (btn.id == "annunci-toggle") {
+            btn.setAttribute("aria-label","Nascondi gli annunci");
+        } else {btn.setAttribute("aria-label","Nascondi le recensioni");}
     }
 }
 
@@ -457,7 +464,7 @@ confirmationModal.style.display = 'none';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-        const fieldValidation = {
+    const fieldValidation = {
     nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
     password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},
@@ -590,8 +597,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     forms.forEach(function (form) {
-        form.addEventListener('input', handleFieldInteraction);
-        form.addEventListener('change', handleFieldInteraction);
+        if (form.id != "filtri-ricerca") {
+            form.addEventListener('input', handleFieldInteraction);
+            form.addEventListener('change', handleFieldInteraction);
+        }
     });
 });
 
@@ -650,7 +659,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    prev.addEventListener("click", () => {
+    if (prev) {
+        prev.addEventListener("click", () => {
         if(contenuti.getAttribute("class") === "visible-fieldset"){
             return;
         }
@@ -666,25 +676,28 @@ document.addEventListener('DOMContentLoaded', function() {
             mod.setAttribute("disabled", "true");
             setFocusToFirstInput(caratteristiche);
         }
-    })
+        })
+    }
 
-    next.addEventListener("click", () => {
-        if(requisiti.getAttribute("class") === "visible-fieldset"){
-            return;
-        }
-        if(caratteristiche.getAttribute("class") === "visible-fieldset"){
-            mod.setAttribute("id","modificaAnnuncio-bottone");
-            mod.removeAttribute("disabled")
-            requisiti.setAttribute("class", "visible-fieldset");
-            caratteristiche.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(requisiti);
-        }
-        if(contenuti.getAttribute("class") === "visible-fieldset"){
-            caratteristiche.setAttribute("class", "visible-fieldset");
-            contenuti.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(caratteristiche);
-        }
-    })
+    if (next) {
+        next.addEventListener("click", () => {
+            if(requisiti.getAttribute("class") === "visible-fieldset"){
+                return;
+            }
+            if(caratteristiche.getAttribute("class") === "visible-fieldset"){
+                mod.setAttribute("id","modificaAnnuncio-bottone");
+                mod.removeAttribute("disabled")
+                requisiti.setAttribute("class", "visible-fieldset");
+                caratteristiche.setAttribute("class","hidden-fieldset");
+                setFocusToFirstInput(requisiti);
+            }
+            if(contenuti.getAttribute("class") === "visible-fieldset"){
+                caratteristiche.setAttribute("class", "visible-fieldset");
+                contenuti.setAttribute("class","hidden-fieldset");
+                setFocusToFirstInput(caratteristiche);
+            }
+        })
+    }
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -707,41 +720,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    prev.addEventListener("click", () => {
-        if(credenziali.getAttribute("class") === "visible-fieldset"){
-            return;
-        }
-        if(dettagli.getAttribute("class") === "visible-fieldset"){
-            credenziali.setAttribute("class", "visible-fieldset");
-            dettagli.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(credenziali);
-        }
-        if(dati.getAttribute("class") === "visible-fieldset"){
-            dettagli.setAttribute("class", "visible-fieldset");
-            dati.setAttribute("class","hidden-fieldset");
-            mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
-            mod.setAttribute("disabled", "true");
-            setFocusToFirstInput(dettagli);
-        }
-    })
+    if (prev) {
+        prev.addEventListener("click", () => {
+            if(credenziali.getAttribute("class") === "visible-fieldset"){
+                return;
+            }
+            if(dettagli.getAttribute("class") === "visible-fieldset"){
+                credenziali.setAttribute("class", "visible-fieldset");
+                dettagli.setAttribute("class","hidden-fieldset");
+                setFocusToFirstInput(credenziali);
+            }
+            if(dati.getAttribute("class") === "visible-fieldset"){
+                dettagli.setAttribute("class", "visible-fieldset");
+                dati.setAttribute("class","hidden-fieldset");
+                mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
+                mod.setAttribute("disabled", "true");
+                setFocusToFirstInput(dettagli);
+            }
+        })
+    }
 
-    next.addEventListener("click", () => {
-        if(dati.getAttribute("class") === "visible-fieldset"){
-            return;
-        }
-        if(dettagli.getAttribute("class") === "visible-fieldset"){
-            mod.setAttribute("id","modificaAnnuncio-bottone");
-            mod.removeAttribute("disabled")
-            dati.setAttribute("class", "visible-fieldset");
-            dettagli.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(dati);
-        }
-        if(credenziali.getAttribute("class") === "visible-fieldset"){
-            dettagli.setAttribute("class", "visible-fieldset");
-            credenziali.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(dettagli);
-        }
-    })
+    if (next) {
+        next.addEventListener("click", () => {
+            if(dati.getAttribute("class") === "visible-fieldset"){
+                return;
+            }
+            if(dettagli.getAttribute("class") === "visible-fieldset"){
+                mod.setAttribute("id","modificaAnnuncio-bottone");
+                mod.removeAttribute("disabled")
+                dati.setAttribute("class", "visible-fieldset");
+                dettagli.setAttribute("class","hidden-fieldset");
+                setFocusToFirstInput(dati);
+            }
+            if(credenziali.getAttribute("class") === "visible-fieldset"){
+                dettagli.setAttribute("class", "visible-fieldset");
+                credenziali.setAttribute("class","hidden-fieldset");
+                setFocusToFirstInput(dettagli);
+            }
+        })
+    }
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             

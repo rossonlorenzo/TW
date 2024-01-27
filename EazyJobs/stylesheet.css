@@ -162,13 +162,7 @@ input[type="submit"]:hover {
 
 .nascosto {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    left: -999em;
 }
 
 .visible-fieldset{
@@ -1463,17 +1457,18 @@ section > div > button {
     font-weight: bold;
 }
 
-#admin-main > h3 {
+#admin-main section > div {
     color: white;
     background-color: var(--headerTxtColor);
     margin-top: 1.5em;
     padding: 0.5em;
     border-radius: 1em 1em 0 0;
     font-size: 1.2em;
+    font-weight: bold;
     clear: right;
 }
 
-#admin-main > ul {
+#admin-main section > ul {
     background-color: var(--bgColor);
     border-radius: 0 0 1em 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
@@ -1868,6 +1863,30 @@ footer p {
     display: inline;
     flex: 1;
 }
+
+ul #contattaci {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5em;
+}
+
+#contattaci li {
+    white-space: nowrap;
+}
+
+#contattaci li:first-child {
+    margin-right: 0.5em;
+}
+
+#contatti {
+    text-align: left;
+}
+
+#contatti li {
+    margin-top: 0.5em;
+}
+
 
 @media (max-width: 1024px) {
 

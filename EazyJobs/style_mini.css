@@ -184,15 +184,15 @@ section#cosa-offriamo > section {
 
 #home-main ul#aziende {
     display: flex;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: unset;
     flex-direction: column;
     align-items: center;
-    justify-content: unset;
 }
 
 #home-main ul#aziende li {
     overflow-x: unset;
+    overflow-y: hidden;
 }
 
 footer {
@@ -223,7 +223,6 @@ header.header-mobile {
     justify-content: space-between;
     background-color: var(--headerBgColor);
     width: 100%;
-    
 }
 
 header.header-mobile .header-logo h1 {
@@ -701,24 +700,26 @@ ul.azioni-aggiuntive li {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #admin-main {
-    width: 100%;
+    width: 90%;
 }
+
 #admin-main > h2 {
     margin-left: 0.5em;
 }
+
 #dati-admin {
     margin-left: 1em;
 }
-#admin-listaAnnunci {
-    flex-direction: column;
-    overflow-y: scroll;
-    max-height: 50vh;
-}
-#admin-recensioni {
-    max-height: 25vh;
+
+#admin-listaAnnunci .header-annunci {
+    align-items: start;
+    gap: 0em;
 }
 
-/*DA SISTEMARE PER RENDERE UGUALE A USER*/
+#admin-main .header-annunci h4, #admin-main .header-annunci img {
+    margin: 0;
+}
+
 #admin-main section > div {
     min-height: 44px;
     padding: 0 0.5em;
@@ -735,7 +736,6 @@ ul.azioni-aggiuntive li {
 }
 
 #admin-main section > div > h3 {
-    
     float: left;
     margin: 0.4em 0 0.4em; /* da centrare */
 }
@@ -775,7 +775,7 @@ ul.azioni-aggiuntive li {
     height: 0vh;
 }
 
-#admin-main section > ul, #user-main section ul.showing {      /* default == show */
+#admin-main section > ul, #admin-main section ul.showing {      /* default == show */
     height: fit-content;
 }
 

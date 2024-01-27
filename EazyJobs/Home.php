@@ -44,7 +44,7 @@
           array('message' => 'Nessuna azienda trovata')
         );
   }
-
+  
   $annunci = new Annuncio($db);
   $result = $annunci->getAll();
   $num = $result->rowCount();

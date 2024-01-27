@@ -26,26 +26,26 @@
         <legend>Contenuti</legend>
 
         <label for="titolo">Titolo:</label>
-        <input type="text" id="titolo" name="titolo" value="titolo-placeholder">
+        <input type="text" id="titolo" name="titolo" value="titolo-placeholder" required>
         <div id="titolo-errore" class="messaggio-errore">titolo-errore-placeholder</div>
         
         <label for="desc_breve">Breve descrizione:</label>
-        <textarea id="desc_breve" name="desc_breve">desc-breve-placeholder</textarea>
+        <textarea id="desc_breve" name="desc_breve" required>desc-breve-placeholder</textarea>
         <div id="desc_breve-errore" class="messaggio-errore">desc-breve-errore-placeholder</div>
 
         <label for="desc_completa">Descrizione completa:</label>
-        <textarea id="desc_completa" name="desc_completa">desc-completa-placeholder</textarea>
+        <textarea id="desc_completa" name="desc_completa" required>desc-completa-placeholder</textarea>
         <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
 </fieldset>
 
 <fieldset id="caratteristiche" class="hidden-fieldset">
             <legend>Caratteristiche</legend>
         <label for="locazione">Provincia:</label>
-        <input type="text" id="locazione" name="locazione" value="locazione-placeholder">
+        <input type="text" id="locazione" name="locazione" value="locazione-placeholder" required>
         <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
         <label for="settore">Settore:</label>
-        <input type="text" id="settore" name="settore" value="settore-placeholder">
+        <input type="text" id="settore" name="settore" value="settore-placeholder" required>
         <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
         <fieldset id="modalità">
@@ -76,7 +76,7 @@
 <fieldset id="requisiti" class="hidden-fieldset">
         <legend>Requisiti</legend>
         <label for="livello_istruzione">Livello istruzione richiesto:</label>
-        <select id="livello_istruzione" name="livello_istruzione">
+        <select id="livello_istruzione" name="livello_istruzione" required>
             <option value="Diploma" diploma-placeholder>Diploma</option>
             <option value="Laurea Triennale" triennale-placeholder>Laurea Triennale</option>
             <option value="Laurea Magistrale" magistrale-placeholder>Laurea Magistrale</option>
@@ -85,7 +85,7 @@
         <div class="messaggio-errore">istruzione-errore-placeholder</div>
 
         <label for="esperienza">Anni di esperienza richiesti:</label>
-        <select id="esperienza" name="esperienza">
+        <select id="esperienza" name="esperienza" required>
             <option value="1" 1-placeholder>1</option>
             <option value="2" 2-placeholder>2</option>
             <option value="3" 3-placeholder>3</option>
@@ -95,7 +95,7 @@
         <div class="messaggio-errore">esperienza-errore-placeholder</div>
 
         <label for="stipendio">Stipendio:</label>
-        <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder">
+        <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder" required>
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
 </fieldset>
         <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Modifica Annuncio' disabled>
