@@ -189,6 +189,7 @@ section#cosa-offriamo > section {
     flex-direction: column;
     height: 50vh;
     align-items: center;
+    justify-content: center;
 }
 
 #home-main ul#aziende li {
