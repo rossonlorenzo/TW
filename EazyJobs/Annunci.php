@@ -215,7 +215,7 @@ if ($num > 0) {
                     "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
                     "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
                     "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
-                    "<li><h5>Contatti:</h5><p>s" . $email . "</p></li>" .
+                    "<li><h5>Contatti:</h5><p>" . $email . "</p></li>" .
                     "</ul>" .
                 "</div>" .
             "</div>" ;
