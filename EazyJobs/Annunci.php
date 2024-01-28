@@ -231,6 +231,7 @@ if ($num > 0) {
                 $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio #{$id}\"></li>" ;
             } 
             $str_completo .= 
+                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio #{$id}\"></li>".
                 "</ul>".
                 "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio #{$id}\">" .
                 "</article>";

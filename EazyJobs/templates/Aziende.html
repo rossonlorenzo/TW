@@ -7,8 +7,9 @@
     <title>Aziende - EazyJobs</title>
     <meta name="keywords" content="EazyJobs, aziende, settore, sede, sito web, recensioni, valutazione, commento">
     <meta name="description" content="Profilo informativo dedicato alle singole aziende, scopri i dettagli di tuo interesse e le recensioni lasciate dagli altri candidati">
-    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css" media="screen">
     <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./print.css" media="print">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -16,23 +17,23 @@
 <body onload="showHideNav()">
     <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
-        <div class="header-logo">
+<div class="header-logo">
             <h1><span lang="en">EazyJobs</span></h1>
         </div>
         <div class="header-actions">
             <a href=php-placeholder>link-placeholder</a>
         </div>
-    </header>
-    <div class="header-burger">
-        <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
-            <span class="burger close">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </span>
-        </button>
-    </div>
-    <div id="navigazione">
+        </header>
+        <div class="header-burger">
+            <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
+                <span class="burger close">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </span>
+            </button>
+        </div>
+        <div id="navigazione">
         <nav id="menu" aria-label="Menu principale">
             <ul>
                 <li lang="en"><a href="Home.php">Home</a></li>

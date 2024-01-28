@@ -7,19 +7,17 @@ const starRatingElements = document.querySelectorAll(".valutazione-media");
 
 starRatingElements.forEach(function (starRating) {
 const rating = parseFloat(starRating.getAttribute("data-rating"));
+starRating.setAttribute("style", `--rating: ${rating}`);
 let stars = "";
 
 for (let i = 0; i < 5; i++) {
     if (i < Math.floor(rating)) {
-    stars += "★";
-    } else if (i === Math.floor(rating) && rating % 1 !== 0) {
-    // aggiungere gestione parte decimale (e.g., 2.5) aka half-stars
-    stars += "☆";
+        stars += "★";
     } else {
-    stars += "☆";
+        stars += "☆";
     }
 }
-starRating.innerHTML = stars;
+starRating.setAttribute("data-content", stars);
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -164,6 +162,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
+    const stampaButtons = document.querySelectorAll(".bottone-stampa");
+
+    stampaButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            annunciHidden = document.querySelectorAll(".annuncio-completo.hidden");
+            annunciHidden.forEach(function (annuncioHidden) {
+                annuncioHidden.classList.add("print-invisible");
+            });
+            window.print();
+            annunciHidden.forEach(function (annuncioHidden) {
+                annuncioHidden.classList.remove("print-invisible");
+            });
+        });
+    });
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI JS [FINE]
@@ -348,14 +362,14 @@ function changeButton(name) {
     if(span.className == "toggle hide") {
         span.className = "toggle show";
         btn.setAttribute("aria-expanded","false");
-        if (btn.id == "annunci-toggle") {
+if (btn.id == "annunci-toggle") {
             btn.setAttribute("aria-label","Mostra gli annunci");
         } else {btn.setAttribute("aria-label","Mostra le recensioni");}
 
     } else {
         span.className = "toggle hide";
         btn.setAttribute("aria-expanded","true");
-        if (btn.id == "annunci-toggle") {
+if (btn.id == "annunci-toggle") {
             btn.setAttribute("aria-label","Nascondi gli annunci");
         } else {btn.setAttribute("aria-label","Nascondi le recensioni");}
     }
@@ -464,7 +478,7 @@ confirmationModal.style.display = 'none';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-    const fieldValidation = {
+        const fieldValidation = {
     nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
     email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
     password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},
@@ -659,8 +673,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    if (prev) {
-        prev.addEventListener("click", () => {
+if (prev) {
+    prev.addEventListener("click", () => {
         if(contenuti.getAttribute("class") === "visible-fieldset"){
             return;
         }
@@ -676,8 +690,8 @@ document.addEventListener('DOMContentLoaded', function() {
             mod.setAttribute("disabled", "true");
             setFocusToFirstInput(caratteristiche);
         }
-        })
-    }
+    })
+}
 
     if (next) {
         next.addEventListener("click", () => {

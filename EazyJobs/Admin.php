@@ -37,7 +37,7 @@
                 <dd>' . $nome . '</dd>
                 <dt><span lang="en">E-mail</span>:</dt>
                 <dd>' . $email . '</dd>
-                <dt>Sito <span lang="en">web:</span>:</dt>
+                <dt>Sito <span lang="en">web</span>:</dt>
                 <dd>' . $sito . '</dd>';
 
           $str_logo = "<img id='foto-profilo' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>";
