@@ -198,7 +198,15 @@ section#cosa-offriamo > section {
 
 #home-main ul#aziende li {
     overflow-x: unset;
-    overflow-y: hidden;
+    min-height: fit-content;
+}
+
+ul#aziende h3 {
+    margin-top: 0.5em;
+}
+
+.azienda-grid {
+    margin-top: 0;
 }
 
 footer {
@@ -311,7 +319,9 @@ img#profile_picture {
     list-style-type: none;
 }
 
-
+#user-listaAnnunci img {
+    width: 15%;
+}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -505,7 +515,7 @@ ul.annunci li p {
     overflow: hidden;
 }
 
-.header-annunci h4, .header-annunci img {
+.header-annunci h4 {
     margin: 0;
 }
 
@@ -729,13 +739,21 @@ ul.azioni-aggiuntive li {
     margin-left: 1em;
 }
 
+img#foto-profilo {
+    margin-top: 1em;
+}
+
 #admin-listaAnnunci .header-annunci {
     align-items: start;
     gap: 0em;
 }
 
-#admin-main .header-annunci h4, #admin-main .header-annunci img {
+#admin-main .header-annunci h4 {
     margin: 0;
+}
+
+#admin-listaAnnunci img {
+    width: 15%;
 }
 
 #admin-main section > div {
@@ -915,9 +933,6 @@ div.blocco {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-
-
-
 #aziende-main {
     height: auto;
     width: 100%;
@@ -950,9 +965,8 @@ div.blocco {
 }
 
 #aziende-main #contenitore-informazioni dl {
-    padding: 20px;
     background-color: #fff;
-    width: fit-content;
+    width: auto;
     padding: 0.7em;
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
@@ -966,7 +980,6 @@ div.blocco {
     margin: 0;
 }
 
-
 #aziende-main #contenitore-informazioni dd {
     float: left;
     width: 50%;
@@ -974,10 +987,12 @@ div.blocco {
     margin: 0;
 }
 
-#logo-azienda {
-    width: 20%;
-    height: 20%;
-    padding: 20px;
+#aziende-main .header-aziende {
+    width: 100%;
+}
+
+#aziende-main .header-aziende img {
+    width: 40%;
 }
 
 #bottone-recensioni {
