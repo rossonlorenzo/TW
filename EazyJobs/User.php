@@ -71,11 +71,12 @@
             if ($annuncio) {
                 $str_annunci .= "
                     <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
-                        <div class='header-annunci'>
+                        
                             <h3>" . $annuncio['titolo'] . "</h3>
-                        </div>
+                        <div class='header-annunci'>
                         <h4>" . $annuncio['nome'] . "</h4>
                         <img src='./assets/logos/". $annuncio['azienda_id'] ."_logo.png' alt='Logo azienda " . $annuncio['nome'] ."'>
+                        </div>
                         <h5>Descrizione:</h5>
                         <p>" . $annuncio['desc_breve'] . "</p>
                         <ul class='job-info'>

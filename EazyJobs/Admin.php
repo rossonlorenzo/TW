@@ -56,8 +56,8 @@
         
             $str_annunci .= 
                 "<li id='annuncio-" . $annuncio_id . "'>\n" .
-                "<div class='header-annunci'>\n" .
                 "<h3>" . $titolo . "</h3>\n" .
+                "<div class='header-annunci'>\n" .
                 "<h4>" . $nome . "</h4>\n" .
                 "<img src='./assets/logos/". $azienda_id ."_logo.png' alt='Logo azienda " . $nome ."'>" .
                 "</div>\n" .

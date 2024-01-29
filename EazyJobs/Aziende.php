@@ -28,8 +28,10 @@
 
       $aziendaName = $nome;
         
-      $str_azienda = "
-        <img id='logo-azienda' src='./assets/logos/" . $aziendaId . "_logo.png' alt='Logo azienda " . $nome ."'>
+      $str_azienda = "<div class='header-aziende'>\n" .
+      "<h3>" . $nome . "</h3>\n" .
+      "<img src='./assets/logos/". $id ."_logo.png' alt='Logo azienda " . $nome ."'>\n" .
+      "</div>\n" . "
         <dl>
             <dt class='info-azienda'>Fondazione: </dt>
             <dd><time datetime='" . $fondazione . "'>" . $fondazione . "</time></dd>
@@ -116,7 +118,6 @@
   $contenuto = str_replace("duplicato-errore-placeholder", $duplicatoErrore, $contenuto);
 
   //rimpiazzo contenuto dinamico della pagina
-  $contenuto = str_replace("nome-placeholder", strval($aziendaName), $contenuto);
   $contenuto = str_replace("<!-- azienda-placeholder -->", $str_azienda, $contenuto);
   $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);
 

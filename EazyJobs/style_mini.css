@@ -21,6 +21,8 @@ header .header-logo h1 {
 
 .header-actions, .header-burger {
     display: block;
+    text-align: right;
+    background-color: var(--headerBgColor);
 }
 
 a [href*="Accedi"] {
@@ -45,6 +47,7 @@ button.hamburger {
     min-width: 44px;
     min-height: 44px;
     padding: 0;
+    margin-right: 1em;
 }
 
 button.hamburger .burger {
@@ -129,12 +132,13 @@ button.hamburger .close .line:nth-of-type(3) {
 #home-main {
     width: 100%;
     height: auto;
+    padding-bottom: 130px;
 }
 
 #home-main div#content {
-    width: 90%;
+    width: 95%;
     height: auto;
-    margin: 0 auto 6em;
+    margin: auto auto;
     padding-top: 1em;
     background-color: white;
     display: flex;
@@ -150,6 +154,7 @@ button.hamburger .close .line:nth-of-type(3) {
     bottom: 0;
     width: 100%;
     max-height: 15em;
+    border-radius: 0;
 }
 
 #barra-ricerca h2 {
@@ -174,7 +179,7 @@ section#cosa-offriamo > img {
 }
 
 section#cosa-offriamo > section {
-    width: 80%;
+    width: 100%;
     align-self: center;
 }
 
@@ -187,9 +192,8 @@ section#cosa-offriamo > section {
     overflow-y: scroll;
     overflow-x: unset;
     flex-direction: column;
-    height: 50vh;
     align-items: center;
-    justify-content: center;
+    justify-content: unset;
 }
 
 #home-main ul#aziende li {
@@ -197,6 +201,9 @@ section#cosa-offriamo > section {
     overflow-y: hidden;
 }
 
+footer {
+    display: none;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [FINE]
@@ -291,6 +298,18 @@ img#profile_picture {
 #user-main section > ul, #user-main section ul.showing {      /* default == show */
     height: fit-content;
 }
+
+#user-listaAnnunci {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    max-height: 50vh;
+    list-style-type: none;
+}
+
+
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 USER CSS [FINE]
@@ -307,7 +326,8 @@ img#profile_picture {
 #annunci-main {
     height: auto;
     width: 100%;
-    
+    margin: 0;
+    border-radius: 0;
 }
 
 form {
@@ -432,6 +452,7 @@ ul.annunci {
     width: 100%;
     list-style-type: none;
     overflow-x: unset;
+    margin-top: 1em;
 }
 
 ul.annunci.hidden {    
@@ -476,11 +497,10 @@ ul.annunci li p {
 
 .header-annunci {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: start;
     text-wrap: nowrap;
     overflow: hidden;
-    gap: 1em;
 }
 
 .header-annunci h4, .header-annunci img {
@@ -533,10 +553,6 @@ ul.job-info li {
 
 .bottone-annunci {
     display: block;
-}
-
-.annuncio-completo img {
-    display: none;
 }
 
 .annuncio-completo h3 {
@@ -604,20 +620,32 @@ ul.job-complete-info li p {/* [...] effect */
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
-    gap: 1em;
+}
+
+#salvato{
+    margin: 1em 0 0.5em 0;
 }
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
-    margin: 1em 0;
-}
-
-#annunci-main input[type="submit"] {
-    padding: 0.5em;
+    margin: 0;
 }
 
 .bottone-annunci{
     margin-bottom: 1em;
+}
+
+#annunci-temp{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#annunci-main #content {
+    background-color: var(--bgColor);
+    border-radius: 0;
+    padding: 0.5em;
+    padding-bottom: 130px;
 }
 
 /* @media (max-width: 1200px) {
@@ -767,6 +795,15 @@ ul.azioni-aggiuntive li {
     height: fit-content;
 }
 
+#admin-listaAnnunci {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 50vh;
+    list-style-type: none;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ADMIN CSS [FINE]
@@ -792,6 +829,14 @@ ul.azioni-aggiuntive li {
                                                                 ERRORE_404 CSS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI_SIAMO CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 footer {
     border-radius: 0;
     box-shadow: none;
@@ -801,3 +846,253 @@ footer {
 footer nav {
     display: none;
 }
+
+
+#chi_siamo-main {
+    height: auto;
+    padding-bottom: 0.2em;
+    margin: 0 0;
+    width: 100%;
+    border-radius: 0;
+}
+
+#chi_siamo-main > .delimitatore{
+    border-radius: 0;
+}
+
+#chi_siamo-block {
+    background-color: #fff;
+    width: fit-content;
+    padding-left: 0.7em;
+    padding-bottom: 0.7em;
+    padding-right: 0.7em;
+    padding-bottom: 1.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    margin: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+h3.chi_siamo {
+    color: var(--footerTxtColor);
+    font-size: 1.15em;
+    padding-top: 0.7em;
+    padding-bottom: 0.5em;
+}
+
+div.blocco {
+    padding: 2em;
+}
+
+#chi_siamo_img1, #chi_siamo_img3 {
+    width: 80%;
+    margin: 1em auto;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    float: unset;
+}
+
+#chi_siamo_img2 {
+    width: 80%;
+    margin: 1em auto;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI_SIAMO CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                AZIENDE CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+#aziende-main {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+
+#aziende-main .delimitatore{
+    border-radius: 0;
+}
+
+.delimitatore-piccolo {
+    color: white;
+    background-color: var(--headerTxtColor);
+    padding: 0.5em;
+    border-radius: 0;
+}
+
+.delimitatore-piccolo h3 {
+    font-size: 1em;
+}
+
+.info-azienda {
+    font-weight: bold;
+}
+
+#aziende-main #contenitore-informazioni {
+    display: flex;
+    flex-direction: column;
+}
+
+#aziende-main #contenitore-informazioni dl {
+    padding: 20px;
+    background-color: #fff;
+    width: fit-content;
+    padding: 0.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    margin: 0.5em;
+}
+
+#aziende-main #contenitore-informazioni dt {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+
+#aziende-main #contenitore-informazioni dd {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+#logo-azienda {
+    width: 20%;
+    height: 20%;
+    padding: 20px;
+}
+
+#bottone-recensioni {
+    margin: 1em;
+}
+
+#descrizioneAzienda {
+    background-color: #fff;
+    width: fit-content;
+    padding: 0.7em;
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    margin: 0.5em;
+}
+
+#aziende-recensioni {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-bottom: 1em;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+#aziende-recensioni li {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    margin: 0.5em;
+    margin-left: 1em;
+}
+
+#aziende-recensioni .valutazione dt {
+    float: left;
+    margin-right: 0.5em;
+}
+
+#aziende-recensioni h3 {
+    color: var(--headerTxtColor);
+    font-size: 1em;
+}
+
+#aziende-recensioni h4 {
+    font-size: 0.9em;
+}
+
+#aziende-recensioni p {
+    font-size: 0.8em;
+}
+
+#recensioni-form, #recensioni-modifica-form {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-width: 80%;
+
+    margin: auto;
+    padding: 1em;
+    max-height: fit-content;
+    border: 3px solid;
+    border-radius: 1em;
+    border-color: var(--headerTxtColor);
+}
+
+.invisibile {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.visibile {
+    visibility: visible;
+}
+
+#recensioni-form label, #recensioni-modifica-form label {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    color: var(--headerTxtColor);
+    font-weight: bold;
+    width: 20%;
+}
+
+#recensioni-form textarea,
+#recensioni-modifica-form textarea,
+#recensioni-form select,
+#recensioni-modifica-form select,
+#recensioni-form input[type="submit"]
+#recensioni-modifica-form input[type="submit"] {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+#recensioni-form #valutazione,
+#recensioni-modifica-form #valutazione {
+    margin-left: 0;
+}
+
+#recensioni-form #commento,
+#recensioni-modifica-form #commento {
+    resize: vertical;
+    padding: 0.5em;
+    box-sizing: border-box;
+    vertical-align: top;
+    overflow-y: auto;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                AZIENDE CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+

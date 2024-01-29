@@ -16,22 +16,22 @@
 <body onload="showHideNav()">
     <a class="nascosto" href="#primoContenuto">Vai al contenuto</a>
     <header>
-        <div class="header-actions">
-            <a href=php-placeholder>link-placeholder</a>
-        </div>
         <div class="header-logo">
             <h1><span lang="en">EazyJobs</span></h1>
         </div>
-        <div class="header-burger">
-            <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
-                <span class="burger close">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </span>
-            </button>
+        <div class="header-actions">
+            <a href=php-placeholder>link-placeholder</a>
         </div>
     </header>
+    <div class="header-burger">
+        <button class="hamburger" type="button" onclick="showHideNav();" aria-label="Apri il menu di navigazione" aria-expanded="true" aria-haspopup="menu">
+            <span class="burger close">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </span>
+        </button>
+    </div>
     <div id="navigazione">
         <nav id="menu" aria-label="Menu principale">
             <ul>
@@ -47,8 +47,9 @@
     </div>
 
     <main id="annunci-main">
-        <div id="primoContenuto">
+        <span id="primoContenuto">
             <div id="barra-ricerca">
+                <h2>Cerca tra gli annunci</h2>
                 <form action="Annunci.php" method="get" id="annunci-ricerca">
                     <label for="professione" class="nascosto">Professione</label>
                     <input type="text" id="professione" name="professione" list="suggerimenti-professione" placeholder="Professione..." required>
@@ -64,7 +65,7 @@
                     <button type="submit" aria-label="Cerca per professione e provincia"><span class="screen-reader">Cerca</span> <img src="./assets/icons/search.png" alt="Icona ricerca"></button>
                 </form> 
             </div>
-        </div>
+        </span>
 
         <div id="content">
             <input id="bottone-filtri" type="submit" value="Mostra filtri">
@@ -147,13 +148,14 @@
                     </div>  
                     <input id="applica-filtri" type="submit" value="Cerca" aria-label="Cerca applicando i filtri">          
                 </form>       
-            
+                <div id="annunci-temp">
                 <ul class="annunci" id="annunci-listaAnnunci">
                     <!--annunci-placeholder-->
                 </ul>
                 <div id ="annunci-completi">
                     <!--completo-placeholder-->
                 </div>
+            </div>
             </div>
         </div>
 
