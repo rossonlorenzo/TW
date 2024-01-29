@@ -301,7 +301,7 @@ INSERT INTO valutazioni (utenti_id, aziende_id, commento, voto)
 VALUES
     (1, 1, 'Ho avuto un''esperienza lavorativa molto professionale in questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.', 4),
     (1, 2, 'La mia esperienza lavorativa con questa azienda è stata semplicemente eccezionale. Ho avuto l''opportunità di crescere professionalmente e di lavorare a progetti molto interessanti e stimolanti.', 5),
-    (2, 3, 'Comunicazione sempre poco chiara, informazioni non sempre condivise con tutti e organizzazione pessima. Sicuramente un''azienda che ha molto da migliorare, soprattutto lato gestione dei progetti.', 1)
+    (2, 3, 'Comunicazione sempre poco chiara, informazioni non sempre condivise con tutti e organizzazione pessima. Sicuramente un''azienda che ha molto da migliorare, soprattutto lato gestione dei progetti.', 1),
     (3, 5, 'Sono molto soddisfatto del mio lavoro in questa azienda. Ho avuto l''opportunità di lavorare su progetti interessanti e ho goduto di un buon equilibrio tra lavoro e vita personale.', 4),
     (3, 19, 'Ho avuto l''opportunità di crescere professionalmente in questa azienda. Le prospettive di carriera sono promettenti e l''atmosfera aziendale è positiva.', 4),
     (4, 7, 'Ho ricevuto un ottimo supporto dai miei colleghi in questa azienda. L''ambiente di lavoro è collaborativo e positivo.', 4),
