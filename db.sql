@@ -17,33 +17,33 @@ CREATE TABLE IF NOT EXISTS utenti
     email character varying(60) NOT NULL,
     password character varying(60) NOT NULL,
 	nome character varying(60) NOT NULL,
-    cv_path character varying(90) NOT NULL,
+    cv_path character varying(90),
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO utenti(email, password, nome, cv_path)
 VALUES
-	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '/assets/cvs/marcorossi_cv.pdf'),
-    ('laura.bianchi@hotmail.com', 'X&7[rD2fHb', 'Laura Bianchi', '/assets/cvs/laurabianchi_cv.pdf'),
-    ('andrea.verdi@yahoo.it', 'u6g=mE3k7?', 'Andrea Verdi', '/assets/cvs/andreaverdi_cv.pdf'),
-	('giovanni.martini@gmail.com', 'zBen5qg%AF', 'Giovanni Martini', '/assets/cvs/giovannimartini_cv.pdf'),
-    ('eleonora.rossi@hotmail.com', 'Yct?MJ83"x', 'Eleonora Rossi', '/assets/cvs/eleonorarossi_cv.pdf'),
-    ('francesco.verdi@yahoo.it', 's5;"R)P38]', 'Francesco Verdi', '/assets/cvs/francescoverdi_cv.pdf'),
-    ('alessia.bianchi@gmail.com', 'F4s.x#N@8=', 'Alessia Bianchi', '/assets/cvs/alessiabianchi_cv.pdf'),
-    ('luca.rossi@hotmail.com', 'E2]gUvN=!F', 'Luca Rossi', '/assets/cvs/lucarossi_cv.pdf'),
-    ('lucia.verdi@yahoo.it', 'J;4Kw3&MeR$', 'Lucia Verdi', '/assets/cvs/luciaverdi_cv.pdf'),
-    ('simone.bianchi@gmail.com', 'p2B"3_$^qT', 'Simone Bianchi', '/assets/cvs/simonebianchi_cv.pdf'),
-	('maria.martini@gmail.com', 'L#m;=2%$NJ', 'Maria Martini', '/assets/cvs/mariamartini_cv.pdf'),
-    ('gabriele.rossi@hotmail.com', 'c4g+SN$B~[', 'Gabriele Rossi', '/assets/cvs/gabrielerossi_cv.pdf'),
-    ('elena.verdi@yahoo.it', 'VL&[KpU6`8', 'Elena Verdi', '/assets/cvs/elenaverdi_cv.pdf'),
-    ('andrea.bianchi@gmail.com', 'r.Fq27n^j8', 'Andrea Bianchi', '/assets/cvs/andreabianchi_cv.pdf'),
-    ('giulia.rossi@hotmail.com', 'x*R$q<8n3s', 'Giulia Rossi', '/assets/cvs/giuliarossi_cv.pdf'),
-	('mario.verdi@gmail.com', 'FPVk3<tp:y', 'Mario Verdi', '/assets/cvs/marioverdi_cv.pdf'),
-    ('elisa.bianchi@hotmail.com', 'h;7fGYBga8', 'Elisa Bianchi', '/assets/cvs/elisabianchi_cv.pdf'),
-    ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '/assets/cvs/alessiorossi_cv.pdf'),
-    ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '/assets/cvs/annamartini_cv.pdf'),
-    ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '/assets/cvs/luigiverdi_cv.pdf');
+	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '../../assets/cvs/1_cv.pdf'),
+    ('laura.bianchi@hotmail.com', 'X&7[rD2fHb', 'Laura Bianchi', '../../assets/cvs/2_cv.pdf'),
+    ('andrea.verdi@yahoo.it', 'u6g=mE3k7?', 'Andrea Verdi', '../../assets/cvs/3_cv.pdf'),
+	('giovanni.martini@gmail.com', 'zBen5qg%AF', 'Giovanni Martini', '../../assets/cvs/4_cv.pdf'),
+    ('eleonora.rossi@hotmail.com', 'Yct?MJ83"x', 'Eleonora Rossi', '../../assets/cvs/5_cv.pdf'),
+    ('francesco.verdi@yahoo.it', 's5;"R)P38]', 'Francesco Verdi', '../../assets/cvs/6_cv.pdf'),
+    ('alessia.bianchi@gmail.com', 'F4s.x#N@8=', 'Alessia Bianchi', '../../assets/cvs/7_cv.pdf'),
+    ('luca.rossi@hotmail.com', 'E2]gUvN=!F', 'Luca Rossi', '../../assets/cvs/8_cv.pdf'),
+    ('lucia.verdi@yahoo.it', 'J;4Kw3&MeR$', 'Lucia Verdi', '../../assets/cvs/9_cv.pdf'),
+    ('simone.bianchi@gmail.com', 'p2B"3_$^qT', 'Simone Bianchi', '../../assets/cvs/10_cv.pdf'),
+	('maria.martini@gmail.com', 'L#m;=2%$NJ', 'Maria Martini', '../../assets/cvs/11_cv.pdf'),
+    ('gabriele.rossi@hotmail.com', 'c4g+SN$B~[', 'Gabriele Rossi', '../../assets/cvs/12_cv.pdf'),
+    ('elena.verdi@yahoo.it', 'VL&[KpU6`8', 'Elena Verdi', '../../assets/cvs/13_cv.pdf'),
+    ('andrea.bianchi@gmail.com', 'r.Fq27n^j8', 'Andrea Bianchi', '../../assets/cvs/14_cv.pdf'),
+    ('giulia.rossi@hotmail.com', 'x*R$q<8n3s', 'Giulia Rossi', '../../assets/cvs/15_cv.pdf'),
+	('mario.verdi@gmail.com', 'FPVk3<tp:y', 'Mario Verdi', '../../assets/cvs/16_cv.pdf'),
+    ('elisa.bianchi@hotmail.com', 'h;7fGYBga8', 'Elisa Bianchi', '../../assets/cvs/17_cv.pdf'),
+    ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '../../assets/cvs/18_cv.pdf'),
+    ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '../../assets/cvs/19_cv.pdf'),
+    ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '../../assets/cvs/20_cv.pdf');
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS aziende
@@ -59,32 +59,33 @@ CREATE TABLE IF NOT EXISTS aziende
 	sede character varying(60) NOT NULL,
 	settore character varying(60) NOT NULL,
 	`desc` character varying (500) NOT NULL,
+    logo_path character varying(90),
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
+INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`, logo_path)
 VALUES
-    ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.'),
-    ('innovazione@italiainnovazione.it', 'a2%G]6.$W>', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.'),
-    ('costruzioni@mediterraneocostruzioni.it', 'aBzQ9j@6!+', 'Mediterraneo Costruzioni', 'www.mediterraneocostruzioni.it', 2010, 800, 3000000, 'Napoli', 'Edilizia', 'Mediterraneo Costruzioni è una società di costruzioni che si impegna per la qualità, l''eccellenza e la sicurezza nei progetti edilizi. Con una solida tradizione di realizzazione di opere d''arte, stiamo costruendo il futuro con maestria e passione.'),
-	('tecnosoluzioni@tecnosoluzioni.it', 'rb7#zNnsw+', 'TecnoSoluzioni', 'www.tecnosoluzioni.it', 2005, 1200, 6000000, 'Firenze', 'Innovazione Tecnologica', 'TecnoSoluzioni è sinonimo di innovazione tecnologica. La nostra passione è trasformare idee in soluzioni digitali all''avanguardia. Con un team creativo e visionario, stiamo scrivendo il futuro digitale.'),
-    ('stelleitaliane@stelleitaliane.it', 'mPJ3f9gz/;', 'Stelle Italiane', 'www.stelleitaliane.it', 1990, 1800, 9000000, 'Bologna', 'Spettacolo', 'Stelle Italiane è una casa di produzione che porta l''arte e lo spettacolo al centro del palcoscenico. Con una storia ricca di successi, stiamo illuminando il mondo con la bellezza dell''arte.'),
-    ('verdeedintorni@verdeedintorni.it', 'cq`8;,PEZu', 'Verde ed Intorni', 'www.verdeedintorni.it', 2008, 600, 4500000, 'Napoli', 'Ambiente Sostenibile', 'Verde ed Intorni è un pioniere nell''ambiente sostenibile. La nostra missione è preservare il pianeta e creare un mondo più verde per le future generazioni.'),
-    ('innovazionefutura@innovazionefutura.it', 'G3s>2tjxW;', 'Innovazione Futura', 'www.innovazionefutura.it', 2012, 400, 3500000, 'Milano', 'Tecnologia e Innovazione', 'Innovazione Futura è un faro nell''era digitale. Con tecnologie all''avanguardia e una visione di progresso, stiamo guidando la trasformazione digitale.'),
-    ('creativeit@creativeit.it', 'y)4@ATeaVL', 'Creative IT', 'www.creativeit.it', 2001, 900, 8000000, 'Roma', 'Creatività e Design', 'Creative IT è una fucina di idee creative e design innovativi. La nostra missione è rendere il mondo più bello e funzionale attraverso il potere della creatività.'),
-    ('salutebene@salutebene.it', 'sBW3c-,m2r', 'Salute Bene', 'www.salutebene.it', 1998, 1400, 7500000, 'Firenze', 'Sanità e Benessere', 'Salute Bene è il custode della salute e del benessere. Con un impegno totale per la salute, stiamo migliorando la vita di milioni.'),
-    ('arteitaliana@arteitaliana.it', 'd_X!;3):]=', 'Arte Italiana', 'www.arteitaliana.it', 1985, 2200, 9500000, 'Napoli', 'Arte e Cultura', 'Arte Italiana è una custode della cultura e dell''arte italiana. Con passione e dedizione, stiamo celebrando l''eredità artistica d''Italia.'),
-	('innovitalia@innovitalia.it', 'GX3tc+v:aU', 'InnovaItalia', 'www.innovitalia.it', 2004, 1100, 5500000, 'Roma', 'Innovazione Tecnologica', 'InnovaItalia è un faro nell''innovazione tecnologica. La nostra missione è guidare il progresso e creare soluzioni all''avanguardia per un mondo migliore.'),
-    ('designecreativita@designecreativita.it', 'nD^b?NP9Af', 'Design e Creatività', 'www.designecreativita.it', 2007, 750, 6800000, 'Milano', 'Design e Creatività', 'Design e Creatività è un laboratorio di idee e soluzioni creative. Con passione e ingegno, stiamo trasformando visioni in realtà.'),
-    ('naturavita@naturavita.it', 'F]69%eXECA', 'NaturaVita', 'www.naturavita.it', 2015, 400, 3000000, 'Firenze', 'Ambiente Naturale', 'NaturaVita è un custode dell''ambiente naturale. La nostra missione è preservare la bellezza della natura e promuovere uno stile di vita sostenibile.'),
-    ('itinnovazionetech@itinnovazionetech.it', 'y+2;,$V9<~', 'IT Innovazione Tech', 'www.itinnovazionetech.it', 2009, 850, 7200000, 'Roma', 'Tecnologia e Innovazione', 'IT Innovazione Tech è un motore di innovazione tecnologica. Con competenze e dedizione, stiamo rivoluzionando il panorama tecnologico.'),
-    ('artisticreative@artisticreative.it', 's$hk!G92.C', 'ArtiStiCreative', 'www.artisticreative.it', 2010, 650, 5600000, 'Napoli', 'Arte e Cultura', 'ArtiStiCreative è un catalizzatore dell''arte e della cultura. Con visione e passione, stiamo celebrando l''espressione artistica.'),
-    ('sanitasalute@sanitasalute.it', 'Yp/>F#2[)u', 'Sanita Salute', 'www.sanitasalute.it', 2002, 1200, 5800000, 'Milano', 'Sanità e Benessere', 'Sanita Salute è un difensore della salute e del benessere. Con cura e impegno, stiamo promuovendo uno stile di vita sano.'),
-    ('architetturait@architetturait.it', 'hQ9+&#w6Y^', 'Architettura Italia', 'www.architetturait.it', 1997, 900, 7400000, 'Firenze', 'Architettura e Design', 'Architettura Italia è una maestra di architettura e design. Con creatività e maestria, stiamo plasmando spazi unici.'),
-    ('culturaitaliana@culturaitaliana.it', 'gR2@eh}M*U', 'Cultura Italiana', 'www.culturaitaliana.it', 1980, 2000, 9000000, 'Roma', 'Cultura e Storia', 'Cultura Italiana è un custode del patrimonio culturale. Con dedizione e passione, stiamo celebrando l''eredità culturale d''Italia.'),
-    ('energiaecosostenibilita@energiaecosostenibilita.it', 'g*!FN97,#y#', 'Energia e Cosostenibilità', 'www.energiaecosostenibilita.it', 2011, 500, 3500000, 'Napoli', 'Energia Sostenibile', 'Energia e Cosostenibilità è un promotore dell''energia sostenibile. Con impegno e visione, stiamo contribuendo a un futuro ecologicamente sostenibile.'),
-    ('innovazioneculinary@innovazioneculinary.it', 'kTC5P{;)6h', 'Innovazione Culinary', 'www.innovazioneculinary.it', 2014, 350, 2600000, 'Milano', 'Culinary Innovation', 'Innovazione Culinary è un laboratorio culinario di innovazione. La nostra passione è creare esperienze gastronomiche uniche e rivoluzionare il mondo del cibo.');
+    ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.', '../../assets/logos/1_logo.png'),
+    ('innovazione@italiainnovazione.it', 'a2%G]6.$W>', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.', NULL),
+    ('costruzioni@mediterraneocostruzioni.it', 'aBzQ9j@6!+', 'Mediterraneo Costruzioni', 'www.mediterraneocostruzioni.it', 2010, 800, 3000000, 'Napoli', 'Edilizia', 'Mediterraneo Costruzioni è una società di costruzioni che si impegna per la qualità, l''eccellenza e la sicurezza nei progetti edilizi. Con una solida tradizione di realizzazione di opere d''arte, stiamo costruendo il futuro con maestria e passione.', NULL),
+	('tecnosoluzioni@tecnosoluzioni.it', 'rb7#zNnsw+', 'TecnoSoluzioni', 'www.tecnosoluzioni.it', 2005, 1200, 6000000, 'Firenze', 'Innovazione Tecnologica', 'TecnoSoluzioni è sinonimo di innovazione tecnologica. La nostra passione è trasformare idee in soluzioni digitali all''avanguardia. Con un team creativo e visionario, stiamo scrivendo il futuro digitale.', NULL),
+    ('stelleitaliane@stelleitaliane.it', 'mPJ3f9gz/;', 'Stelle Italiane', 'www.stelleitaliane.it', 1990, 1800, 9000000, 'Bologna', 'Spettacolo', 'Stelle Italiane è una casa di produzione che porta l''arte e lo spettacolo al centro del palcoscenico. Con una storia ricca di successi, stiamo illuminando il mondo con la bellezza dell''arte.', NULL),
+    ('verdeedintorni@verdeedintorni.it', 'cq`8;,PEZu', 'Verde ed Intorni', 'www.verdeedintorni.it', 2008, 600, 4500000, 'Napoli', 'Ambiente Sostenibile', 'Verde ed Intorni è un pioniere nell''ambiente sostenibile. La nostra missione è preservare il pianeta e creare un mondo più verde per le future generazioni.', NULL),
+    ('innovazionefutura@innovazionefutura.it', 'G3s>2tjxW;', 'Innovazione Futura', 'www.innovazionefutura.it', 2012, 400, 3500000, 'Milano', 'Tecnologia e Innovazione', 'Innovazione Futura è un faro nell''era digitale. Con tecnologie all''avanguardia e una visione di progresso, stiamo guidando la trasformazione digitale.', NULL),
+    ('creativeit@creativeit.it', 'y)4@ATeaVL', 'Creative IT', 'www.creativeit.it', 2001, 900, 8000000, 'Roma', 'Creatività e Design', 'Creative IT è una fucina di idee creative e design innovativi. La nostra missione è rendere il mondo più bello e funzionale attraverso il potere della creatività.', NULL),
+    ('salutebene@salutebene.it', 'sBW3c-,m2r', 'Salute Bene', 'www.salutebene.it', 1998, 1400, 7500000, 'Firenze', 'Sanità e Benessere', 'Salute Bene è il custode della salute e del benessere. Con un impegno totale per la salute, stiamo migliorando la vita di milioni.', NULL),
+    ('arteitaliana@arteitaliana.it', 'd_X!;3):]=', 'Arte Italiana', 'www.arteitaliana.it', 1985, 2200, 9500000, 'Napoli', 'Arte e Cultura', 'Arte Italiana è una custode della cultura e dell''arte italiana. Con passione e dedizione, stiamo celebrando l''eredità artistica d''Italia.', NULL),
+	('innovitalia@innovitalia.it', 'GX3tc+v:aU', 'InnovaItalia', 'www.innovitalia.it', 2004, 1100, 5500000, 'Roma', 'Innovazione Tecnologica', 'InnovaItalia è un faro nell''innovazione tecnologica. La nostra missione è guidare il progresso e creare soluzioni all''avanguardia per un mondo migliore.', NULL),
+    ('designecreativita@designecreativita.it', 'nD^b?NP9Af', 'Design e Creatività', 'www.designecreativita.it', 2007, 750, 6800000, 'Milano', 'Design e Creatività', 'Design e Creatività è un laboratorio di idee e soluzioni creative. Con passione e ingegno, stiamo trasformando visioni in realtà.', NULL),
+    ('naturavita@naturavita.it', 'F]69%eXECA', 'NaturaVita', 'www.naturavita.it', 2015, 400, 3000000, 'Firenze', 'Ambiente Naturale', 'NaturaVita è un custode dell''ambiente naturale. La nostra missione è preservare la bellezza della natura e promuovere uno stile di vita sostenibile.', NULL),
+    ('itinnovazionetech@itinnovazionetech.it', 'y+2;,$V9<~', 'IT Innovazione Tech', 'www.itinnovazionetech.it', 2009, 850, 7200000, 'Roma', 'Tecnologia e Innovazione', 'IT Innovazione Tech è un motore di innovazione tecnologica. Con competenze e dedizione, stiamo rivoluzionando il panorama tecnologico.', NULL),
+    ('artisticreative@artisticreative.it', 's$hk!G92.C', 'ArtiStiCreative', 'www.artisticreative.it', 2010, 650, 5600000, 'Napoli', 'Arte e Cultura', 'ArtiStiCreative è un catalizzatore dell''arte e della cultura. Con visione e passione, stiamo celebrando l''espressione artistica.', NULL),
+    ('sanitasalute@sanitasalute.it', 'Yp/>F#2[)u', 'Sanita Salute', 'www.sanitasalute.it', 2002, 1200, 5800000, 'Milano', 'Sanità e Benessere', 'Sanita Salute è un difensore della salute e del benessere. Con cura e impegno, stiamo promuovendo uno stile di vita sano.', NULL),
+    ('architetturait@architetturait.it', 'hQ9+&#w6Y^', 'Architettura Italia', 'www.architetturait.it', 1997, 900, 7400000, 'Firenze', 'Architettura e Design', 'Architettura Italia è una maestra di architettura e design. Con creatività e maestria, stiamo plasmando spazi unici.', NULL),
+    ('culturaitaliana@culturaitaliana.it', 'gR2@eh}M*U', 'Cultura Italiana', 'www.culturaitaliana.it', 1980, 2000, 9000000, 'Roma', 'Cultura e Storia', 'Cultura Italiana è un custode del patrimonio culturale. Con dedizione e passione, stiamo celebrando l''eredità culturale d''Italia.', NULL),
+    ('energiaecosostenibilita@energiaecosostenibilita.it', 'g*!FN97,#y#', 'Energia e Cosostenibilità', 'www.energiaecosostenibilita.it', 2011, 500, 3500000, 'Napoli', 'Energia Sostenibile', 'Energia e Cosostenibilità è un promotore dell''energia sostenibile. Con impegno e visione, stiamo contribuendo a un futuro ecologicamente sostenibile.', NULL),
+    ('innovazioneculinary@innovazioneculinary.it', 'kTC5P{;)6h', 'Innovazione Culinary', 'www.innovazioneculinary.it', 2014, 350, 2600000, 'Milano', 'Culinary Innovation', 'Innovazione Culinary è un laboratorio culinario di innovazione. La nostra passione è creare esperienze gastronomiche uniche e rivoluzionare il mondo del cibo.', NULL);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS annunci
@@ -118,7 +119,7 @@ VALUES
     ('Ingegnere Civile', 'Firenze', '2023-10-31 11:30:00', 'Edilizia', true, true, 'Tempo determinato', 'Cerchiamo un ingegnere civile esperto per la progettazione di strutture edili.', 'Se hai competenze in ingegneria civile e esperienza nella progettazione di strutture, contattaci.', 'Laurea Magistrale', 4, 4000.00, 3),
     ('Responsabile Marketing', 'Napoli', '2023-11-01 12:00:00', 'Marketing', false, true, 'Tempo indeterminato', 'Abbiamo bisogno di un esperto di marketing per gestire le nostre strategie digitali.', 'Se hai una passione per il marketing e competenze nelle strategie online, potremmo avere un ruolo per te.', 'Laurea Magistrale', 3, 3500.00, 4),
     ('Sviluppatore Java', 'Milano', '2023-11-02 14:00:00', 'Tecnologia', true, false, 'Tempo determinato', 'Cerchiamo uno sviluppatore Java con competenze avanzate per il nostro progetto software.', 'Se hai esperienza in sviluppo Java e vuoi contribuire a un progetto innovativo, sei nel posto giusto.', 'Laurea Triennale', 2, 3400.00, 5),
-    ('Architetto d''Interni', 'Roma', '2023-11-03 15:30:00', 'Design', false, true, 'Tempo indeterminato', 'Stiamo cercando un architetto d''interni talentuoso per progetti di design degli spazi.', 'Se hai una passione per il design degli interni e vuoi creare spazi unici, contattaci.', 'Laurea Triennale', 3, 3600.00, 6),
+    ('Architetto di Interni', 'Roma', '2023-11-03 15:30:00', 'Design', false, true, 'Tempo indeterminato', 'Stiamo cercando un architetto di interni talentuoso per progetti di design degli spazi.', 'Se hai una passione per il design degli interni e vuoi creare spazi unici, contattaci.', 'Laurea Triennale', 3, 3600.00, 6),
     ('Sviluppatore iOS', 'Firenze', '2023-11-04 09:15:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore iOS esperto per le nostre app mobili.', 'Se hai competenze in sviluppo iOS e vuoi lavorare su progetti mobili entusiasmanti, unisciti a noi.', 'Laurea Triennale', 4, 3800.00, 7),
     ('Assistente Sanitario', 'Napoli', '2023-11-05 08:45:00', 'Sanità', true, true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sanitario per fornire assistenza a domicilio.', 'Se hai una passione per il settore sanitario e vuoi aiutare le persone, questa potrebbe essere la tua opportunità.', 'Diploma', 2, 3200.00, 8),
     ('Progettista Web', 'Milano', '2023-11-06 14:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo un progettista web creativo per il nostro team di sviluppo.', 'Se hai esperienza nella progettazione di siti web e un''ottima comprensione del design UX/UI, sei il benvenuto.', 'Laurea Triennale', 3, 3500.00, 9),
