@@ -1,13 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redirect non-existent files to custom 404 page
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ Errore404.php [L,QSA]
 
-    # Handle custom error pages
     ErrorDocument 404 /EazyJobs/Errore404.php
 </IfModule>
-
-

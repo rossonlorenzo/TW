@@ -84,7 +84,7 @@
                             <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
                             <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
                         </ul>
-                        <button class='bottone-rimuovi-preferiti' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>Rimuovi dai preferiti</button>
+                        <input type='submit' class='bottone-rimuovi-preferiti' value='Rimuovi dai preferiti' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
                     </li>";
             }
         }

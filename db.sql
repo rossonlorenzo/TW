@@ -17,33 +17,33 @@ CREATE TABLE IF NOT EXISTS utenti
     email character varying(60) NOT NULL,
     password character varying(60) NOT NULL,
 	nome character varying(60) NOT NULL,
-    cv_path character varying(90) NOT NULL,
+    cv_path character varying(90),
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO utenti(email, password, nome, cv_path)
 VALUES
-	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '/assets/cvs/marcorossi_cv.pdf'),
-    ('laura.bianchi@hotmail.com', 'X&7[rD2fHb', 'Laura Bianchi', '/assets/cvs/laurabianchi_cv.pdf'),
-    ('andrea.verdi@yahoo.it', 'u6g=mE3k7?', 'Andrea Verdi', '/assets/cvs/andreaverdi_cv.pdf'),
-	('giovanni.martini@gmail.com', 'zBen5qg%AF', 'Giovanni Martini', '/assets/cvs/giovannimartini_cv.pdf'),
-    ('eleonora.rossi@hotmail.com', 'Yct?MJ83"x', 'Eleonora Rossi', '/assets/cvs/eleonorarossi_cv.pdf'),
-    ('francesco.verdi@yahoo.it', 's5;"R)P38]', 'Francesco Verdi', '/assets/cvs/francescoverdi_cv.pdf'),
-    ('alessia.bianchi@gmail.com', 'F4s.x#N@8=', 'Alessia Bianchi', '/assets/cvs/alessiabianchi_cv.pdf'),
-    ('luca.rossi@hotmail.com', 'E2]gUvN=!F', 'Luca Rossi', '/assets/cvs/lucarossi_cv.pdf'),
-    ('lucia.verdi@yahoo.it', 'J;4Kw3&MeR$', 'Lucia Verdi', '/assets/cvs/luciaverdi_cv.pdf'),
-    ('simone.bianchi@gmail.com', 'p2B"3_$^qT', 'Simone Bianchi', '/assets/cvs/simonebianchi_cv.pdf'),
-	('maria.martini@gmail.com', 'L#m;=2%$NJ', 'Maria Martini', '/assets/cvs/mariamartini_cv.pdf'),
-    ('gabriele.rossi@hotmail.com', 'c4g+SN$B~[', 'Gabriele Rossi', '/assets/cvs/gabrielerossi_cv.pdf'),
-    ('elena.verdi@yahoo.it', 'VL&[KpU6`8', 'Elena Verdi', '/assets/cvs/elenaverdi_cv.pdf'),
-    ('andrea.bianchi@gmail.com', 'r.Fq27n^j8', 'Andrea Bianchi', '/assets/cvs/andreabianchi_cv.pdf'),
-    ('giulia.rossi@hotmail.com', 'x*R$q<8n3s', 'Giulia Rossi', '/assets/cvs/giuliarossi_cv.pdf'),
-	('mario.verdi@gmail.com', 'FPVk3<tp:y', 'Mario Verdi', '/assets/cvs/marioverdi_cv.pdf'),
-    ('elisa.bianchi@hotmail.com', 'h;7fGYBga8', 'Elisa Bianchi', '/assets/cvs/elisabianchi_cv.pdf'),
-    ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '/assets/cvs/alessiorossi_cv.pdf'),
-    ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '/assets/cvs/annamartini_cv.pdf'),
-    ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '/assets/cvs/luigiverdi_cv.pdf');
+	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '../../assets/cvs/1_cv.pdf'),
+    ('laura.bianchi@hotmail.com', 'X&7[rD2fHb', 'Laura Bianchi', '../../assets/cvs/2_cv.pdf'),
+    ('andrea.verdi@yahoo.it', 'u6g=mE3k7?', 'Andrea Verdi', '../../assets/cvs/3_cv.pdf'),
+	('giovanni.martini@gmail.com', 'zBen5qg%AF', 'Giovanni Martini', '../../assets/cvs/4_cv.pdf'),
+    ('eleonora.rossi@hotmail.com', 'Yct?MJ83"x', 'Eleonora Rossi', '../../assets/cvs/5_cv.pdf'),
+    ('francesco.verdi@yahoo.it', 's5;"R)P38]', 'Francesco Verdi', '../../assets/cvs/6_cv.pdf'),
+    ('alessia.bianchi@gmail.com', 'F4s.x#N@8=', 'Alessia Bianchi', '../../assets/cvs/7_cv.pdf'),
+    ('luca.rossi@hotmail.com', 'E2]gUvN=!F', 'Luca Rossi', '../../assets/cvs/8_cv.pdf'),
+    ('lucia.verdi@yahoo.it', 'J;4Kw3&MeR$', 'Lucia Verdi', '../../assets/cvs/9_cv.pdf'),
+    ('simone.bianchi@gmail.com', 'p2B"3_$^qT', 'Simone Bianchi', '../../assets/cvs/10_cv.pdf'),
+	('maria.martini@gmail.com', 'L#m;=2%$NJ', 'Maria Martini', '../../assets/cvs/11_cv.pdf'),
+    ('gabriele.rossi@hotmail.com', 'c4g+SN$B~[', 'Gabriele Rossi', '../../assets/cvs/12_cv.pdf'),
+    ('elena.verdi@yahoo.it', 'VL&[KpU6`8', 'Elena Verdi', '../../assets/cvs/13_cv.pdf'),
+    ('andrea.bianchi@gmail.com', 'r.Fq27n^j8', 'Andrea Bianchi', '../../assets/cvs/14_cv.pdf'),
+    ('giulia.rossi@hotmail.com', 'x*R$q<8n3s', 'Giulia Rossi', '../../assets/cvs/15_cv.pdf'),
+	('mario.verdi@gmail.com', 'FPVk3<tp:y', 'Mario Verdi', '../../assets/cvs/16_cv.pdf'),
+    ('elisa.bianchi@hotmail.com', 'h;7fGYBga8', 'Elisa Bianchi', '../../assets/cvs/17_cv.pdf'),
+    ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '../../assets/cvs/18_cv.pdf'),
+    ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '../../assets/cvs/19_cv.pdf'),
+    ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '../../assets/cvs/20_cv.pdf');
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS aziende
@@ -59,32 +59,55 @@ CREATE TABLE IF NOT EXISTS aziende
 	sede character varying(60) NOT NULL,
 	settore character varying(60) NOT NULL,
 	`desc` character varying (500) NOT NULL,
+    logo_path character varying(90),
     PRIMARY KEY (id)
 );
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
-INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`)
+INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`, logo_path)
 VALUES
-    ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Tecnologia', 'AltaTech Soluzioni è una società leader nel settore delle tecnologie innovative. La nostra missione è innovare costantemente per servire meglio i nostri clienti e superare le aspettative. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.'),
-    ('innovazione@italiainnovazione.it', 'a2%G]6.$W>', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un centro di eccellenza nella ricerca e sviluppo di soluzioni innovative. La nostra passione è creare un impatto positivo sul mondo attraverso la scoperta e l''innovazione. Con un team di esperti dedicati, stiamo plasmando il futuro.'),
-    ('costruzioni@mediterraneocostruzioni.it', 'aBzQ9j@6!+', 'Mediterraneo Costruzioni', 'www.mediterraneocostruzioni.it', 2010, 800, 3000000, 'Napoli', 'Edilizia', 'Mediterraneo Costruzioni è una società di costruzioni che si impegna per la qualità, l''eccellenza e la sicurezza nei progetti edilizi. Con una solida tradizione di realizzazione di opere d''arte, stiamo costruendo il futuro con maestria e passione.'),
-	('tecnosoluzioni@tecnosoluzioni.it', 'rb7#zNnsw+', 'TecnoSoluzioni', 'www.tecnosoluzioni.it', 2005, 1200, 6000000, 'Firenze', 'Innovazione Tecnologica', 'TecnoSoluzioni è sinonimo di innovazione tecnologica. La nostra passione è trasformare idee in soluzioni digitali all''avanguardia. Con un team creativo e visionario, stiamo scrivendo il futuro digitale.'),
-    ('stelleitaliane@stelleitaliane.it', 'mPJ3f9gz/;', 'Stelle Italiane', 'www.stelleitaliane.it', 1990, 1800, 9000000, 'Bologna', 'Spettacolo', 'Stelle Italiane è una casa di produzione che porta l''arte e lo spettacolo al centro del palcoscenico. Con una storia ricca di successi, stiamo illuminando il mondo con la bellezza dell''arte.'),
-    ('verdeedintorni@verdeedintorni.it', 'cq`8;,PEZu', 'Verde ed Intorni', 'www.verdeedintorni.it', 2008, 600, 4500000, 'Napoli', 'Ambiente Sostenibile', 'Verde ed Intorni è un pioniere nell''ambiente sostenibile. La nostra missione è preservare il pianeta e creare un mondo più verde per le future generazioni.'),
-    ('innovazionefutura@innovazionefutura.it', 'G3s>2tjxW;', 'Innovazione Futura', 'www.innovazionefutura.it', 2012, 400, 3500000, 'Milano', 'Tecnologia e Innovazione', 'Innovazione Futura è un faro nell''era digitale. Con tecnologie all''avanguardia e una visione di progresso, stiamo guidando la trasformazione digitale.'),
-    ('creativeit@creativeit.it', 'y)4@ATeaVL', 'Creative IT', 'www.creativeit.it', 2001, 900, 8000000, 'Roma', 'Creatività e Design', 'Creative IT è una fucina di idee creative e design innovativi. La nostra missione è rendere il mondo più bello e funzionale attraverso il potere della creatività.'),
-    ('salutebene@salutebene.it', 'sBW3c-,m2r', 'Salute Bene', 'www.salutebene.it', 1998, 1400, 7500000, 'Firenze', 'Sanità e Benessere', 'Salute Bene è il custode della salute e del benessere. Con un impegno totale per la salute, stiamo migliorando la vita di milioni.'),
-    ('arteitaliana@arteitaliana.it', 'd_X!;3):]=', 'Arte Italiana', 'www.arteitaliana.it', 1985, 2200, 9500000, 'Napoli', 'Arte e Cultura', 'Arte Italiana è una custode della cultura e dell''arte italiana. Con passione e dedizione, stiamo celebrando l''eredità artistica d''Italia.'),
-	('innovitalia@innovitalia.it', 'GX3tc+v:aU', 'InnovaItalia', 'www.innovitalia.it', 2004, 1100, 5500000, 'Roma', 'Innovazione Tecnologica', 'InnovaItalia è un faro nell''innovazione tecnologica. La nostra missione è guidare il progresso e creare soluzioni all''avanguardia per un mondo migliore.'),
-    ('designecreativita@designecreativita.it', 'nD^b?NP9Af', 'Design e Creatività', 'www.designecreativita.it', 2007, 750, 6800000, 'Milano', 'Design e Creatività', 'Design e Creatività è un laboratorio di idee e soluzioni creative. Con passione e ingegno, stiamo trasformando visioni in realtà.'),
-    ('naturavita@naturavita.it', 'F]69%eXECA', 'NaturaVita', 'www.naturavita.it', 2015, 400, 3000000, 'Firenze', 'Ambiente Naturale', 'NaturaVita è un custode dell''ambiente naturale. La nostra missione è preservare la bellezza della natura e promuovere uno stile di vita sostenibile.'),
-    ('itinnovazionetech@itinnovazionetech.it', 'y+2;,$V9<~', 'IT Innovazione Tech', 'www.itinnovazionetech.it', 2009, 850, 7200000, 'Roma', 'Tecnologia e Innovazione', 'IT Innovazione Tech è un motore di innovazione tecnologica. Con competenze e dedizione, stiamo rivoluzionando il panorama tecnologico.'),
-    ('artisticreative@artisticreative.it', 's$hk!G92.C', 'ArtiStiCreative', 'www.artisticreative.it', 2010, 650, 5600000, 'Napoli', 'Arte e Cultura', 'ArtiStiCreative è un catalizzatore dell''arte e della cultura. Con visione e passione, stiamo celebrando l''espressione artistica.'),
-    ('sanitasalute@sanitasalute.it', 'Yp/>F#2[)u', 'Sanita Salute', 'www.sanitasalute.it', 2002, 1200, 5800000, 'Milano', 'Sanità e Benessere', 'Sanita Salute è un difensore della salute e del benessere. Con cura e impegno, stiamo promuovendo uno stile di vita sano.'),
-    ('architetturait@architetturait.it', 'hQ9+&#w6Y^', 'Architettura Italia', 'www.architetturait.it', 1997, 900, 7400000, 'Firenze', 'Architettura e Design', 'Architettura Italia è una maestra di architettura e design. Con creatività e maestria, stiamo plasmando spazi unici.'),
-    ('culturaitaliana@culturaitaliana.it', 'gR2@eh}M*U', 'Cultura Italiana', 'www.culturaitaliana.it', 1980, 2000, 9000000, 'Roma', 'Cultura e Storia', 'Cultura Italiana è un custode del patrimonio culturale. Con dedizione e passione, stiamo celebrando l''eredità culturale d''Italia.'),
-    ('energiaecosostenibilita@energiaecosostenibilita.it', 'g*!FN97,#y#', 'Energia e Cosostenibilità', 'www.energiaecosostenibilita.it', 2011, 500, 3500000, 'Napoli', 'Energia Sostenibile', 'Energia e Cosostenibilità è un promotore dell''energia sostenibile. Con impegno e visione, stiamo contribuendo a un futuro ecologicamente sostenibile.'),
-    ('innovazioneculinary@innovazioneculinary.it', 'kTC5P{;)6h', 'Innovazione Culinary', 'www.innovazioneculinary.it', 2014, 350, 2600000, 'Milano', 'Culinary Innovation', 'Innovazione Culinary è un laboratorio culinario di innovazione. La nostra passione è creare esperienze gastronomiche uniche e rivoluzionare il mondo del cibo.');
+    ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Informatica', 'AltaTech Soluzioni è una società leader nel settore dell''informatica. La nostra missione è servire al meglio i nostri clienti, superando le loro le aspettative tramite un continuo aggiornamento alle ultime novità tecnologiche. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.', '../../assets/logos/1_logo.png'),
+    ('innovazione@italiainnovazione.it', 'a2%G]6.$W>', 'Italia Innovazione', 'www.italiainnovazione.it', 2000, 1500, 7000000, 'Roma', 'Ricerca e Sviluppo', 'Italia Innovazione è un leader nell''ambito della Ricerca e Sviluppo, focalizzato sulla creazione di soluzioni innovative per sfide complesse. Con un team di esperti multidisciplinari, l''azienda si impegna a guidare l''innovazione in settori chiave, contribuendo al progresso tecnologico e alla crescita sostenibile.', '../../assets/logos/2_logo.png'),
+    
+    ('costruzioni@mediterraneocostruzioni.it', 'aBzQ9j@6!+', 'Mediterraneo Costruzioni', 'www.mediterraneocostruzioni.it', 2010, 800, 3000000, 'Napoli', 'Edilizia', 'Mediterraneo Costruzioni eccelle nell''ambito dell''Edilizia, offrendo servizi di costruzione di alta qualità. Specializzata in progetti residenziali e commerciali, l''azienda si distingue per l''attenzione ai dettagli, la gestione efficiente e la realizzazione di opere architettoniche durevoli. Con un approccio orientato alla qualità, Mediterraneo Costruzioni trasforma visioni in realtà ed è sinonimo di eccellenza nel settore edilizio.', '../../assets/logos/3_logo.png'),
+    
+    ('tecnosoluzioni@tecnosoluzioni.it', 'rb7#zNnsw+', 'TecnoSoluzioni', 'www.tecnosoluzioni.it', 2005, 1200, 6000000, 'Firenze', 'Informatica', 'TecnoSoluzioni è un''azienda all''avanguardia che si distingue nel campo delle soluzioni informatiche, offrendo servizi e prodotti innovativi per soddisfare le esigenze tecnologiche dei suoi clienti. Con una missione incentrata sulla trasformazione digitale, TecnoSoluzioni si impegna a fornire soluzioni su misura per migliorare l''efficienza operativa, stimolare la crescita aziendale e promuovere la competitività nel panorama tecnologico in continua evoluzione.', '../../assets/logos/4_logo.png'),
+    
+    ('viva@ecoviva.it', 'cq`8;,PEZu', 'EcoViva', 'www.ecoviva.it', 2008, 600, 4500000, 'Napoli', 'Ambiente Sostenibile', 'EcoViva è all''avanguardia nella promozione di soluzioni sostenibili per un futuro ecologico. Specializzati in progetti ambientali, offriamo innovazioni eco-friendly per preservare il nostro pianeta. Unisciti a noi nella creazione di un mondo più pulito e sostenibile per le generazioni future.', '../../assets/logos/5_logo.png'),
+    
+    ('innovazionefutura@innovazionefutura.it', 'G3s>2tjxW;', 'Innovazione Futura', 'www.innovazionefutura.it', 2012, 400, 3500000, 'Milano', 'Innovazione Tecnologica', 'Innovazione Futura guida la rivoluzione tecnologica con soluzioni avanzate e visionarie. Siamo un motore di progresso, dedicati a progetti innovativi che trasformano il modo in cui viviamo e lavoriamo. Sfruttiamo le ultime tecnologie per plasmare il futuro e affrontare sfide globali con creatività e determinazione.', '../../assets/logos/6_logo.png'),
+    
+    ('creativeit@creativeit.it', 'y)4@ATeaVL', 'Creative IT', 'www.creativeit.it', 2001, 900, 8000000, 'Roma', 'Design', 'Creative IT è un''azienda all''avanguardia nel mondo del design, unendo creatività e tecnologia. Offriamo soluzioni innovative per il web, il branding e l''esperienza utente. Con il nostro team di talentuosi designer, trasformiamo le idee in esperienze visive straordinarie, creando un impatto duraturo.', '../../assets/logos/7_logo.png'),
+    
+    ('salutebene@salutebene.it', 'sBW3c-,m2r', 'Salute Bene', 'www.salutebene.it', 1998, 1400, 7500000, 'Firenze', 'Sanità e Benessere', 'Salute Bene si impegna a promuovere il benessere integrale attraverso servizi sanitari di alta qualità. Con un focus sulla cura preventiva e soluzioni innovative, offriamo un approccio personalizzato per migliorare la salute fisica e mentale. La nostra missione è creare una comunità più sana e felice.', '../../assets/logos/8_logo.png'),
+    
+    ('arteitaliana@arteitaliana.it', 'd_X!;3):]=', 'Arte Italiana', 'www.arteitaliana.it', 1985, 2200, 9500000, 'Napoli', 'Beni culturali', 'Arte Italiana è custode del patrimonio culturale italiano, preservando e valorizzando opere d''arte e beni storici. Collaboriamo con passione per promuovere la bellezza e la storia, rendendo accessibile la ricca eredità culturale del nostro paese. La nostra dedizione è al servizio della conservazione e della condivisione della cultura italiana.', '../../assets/logos/9_logo.png'),
+    
+    ('innovitalia@innovitalia.it', 'GX3tc+v:aU', 'InnovaItalia', 'www.innovitalia.it', 2004, 1100, 5500000, 'Roma', 'Innovazione Tecnologica', 'InnovaItalia guida il futuro con soluzioni tecnologiche avanzate. Siamo pionieri nell''innovazione, sviluppando tecnologie cutting-edge come intelligenza artificiale, blockchain e IoT. La nostra missione è trasformare settori e migliorare la vita quotidiana attraverso la potenza dell''innovazione.', '../../assets/logos/10_logo.png'),
+    
+    ('creative@creativedesign.it', 'nD^b?NP9Af', 'CreativeDesign', 'www.creativedesign.it', 2007, 750, 6800000, 'Milano', 'Design', 'CreativeDesign è il partner ideale per soluzioni di design straordinarie. Con una squadra di talentuosi creativi, plasmiamo idee in esperienze visive eccezionali. Dalla progettazione di marchi all''interfaccia utente, combiniamo estetica e funzionalità per creare un impatto duraturo.', '../../assets/logos/11_logo.png'),
+    
+    ('naturavita@naturavita.it', 'F]69%eXECA', 'NaturaVita', 'www.naturavita.it', 2015, 400, 3000000, 'Firenze', 'Ecologia', 'NaturaVita è impegnata nella promozione di uno stile di vita sostenibile. Con un forte focus sull''ecologia, offriamo soluzioni per la conservazione dell''ambiente e uno sviluppo armonioso. Lavoriamo per un futuro in cui la natura e la vita coesistono in equilibrio, preservando il nostro pianeta per le generazioni future.', '../../assets/logos/12_logo.png'),
+    
+    ('itinnovazionetech@itinnovazionetech.it', 'y+2;,$V9<~', 'IT Innovazione Tech', 'www.itinnovazionetech.it', 2009, 850, 7200000, 'Roma', 'Innovazione Tecnologica', 'IT Innovazione Tech è il motore dell''evoluzione tecnologica. Con un focus su intelligenza artificiale, sviluppo software e cybersecurity, siamo all''avanguardia nel plasmare il futuro digitale. Offriamo soluzioni innovative per aziende pronte a abbracciare il cambiamento.', '../../assets/logos/13_logo.png'),
+    
+    ('artisticreative@artisticreative.it', 's$hk!G92.C', 'ArtiStiCreative', 'www.artisticreative.it', 2010, 650, 5600000, 'Napoli', 'Arte', 'ArtiStiCreative è un laboratorio di creatività dove l''arte prende vita. Dal design grafico alla produzione artistica, celebriamo l''espressione creativa in tutte le sue forme. Con un team di artisti appassionati, trasformiamo concetti in opere che emozionano e ispirano.', '../../assets/logos/14_logo.png'),
+    
+    ('sanitasalute@sanitasalute.it', 'Yp/>F#2[)u', 'SanitaSalute', 'www.sanitasalute.it', 2002, 1200, 5800000, 'Milano', 'Sanità e Benessere', 'SanitaSalute si dedica al benessere integrale. Con professionisti dedicati, offriamo servizi sanitari di qualità, promuovendo uno stile di vita sano. Dal supporto medico all''assistenza domiciliare, la nostra missione è garantire il massimo benessere fisico e mentale per ogni individuo.', '../../assets/logos/15_logo.png'),
+    
+    ('architetturait@architetturait.it', 'hQ9+&#w6Y^', 'Architettura Italia', 'www.architetturait.it', 1997, 900, 7400000, 'Firenze', 'Architettura', 'Architettura Italia è la firma di eccellenza nel design degli spazi. Con passione e competenza, trasformiamo idee in ambienti straordinari. Dal concept alla realizzazione, la nostra visione architettonica ridefinisce il concetto di bellezza e funzionalità.', '../../assets/logos/16_logo.png'),
+    
+    ('romarte@romarte.it', 'gR2@eh}M*U', 'RomArte', 'www.romarte.it', 1980, 2000, 9000000, 'Roma', 'Beni culturali', 'RomArte è il custode del patrimonio culturale italiano. Dedicati alla conservazione e alla promozione dell''arte, ci impegniamo a preservare le radici storiche di Roma. Attraverso mostre, eventi e iniziative, RomArte celebra l''eredità culturale che rende unica la Città Eterna.', '../../assets/logos/17_logo.png'),
+    
+    ('stelleitaliane@stelleitaliane.it', 'mPJ3f9gz/;', 'Stelle Italiane', 'www.stelleitaliane.it', 1990, 1800, 9000000, 'Bologna', 'Spettacolo', 'Stelle Italiane porta l''arte dello spettacolo a nuove vette di creatività. Con una costellazione di talenti, produciamo performance indimenticabili. Dal teatro alla musica, dalla danza al cinema, offriamo esperienze che illuminano le stelle del panorama artistico italiano.', '../../assets/logos/18_logo.png'),
+    
+    ('sostenergia@sostenergia.it', 'g*!FN97,#y#', 'SostEnergia', 'www.sostenergia.it', 2011, 500, 3500000, 'Napoli', 'Energia Sostenibile', 'SostEnergia si impegna nella fornitura di soluzioni innovative per un futuro energetico sostenibile. Specializzati in energie rinnovabili, offriamo tecnologie avanzate per la produzione responsabile di energia, contribuendo così a un ambiente più pulito e a una società eco-friendly.', '../../assets/logos/19_logo.png'),
+    
+    ('gustofuturomilano@gustofuturo.it', 'kTC5P{;)6h', 'GustoFuturo Milano', 'www.gustofuturo.it', 2014, 350, 2600000, 'Milano', 'Ristorazione', 'GustoFuturo Milano è il luogo dove la gastronomia incontra l''innovazione. Offriamo esperienze culinarie uniche, sperimentando con ingredienti e tecniche all''avanguardia. Il nostro ristorante è una celebrazione di sapori contemporanei e creatività gastronomica nel cuore di Milano.', '../../assets/logos/20_logo.png'),
+    
+    ('agribari@agribari.it', 'B9^!sL7<Rp', 'AgriBari', 'www.agribari.it', 2020, 300, 2000000, 'Bari', 'Agroalimentare', 'AgriBari si dedica a fornire prodotti agroalimentari di alta qualità, coltivati con passione e impegno. La nostra azienda promuove pratiche agricole sostenibili, garantendo che ogni prodotto rifletta il rispetto per la terra e offra un''esperienza culinaria autentica e genuina.', '../../assets/logos/21_logo.png'),
+    
+    ('bedda@messinabedda.it', 'Q&u7^=kx5v', 'Messina Bedda', 'www.messinabedda.it', 2018, 250, 1800000, 'Messina', 'Turismo', 'Messina Bedda è la guida perfetta per esplorare le bellezze di Messina. Offriamo esperienze turistiche uniche, dal patrimonio culturale alle bellezze naturali. La nostra missione è far vivere ai visitatori l''autentica bellezza di Messina, con servizi turistici su misura e un tocco di ospitalità siciliana.', '../../assets/logos/22_logo.png');
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS annunci
@@ -113,24 +136,139 @@ CREATE TABLE IF NOT EXISTS annunci
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO annunci (titolo, locazione, data_pub, settore, remoto, presenza, contratto, `desc_breve`, `desc_completa`, livello_istruzione, esperienza, stipendio, azienda_id)
 VALUES
-    ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore frontend altamente creativo per il nostro progetto web.', 'Se sei appassionato di sviluppo frontend e hai esperienza in HTML, CSS e JavaScript, potresti essere la persona giusta per noi.', 'Laurea Triennale', 2, 3200.00, 1),
-    ('Grafico Pubblicitario', 'Roma', '2023-10-30 10:45:00', 'Design', true, false, 'Tempo determinato', 'Stiamo cercando un grafico pubblicitario talentuoso per creare materiale promozionale.', 'Se sei creativo e hai esperienza nella progettazione di materiale pubblicitario, potremmo avere una posizione per te.', 'Laurea Triennale', 3, 3400.00, 2),
-    ('Ingegnere Civile', 'Firenze', '2023-10-31 11:30:00', 'Edilizia', true, true, 'Tempo determinato', 'Cerchiamo un ingegnere civile esperto per la progettazione di strutture edili.', 'Se hai competenze in ingegneria civile e esperienza nella progettazione di strutture, contattaci.', 'Laurea Magistrale', 4, 4000.00, 3),
-    ('Responsabile Marketing', 'Napoli', '2023-11-01 12:00:00', 'Marketing', false, true, 'Tempo indeterminato', 'Abbiamo bisogno di un esperto di marketing per gestire le nostre strategie digitali.', 'Se hai una passione per il marketing e competenze nelle strategie online, potremmo avere un ruolo per te.', 'Laurea Magistrale', 3, 3500.00, 4),
-    ('Sviluppatore Java', 'Milano', '2023-11-02 14:00:00', 'Tecnologia', true, false, 'Tempo determinato', 'Cerchiamo uno sviluppatore Java con competenze avanzate per il nostro progetto software.', 'Se hai esperienza in sviluppo Java e vuoi contribuire a un progetto innovativo, sei nel posto giusto.', 'Laurea Triennale', 2, 3400.00, 5),
-    ('Architetto d''Interni', 'Roma', '2023-11-03 15:30:00', 'Design', false, true, 'Tempo indeterminato', 'Stiamo cercando un architetto d''interni talentuoso per progetti di design degli spazi.', 'Se hai una passione per il design degli interni e vuoi creare spazi unici, contattaci.', 'Laurea Triennale', 3, 3600.00, 6),
-    ('Sviluppatore iOS', 'Firenze', '2023-11-04 09:15:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore iOS esperto per le nostre app mobili.', 'Se hai competenze in sviluppo iOS e vuoi lavorare su progetti mobili entusiasmanti, unisciti a noi.', 'Laurea Triennale', 4, 3800.00, 7),
-    ('Assistente Sanitario', 'Napoli', '2023-11-05 08:45:00', 'Sanità', true, true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sanitario per fornire assistenza a domicilio.', 'Se hai una passione per il settore sanitario e vuoi aiutare le persone, questa potrebbe essere la tua opportunità.', 'Diploma', 2, 3200.00, 8),
-    ('Progettista Web', 'Milano', '2023-11-06 14:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo un progettista web creativo per il nostro team di sviluppo.', 'Se hai esperienza nella progettazione di siti web e un''ottima comprensione del design UX/UI, sei il benvenuto.', 'Laurea Triennale', 3, 3500.00, 9),
-    ('Gestore Museo', 'Roma', '2023-11-07 15:00:00', 'Cultura', true, false, 'Tempo determinato', 'Stiamo cercando un gestore di museo appassionato della cultura e delle arti.', 'Se ami la cultura e vuoi gestire un museo, questa potrebbe essere la tua occasione.', 'Laurea Magistrale', 4, 3800.00, 10),
-	('Gestore Progetti', 'Napoli', '2023-11-08 09:30:00', 'Progetti', true, false, 'Tempo determinato', 'Stiamo cercando un gestore di progetti esperto per coordinare e gestire le attività di progetto.', 'Se hai esperienza nella gestione di progetti e sei un ottimo coordinatore, contattaci.', 'Laurea Magistrale', 4, 3800.00, 11),
-    ('Sviluppatore Mobile', 'Firenze', '2023-11-09 10:45:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo uno sviluppatore mobile con competenze in sviluppo di app per dispositivi mobili.', 'Se hai esperienza in sviluppo mobile e vuoi lavorare su app innovative, potresti essere la persona giusta per noi.', 'Laurea Triennale', 3, 3500.00, 12),
-    ('Gestore Risorse Umane', 'Milano', '2023-11-10 11:30:00', 'Risorse Umane', true, true, 'Tempo determinato', 'Abbiamo bisogno di un esperto di risorse umane per la gestione del personale aziendale.', 'Se hai competenze nelle risorse umane e vuoi contribuire allo sviluppo del nostro team, contattaci.', 'Laurea Magistrale', 4, 4000.00, 13),
-    ('Analista Dati', 'Roma', '2023-11-11 12:00:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Cerchiamo un analista dati per l''elaborazione e l''analisi dei dati aziendali.', 'Se hai competenze nell''analisi dei dati e la capacità di trarre conclusioni, potresti essere il candidato ideale.', 'Laurea Magistrale', 3, 3600.00, 14),
-    ('Assistente Sociale', 'Bari', '2023-11-12 14:00:00', 'Servizi Sociali', true, true, 'Tempo determinato', 'Abbiamo bisogno di un assistente sociale per fornire supporto alle persone in difficoltà.', 'Se hai una passione per il servizio sociale e vuoi aiutare chi ne ha bisogno, questa potrebbe essere la tua opportunità.', 'Laurea Magistrale', 2, 3200.00, 15),
-    ('Ingegnere Elettrico', 'Messina', '2023-11-13 15:30:00', 'Ingegneria', false, true, 'Tempo indeterminato', 'Stiamo cercando un ingegnere elettrico per il progetto di sistemi elettrici.', 'Se hai competenze in ingegneria elettrica e vuoi lavorare su progetti elettrici, contattaci.', 'Laurea Magistrale', 4, 3800.00, 16),
-    ('Project Manager', 'Napoli', '2023-11-14 09:15:00', 'Progetti', true, false, 'Tempo determinato', 'Cerchiamo un project manager con esperienza nella gestione di progetti aziendali.', 'Se sei un esperto nella gestione dei progetti e vuoi far parte del nostro team, contattaci.', 'Laurea Magistrale', 3, 3500.00, 17),
-    ('Insegnante Scuola Elementare', 'Bari', '2023-11-15 08:45:00', 'Istruzione', false, true, 'Tempo indeterminato', 'Abbiamo bisogno di un insegnante per la scuola elementare per l''istruzione dei bambini.', 'Se ami l''educazione e vuoi contribuire allo sviluppo dei giovani studenti, contattaci.', 'Laurea Triennale', 2, 3200.00, 20);
+    ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Informatica', true, true, 'Tempo indeterminato', 'Unisciti a noi come Sviluppatore Frontend! Esperto in HTML, CSS e JavaScript? Lavora su progetti innovativi con contratto a tempo indeterminato e stipendio competitivo.',
+    'Cerchiamo uno Sviluppatore Frontend altamente creativo per arricchire il nostro team. Sei un esperto di HTML, CSS e JavaScript con una visione innovativa nel design web? Avrai l''opportunità di contribuire a un progetto unico, lavorando su interfacce coinvolgenti e funzionalità avanzate. Offriamo un ambiente di lavoro stimolante, un contratto a tempo indeterminato e uno stipendio competitivo. Se sei appassionato di sviluppo frontend, vogliamo conoscere te e le tue idee!',
+    'Laurea Triennale', 2, 3200.00, 1),
+    
+    
+    ('Grafico Pubblicitario', 'Roma', '2023-10-30 10:45:00', 'Design', true, true, 'Tempo determinato', 'Creative IT cerca Grafico Pubblicitario! Creativo con esperienza in design pubblicitario? Progetti stimolanti, contratto determinato con possibilità di sviluppo.',
+    'Stiamo cercando un Grafico Pubblicitario talentuoso per unirsi al nostro team. Sei un creativo appassionato con esperienza nella progettazione di materiale promozionale? Avrai l''opportunità di mettere in mostra la tua creatività e lavorare su progetti stimolanti. Offriamo un contratto determinato con la possibilità di sviluppo a lungo termine. Se sei pronto per una sfida creativa, inviaci il tuo curriculum!',
+    'Laurea Triennale', 3, 3400.00, 7),
+    
+    
+    ('Ingegnere Civile', 'Napoli', '2023-10-31 11:30:00', 'Edilizia', false, true, 'Tempo determinato', 'Opportunità per Ingegnere Civile esperto! Lavora su progettazione edile innovativa. Contratto determinato, ma prospettive a lungo termine.',
+    'Stiamo cercando un Ingegnere Civile esperto. Avrai l''opportunità di contribuire a progetti di progettazione edile innovativi e stimolanti. Cerchiamo qualcuno con competenze avanzate in ingegneria civile e esperienza nella progettazione di strutture. Offriamo un contratto determinato con potenziali prospettive a lungo termine. Se sei pronto per unirsi a una squadra dinamica e far parte di progetti entusiasmanti, inviaci la tua candidatura!',
+    'Laurea Magistrale', 4, 4000.00, 3),
+    
+    
+    ('Responsabile Marketing', 'Firenze', '2023-11-01 12:00:00', 'Marketing', false, true, 'Tempo indeterminato', 'Azienda leader cerca Responsabile Marketing esperto. Gestisci strategie digitali, sviluppa campagne innovative e potenzia la brand awareness.',
+    'Sei un esperto di marketing con una passione per l''innovazione? Unisciti a noi come Responsabile Marketing per guidare strategie digitali, creare campagne coinvolgenti e potenziare la brand awareness. Responsabilità chiave includono la gestione del team marketing, l''analisi dei risultati delle campagne e la collaborazione con le funzioni aziendali per raggiungere obiettivi comuni.',
+    'Laurea Magistrale', 3, 3500.00, 4),
+    
+    
+    ('Sviluppatore Java', 'Milano', '2023-11-02 14:00:00', 'Tecnologia', true, true, 'Tempo determinato', 'Opportunità per uno sviluppatore Java esperto! Entra a far parte del nostro team per contribuire a progetti software innovativi e collabora con colleghi talentuosi.',
+    'Sei uno sviluppatore Java con competenze avanzate? Unisciti a noi per contribuire a progetti software innovativi. Collaborerai con un team talentuoso, parteciperai allo sviluppo di soluzioni di alta qualità e avrai l''opportunità di crescere professionalmente. Requisiti: esperienza in Java, problem-solving e collaborazione efficace.',
+    'Laurea Triennale', 2, 3400.00, 6),
+    
+    
+    ('Architetto', 'Napoli', '2023-11-03 15:30:00', 'Design', false, true, 'Tempo indeterminato', 'Cerchiamo un Architetto talentuoso per progetti di design degli spazi. Unisciti a noi per creare ambienti unici e sfrutta la tua passione per il design.',
+    'Sei un Architetto talentuoso con una passione per il design degli spazi? Entra a far parte del nostro team per contribuire a progetti stimolanti. Collaborerai con colleghi appassionati, porterai idee innovative e avrai l''opportunità di mettere in pratica la tua creatività. Requisiti: esperienza in progettazione architettonica, attenzione ai dettagli e capacità di lavorare in team.',
+    'Laurea Triennale', 3, 3600.00, 3),
+    
+    
+    ('Sviluppatore iOS', 'Roma', '2023-11-04 09:15:00', 'Informatica', false, true, 'Tempo indeterminato', 'TecnoSoluzioni cerca di uno Sviluppatore iOS. Entra a far parte del nostro team per contribuire allo sviluppo di app mobili entusiasmanti.',
+    'Sei uno sviluppatore iOS esperto in cerca di nuove sfide? Unisciti al nostro team per lavorare su app mobili innovative. Avrai l''opportunità di contribuire a progetti eccitanti, collaborare con colleghi talentuosi e sviluppare soluzioni all''avanguardia. Richiediamo competenze in sviluppo iOS, problem-solving e passione per l''innovazione.',
+    'Laurea Triennale', 4, 3800.00, 10),
+    
+    
+    ('Fisioterapista', 'Firenze', '2023-11-05 08:45:00', 'Sanità e Benessere', false, true, 'Tempo determinato', 'Cerchiamo un Fisioterapista appassionato. Unisciti a noi per fornire assistenza a domicilio e contribuire al benessere delle persone.',
+    'Sei un Fisioterapista in cerca di un ambiente stimolante? Entra a far parte del nostro team per fornire assistenza a domicilio. Sarai responsabile di valutazioni, trattamenti personalizzati e supporto al recupero. Offriamo un ambiente di lavoro gratificante, formazione continua e opportunità di crescita professionale.',
+    'Diploma', 2, 3200.00, 8),
+    
+    
+    ('Progettista Web', 'Milano', '2023-11-06 14:30:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Azienda cerca Progettista Web creativo. Unisciti al nostro team di sviluppo per contribuire alla progettazione di siti web e portare avanti progetti stimolanti.',
+    'Sei un Progettista Web con esperienza in design UX/UI? Entra a far parte del nostro team per contribuire a progetti stimolanti. Avrai l''opportunità di collaborare con colleghi creativi, partecipare alla progettazione di siti web e mettere in mostra le tue competenze di design. Richiediamo conoscenze approfondite di progettazione web, creatività e capacità di lavoro in team.',
+    'Laurea Triennale', 3, 3500.00, 6),
+    
+    
+    ('Gestore Museo', 'Roma', '2023-11-07 15:00:00', 'Cultura', false, true, 'Tempo determinato', 'RomArte cerca Gestore Museo appassionato. Unisciti a noi per gestire e promuovere la cultura attraverso l''organizzazione di mostre e attività culturali.',
+    'Sei appassionato di cultura e arte? Entra nel nostro team come Gestore Museo. Coordinerai esposizioni, pianificherai eventi culturali e gestirai le attività quotidiane del museo. Cerchiamo un individuo dinamico con una forte passione per la cultura, competenze organizzative e capacità di coinvolgimento del pubblico.',
+    'Laurea Magistrale', 4, 3800.00, 17),
+	
+    
+    ('Gestore Progetti', 'Milano', '2023-11-08 09:30:00', 'Progetti', false, true, 'Tempo determinato', 'CreativeDesign cerca Gestore Progetti motivato. Unisciti a noi per coordinare attività di progetto e garantire il loro successo.',
+    'Sei un coordinatore di progetti dinamico? Entra a far parte del nostro team come Gestore Progetti. Sarai responsabile della pianificazione, esecuzione e monitoraggio delle attività di progetto. Cerchiamo un professionista motivato con capacità di leadership, problem-solving e orientato ai risultati.',
+    'Laurea Magistrale', 4, 3800.00, 11),
+    
+    
+    ('Sviluppatore Mobile', 'Firenze', '2023-11-09 10:45:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Azienda tecnologica cerca Sviluppatore Mobile creativo. Unisciti a noi per contribuire allo sviluppo di app innovative e soluzioni mobili all''avanguardia.',
+    'Entra nostro team per lavorare su progetti mobili stimolanti. Avrai l''opportunità di sviluppare app innovative, collaborare con un team talentuoso e contribuire all''avanzamento delle soluzioni mobili. Cerchiamo creatività, competenze tecniche e passione per lo sviluppo mobile.',
+    'Laurea Triennale', 3, 3500.00, 4),
+    
+    
+    ('Gestore Risorse Umane', 'Napoli', '2023-11-10 11:30:00', 'Risorse Umane', false, true, 'Tempo determinato', 'SostEnergia cerca un Gestore Risorse Umane. Entra nel nostro team per gestire le dinamiche del personale e contribuire allo sviluppo del nostro team.',
+    'Unisciti a noi come Gestore Risorse Umane in un ambiente dinamico. Sarai responsabile delle pratiche HR, dal reclutamento alla gestione delle relazioni aziendali. Cerchiamo un professionista con competenze relazionali, capacità organizzative e una visione centrata sullo sviluppo delle risorse umane.',
+    'Laurea Magistrale', 4, 4000.00, 19),
+    
+    
+    ('Analista Dati', 'Roma', '2023-11-11 12:00:00', 'Tecnologia', false, true, 'Tempo indeterminato', 'Entra nel nostro team per contribuire all''analisi dei dati aziendali e guidare decisioni informate.',
+    'Entra a far parte del nostro team come Analista Dati. Sarai coinvolto nell''analisi dei dati, nell''identificazione di tendenze e nella creazione di report informativi. Cerchiamo un professionista con solide competenze analitiche, capacità interpretative e la capacità di tradurre i dati in strategie aziendali.',
+    'Laurea Magistrale', 3, 3600.00, 13),
+    
+    
+    ('Addetto al controllo qualità', 'Bari', '2023-11-12 14:00:00', 'Agroalimentare', false, true, 'Tempo determinato', 'AgriBari cerca Addetto al Controllo Qualità. Unisciti a noi per garantire standard qualitativi elevati nei nostri processi produttivi.',
+    'Cerchiamo un Addetto al Controllo Qualità appassionato. Sarai responsabile dell''ispezione e del controllo dei prodotti, garantendo il rispetto degli standard qualitativi. Se hai un occhio attento per i dettagli, capacità analitiche e una forte etica del lavoro, sii parte della nostra squadra impegnata nella qualità e nell''eccellenza.',
+    'Laurea Magistrale', 2, 3200.00, 21),
+    
+    
+    ('Guida turistica', 'Messina', '2023-11-13 15:30:00', 'Turismo', false, true, 'Tempo indeterminato', 'Messina Bedda cerca Guida appassionato/a. Unisciti a noi per condividere la bellezza delle destinazioni e creare esperienze indimenticabili.',
+    'Entra nel nostro team come Guida Turistica entusiasta. Sarai il volto accogliente che trasmette la storia e la cultura delle destinazioni. Cerchiamo un individuo con passione per i viaggi, capacità comunicative e conoscenze culturali. Se ami connetterti con le persone e condividere storie coinvolgenti, questa è la tua opportunità.',
+    'Laurea Triennale', 4, 3800.00, 22),
+    
+    
+    ('Project Manager', 'Napoli', '2023-11-14 09:15:00', 'Progetti', false, true, 'Tempo determinato', 'Entra nel nostro team per coordinare progetti e guidare il successo aziendale.',
+    'Unisciti a noi come Project Manager. Sarai responsabile della pianificazione, esecuzione e monitoraggio dei progetti. Cerchiamo un professionista con solide competenze organizzative, leadership e capacità di gestione del tempo. Se sei appassionato di raggiungere obiettivi e guidare il successo del team, sii parte della nostra crescita aziendale.',
+    'Laurea Magistrale', 3, 3500.00, 17),
+    
+    
+    ('Progettista Grafico', 'Bologna', '2023-11-16 10:30:00', 'Design', true, true, 'Tempo indeterminato', 'Unisciti a noi per dare vita a progetti visivi e innovativi.',
+    'Cerchiamo un Progettista Grafico creativo per arricchire il nostro team. Sarai coinvolto nella progettazione di materiale visivo accattivante e innovativo. Cerchiamo un talento con competenze artistiche, creatività e conoscenza degli strumenti di progettazione. Se vuoi contribuire a progetti coinvolgenti e portare idee visive alla vita, questa è la tua opportunità.',
+    'Laurea Triennale', 3, 3600.00, 18),
+    
+    
+    ('Nutrizionista', 'Firenze', '2023-11-15 08:45:00', 'Sanità e benessere', false, true, 'Tempo indeterminato', 'Entra nel nostro team per promuovere uno stile di vita sano attraverso consulenze nutrizionali.',
+    'Unisciti a noi come Nutrizionista dedicato/a a migliorare la salute dei nostri clienti. Sarai responsabile di fornire consulenze nutrizionali, pianificare diete personalizzate e promuovere uno stile di vita sano. Cerchiamo un professionista con una formazione accademica in nutrizione, capacità comunicative e passione per il benessere. Se sei motivato/a a contribuire al miglioramento della salute attraverso la nutrizione, questa è la tua opportunità.',
+    'Laurea Triennale', 2, 3200.00, 8),
+    
+    
+    ('Guida galleria arte', 'Napoli', '2023-11-17 09:00:00', 'Arte', false, true, 'Tempo indeterminato', 'Unisciti a noi per condividere l''arte, arricchire le esperienze dei visitatori e promuovere la cultura artistica.',
+    'Cerchiamo una Guida Galleria d''Arte per coinvolgere il pubblico nelle opere esposte. Sarai responsabile di guidare visite informative, offrire contestualizzazione storica e rispondere alle domande dei visitatori. Cerchiamo un individuo appassionato di arte, con competenze comunicative e conoscenza delle opere esposte. Se ami condividere la tua passione per l''arte e creare esperienze culturali coinvolgenti, sii parte del nostro team dedicato alla promozione dell''arte e della cultura.',
+    'Laurea Triennale', 2, 3200.00, 14),
+    
+    
+    ('Analista Dati Senior', 'Roma', '2023-11-18 09:30:00', 'Analisi Dati', true, true, 'Tempo indeterminato', 'Analista Dati Senior per progetti analitici avanzati. Unisciti a noi per guidare decisioni strategiche e contribuire all''innovazione aziendale attraverso l''analisi dei dati.',
+    'Cerchiamo un Analista Dati Senior con esperienza nell''analisi approfondita dei dati aziendali. Sarai coinvolto/a in progetti avanzati, contribuendo a decisioni strategiche e guidando l''adozione di pratiche analitiche innovative. Cerchiamo un professionista con competenze analitiche avanzate, capacità di leadership e visione critica dei dati. Se desideri essere parte di un team impegnato nell''innovazione attraverso l''analisi dei dati, questa è la tua opportunità.',
+    'Laurea Magistrale', 5, 4500.00, 2),
+    
+    
+    ('Giardiniere Specializzato', 'Napoli', '2023-11-09 10:45:00', 'Ambiente Sostenibile', false, true, 'Tempo determinato', 'Unisciti a noi per prenderti cura di spazi verdi esclusivi, applicando competenze specializzate nella cura delle piante.',
+    'Sarai responsabile della progettazione, manutenzione e cura di giardini esclusivi. Cerchiamo un individuo con competenze specializzate nella scelta delle piante, gestione dell''irrigazione e mantenimento generale del verde. Se ami trasformare gli spazi in luoghi accoglienti attraverso la tua competenza nella cura delle piante, sii parte del nostro team dedicato alla creazione e manutenzione di giardini di alta qualità.',
+    'Diploma', 3, 3000.00, 5),
+    
+    
+    ('Restauratore di Opere', 'Napoli', '2023-11-26 11:30:00', 'Arte', false, true, 'Tempo indeterminato', '',
+    'Cerchiamo un Restauratore di Opere d''Arte con esperienza nel restauro e nella preservazione del patrimonio culturale. Sarai coinvolto/a nel restauro di opere d''arte, contribuendo alla conservazione del nostro ricco patrimonio artistico. Cerchiamo un professionista con competenze avanzate di restauro, capacità diagnostiche e conoscenza delle tecniche di conservazione. Se desideri dedicare le tue competenze alla protezione e alla valorizzazione dell''arte, questa è la tua opportunità.',
+    'Laurea Magistrale', 4, 3800.00, 9),
+    
+    
+    ('Consulente Benessere', 'Firenze', '2023-11-12 12:00:00', 'Sanità e Benessere', true, true, 'Tempo determinato', '',
+    'Cerchiamo un Consulente Benessere appassionato/a della promozione di uno stile di vita sano. Sarai responsabile di offrire consulenze personalizzate, suggerire pratiche di benessere e guidare clienti verso un equilibrio mentale e fisico. Cerchiamo un individuo con formazione in discipline olistiche, competenze comunicative e motivazione a contribuire al benessere degli altri. Se desideri condividere le tue conoscenze e ispirare una vita sana, fai parte del nostro team dedicato al benessere.',
+    'Diploma', 3, 3200.00, 12),
+    
+    
+    ('Fotografo Professionista', 'Napoli', '2023-11-07 14:00:00', 'Arte', false, true, 'Tempo indeterminato', 'Cerchiamo Fotografo professionista per catturare momenti unici. Entra a far parte del nostro team creativo dedicato all''arte della fotografia.',
+    'Cerchiamo un Fotografo Professionista appassionato della fotografia artistica. Sarai responsabile di catturare momenti unici, creando immagini che trasmettano emozioni e storie. Cerchiamo un individuo con esperienza nel campo, creatività nell''uso di luci e composizione, e abilità nel post-processing. Se desideri condividere la tua visione unica attraverso la fotografia e far parte di un team dedicato all''espressione visiva, entra a far parte della nostra squadra.',
+    'Laurea Triennale', 3, 3500.00, 14),
+    
+    
+    ('Infermiere Specializzato', 'Milano', '2023-11-21 15:30:00', 'Sanità e Benessere', false, true, 'Tempo determinato', 'Unisciti a noi per contribuire al benessere attraverso competenze infermieristiche specializzate.',
+    'Cerchiamo un Infermiere Specializzato con competenze avanzate nella fornitura di cure specialistiche. Sarai coinvolto/a in attività di assistenza infermieristica avanzata, garantendo la massima qualità delle cure. Cerchiamo un professionista con una solida formazione infermieristica, capacità decisionali rapide e attenzione al paziente. Se desideri mettere in pratica le tue competenze avanzate e contribuire al benessere dei pazienti, entra a far parte del nostro team sanitario impegnato.',
+    'Laurea Magistrale', 4, 4000.00, 15),
+    
+    
+    ('Chef', 'Milano', '2023-11-15 09:15:00', 'Ristorazione', false, true, 'Tempo indeterminato', 'Entra a far parte della nostra squadra culinaria dedicata alla sperimentazione gastronomica.',
+    'Sarai responsabile di creare esperienze culinarie uniche, combinando sapori e presentazioni innovative. Cerchiamo un individuo con esperienza culinaria, creatività nel design dei piatti e capacità di gestire una cucina con efficienza. Se sei appassionato della sperimentazione gastronomica e desideri contribuire a una proposta culinaria unica, entra a far parte della nostra squadra dedicata alla creazione di momenti gastronomici indimenticabili.',
+    'Diploma', 4, 3800.00, 20);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS preferiti
@@ -147,21 +285,30 @@ CREATE TABLE IF NOT EXISTS preferiti
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
-	 
+
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO preferiti (utenti_id, annuncio_id)
 VALUES
-    (1, 1), (1, 2),
-    (2, 3), (2, 4),
-    (3, 5), (3, 6),
-    (4, 7), (4, 8),
-    (5, 9), (5, 10),
-    (6, 11), (6, 12),
-    (7, 13), (7, 14),
-    (8, 15), (8, 16),
-    (9, 17), (9, 18),
-    (10, 15), (10, 18);
-
+    (1, 7),
+    (2, 22),
+    (3, 6),
+    (4, 10),
+    (5, 20),
+    (6, 21),
+    (7, 24),
+    (8, 12),
+    (9, 26),
+    (10, 23),
+    (11, 2),
+    (12, 15),
+    (13, 20),
+    (14, 27),
+    (15, 19),
+    (16, 20),
+    (17, 11),
+    (18, 6),
+    (19, 7),
+    (20, 14);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS candidate
@@ -178,21 +325,30 @@ CREATE TABLE IF NOT EXISTS candidate
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
-	  
+
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO candidate (utenti_id, annuncio_id)
 VALUES
-    (1, 1), (1, 2),
-    (2, 3), (2, 4),
-    (3, 5), (3, 6),
-    (4, 7), (4, 8),
-    (5, 9), (5, 10),
-    (6, 11), (6, 12),
-    (7, 13), (7, 14),
-    (8, 15), (8, 16),
-    (9, 17), (9, 18),
-    (10, 15), (10, 18);
-
+    (1, 7),
+    (2, 22),
+    (3, 6),
+    (4, 10),
+    (5, 20),
+    (6, 21),
+    (7, 24),
+    (8, 12),
+    (9, 26),
+    (10, 23),
+    (11, 2),
+    (12, 15),
+    (13, 20),
+    (14, 27),
+    (15, 19),
+    (16, 20),
+    (17, 11),
+    (18, 6),
+    (19, 7),
+    (20, 14);
 	 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS valutazioni
@@ -215,23 +371,37 @@ CREATE TABLE IF NOT EXISTS valutazioni
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 INSERT INTO valutazioni (utenti_id, aziende_id, commento, voto)
 VALUES
-    (1, 1, 'Ho avuto una molto professionale esperienza lavorativa con questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.', 4),
+    (1, 1, 'Ho avuto un''esperienza lavorativa molto professionale in questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.', 4),
     (1, 2, 'La mia esperienza lavorativa con questa azienda è stata semplicemente eccezionale. Ho avuto l''opportunità di crescere professionalmente e sono molto soddisfatto.', 5),
-    (2, 3, 'L''ambiente di lavoro in questa azienda è davvero eccellente. Ho avuto l''opportunità di lavorare con un team straordinario.', 5),
-    (2, 4, 'L''azienda ha bisogno di fare alcuni miglioramenti per creare un ambiente di lavoro migliore. Tuttavia, ho avuto esperienze positive.', 3),
-    (3, 5, 'Sono molto soddisfatto del mio lavoro in questa azienda. Ho avuto l''opportunità di lavorare su progetti interessanti e ho goduto di un buon equilibrio tra lavoro e vita.', 4),
-    (3, 6, 'Ho avuto l''opportunità di crescere professionalmente in questa azienda. Le prospettive di carriera sono promettenti e l''atmosfera aziendale è positiva.', 4),
-    (4, 7, 'Questa azienda è veramente innovativa e all''avanguardia. Ho lavorato su progetti eccitanti e sono rimasto impressionato dall''approccio all''innovazione.', 5),
-    (4, 8, 'L''azienda è guidata da una leadership eccezionale. Ho avuto un''esperienza positiva e sono grato per le opportunità che ho avuto qui.', 5),
-    (5, 9, 'Sono molto contento di lavorare in questa azienda. Ho avuto l''opportunità di crescere professionalmente e ho goduto di un ambiente di lavoro positivo.', 4),
-    (5, 10, 'L''azienda deve lavorare sullo sviluppo del team e migliorare la comunicazione interna. Tuttavia, ho avuto esperienze positive in generale.', 3),
-    (6, 1, 'Ho ricevuto un ottimo supporto dai miei colleghi in questa azienda. L''ambiente di lavoro è collaborativo e positivo.', 4),
-    (6, 2, 'Mentre ho avuto esperienze positive, ci sono alcune aree in cui l''azienda può migliorare. Spero che facciano progressi in futuro.', 3),
-    (7, 3, 'L''azienda offre una buona atmosfera di lavoro. Ho apprezzato il mio tempo qui e sono soddisfatto dell''esperienza.', 4),
-    (7, 4, 'L''azienda ha bisogno di miglioramenti in alcune aree. Tuttavia, ho avuto esperienze positive e spero che facciano progressi.', 3),
-    (8, 5, 'Ho avuto una grande esperienza lavorativa in questa azienda. L''ambiente di lavoro è positivo e stimolante.', 5),
+    (2, 3, 'L''ambiente di lavoro in questa azienda è davvero eccellente. Ho avuto l''opportunità di lavorare con un team straordinario, organizzato molto bene e sempre disponibile a supportare chi ha bisogno di aiuto.', 5),
+    (3, 5, 'Sono molto soddisfatto del mio lavoro in questa azienda. Ho avuto l''opportunità di lavorare su progetti interessanti e ho goduto di un buon equilibrio tra lavoro e vita personale.', 4),
+    (3, 19, 'Ho avuto l''opportunità di crescere professionalmente in questa azienda. Le prospettive di carriera sono promettenti e l''atmosfera aziendale è positiva.', 4),
+    (4, 7, 'Questa azienda è veramente innovativa e all''avanguardia. Ho lavorato su progetti molto interessanti e sono rimasto impressionato dall''approccio molto aperto a confronti e idee diverse.', 5),
+    (5, 9, 'Sono molto contento di aver lavorarato in questa azienda. Ho avuto l''opportunità di crescere professionalmente e ho goduto di un ambiente di lavoro positivo.', 4),
+    (5, 17,'Comunicazione interna assolutamente da migliorare: le informazioni erano sempre poco chiare e non sempre condivise con tutti gli interessati.', 2),
+    (6, 13, 'Ho ricevuto un ottimo supporto dai miei colleghi in questa azienda. L''ambiente di lavoro è collaborativo e positivo.', 4),
+    (6, 10, 'Ho avuto molte esperienze positive, però ci sono alcune aree in cui l''azienda può migliorare. Spero che facciano progressi in futuro.', 3),
+    (7, 3, 'L''azienda offre una buona atmosfera di lavoro. Ho apprezzato molto la cura dei dettagli in ogni progetto.', 4),
+    (7, 19, 'L''azienda ha bisogno di miglioramenti in alcune aree. Nel complesso, però, l''esperienza è stata positiva.', 3),
+    (8, 1, 'Ho avuto una grande esperienza lavorativa in questa azienda. L''ambiente di lavoro è positivo e stimolante.', 5),
     (8, 6, 'Sono molto soddisfatto della mia esperienza in questa azienda. Ho avuto l''opportunità di crescere professionalmente e l''atmosfera aziendale è positiva.', 4),
-    (9, 7, 'Questa azienda è davvero eccellente e innovativa. Sono molto soddisfatto del mio lavoro qui e delle opportunità offerte.', 5),
+    (9, 20, 'Questa azienda è davvero eccellente e innovativa. Sono molto soddisfatto del mio lavoro qui e delle opportunità offerte.', 5),
     (9, 8, 'Ho avuto un''ottima opportunità di sviluppo professionale in questa azienda. Sono grato per l''esperienza positiva.', 5),
-    (10, 9, 'Sono molto soddisfatto di lavorare in questa azienda. Ho avuto l''opportunità di crescere professionalmente e di contribuire al successo dell''azienda.', 4),
-    (10, 10, 'L''azienda deve lavorare sullo sviluppo del team e migliorare la comunicazione interna. Spero che facciano progressi.', 3);
+    (10, 14, 'Sono molto soddisfatto di aver lavorato in questa azienda. Ho avuto l''opportunità di crescere professionalmente.', 4),
+    (10, 17,'L''azienda deve lavorare sullo sviluppo del team e migliorare la comunicazione interna. Spero che facciano progressi.', 2),
+    (11, 11, 'Ho avuto un''esperienza positiva con questa azienda. Il team è altamente competente e l''ambiente di lavoro è stimolante.', 4),
+    (11, 18, 'Lavorare con questa azienda è stato un vero piacere. Ho avuto l''opportunità di contribuire a progetti significativi.', 5),
+    (12, 12, 'Ho avuto alcune sfide, ma l''azienda ha dimostrato un impegno costante per migliorare. Sono ottimista sul futuro.', 3),
+    (13, 11, 'Lavorare con questa azienda è stato un''esperienza gratificante. Ho avuto l''opportunità di sviluppare competenze avanzate.', 5),
+    (13, 16, 'L''azienda promuove un ambiente di lavoro inclusivo. Ho apprezzato la diversità e l''opportunità di imparare da colleghi talentuosi.', 4),
+    (14, 21, 'Questa azienda è all''avanguardia nell''innovazione. Ho avuto l''opportunità di lavorare su progetti che hanno un impatto significativo.', 5),
+    (15, 15, 'Ho apprezzato l''attenzione ai dettagli e l''approccio professionale di questa azienda. Sono soddisfatto della mia esperienza lavorativa.', 4),
+    (15, 20, 'Lavorare qui è stato un''esperienza positiva. Ho avuto l''opportunità di contribuire a progetti di rilievo.', 4),
+    (16, 22, 'Ho avuto l''opportunità di lavorare con un team altamente qualificato. Sono grato per le sfide stimolanti e le opportunità di crescita.', 5),
+    (17, 5, 'Sono grato per l''opportunità di lavorare in questa azienda. L''ambiente di lavoro è stimolante e il team è collaborativo.', 5),
+    (17, 14, 'Ho avuto alcune sfide, ma l''azienda ha dimostrato un impegno costante per migliorare. Sono ottimista sul futuro.', 3),
+    (18, 16, 'Lavorare con questa azienda è stato un vero piacere. Ho avuto l''opportunità di contribuire a progetti significativi.', 5),
+    (19, 4, 'Ho apprezzato l''attenzione ai dettagli e l''approccio professionale di questa azienda. Sono soddisfatto della mia esperienza lavorativa.', 4),
+    (19, 1, 'L''azienda ha un ambiente di lavoro positivo. Sono grato per le opportunità di apprendimento e sviluppo.', 5),
+    (20, 2, 'Ho avuto l''opportunità di lavorare con un team altamente qualificato. Sono grato per le sfide stimolanti e le opportunità di crescita.', 5),
+    (20, 10, 'Lavorare con questa azienda è stato un''esperienza formativa. Ho imparato molto e ho avuto l''opportunità di mettere in pratica le mie competenze.', 4);

@@ -259,9 +259,8 @@ img#profile_picture {
 }
 
 #user-main section > div > h3 {
-    
     float: left;
-    margin: 0.4em 0 0.4em; /* da centrare */
+    margin: 0.4em 0 0.4em;
 }
 
 #user-main section div button {
