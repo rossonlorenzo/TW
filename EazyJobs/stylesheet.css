@@ -269,7 +269,7 @@ section#cosa-offriamo {
                 url("./assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat;
                 
     
-    background-size: 15%, 21%, 15%, 22%, 20%, 22%;
+    background-size: 15%, 21%, 15%;
 }
 
 section#cosa-offriamo h2{
@@ -396,6 +396,24 @@ ul#aziende img {
     width: 4em;
     height: auto;
     margin: auto;
+}
+
+
+@supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
+    div.valutazione-media::before {
+       content: "★★★★★"; 
+    }
+    
+    .valutazione-media {
+        --length: calc(var(--rating) * 0.84em);
+        background: linear-gradient(90deg, var(--headerTxtColor) 0 var(--length), lightgrey var(--length) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.valutazione-media::before {                    /* fallback per IE */
+    content: attr(data-content);
 }
 
 .valutazione-media {

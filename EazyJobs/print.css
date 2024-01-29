@@ -16,7 +16,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.header-mobile {
+.header-actions, .header-burger {
     display: none;
 }
 
@@ -32,11 +32,16 @@ header h1 {
     display: none;
 }
 
+#navigazione {
+    border-radius: 0;
+    box-shadow: none;
+}
+
 #breadcrumb{
     padding: 0.5em 0 0.5em 0;
     margin-top: 0.5em;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-top: 1pt solid #000;
+    border-bottom: 1pt solid #000;
     font-weight: bold;
 }
 
@@ -44,13 +49,60 @@ main {
     margin-left: 0em;
     width: 100%;
     padding: 0.3em 0em 0.5em 0em;
-
+    box-shadow: none;
 }
 
 a {
     text-decoration: none;
     color: #000000;
 }
+
+input[type="submit"], button {
+    display: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                HOME CSS [INZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+#content section {
+    box-shadow: none;
+}
+
+section#cosa-offriamo {
+    padding: 10pt 0 10pt 0;
+}
+
+section#cosa-offriamo img{
+    display: none;
+}
+
+section#cosa-offriamo section {
+    margin-top: 10pt;
+}
+
+ul.features-list {
+    margin-top: 3pt;
+    list-style-position: inside;
+}
+
+ul#aziende li{
+    margin-top: 5pt;
+    padding: 5pt;
+    border: 1pt solid #000;
+    border-radius: 5pt;
+}
+
+.valutazione-media::before {
+    content: attr(data-content);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                HOME CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -61,30 +113,51 @@ a {
     display: none;
 }
 
-.annunci > li {
-    list-style-type: none;
-    margin: 8pt 0 8pt 0;
-    padding: 8pt 0 8pt 0;
-    border-top: 1px solid #000;
+.annunci {
+    display: none;
 }
 
-.job-info > li {
+.annuncio-completo {
+    list-style-type: none;
+    margin: 8pt 0 8pt 0;
+    padding: 8pt 2pt 8pt 2pt;
+    border: 2pt solid #000;
+    border-radius: 10pt;
+    page-break-inside: avoid;
+}
+
+.print-invisible {
+    display: none;
+}
+
+.annuncio-completo-contenitore > h3 {
+    font-size: 16pt;
+    margin-top: 0;
+}
+
+.annuncio-completo-contenitore h4, .annuncio-completo-contenitore h5 {
+    font-size: 12.5pt;
+}
+
+.annuncio-completo-contenitore > * {
     margin-top: 3pt;
 }
 
-.header-annunci img {
+.annuncio-completo-contenitore ul li {
+    margin-top: 3pt;
+}
+
+.header-annunci img, .header-aziende img {
     width: 3cm;
-    
+}
+
+.azioni-aggiuntive, .bottone-annunci {
+    display: none;
 }
 
 .nascosto {
     display: none;
 }
-
-.annunci {
-    display: none;
-}
-
 
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,10 +166,147 @@ a {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                AZIENDE CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#aziende-main form, #confirmationModal {
+    display: none;
+}
+
+#contenitore-informazioni {
+    margin: 5pt 0 5pt 0;
+}
+
+#contenitore-informazioni img {
+    width: 3cm;
+    margin-bottom: 5pt;
+}
+
+#aziende-main dt {
+    float: left;
+    clear: none;
+    margin-right: 5pt;
+}
+
+#descrizioneAzienda {
+    margin-top: 5pt;
+    padding: 5pt;
+    border: 1pt solid #000;
+    border-top: none;
+    border-bottom: none;
+}
+
+ul#aziende-recensioni li{
+    margin-top: 5pt;
+    padding: 5pt;
+    border: 1pt solid #000;
+    border-radius: 5pt;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                AZIENDE CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                USER/ADMIN CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#cv-section, #upload-cv-form, a[href="./ModificaUser.php"] {
+    display: none;
+}
+
+#admin-links {
+    display: none;
+}
+
+#user-main > section > ul > li, #admin-main > section > ul > li {
+    margin-top: 5pt;
+    padding: 5pt;
+    border: 1pt solid #000;
+    border-radius: 5pt;
+}
+
+#user-listaAnnunci li img, #admin-listaAnnunci li img {
+    width: 3cm;
+}
+
+#user-main, #admin-main{
+
+    dt {
+        float: left;
+        clear: none;
+        margin-right: 5pt;
+    }
+
+    section > div > h3 {
+        font-size: 16pt;
+        margin-top: 10pt;
+    }
+
+    section h4, section h5 {
+        font-size: 12.5pt;
+    }
+} 
+
+#user-recensioni li .valutazione h4, #admin-recensioni li .valutazione h4 {
+    font-size: 11.5pt;
+    float: left;
+    clear: none;
+    margin-right: 5pt;
+}
+
+#user-recensioni li > p, #admin-recensioni li > p {
+    margin-top: 4pt;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                USER/ADMIN CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI SIAMO CSS [INIZIO]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+#chi_siamo-main img {
+    display: none;
+}
+
+#chi_siamo-main .blocco {
+    margin-top: 12pt;
+}
+
+#chi_siamo-main .blocco p {
+    margin-top: 5pt;
+}
+
+#chi_siamo-main .blocco h3 {
+    font-size: 15pt;
+}
+
+#chi_siamo-main {
+    margin-bottom: 10pt;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            
+                                                                CHI SIAMO CSS [FINE]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 footer {
     text-align: center;
     font-size: 10pt;
     font-style: italic;
     padding: 1.3em 0 0.5em;
-    border-top: 1px solid #000;
+    border-top: 1pt solid #000;
+    border-radius: 0;
+    box-shadow: none;
 }
