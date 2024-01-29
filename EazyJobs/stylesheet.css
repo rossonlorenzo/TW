@@ -100,7 +100,6 @@ main {
     margin-top: 2em;
     border-radius: 1em;
     width: 75%;
-    height: 75vh;
 }
 
 button, input[type="button"], input[type="submit"] {
@@ -111,7 +110,7 @@ button, input[type="button"], input[type="submit"] {
     border-radius: 1em;
     cursor: pointer;
     max-width: fit-content;
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
@@ -119,21 +118,6 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
     color: black;
 }
 
-input[type="submit"]{
-    padding: 0.5em 1em;
-    background-color: var(--headerTxtColor);
-    color: white;
-    border: none;
-    border-radius: 1em;
-    cursor: pointer;
-    margin-top: 1em;
-    max-width: fit-content;
-}
-
-input[type="submit"]:hover {
-    background-color: var(--bgColor);
-    color: black;
-}
 
 .messaggio-errore {
     color: #a42327;
@@ -171,12 +155,6 @@ input[type="submit"]:hover {
     display: none;
 }
 
-@media (max-width: 1024px) {
-    
-    #navigazione {
-        max-width: 90%;
-    }
-}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -297,13 +275,6 @@ section#cosa-offriamo > section {
 section#cosa-offriamo > section h3 {
     display: inline;
     font-size: 1.5em;
-    /* background: 
-    linear-gradient(to right, white, white),
-    linear-gradient(to right, var(--bgColor), var(--bgColor));
-    background-size: 100% 0.15em, 0 0.15em;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 0.5s; */
 }
 
 section#cosa-offriamo > section:hover {
@@ -343,7 +314,6 @@ ul#aziende {
     list-style: none;
     display: flex;
     flex-wrap: nowrap;
-    
     gap: 0.5em;
     border-radius: 0 0 1em 1em;
     max-width: 100%;
@@ -560,7 +530,6 @@ form {
 
 #filtri div label, 
 #filtri div legend {
-    width: 90%;
     margin: auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
@@ -576,7 +545,6 @@ form {
 }
 
 #annunci-main #filtri div p {
-    width: 90%;
     margin: auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
@@ -605,6 +573,8 @@ form {
 
 #filtri div .checkbox-modalità label,
 #filtri div .radio-contratto label {
+    margin: 0;
+    margin-left: 1em;
     font-size: 0.8em;
     color: black;
     font-weight: normal;
@@ -861,7 +831,7 @@ ul.azioni-aggiuntive li {
 
     #filtri-ricerca {  
         display: block; 
-        width: 30%;
+        width: 32%;
         border-right: solid var(--footerTxtColor);
     }
 }

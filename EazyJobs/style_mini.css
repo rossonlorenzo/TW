@@ -217,6 +217,10 @@ footer {
                                                                 USER CSS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+#user-main{
+    padding-bottom: 1em;
+}
+
 header.header-desktop {
     display: none;
 }
@@ -372,14 +376,13 @@ form {
 }
 
 #filtri div {
-    width: 50%;
+    width: 70%;
     padding: 0.3em;
     background-color: var(--footerBgColor);  
     margin: 0.3em;
 }
 
 #filtri div label {
-    width: 90%;
     margin: auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
