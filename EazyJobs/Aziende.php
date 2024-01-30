@@ -110,10 +110,12 @@
   $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true) : [];
 
   $commentoErrore = isset($errors['commento']) ? htmlspecialchars($errors['commento']) : '';
+  $modificaCommentoErrore = isset($errors['modifica-commento']) ? htmlspecialchars($errors['modifica-commento']) : '';
   $loginErrore = isset($errors['login']) ? htmlspecialchars($errors['login']) : '';
   $duplicatoErrore = isset($errors['duplicato']) ? htmlspecialchars($errors['duplicato']) : '';
   
   $contenuto = str_replace("commento-errore-placeholder", $commentoErrore, $contenuto);
+  $contenuto = str_replace("commento-errore-placeholder", $modificaCommentoErrore, $contenuto);
   $contenuto = str_replace("login-errore-placeholder", $loginErrore, $contenuto);
   $contenuto = str_replace("duplicato-errore-placeholder", $duplicatoErrore, $contenuto);
 
@@ -128,31 +130,31 @@
       while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         
-        if ($voto === '1') {
+        if ($voto == '1') {
                 $contenuto = str_replace("1-placeholder", "selected", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($voto === '2') {
+            } elseif ($voto == '2') {
                 $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "selected", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($voto === '3') {
+            } elseif ($voto == '3') {
                 $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "selected", $contenuto);
                 $contenuto = str_replace("4-placeholder", "", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($voto === '4') {
+            } elseif ($voto == '4') {
                 $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);
                 $contenuto = str_replace("4-placeholder", "selected", $contenuto);
                 $contenuto = str_replace("5-placeholder", "", $contenuto);
-            } elseif ($voto === '5') {
+            } elseif ($voto == '5') {
                 $contenuto = str_replace("1-placeholder", "", $contenuto);
                 $contenuto = str_replace("2-placeholder", "", $contenuto);
                 $contenuto = str_replace("3-placeholder", "", $contenuto);

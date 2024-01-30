@@ -17,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //server-side validation
     $errors = [];
 
-    if (!empty($_POST['commento'])) {
-        $commento = $_POST['commento'];
+    if (!empty($_POST['modifica-commento'])) {
+        $commento = $_POST['modifica-commento'];
         $maxLength = 300;
     
-        if (is_numeric($_POST['commento']) || strlen($commento) > $maxLength) {
-            $errors['commento'] = "Inserire un commento valido (0-{$max_length} caratteri)";
+        if (is_numeric($_POST['modifica-commento']) || strlen($commento) > $maxLength) {
+            $errors['modifica-commento'] = "Inserire un commento valido (0-{$max_length} caratteri)";
         }
     }    
 
@@ -41,12 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $valutazione->aziende_id = $aziendaId;
 
             $valutazione->voto = $_POST['valutazione'];
-            $valutazione->commento = $_POST['commento'];
+            $valutazione->commento = $_POST['modifica-commento'];
         
             $result = $valutazione->modifyOld();
-            $num = $result->rowCount();
 
-            if($num > 0) {
+            if($result) {
                 header("Location: ./../../Aziende.php?id=$aziendaId");
                 exit();
             }

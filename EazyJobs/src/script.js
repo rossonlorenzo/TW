@@ -490,7 +490,7 @@ confirmationModal.style.display = 'none';
     locazione: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida'},
     settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+){0,2}$/, error: 'Inserire un settore valido'},
     stipendio: {check: /^\d+$/, error: 'Inserire uno stipendio valido'},
-    logo: {check: /^$|(\.png)$/i, error: 'Inserire un logo valido (formato PNG)'},
+    logo: {check: /\.png$/i, error: 'Inserire un logo valido (formato PNG)'},
     sito: {check: /^(ftp|http|https):\/\/[^ "]+$/, error: 'Inserire un sito valido'},
     dipendenti: {check: /^\d+$/, error: 'Inserire un numero di dipendenti valido'},
     fatturato: {check: /^\d+$/, error: 'Inserire un fatturato valido'},
@@ -675,19 +675,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 if (prev) {
     prev.addEventListener("click", () => {
-        if(contenuti.getAttribute("class") === "visible-fieldset"){
+        if(contenuti && contenuti.getAttribute("class") === "visible-fieldset"){
             return;
         }
-        if(caratteristiche.getAttribute("class") === "visible-fieldset"){
+        if(caratteristiche && caratteristiche.getAttribute("class") === "visible-fieldset"){
             contenuti.setAttribute("class", "visible-fieldset");
             caratteristiche.setAttribute("class","hidden-fieldset");
             setFocusToFirstInput(contenuti);
         }
-        if(requisiti.getAttribute("class") === "visible-fieldset"){
+        if(requisiti && requisiti.getAttribute("class") === "visible-fieldset"){
             caratteristiche.setAttribute("class", "visible-fieldset");
             requisiti.setAttribute("class","hidden-fieldset");
             mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
-            mod.setAttribute("disabled", "true");
+            mod.disabled = true;
             setFocusToFirstInput(caratteristiche);
         }
     })
@@ -695,17 +695,17 @@ if (prev) {
 
     if (next) {
         next.addEventListener("click", () => {
-            if(requisiti.getAttribute("class") === "visible-fieldset"){
+            if(requisiti && requisiti.getAttribute("class") === "visible-fieldset"){
                 return;
             }
-            if(caratteristiche.getAttribute("class") === "visible-fieldset"){
+            if(caratteristiche && caratteristiche.getAttribute("class") === "visible-fieldset"){
                 mod.setAttribute("id","modificaAnnuncio-bottone");
                 mod.removeAttribute("disabled")
                 requisiti.setAttribute("class", "visible-fieldset");
                 caratteristiche.setAttribute("class","hidden-fieldset");
                 setFocusToFirstInput(requisiti);
             }
-            if(contenuti.getAttribute("class") === "visible-fieldset"){
+            if(contenuti && contenuti.getAttribute("class") === "visible-fieldset"){
                 caratteristiche.setAttribute("class", "visible-fieldset");
                 contenuti.setAttribute("class","hidden-fieldset");
                 setFocusToFirstInput(caratteristiche);
@@ -736,19 +736,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (prev) {
         prev.addEventListener("click", () => {
-            if(credenziali.getAttribute("class") === "visible-fieldset"){
+            if(credenziali && credenziali.getAttribute("class") === "visible-fieldset"){
                 return;
             }
-            if(dettagli.getAttribute("class") === "visible-fieldset"){
+            if(dettagli && dettagli.getAttribute("class") === "visible-fieldset"){
                 credenziali.setAttribute("class", "visible-fieldset");
                 dettagli.setAttribute("class","hidden-fieldset");
                 setFocusToFirstInput(credenziali);
             }
-            if(dati.getAttribute("class") === "visible-fieldset"){
+            if(dati && dati.getAttribute("class") === "visible-fieldset"){
                 dettagli.setAttribute("class", "visible-fieldset");
                 dati.setAttribute("class","hidden-fieldset");
                 mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
-                mod.setAttribute("disabled", "true");
+                mod.disabled = true;
                 setFocusToFirstInput(dettagli);
             }
         })
@@ -756,17 +756,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (next) {
         next.addEventListener("click", () => {
-            if(dati.getAttribute("class") === "visible-fieldset"){
+            if(dati && dati.getAttribute("class") === "visible-fieldset"){
                 return;
             }
-            if(dettagli.getAttribute("class") === "visible-fieldset"){
+            if(dettagli && dettagli.getAttribute("class") === "visible-fieldset"){
                 mod.setAttribute("id","modificaAnnuncio-bottone");
                 mod.removeAttribute("disabled")
                 dati.setAttribute("class", "visible-fieldset");
                 dettagli.setAttribute("class","hidden-fieldset");
                 setFocusToFirstInput(dati);
             }
-            if(credenziali.getAttribute("class") === "visible-fieldset"){
+            if(credenziali && credenziali.getAttribute("class") === "visible-fieldset"){
                 dettagli.setAttribute("class", "visible-fieldset");
                 credenziali.setAttribute("class","hidden-fieldset");
                 setFocusToFirstInput(dettagli);

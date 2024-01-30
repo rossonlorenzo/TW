@@ -7,9 +7,9 @@
     <title>Area Personale Candidato - EazyJobs</title>
     <meta name="keywords" content="EazyJobs, area personale, candidato, curriculum, modifica, annunci, preferiti, recensioni">
     <meta name="description" content="Area personale dedicata ai candidati iscritti a EazyJobs, in modo che possano modificare i propri dati e visualizzare sia gli annunci salvati che le proprie recensioni">
-    <link rel="stylesheet" href="./stylesheet.css" media="screen">
-    <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
-    <link rel="stylesheet" href="./print.css" media="print">
+    <link rel="stylesheet" href="./style/stylesheet.css" media="screen">
+    <link rel="stylesheet" href="./style/style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./style/print.css" media="print">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -57,14 +57,13 @@
                     <input type="submit" data-validation="validateFields" value="Upload">
                     <div id="cv-errore" class="messaggio-errore">cv-errore-placeholder</div>
                 </form>
-            </dl>
 
             <a href="./ModificaUser.php">Modifica i tuoi dati</a>
         </div>
         <section>
             <div id="user-listaAnnunci-header" class="hiding">
                 <h3>I miei preferiti</h3>
-                <button id="annunci-toggle" name="user-listaAnnunci" type="button" aria-label="Cambia la visibilità dei preferiti" onclick="showHideCards('user-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
+                <button id="annunci-toggle" name="user-listaAnnunci" type="button" aria-label="Nascondi gli annunci" onclick="showHideCards('user-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
                     <span class="toggle show"></span>
                 </button>
             </div>
@@ -76,7 +75,7 @@
         <section>
             <div id="user-recensioni-header" class="hiding">
                 <h3>Le mie recensioni</h3>
-                <button id="recensioni-toggle" name="user-recensioni" type="button" aria-label="Cambia la visibilità delle recensioni" onclick="showHideCards('user-recensioni');" aria-expanded="false" aria-controls="recensioni-toggle">
+                <button id="recensioni-toggle" name="user-recensioni" type="button" aria-label="Nascondi le recensioni" onclick="showHideCards('user-recensioni');" aria-expanded="false" aria-controls="recensioni-toggle">
                     <span class="toggle show"></span>
                 </button>
             </div>

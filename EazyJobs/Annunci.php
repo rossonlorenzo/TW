@@ -188,7 +188,9 @@ if ($num > 0) {
                 }
             }
 
-        $datePart = date('Y-m-d', strtotime($data_pub));
+        $data_originale = new DateTime($data_pub);
+        $data_formattata = $data_originale->format('d/m/Y');
+        
         $str_completo .=
             "<div class='annuncio-completo-contenitore' tabindex='0'>" .
                 "<h3>" . $titolo . "</h3>" .
@@ -207,7 +209,7 @@ if ($num > 0) {
 
                 "<div class='dettagli' aria-live='polite'>" .
                     "<ul class='job-complete-info'>" .
-                    "<li><h5>Data di pubblicazione:</h5><time datetime=\"$datePart\">" . $datePart . "</time></li>" .
+                    "<li><h5>Data di pubblicazione:</h5><time datetime=\"$data_pub\">" . $data_formattata . "</time></li>" .
                     "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
                     "<li><h5>Settore:</h5><p>" . $settore . "</p></li>" .
                     "<li><h5>Modalita' di lavoro:</h5><p>" . $ml . "</p></li>" .
@@ -225,21 +227,19 @@ if ($num > 0) {
             }
             $str_completo .= 
             "<ul class='azioni-aggiuntive'>" .
-            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>" .
-            "<li><input type='submit' class='bottone-candidati' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
+            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio {$id}\"></li>" .
+            "<li><input type='submit' class='bottone-candidati' value='Candidati' aria-label=\"Candidati all'annuncio numero{$id}\"></li>" ;
             if(!in_array($id, $preferiti)){
-                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio #{$id}\"></li>" ;
+                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}\"></li>" ;
             } 
             $str_completo .= 
-                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio #{$id}\"></li>".
+                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio {$id}\"></li>".
                 "</ul>".
-                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio #{$id}\">" .
+                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio {$id}\">" .
                 "</article>";
     }
 } else {
-    echo json_encode(
-        array('message' => 'Nessun annuncio trovato')
-    );
+    $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
 }
 
 $nomefile = "./templates/Annunci.html";

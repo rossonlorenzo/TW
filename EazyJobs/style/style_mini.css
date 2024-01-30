@@ -660,6 +660,14 @@ ul.azioni-aggiuntive li {
     padding-bottom: 130px;
 }
 
+#applica-filtri:hover {
+    background-color: var(--bgColor);
+}
+
+#annunci-main .nessun-trovato {
+    height: 15vh;
+}
+
 /* @media (max-width: 1200px) {
     ul.annunci li h5 {
         white-space: nowrap;

@@ -86,9 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $annuncio->azienda_id = $_SESSION['admin_id'];
 
         $result = $annuncio->modifyOld();
-        $num = $result->rowCount();
 
-        if($num > 0) {
+        if ($result) {
             header("Location: ../../Admin.php");
             exit();
         }
