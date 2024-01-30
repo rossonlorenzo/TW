@@ -1924,6 +1924,7 @@ ul #contattaci {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    padding: 0em;
     padding-left: 5em;
 }
 
@@ -1935,12 +1936,9 @@ ul #contattaci {
     margin-right: 0.5em;
 }
 
-#contatti {
+ul #contatti {
     text-align: left;
-}
-
-#contatti li {
-    margin-top: 0.5em;
+    padding: 0em;
 }
 
 
