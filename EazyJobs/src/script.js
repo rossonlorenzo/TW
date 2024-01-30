@@ -6,18 +6,18 @@
 const starRatingElements = document.querySelectorAll(".valutazione-media");
 
 starRatingElements.forEach(function (starRating) {
-const rating = parseFloat(starRating.getAttribute("data-rating"));
-starRating.setAttribute("style", `--rating: ${rating}`);
-let stars = "";
+    const rating = parseFloat(starRating.getAttribute("data-rating"));
+    starRating.setAttribute("style", `--rating: ${rating}`);
+    let stars = "";
 
-for (let i = 0; i < 5; i++) {
-    if (i < Math.floor(rating)) {
-        stars += "★";
-    } else {
-        stars += "☆";
+    for (let i = 0; i < 5; i++) {
+        if (i < Math.floor(rating)) {
+            stars += "★";
+        } else {
+            stars += "☆";
+        }
     }
-}
-starRating.setAttribute("data-content", stars);
+    starRating.setAttribute("data-content", stars);
 });
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const showDetailsButtons = document.querySelectorAll(".bottone-dettagli");
     const dettagliList = document.querySelectorAll(".dettagli");
-    
+
     showDetailsButtons.forEach(function (showDetailsButton, index) {
         showDetailsButton.addEventListener("click", () => {
             const dettagli = dettagliList[index];
-    
+
             if (dettagli.style.display === "none" || dettagli.style.display === "") {
                 dettagli.style.display = "block";
                 showDetailsButton.value = "Nascondi dettagli";
@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    
+
     const annunciButtons = document.querySelectorAll(".bottone-annunci");
-    
+
     annunciButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = button.getAttribute("data-target");
@@ -71,21 +71,21 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('bottone-filtri').scrollIntoView({ behavior: 'smooth' });
         });
     });
-    
+
     const annuncioLinks = document.querySelectorAll(".annuncio-link");
-    
+
     annuncioLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             event.preventDefault();
-            const target = link.getAttribute("data-target");    
+            const target = link.getAttribute("data-target");
             const annuncioCompleto = document.getElementById(target);
             const annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
-            if(annuncioTrue != null) {
+            if (annuncioTrue != null) {
                 annuncioTrue.setAttribute("class", "annuncio-completo hidden");
-            } 
+            }
             var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            if(screenWidth <= 768)
-            listaAnnunci.setAttribute("class", "annunci nascosto");
+            if (screenWidth <= 768)
+                listaAnnunci.setAttribute("class", "annunci nascosto");
             annuncioCompleto.setAttribute("class", "annuncio-completo");
             annuncioCompleto.scrollIntoView({ behavior: 'smooth' });
 
@@ -106,47 +106,47 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    
-        const filterButton = document.getElementById("bottone-filtri");
-        const filtriRicerca = document.getElementById("filtri-ricerca");
-        var annuncioTrue = null
-    
-        if (filterButton) {
-            filterButton.addEventListener("click", function () {
-                if (filtriRicerca.className === "showing") {
-                    filtriRicerca.className = "hiding";
-                    filterButton.className = "hiding";
-                    filterButton.setAttribute("value", "Mostra filtri");
-                    if(annuncioTrue != null) {
-                        annuncioTrue.setAttribute("class", "annuncio-completo");
-                    } 
-                } else {
-                    filtriRicerca.className = "showing";
-                    filterButton.className = "showing";
-                    filterButton.setAttribute("value", "Nascondi filtri");
-                    annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
-                    if(annuncioTrue != null) {
-                        annuncioTrue.setAttribute("class", "annuncio-completo hidden");
-                    } 
+
+    const filterButton = document.getElementById("bottone-filtri");
+    const filtriRicerca = document.getElementById("filtri-ricerca");
+    var annuncioTrue = null
+
+    if (filterButton) {
+        filterButton.addEventListener("click", function () {
+            if (filtriRicerca.className === "showing") {
+                filtriRicerca.className = "hiding";
+                filterButton.className = "hiding";
+                filterButton.setAttribute("value", "Mostra filtri");
+                if (annuncioTrue != null) {
+                    annuncioTrue.setAttribute("class", "annuncio-completo");
                 }
-            });
-        }
+            } else {
+                filtriRicerca.className = "showing";
+                filterButton.className = "showing";
+                filterButton.setAttribute("value", "Nascondi filtri");
+                annuncioTrue = document.querySelector(".annuncio-completo:not(.hidden)");
+                if (annuncioTrue != null) {
+                    annuncioTrue.setAttribute("class", "annuncio-completo hidden");
+                }
+            }
+        });
+    }
 });
-    
-    const salvaButtons = document.querySelectorAll(".bottone-salva");
-    
-    salvaButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const annuncioId = button.getAttribute('data-id');
-            const data = { id: annuncioId };
-    
-            fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
+
+const salvaButtons = document.querySelectorAll(".bottone-salva");
+
+salvaButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const annuncioId = button.getAttribute('data-id');
+        const data = { id: annuncioId };
+
+        fetch('http://localhost/TW/EazyJobs/api/preferiti/insertNew.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
             .then(response => {
                 return response.text();
             })
@@ -160,23 +160,53 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => {
                 console.error('Errore:', error);
             });
+    });
+});
+
+const candidatiButtons = document.querySelectorAll(".bottone-candidati");
+
+candidatiButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const annuncioId = button.getAttribute('data-id');
+        const data = { id: annuncioId };
+
+        fetch('http://localhost/TW/EazyJobs/api/candidati/insertNew.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                return response.text();
+            })
+            .then(data => {
+                if (data == 'Annuncio aggiunto ai candidati') {
+                    console.log('Annuncio aggiunto ai candidati');
+                } else {
+                    console.error('Risposta inaspettata:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
+    });
+});
+
+const stampaButtons = document.querySelectorAll(".bottone-stampa");
+
+stampaButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        annunciHidden = document.querySelectorAll(".annuncio-completo.hidden");
+        annunciHidden.forEach(function (annuncioHidden) {
+            annuncioHidden.classList.add("print-invisible");
+        });
+        window.print();
+        annunciHidden.forEach(function (annuncioHidden) {
+            annuncioHidden.classList.remove("print-invisible");
         });
     });
-
-    const stampaButtons = document.querySelectorAll(".bottone-stampa");
-
-    stampaButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            annunciHidden = document.querySelectorAll(".annuncio-completo.hidden");
-            annunciHidden.forEach(function (annuncioHidden) {
-                annuncioHidden.classList.add("print-invisible");
-            });
-            window.print();
-            annunciHidden.forEach(function (annuncioHidden) {
-                annuncioHidden.classList.remove("print-invisible");
-            });
-        });
-    });
+});
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -191,15 +221,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                                                 AZIENDE JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const recensioniForm = document.getElementById('recensioni-form');
     const toggleButton = document.getElementById('bottone-recensioni');
 
     if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
+        toggleButton.addEventListener('click', function () {
             recensioniForm.classList.toggle('visibile');
             recensioniForm.classList.toggle('invisibile');
-    
+
             const isVisibile = recensioniForm.classList.contains('visibile');
             if (isVisibile) {
                 toggleButton.value = 'Nascondi il form';
@@ -213,21 +243,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleButton.value = 'Scrivi una recensione';
             }
         });
-    
+
         const recensioniModificaForm = document.getElementById('recensioni-modifica-form');
         const modificaButton = document.getElementById('modifica-recensione');
-    
+
         if (modificaButton) {
-            modificaButton.addEventListener('click', function() {
+            modificaButton.addEventListener('click', function () {
                 recensioniModificaForm.classList.toggle('visibile');
                 recensioniModificaForm.classList.toggle('invisibile');
-        
+
                 toggleButton.classList.toggle('invisibile');
-        
+
                 const isModificaVisibile = recensioniModificaForm.classList.contains('visibile');
                 if (isModificaVisibile) {
                     modificaButton.value = 'Cancella modifica';
-                    
+
                     //focus sul primo input
                     const selectElement = document.getElementById('modifica-valutazione');
                     if (selectElement) {
@@ -236,15 +266,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     modificaButton.value = 'Modifica';
                 }
-        
-                if (recensioniForm.classList.contains('visibile')) {toggleButton.click();}
+
+                if (recensioniForm.classList.contains('visibile')) { toggleButton.click(); }
             });
         }
     }
 });
 
 //Funzione di eliminazione
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.id === 'elimina-recensione') {
         const aziendaId = event.target.getAttribute('data-id');
 
@@ -255,37 +285,37 @@ document.addEventListener('click', function(event) {
         const confirmButton = document.getElementById('confirmButton');
         confirmButton.focus();
 
-        confirmButton.onclick = function() {
+        confirmButton.onclick = function () {
             const data = { id: aziendaId };
             fetch('./api/valutazioni/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                return response.text();
-            })
-            .then(data => {
-                // Handle success or failure message from PHP
-                if (data === 'Recensione rimossa') {
-                    console.log('Recensione rimossa');
-                    const deletedItem = document.getElementById("recensione-utente");
-                    if (deletedItem) {
-                        deletedItem.remove();
+                .then(response => {
+                    return response.text();
+                })
+                .then(data => {
+                    // Handle success or failure message from PHP
+                    if (data === 'Recensione rimossa') {
+                        console.log('Recensione rimossa');
+                        const deletedItem = document.getElementById("recensione-utente");
+                        if (deletedItem) {
+                            deletedItem.remove();
+                        } else {
+                            console.error('Elemento non trovato');
+                        }
                     } else {
-                        console.error('Elemento non trovato');
-    }
-                } else {
-                    console.error('Risposta inaspettata:', data);
-                }
-confirmationModal.style.display = 'none';
-            })
-            .catch(error => {
-                console.error('Errore:', error);
-            confirmationModal.style.display = 'none';
-            });
+                        console.error('Risposta inaspettata:', data);
+                    }
+                    confirmationModal.style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    confirmationModal.style.display = 'none';
+                });
         }
         const cancelButton = document.getElementById('cancelButton');
-        cancelButton.onclick = function() {
+        cancelButton.onclick = function () {
             console.log('Cancellazione annullata.');
             confirmationModal.style.display = 'none';
         };
@@ -305,7 +335,7 @@ confirmationModal.style.display = 'none';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //Funzione di rimozione dai preferiti
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.classList.contains('bottone-rimuovi-preferiti')) {
         const annuncioId = event.target.getAttribute('data-id');
         const data = { id: annuncioId };
@@ -318,75 +348,122 @@ document.addEventListener('click', function(event) {
             },
             body: JSON.stringify(data)
         })
-        .then(response => {
-            return response.text();
-        })
-        .then(data => {
-            // Handle success or failure message from PHP
-            if (data == 'Annuncio rimosso dai preferiti') {
-                console.log('Annuncio rimosso dai preferiti');
-                const deletedItem = document.getElementById("annuncio-" + annuncioId);
-                if (deletedItem) {
-                    deletedItem.remove();
+            .then(response => {
+                return response.text();
+            })
+            .then(data => {
+                // Handle success or failure message from PHP
+                if (data == 'Annuncio rimosso dai preferiti') {
+                    console.log('Annuncio rimosso dai preferiti');
+                    const deletedItem = document.getElementById("annuncio-" + annuncioId);
+                    if (deletedItem) {
+                        deletedItem.remove();
+                    } else {
+                        console.error('Elemento non trovato');
+                    }
                 } else {
-                    console.error('Elemento non trovato');
+                    console.error('Risposta inaspettata:', data);
                 }
-            } else {
-                console.error('Risposta inaspettata:', data);
-            }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
+    }
+
+    if (event.target.classList.contains('bottone-rimuovi-candidati')) {
+        const annuncioId = event.target.getAttribute('data-id');
+        const data = { id: annuncioId };
+
+        // Perform a POST request to delete.php
+        fetch('./api/candidati/delete.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
-        .catch(error => {
-            console.error('Errore:', error);
-        });
+            .then(response => {
+                return response.text();
+            })
+            .then(data => {
+                // Handle success or failure message from PHP
+                if (data == 'Annuncio rimosso dai candidati') {
+                    console.log('Annuncio rimosso dai candidati');
+                    const deletedItem = document.getElementById("annuncio-" + annuncioId);
+                    if (deletedItem) {
+                        deletedItem.remove();
+                    } else {
+                        console.error('Elemento non trovato');
+                    }
+                } else {
+                    console.error('Risposta inaspettata:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
     }
 });
 
 function showHideCards(id) {
     var list = document.getElementById(id);
     var header = document.getElementById(id + "-header");
-    if (list.className == "hiding") {
-        list.className = "showing";
-        header.className = "showing";
+
+    if (list.classList.contains("hiding")) {
+        list.classList.remove("hiding");
+        list.classList.add("showing");
+
+        header.classList.remove("hiding");
+        header.classList.add("showing");
+
         changeButton(id);
-        setTimeout(() => {list.scrollIntoView({behavior: "smooth", block: "center"});}, 250);   /* scroll to the section after opening */ 
+
+        setTimeout(() => {
+            list.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 250); // Scroll to the section after opening
     } else {
-        list.className = "hiding";
-        header.className = "hiding";
+        list.classList.remove("showing");
+        list.classList.add("hiding");
+
+        header.classList.remove("showing");
+        header.classList.add("hiding");
+
         changeButton(id);
     }
 }
+
 
 function changeButton(name) {
     var btn = document.getElementsByName(name)[0];
     var span = btn.children[0];
-    if(span.className == "toggle hide") {
+    if (span.className == "toggle hide") {
         span.className = "toggle show";
-        btn.setAttribute("aria-expanded","false");
-if (btn.id == "annunci-toggle") {
-            btn.setAttribute("aria-label","Mostra gli annunci");
-        } else {btn.setAttribute("aria-label","Mostra le recensioni");}
+        btn.setAttribute("aria-expanded", "false");
+        if (btn.id == "annunci-toggle") {
+            btn.setAttribute("aria-label", "Mostra gli annunci");
+        } else { btn.setAttribute("aria-label", "Mostra le recensioni"); }
 
     } else {
         span.className = "toggle hide";
-        btn.setAttribute("aria-expanded","true");
-if (btn.id == "annunci-toggle") {
-            btn.setAttribute("aria-label","Nascondi gli annunci");
-        } else {btn.setAttribute("aria-label","Nascondi le recensioni");}
+        btn.setAttribute("aria-expanded", "true");
+        if (btn.id == "annunci-toggle") {
+            btn.setAttribute("aria-label", "Nascondi gli annunci");
+        } else { btn.setAttribute("aria-label", "Nascondi le recensioni"); }
     }
 }
 
-function showHideNav() { 
+function showHideNav() {
     var btn = document.querySelector('button.hamburger');
     var span = btn.children[0];
-    if(span.className == "burger open") {
+    if (span.className == "burger open") {
         span.className = "burger close";
-        btn.setAttribute("aria-expanded","true");
-        
+        btn.setAttribute("aria-expanded", "true");
+
     } else {
         span.className = "burger open";
-        btn.setAttribute("aria-expanded","false");
+        btn.setAttribute("aria-expanded", "false");
     }
-    
+
     var nav = document.getElementById("menu");
     if (nav.className == "hiding") {
         nav.className = "showing";
@@ -397,7 +474,10 @@ function showHideNav() {
 }
 
 function hideAll(role) {
-    showHideCards(role + "-listaAnnunci");
+    showHideCards(role + "-preferitiLista");
+    if (role == "user") {
+        showHideCards(role + "-candidatiLista");
+    }
     showHideCards(role + "-recensioni");
     showHideNav();
 }
@@ -414,18 +494,65 @@ function hideAll(role) {
                                                                 ADMIN JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+//vedi - chiudi candidati
+
+    const vediCandidatiButtons = document.querySelectorAll(".bottone-vedi-candidati");
+
+    vediCandidatiButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const candidatiShowing = document.querySelectorAll('[class^="candidato-annuncio-"]:not(.hidden)');
+            if(candidatiShowing.length === 0){
+            const annuncioId = button.getAttribute('data-id');
+            const candidati = document.querySelectorAll(".candidato-annuncio-" + annuncioId);
+
+            var element = document.getElementById('admin-candidatiLista-header-hidden');
+            var currentId = element.getAttribute('id');
+            var newId = currentId.replace('-hidden', '');
+            element.setAttribute('id', newId);
+            document.getElementById("admin-candidatiLista-header").classList.remove("hiding");
+
+            candidati.forEach((candidato) => {
+                candidato.classList.remove("hidden");
+            });
+        }else{
+            console.log("Chiudi prima la sezione candidati")
+        }
+        });
+    });
+
+    const candidatiChiudi =document.getElementById("chiudi-candidati");
+
+    if(candidatiChiudi){
+    candidatiChiudi.addEventListener("click", function () {
+    const candidatiShowing = document.querySelectorAll('[class^="candidato-annuncio-"]:not(.hidden)');
+    candidatiShowing.forEach((candidato) => {
+        candidato.classList.add("hidden");
+    });
+
+    document.getElementById("admin-candidatiLista-header").classList.add("hiding");
+    var element = document.getElementById('admin-candidatiLista-header');
+            var currentId = element.getAttribute('id');
+            currentId += "-hidden";
+            element.setAttribute('id', currentId);
+
+})};
+
+
+
 //Funzione di modifica
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.classList.contains('bottone-modifica')) {
         const annuncioId = event.target.getAttribute('data-id');
         const data = { id: annuncioId };
         const formData = new URLSearchParams(data).toString();
         window.location.href = `./ModificaAnnuncio.php?${formData}`;
     }
-});   
+});
+
 
 //Funzione di eliminazione
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.classList.contains('bottone-elimina')) {
         const annuncioId = event.target.getAttribute('data-id');
 
@@ -436,37 +563,37 @@ document.addEventListener('click', function(event) {
         const confirmButton = document.getElementById('confirmButton');
         confirmButton.focus();
 
-        confirmButton.onclick = function() {
+        confirmButton.onclick = function () {
             const data = { id: annuncioId };
             fetch('./api/annunci/delete.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                return response.text();
-            })
-            .then(data => {
-                // Handle success or failure message from PHP
-                if (data === 'Annuncio rimosso') {
-                    console.log('Annuncio rimosso');
-                    const deletedItem = document.getElementById("annuncio-" + annuncioId);
-                    if (deletedItem) {
-                        deletedItem.remove();
+                .then(response => {
+                    return response.text();
+                })
+                .then(data => {
+                    // Handle success or failure message from PHP
+                    if (data === 'Annuncio rimosso') {
+                        console.log('Annuncio rimosso');
+                        const deletedItem = document.getElementById("annuncio-" + annuncioId);
+                        if (deletedItem) {
+                            deletedItem.remove();
+                        } else {
+                            console.error('Elemento non trovato');
+                        }
                     } else {
-                        console.error('Elemento non trovato');
-    }
-                } else {
-                    console.error('Risposta inaspettata:', data);
-                }
-confirmationModal.style.display = 'none';
-            })
-            .catch(error => {
-                console.error('Errore:', error);
-            confirmationModal.style.display = 'none';
-            });
+                        console.error('Risposta inaspettata:', data);
+                    }
+                    confirmationModal.style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    confirmationModal.style.display = 'none';
+                });
         }
         const cancelButton = document.getElementById('cancelButton');
-        cancelButton.onclick = function() {
+        cancelButton.onclick = function () {
             console.log('Cancellazione annullata.');
             confirmationModal.style.display = 'none';
         };
@@ -478,22 +605,22 @@ confirmationModal.style.display = 'none';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 //validazione dei form
-        const fieldValidation = {
-    nome: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido'},
-    email: {check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida'},
-    password: {check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)'},
-    cv: {check: /\.(pdf)$/i, error: 'Inserire un cv valido (formato PDF)'},
-    commento: {check: /^.{0,300}$/, error: 'Inserire un commento valido (0-300 caratteri)'},
-    titolo: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un titolo valido'},
-    desc_breve: {check: /^.{50,200}$/, error: 'Inserire una descrizione breve valida (50-200 caratteri)'},
-    desc_completa: {check: /^.{100,500}$/, error: 'Inserire una descrizione completa valida (100-500 caratteri)'},
-    locazione: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida'},
-    settore: {check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+){0,2}$/, error: 'Inserire un settore valido'},
-    stipendio: {check: /^\d+$/, error: 'Inserire uno stipendio valido'},
-    logo: {check: /^$|(\.png)$/i, error: 'Inserire un logo valido (formato PNG)'},
-    sito: {check: /^(ftp|http|https):\/\/[^ "]+$/, error: 'Inserire un sito valido'},
-    dipendenti: {check: /^\d+$/, error: 'Inserire un numero di dipendenti valido'},
-    fatturato: {check: /^\d+$/, error: 'Inserire un fatturato valido'},
+const fieldValidation = {
+    nome: { check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un nome valido' },
+    email: { check: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, error: 'Inserire un\'email valida' },
+    password: { check: /^.{8,12}$/, error: 'Inserire una password valida (8-12 caratteri)' },
+    cv: { check: /\.(pdf)$/i, error: 'Inserire un cv valido (formato PDF)' },
+    commento: { check: /^.{0,300}$/, error: 'Inserire un commento valido (0-300 caratteri)' },
+    titolo: { check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire un titolo valido' },
+    desc_breve: { check: /^.{50,200}$/, error: 'Inserire una descrizione breve valida (50-200 caratteri)' },
+    desc_completa: { check: /^.{100,500}$/, error: 'Inserire una descrizione completa valida (100-500 caratteri)' },
+    locazione: { check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+)?$/, error: 'Inserire una provincia valida' },
+    settore: { check: /^(?=.{1,60}$)[a-zA-Z\u00C0-\u00FF']+(\s[a-zA-Z\u00C0-\u00FF']+){0,2}$/, error: 'Inserire un settore valido' },
+    stipendio: { check: /^\d+$/, error: 'Inserire uno stipendio valido' },
+    logo: { check: /^$|(\.png)$/i, error: 'Inserire un logo valido (formato PNG)' },
+    sito: { check: /^(ftp|http|https):\/\/[^ "]+$/, error: 'Inserire un sito valido' },
+    dipendenti: { check: /^\d+$/, error: 'Inserire un numero di dipendenti valido' },
+    fatturato: { check: /^\d+$/, error: 'Inserire un fatturato valido' },
 };
 
 function validateRegex(field) {
@@ -560,21 +687,21 @@ function validateRadio(formElement, field) {
 }
 
 function validateYear(field) {
-            const element = document.getElementById(field.name);
-            const error = document.getElementById(field.name + '-errore');
-            var currentYear = new Date().getFullYear();
+    const element = document.getElementById(field.name);
+    const error = document.getElementById(field.name + '-errore');
+    var currentYear = new Date().getFullYear();
 
-            if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
-                element.classList.add('errore');
-                error.innerHTML = 'Inserire un anno valido';
-                element.setAttribute("aria-invalid", "true");
+    if (isNaN(field.value) || field.value < 1800 || field.value > currentYear) {
+        element.classList.add('errore');
+        error.innerHTML = 'Inserire un anno valido';
+        element.setAttribute("aria-invalid", "true");
         element.setAttribute("aria-describedby", field.name + '-errore');
         element.setAttribute("aria-live", "assertive");
         return false;
-            } else {
-                element.classList.remove('errore');
-                error.innerHTML = '';
-            element.removeAttribute("aria-invalid");
+    } else {
+        element.classList.remove('errore');
+        error.innerHTML = '';
+        element.removeAttribute("aria-invalid");
         element.removeAttribute("aria-describedby");
         element.removeAttribute("aria-live");
     }
@@ -640,13 +767,13 @@ function validateForm(formElement) {
         const field = fields[i];
 
         if (field.name in fieldValidation) {
-            if (!validateRegex(field)) {flag = false;}
+            if (!validateRegex(field)) { flag = false; }
         } else if (field.type == 'checkbox') {
-            if (!validateCheckbox(formElement, field)) {flag = false;}
+            if (!validateCheckbox(formElement, field)) { flag = false; }
         } else if (field.type == 'radio') {
-            if (!validateRadio(formElement, field)) {flag = false;}
+            if (!validateRadio(formElement, field)) { flag = false; }
         } else if (field.type == 'number') {
-            if (!validateYear(field)) {flag = false;}
+            if (!validateYear(field)) { flag = false; }
         }
     }
 
@@ -657,7 +784,7 @@ function validateForm(formElement) {
                                                                 MODIFICA_ANNUNCIO JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const mod = document.getElementById("disabled-modificaAnnuncio-bottone");
@@ -673,41 +800,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-if (prev) {
-    prev.addEventListener("click", () => {
-        if(contenuti.getAttribute("class") === "visible-fieldset"){
-            return;
-        }
-        if(caratteristiche.getAttribute("class") === "visible-fieldset"){
-            contenuti.setAttribute("class", "visible-fieldset");
-            caratteristiche.setAttribute("class","hidden-fieldset");
-            setFocusToFirstInput(contenuti);
-        }
-        if(requisiti.getAttribute("class") === "visible-fieldset"){
-            caratteristiche.setAttribute("class", "visible-fieldset");
-            requisiti.setAttribute("class","hidden-fieldset");
-            mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
-            mod.setAttribute("disabled", "true");
-            setFocusToFirstInput(caratteristiche);
-        }
-    })
-}
+    if (prev) {
+        prev.addEventListener("click", () => {
+            if (contenuti.getAttribute("class") === "visible-fieldset") {
+                return;
+            }
+            if (caratteristiche.getAttribute("class") === "visible-fieldset") {
+                contenuti.setAttribute("class", "visible-fieldset");
+                caratteristiche.setAttribute("class", "hidden-fieldset");
+                setFocusToFirstInput(contenuti);
+            }
+            if (requisiti.getAttribute("class") === "visible-fieldset") {
+                caratteristiche.setAttribute("class", "visible-fieldset");
+                requisiti.setAttribute("class", "hidden-fieldset");
+                mod.setAttribute("id", "disabled-modificaAnnuncio-bottone");
+                mod.setAttribute("disabled", "true");
+                setFocusToFirstInput(caratteristiche);
+            }
+        })
+    }
 
     if (next) {
         next.addEventListener("click", () => {
-            if(requisiti.getAttribute("class") === "visible-fieldset"){
+            if (requisiti.getAttribute("class") === "visible-fieldset") {
                 return;
             }
-            if(caratteristiche.getAttribute("class") === "visible-fieldset"){
-                mod.setAttribute("id","modificaAnnuncio-bottone");
+            if (caratteristiche.getAttribute("class") === "visible-fieldset") {
+                mod.setAttribute("id", "modificaAnnuncio-bottone");
                 mod.removeAttribute("disabled")
                 requisiti.setAttribute("class", "visible-fieldset");
-                caratteristiche.setAttribute("class","hidden-fieldset");
+                caratteristiche.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(requisiti);
             }
-            if(contenuti.getAttribute("class") === "visible-fieldset"){
+            if (contenuti.getAttribute("class") === "visible-fieldset") {
                 caratteristiche.setAttribute("class", "visible-fieldset");
-                contenuti.setAttribute("class","hidden-fieldset");
+                contenuti.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(caratteristiche);
             }
         })
@@ -718,7 +845,7 @@ if (prev) {
                                                                 MODIFICA_ADMIN JS [INZIO]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const mod = document.getElementById("disabled-modificaAdmin-bottone");
@@ -736,18 +863,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (prev) {
         prev.addEventListener("click", () => {
-            if(credenziali.getAttribute("class") === "visible-fieldset"){
+            if (credenziali.getAttribute("class") === "visible-fieldset") {
                 return;
             }
-            if(dettagli.getAttribute("class") === "visible-fieldset"){
+            if (dettagli.getAttribute("class") === "visible-fieldset") {
                 credenziali.setAttribute("class", "visible-fieldset");
-                dettagli.setAttribute("class","hidden-fieldset");
+                dettagli.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(credenziali);
             }
-            if(dati.getAttribute("class") === "visible-fieldset"){
+            if (dati.getAttribute("class") === "visible-fieldset") {
                 dettagli.setAttribute("class", "visible-fieldset");
-                dati.setAttribute("class","hidden-fieldset");
-                mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
+                dati.setAttribute("class", "hidden-fieldset");
+                mod.setAttribute("id", "disabled-modificaAnnuncio-bottone");
                 mod.setAttribute("disabled", "true");
                 setFocusToFirstInput(dettagli);
             }
@@ -756,19 +883,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (next) {
         next.addEventListener("click", () => {
-            if(dati.getAttribute("class") === "visible-fieldset"){
+            if (dati.getAttribute("class") === "visible-fieldset") {
                 return;
             }
-            if(dettagli.getAttribute("class") === "visible-fieldset"){
-                mod.setAttribute("id","modificaAnnuncio-bottone");
+            if (dettagli.getAttribute("class") === "visible-fieldset") {
+                mod.setAttribute("id", "modificaAnnuncio-bottone");
                 mod.removeAttribute("disabled")
                 dati.setAttribute("class", "visible-fieldset");
-                dettagli.setAttribute("class","hidden-fieldset");
+                dettagli.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(dati);
             }
-            if(credenziali.getAttribute("class") === "visible-fieldset"){
+            if (credenziali.getAttribute("class") === "visible-fieldset") {
                 dettagli.setAttribute("class", "visible-fieldset");
-                credenziali.setAttribute("class","hidden-fieldset");
+                credenziali.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(dettagli);
             }
         })

@@ -61,17 +61,32 @@
 
             <a href="./ModificaUser.php">Modifica i tuoi dati</a>
         </div>
+
+
         <section>
-            <div id="user-listaAnnunci-header" class="hiding">
+            <div id="user-preferitiLista-header" class=" listaAnnunci-header hiding">
                 <h3>I miei preferiti</h3>
-                <button id="annunci-toggle" name="user-listaAnnunci" type="button" aria-label="Cambia la visibilità dei preferiti" onclick="showHideCards('user-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
+                <button id="annunciPreferiti-toggle" name="user-preferitiLista" type="button" aria-label="Cambia la visibilità dei preferiti" onclick="showHideCards('user-preferitiLista');" aria-expanded="false" aria-controls="annunciPreferiti-toggle">
                     <span class="toggle show"></span>
                 </button>
             </div>
-            <ul id="user-listaAnnunci" class="hiding">
-                <!-- annunci-placeholder -->
+            <ul id="user-preferitiLista" class="listaAnnunci hiding">
+                <!-- annunci-preferiti-placeholder -->
             </ul>
         </section>
+
+        <section>
+            <div id="user-candidatiLista-header" class="listaAnnunci-header hiding">
+                <h3>Annunci a cui sei candidato</h3>
+                <button id="annunciCandidati-toggle" name="user-candidatiLista" type="button" aria-label="Cambia la visibilità della sezione annunci a cui sei candidato" onclick="showHideCards('user-candidatiLista');" aria-expanded="false" aria-controls="annunciCandidati-toggle">
+                    <span class="toggle show"></span>
+                </button>
+            </div>
+            <ul id="user-candidatiLista" class="listaAnnunci hiding">
+                <!-- annunci-candidati-placeholder -->
+            </ul>
+        </section>
+
 
         <section>
             <div id="user-recensioni-header" class="hiding">
