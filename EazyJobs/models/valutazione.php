@@ -10,6 +10,7 @@
     public $commento;
     public $voto;
     public $nome;
+    public $nome_azienda;
 
     // Constructor with DB
     public function __construct($db) {
@@ -37,6 +38,7 @@
       $stmt->bindParam(':voto', $this->voto);
   
       $stmt->execute();
+      
       return $stmt;
   }
 
@@ -80,30 +82,24 @@
         WHERE valutazioni.aziende_id = :aziendaId';    
   
         $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':aziendaId', $aziendaId);  
+        $stmt->execute();  
 
-        $stmt->bindParam(':aziendaId', $aziendaId);
-  
-        $stmt->execute();
-  
         return $stmt;
       }
 
       public function getAll_byUtenteId($utenteId) {
         // Create query
-        $query = 'SELECT valutazioni.*, utenti.nome AS nome
+        $query = 'SELECT valutazioni.*, utenti.nome AS nome, aziende.nome AS nome_azienda
                   FROM valutazioni
                   INNER JOIN utenti ON valutazioni.utenti_id = utenti.id
+                  INNER JOIN aziende ON valutazioni.aziende_id = aziende.id
                   WHERE valutazioni.utenti_id = :utenteId';
     
-        // Prepare statement
         $stmt = $this->conn->prepare($query);
-    
-        // Bind parameter
         $stmt->bindParam(':utenteId', $utenteId);
-    
-        // Execute query
         $stmt->execute();
-    
+
         return $stmt;
     }
 

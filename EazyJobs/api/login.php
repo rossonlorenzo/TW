@@ -16,23 +16,33 @@ ini_set('display_errors', 1);
 
     if(isset($_POST['ruolo'])) {
         $ruolo = $_POST['ruolo'];
+        $test = NULL;
+
+        if (
+            ($_POST['email'] === 'user' && $_POST['password'] === 'user') ||
+            ($_POST['email'] === 'admin' && $_POST['password'] === 'admin')
+        ) {
+            $test = true;
+        }
         
         //server-side form validation
-        $errors = [];
+        if (!$test) {
+            $errors = [];
 
-        if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = "Inserire un'email valida";
-        }
+            if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "Inserire un'email valida";
+            }
 
-        $min_length = 8;
-        $max_length = 12;
-        if (empty($_POST['password']) || strlen($_POST['password']) < $min_length || strlen($_POST['password']) > $max_length) {
-            $errors['password'] = "Inserire una password valida ({$min_length}-{$max_length} caratteri)";
-        }
+            $min_length = 8;
+            $max_length = 12;
+            if (empty($_POST['password']) || strlen($_POST['password']) < $min_length || strlen($_POST['password']) > $max_length) {
+                $errors['password'] = "Inserire una password valida ({$min_length}-{$max_length} caratteri)";
+            }
 
-        if (!empty($errors)) {
-            header("Location: ./../Accedi.php?errors=".urlencode(json_encode($errors)));
-            exit();
+            if (!empty($errors)) {
+                header("Location: ./../Accedi.php?errors=".urlencode(json_encode($errors)));
+                exit();
+            }
         }
 
         if ($ruolo === 'candidati') {

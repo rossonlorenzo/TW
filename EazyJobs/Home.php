@@ -22,7 +22,7 @@
         $str_aziende = "";
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);
-          $abbreviatedMedia = number_format($media, 0);
+          $abbreviatedMedia = number_format($media, 1);
 
           $str_aziende .= 
           "<li id='aziende-" . $id . "'>\n" .

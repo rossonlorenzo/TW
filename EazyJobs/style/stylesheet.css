@@ -640,6 +640,12 @@ ul.annunci li h3 {
     font-size: 1.3em;
 }
 
+ul.annunci p {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 ul.annunci li a {
     color: var(--linkColor);
 }
@@ -652,17 +658,6 @@ ul.annunci li h4 {
     font-size: 1em;
 }
 
-ul.annunci li h5 {
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-ul.annunci li p {
-    font-size: 0.8em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .header-annunci {
     display: flex;
     text-wrap: nowrap;
@@ -673,18 +668,21 @@ ul.annunci img {
     height: 0;
 }
 
-ul.job-info {
-    list-style-type: none;
+dl.job-info {
     margin-top: 1em;
 }
 
-ul.job-info li {
-    display: flex;
-    gap: 0.5em;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
+dl.job-info dt {
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+dl.job-info dd {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* da guardare meglio lo stile, ciò che serve o meno. (ho fatto copia incolla da annuncio completo, e graficamente è ok) */
@@ -754,14 +752,19 @@ ul.job-info li {
     font-size: 0.8em;
 }
 
-ul.annuncio-info {
-    list-style-type: none;
+dl.annuncio-info {
     margin-top: 1em;
 }
 
-ul.annuncio-info li {
-    display: flex;
-    gap: 0.5em;
+dl.annuncio-info dt {
+    float: left;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+dl.annuncio-info dd {
+    font-size: 0.8em;
 }
 
 .dettagli {
@@ -769,24 +772,24 @@ ul.annuncio-info li {
     margin-top: 1em;
 }
 
-ul.job-complete-info {
-    list-style-type: none;
-}
-
-ul.job-complete-info li {
-    display: flex;
-    gap: 0.5em;
-}
-
-ul.job-complete-info li h5 {
+dl.job-complete-info dt {
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-right: 0.5em;
     white-space: nowrap;
-    overflow:visible;
+    overflow: visible;
 }
 
-ul.job-complete-info li p {/* [...] effect */
+dl.job-complete-info dd {
+    font-size: 0.8em;
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+dl.job-complete-info time {
+    font-size: 0.95em;
 }
 
 ul.azioni-aggiuntive {
@@ -826,7 +829,7 @@ ul.azioni-aggiuntive li {
 }
 
 #annunci-main .nessun-trovato {
-    height: 25vh;
+    height: 5vh;
     font-size: 1em;
     text-align: center;
     margin-top: 2em;
@@ -836,7 +839,28 @@ ul.azioni-aggiuntive li {
     justify-content: center;
 }
 
+img#no-annuncio-completo {
+    margin-top: 2em;
+    border-radius: 1em;
+    background: var(--bgColor);
+    padding: 1em;
+    margin: 1em;
+}
+
+ @media (min-width: 1200px) {
+
+    img#no-annuncio-completo {
+        margin-top: 95%;
+        height: 40vh;
+    }
+ }
+
  @media (max-width: 1200px) {
+
+    img#no-annuncio-completo {
+        height: 60vh;
+    }
+
     #annunci-main{
         width: 92%;
     }
@@ -1008,6 +1032,8 @@ ul.azioni-aggiuntive li {
 #aziende-recensioni .valutazione dt {
     float: left;
     margin-right: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 #aziende-recensioni h3 {
@@ -1371,9 +1397,17 @@ section > div > button {
     font-size: 1em;
 }
 
-.listaAnnunci li h5 {
+.listaAnnunci li dt {
+    float: left;
     font-size: 0.9em;
     font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.listaAnnunci li dd {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .listaAnnunci li p {
@@ -1789,6 +1823,7 @@ section > div > button {
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
     margin: 0.5em;
+    overflow: hidden;
 }
 
 h3.chi_siamo {
@@ -1821,6 +1856,9 @@ div.blocco {
     border-radius: 1em;
 }
 
+#chi_siamo_img3 {
+    
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 CHI_SIAMO CSS [FINE]

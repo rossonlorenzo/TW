@@ -71,8 +71,6 @@
                 }
             }
 
-
-
             if (!empty($candidati)) {
               $utente = new Utente($db);
               
@@ -94,9 +92,6 @@
                   }
               }
           }
-          
-
-
         
             $str_annunci .= 
                 "<li id='annuncio-" . $annuncio_id . "'>\n" .
@@ -107,11 +102,11 @@
                 "</div>\n" .
                 "<h5>Descrizione:</h5>\n" .
                 "<p>" . $desc_breve . "</p>\n" .
-                "<ul class='job-info'>\n" .
-                "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>\n" .
-                "<li><h5>Stipendio medio:</h5><p>" . $stipendio . "€</p></li>\n" .
-                "<li><h5>Contatti:</h5><p>" . $email . "</p></li>\n" .
-                "</ul>\n" ;
+                "<dl class='job-info'>\n" .
+                "<dt>Loco:</dt><dd>" . $locazione . "</dd>\n" .
+                "<dt>Stipendio medio:</dt><dd>" . $stipendio . "€</dd>\n" .
+                "<dt>Contatti:</dt><dd>" . $email . "</dd>\n" .
+                "</dl>\n" ;
                 if(!empty($candidati)){
                   $str_annunci .= "<strong class ='info'>Numero di candidati: " . sizeof($candidati) ."</strong>" ;
               }
