@@ -806,8 +806,8 @@ ul.azioni-aggiuntive li {
     font-weight: normal;
 }
 
-#salvato{
-    margin-top: 1.5em;
+.info{
+    margin-top: 0;
     font-size: 14px;
     color: #023E8A;
 }
@@ -1333,7 +1333,7 @@ section > div > button {
     display: none;
 }
 
-#user-listaAnnunci {
+.listaAnnunci {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1342,18 +1342,18 @@ section > div > button {
     list-style-type: none;
 }
 
-#user-listaAnnunci::-webkit-scrollbar {
+.listaAnnunci::-webkit-scrollbar {
     width: 0.5em;
     background-color: var(--headerBgColor);
     border-radius: 5px;
 }
 
-#user-listaAnnunci::-webkit-scrollbar-thumb {
+.listaAnnunci::-webkit-scrollbar-thumb {
     background-color: var(--headerTxtColor);
     border-radius: 5px;
 }
 
-#user-listaAnnunci > li {
+.listaAnnunci > li {
     background-color: white;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     border: 0.2em var(--footerTxtColor) solid;
@@ -1362,21 +1362,21 @@ section > div > button {
     margin: 1em;
 }
 
-#user-listaAnnunci li h3 {
+.listaAnnunci li h3 {
     font-size: 1.3em;
     color: var(--footerTxtColor);
 }
 
-#user-listaAnnunci li h4 {
+.listaAnnunci li h4 {
     font-size: 1em;
 }
 
-#user-listaAnnunci li h5 {
+.listaAnnunci li h5 {
     font-size: 0.9em;
     font-weight: bold;
 }
 
-#user-listaAnnunci li p {
+.listaAnnunci li p {
     font-size: 0.8em;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* Number of lines to show */
@@ -1384,13 +1384,12 @@ section > div > button {
     text-overflow: ellipsis;
 }
 
-#user-listaAnnunci.header-annunci {
-    display: flex;
+.listaAnnunci-header {
     align-items: center;
     gap: 1em;
 }
 
-#user-listaAnnunci img {
+.listaAnnunci img {
     width: 10%;
     margin-right: 1em;
     margin-left: auto;
@@ -1488,11 +1487,12 @@ section > div > button {
     color: white;
     background-color: var(--headerTxtColor);
     margin-top: 1.5em;
-    padding: 0.5em;
+    padding: 0 0.5em;
     border-radius: 1em 1em 0 0;
     font-size: 1.2em;
     font-weight: bold;
     clear: right;
+    min-height: 44px;
 }
 
 #admin-main section > ul {
@@ -1501,7 +1501,7 @@ section > div > button {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 
-#admin-listaAnnunci {
+/* #admin-listaAnnunci {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1545,7 +1545,7 @@ section > div > button {
 #admin-listaAnnunci li p {
     font-size: 0.8em;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-line-clamp: 2; 
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -1557,11 +1557,8 @@ section > div > button {
 }
 
 #admin-listaAnnunci img {
-    width: 10%;
-    margin-right: 1em;
-    margin-left: auto;
-    border-radius: 0.5em;
-}
+    max-width: 15%;
+} */
 
 #admin-recensioni {
     display: flex;
@@ -1634,6 +1631,35 @@ section > div > button {
 #confirmButton, #cancelButton {
     margin: 0.5em;
 }
+
+#admin-candidatiLista-header-hidden{
+    display: none;
+}
+
+#admin-main section div button#chiudi-candidati{
+    display: block;
+    float: right;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+}
+
+#admin-candidatiLista h3 {
+    color: var(--headerTxtColor);
+    font-size: 1em;
+}
+
+#admin-main section > div > h3 {
+    float: left;
+    margin: 0.4em 0 0.4em;
+}
+
+.valutazione{
+    display: flex;
+}
+
+.valutazione h4{
+    margin-right: 0.5em;
+} 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ADMIN CSS [FINE]

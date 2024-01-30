@@ -87,6 +87,18 @@ class Annuncio
     return $stmt;
   }
 
+  public function getAllCandidate($userId)
+  {
+    $query = 'SELECT annuncio_id FROM candidate WHERE utenti_id = :userId';
+
+    // Prepare and execute the query
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':userId', $userId);
+    $stmt->execute();
+
+    return $stmt;
+  }
+
   public function getFiltered($filters)
   {
     // Create the base query

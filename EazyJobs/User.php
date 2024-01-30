@@ -14,6 +14,7 @@
     include_once './models/utente.php';
     include_once './models/valutazione.php';
     include_once './models/annuncio.php';
+    include_once './models/candidato.php';
 
     $database = new Database();
     $db = $database->connect();
@@ -57,7 +58,7 @@
     $annuncio = new Annuncio($db);
     $resultSet = $annuncio->getAllSaved($userId);
     
-    $str_annunci = "";
+    $str_annunci_preferiti = "";
     
     if ($resultSet->rowCount() > 0) {
       while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {
@@ -69,7 +70,7 @@
 
             // Process the fetched announcement data
             if ($annuncio) {
-                $str_annunci .= "
+                $str_annunci_preferiti .= "
                     <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
                         
                             <h3>" . $annuncio['titolo'] . "</h3>
@@ -90,8 +91,47 @@
         }
       }
   } else {
-    $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio salvato</li>';
+    $str_annunci_preferiti = '<li class="nessun-trovato">(!) Nessun annuncio salvato</li>';
   }
+
+  $annuncio = new Annuncio($db);
+  $resultSet = $annuncio->getAllCandidate($userId);
+  
+  $str_annunci_candidati = "";
+  
+  if ($resultSet->rowCount() > 0) {
+    while ($row = $resultSet->fetch(PDO::FETCH_ASSOC)) {
+      $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
+      
+      if ($annuncioDetails) {
+          // Fetch the result as an associative array
+          $annuncio = $annuncioDetails->fetch(PDO::FETCH_ASSOC);
+
+          // Process the fetched announcement data
+          if ($annuncio) {
+              $str_annunci_candidati .= "
+                  <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
+                      
+                          <h3>" . $annuncio['titolo'] . "</h3>
+                      <div class='header-annunci'>
+                      <h4>" . $annuncio['nome'] . "</h4>
+                      <img src='./assets/logos/". $annuncio['azienda_id'] ."_logo.png' alt='Logo azienda " . $annuncio['nome'] ."'>
+                      </div>
+                      <h5>Descrizione:</h5>
+                      <p>" . $annuncio['desc_breve'] . "</p>
+                      <ul class='job-info'>
+                          <li><h5>Loco:</h5><p>" . $annuncio['locazione'] . "</p></li>
+                          <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
+                          <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
+                      </ul>
+                      <input type='submit' class='bottone-rimuovi-candidati' value='Rimuovi dai candidati' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
+                  </li>";
+          }
+      }
+    }
+} else {
+  $str_annunci_candidati = '<li class="nessun-trovato">(!) Nessun annuncio salvato</li>';
+}
 
     $valutazione = new Valutazione($db);
     $result = $valutazione->getAll_byUtenteId($userId);
@@ -125,7 +165,8 @@
 
   $contenuto = str_replace("nome-placeholder", strval($userName), $contenuto);
   $contenuto = str_replace("<!-- utente-placeholder -->", $str_utente, $contenuto);
-  $contenuto = str_replace("<!-- annunci-placeholder -->", $str_annunci, $contenuto);
+  $contenuto = str_replace("<!-- annunci-preferiti-placeholder -->", $str_annunci_preferiti, $contenuto);
+  $contenuto = str_replace("<!-- annunci-candidati-placeholder -->", $str_annunci_candidati, $contenuto);
   $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);
 
   echo $contenuto;

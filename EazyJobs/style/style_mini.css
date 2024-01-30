@@ -209,9 +209,7 @@ ul#aziende h3 {
     margin-top: 0;
 }
 
-footer {
-    display: none;
-}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [FINE]
@@ -310,7 +308,7 @@ img#profile_picture {
     height: fit-content;
 }
 
-#user-listaAnnunci {
+.listaAnnunci {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -634,9 +632,6 @@ ul.azioni-aggiuntive {
     display: flex;
 }
 
-#salvato{
-    margin: 1em 0 0.5em 0;
-}
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
@@ -823,15 +818,6 @@ img#foto-profilo {
     height: fit-content;
 }
 
-#admin-listaAnnunci {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    max-height: 50vh;
-    list-style-type: none;
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ADMIN CSS [FINE]
@@ -871,10 +857,9 @@ footer {
     max-width: 100%;      
 }
 
-footer nav {
+footer {
     display: none;
 }
-
 
 #chi_siamo-main {
     height: auto;

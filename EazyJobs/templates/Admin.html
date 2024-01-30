@@ -62,14 +62,28 @@
         </div>
 
     <section>
-        <div id="admin-listaAnnunci-header" class="hiding">
+        <div id="admin-preferitiLista-header" class="listaAnnunci-header hiding">
             <h3>Annunci pubblicati</h3>
-            <button id="annunci-toggle" name="admin-listaAnnunci" type="button" aria-label="Nascondi gli annunci" onclick="showHideCards('admin-listaAnnunci');" aria-expanded="false" aria-controls="annunci-toggle">
+            <button id="annunci-toggle" name="admin-preferitiLista" type="button" aria-label="Nascondi gli annunci salvati" onclick="showHideCards('admin-preferitiLista');" aria-expanded="false" aria-controls="annunci-toggle">
                 <span class="toggle show"></span>
             </button>
         </div>
-        <ul class="hiding" class="annunci" id="admin-listaAnnunci">
+        <ul id="admin-preferitiLista" class="listaAnnunci hiding">
             <!-- annunci-placeholder -->
+        </ul>
+    </section>
+
+
+    <section>
+        <div id="admin-candidatiLista-header-hidden" class="listaAnnunci-header">
+            <h3>Candidati all'annuncio</h3>
+            <button id="chiudi-candidati" type="button" aria-label="Chiudi la vista sui candidati" aria-expanded="false" aria-controls="chiudi-candidati">
+                Chiudi
+            </button>
+        </div>
+        </div>
+        <ul id="admin-candidatiLista" class="listaAnnunci">
+            <!-- candidati-placeholder -->    
         </ul>
     </section>
 

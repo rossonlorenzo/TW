@@ -10,6 +10,7 @@ header('Content-Type: text/html; charset=utf-8');
 include_once 'config/connection.php';
 include_once 'models/annuncio.php';
 include_once 'models/preferito.php';
+include_once 'models/candidato.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -28,6 +29,21 @@ if (isset($_SESSION['user_id'])) {
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             array_push($preferiti, $annuncio_id);
+        }
+    }
+}
+
+$candidati = array();
+if (isset($_SESSION['user_id'])) {
+    $utenteID = $_SESSION['user_id'];
+    $candidato = new Candidato($db);
+
+    $result = $candidato->getAllFromID($utenteID);
+    $num = $result->rowCount();
+    if ($num > 0) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            array_push($candidati, $annuncio_id);
         }
     }
 }
@@ -223,12 +239,17 @@ if ($num > 0) {
             "</div>" ;
 
             if(in_array($id, $preferiti)){
-                $str_completo .= "<strong id='salvato'>Annuncio già salvato.</strong>" ;
+                $str_completo .= "<strong class ='info'>Annuncio già salvato.</strong>" ;
+            }
+            if(in_array($id, $candidati)){
+                $str_completo .= "<strong class='info'>Ti sei già candidato a questo annuncio.</strong>" ;
             }
             $str_completo .= 
             "<ul class='azioni-aggiuntive'>" .
-            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio {$id}\"></li>" .
-            "<li><input type='submit' class='bottone-candidati' value='Candidati' aria-label=\"Candidati all'annuncio numero{$id}\"></li>" ;
+            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>";
+            if(!in_array($id, $candidati)){
+                $str_completo .=             "<li><input type='submit' class='bottone-candidati' data-id='" . $id ."' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
+            } 
             if(!in_array($id, $preferiti)){
                 $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}\"></li>" ;
             } 
@@ -239,6 +260,7 @@ if ($num > 0) {
                 "</article>";
     }
 } else {
+    $str_completo = '<img src="./assets/illustrations/undraw_search_engines.svg" alt="">';
     $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
 }
 
