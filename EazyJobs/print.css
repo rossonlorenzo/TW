@@ -92,6 +92,12 @@ ul#aziende li{
     padding: 5pt;
     border: 1pt solid #000;
     border-radius: 5pt;
+    page-break-inside: avoid;
+}
+
+ul#aziende li img {
+    width: 1.5cm;
+
 }
 
 .valutazione-media::before {
@@ -148,7 +154,7 @@ ul#aziende li{
 }
 
 .header-annunci img, .header-aziende img {
-    width: 3cm;
+    width: 1.5cm;
 }
 
 .azioni-aggiuntive, .bottone-annunci {
@@ -231,10 +237,11 @@ ul#aziende-recensioni li{
     padding: 5pt;
     border: 1pt solid #000;
     border-radius: 5pt;
+    page-break-inside: avoid;
 }
 
 #user-listaAnnunci li img, #admin-listaAnnunci li img {
-    width: 3cm;
+    width: 1.5cm;
 }
 
 #user-main, #admin-main{
