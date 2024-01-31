@@ -1,12 +1,10 @@
 <?php 
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
   include_once '../../config/connection.php';
   include_once '../../models/valutazione.php';
 
-  // Instantiate DB & connect
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $database = new Database();
     $conn = $database->connect();
@@ -22,3 +20,4 @@
         echo 'Recensione rimossa';
     }
 }
+?>

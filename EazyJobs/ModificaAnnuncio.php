@@ -1,18 +1,13 @@
 <?php 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
 
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: text/html; charset=utf-8');
 
   include_once './config/connection.php';
   include_once './models/annuncio.php';
 
-  //handle data retrieval and form population
   $annuncioId = $_GET['id'] ?? null;
 
-    // Check if an ID is present
     if ($annuncioId) {
     $database = new Database();
     $conn = $database->connect();
@@ -29,7 +24,6 @@
 
             $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true) : [];
             
-            //variable extraction
             $titoloErrore = isset($errors['titolo']) ? htmlspecialchars($errors['titolo']) : '';
             $descBreveErrore = isset($errors['desc_breve']) ? htmlspecialchars($errors['desc_breve']) : '';
             $descCompletaErrore = isset($errors['desc_completa']) ? htmlspecialchars($errors['desc_completa']) : '';
@@ -41,7 +35,6 @@
             $esperienzaErrore = isset($errors['esperienza']) ? htmlspecialchars($errors['esperienza']) : '';
             $stipendioErrore = isset($errors['stipendio']) ? htmlspecialchars($errors['stipendio']) : '';
 
-            //string replacement
             $contenuto = str_replace("annuncioId-placeholder", strval($annuncioId), $contenuto);
             $contenuto = str_replace("titolo-placeholder", strval($titolo), $contenuto);
             $contenuto = str_replace("desc-breve-placeholder", strval($desc_breve), $contenuto);
@@ -137,8 +130,7 @@
                 array('message' => 'Nessun annuncio trovato')
                 );
         }
-
       echo $contenuto;
     }
-
+?>
   

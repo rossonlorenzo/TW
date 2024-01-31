@@ -1,8 +1,5 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
@@ -13,7 +10,6 @@ ini_set('display_errors', 1);
     $database = new Database();
     $db = $database->connect();
 
-    //server-side validation
     $errors = [];
 
     $max_name_length = 60;
@@ -73,7 +69,6 @@ ini_set('display_errors', 1);
         exit();
     }
 
-    //form implementation
     $azienda = new Azienda($db);
 
     $azienda->nome = $_POST['nome'];
@@ -110,8 +105,8 @@ ini_set('display_errors', 1);
         header("Location: ../../Accedi.php");
         exit();
     }
-    else {}
 }
+?>
 
   
 

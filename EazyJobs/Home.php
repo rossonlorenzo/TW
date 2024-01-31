@@ -1,7 +1,4 @@
 <?php 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -9,7 +6,6 @@
   include_once './models/azienda.php';
   include_once './models/annuncio.php';
 
-  // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
   session_start();
@@ -70,8 +66,6 @@
         );
   }
 
-  //$result->free();
-
   $nomefile = "./templates/Home.html";
   $contenuto = file_get_contents($nomefile);
 
@@ -91,3 +85,4 @@
   $contenuto = str_replace("<!-- aziende-placeholder -->", $str_aziende, $contenuto);
   
   echo $contenuto;
+?>

@@ -1,8 +1,4 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
@@ -14,7 +10,6 @@ ini_set('display_errors', 1);
     $db = $database->connect();
     session_start();
 
-    //server-side validation
     $errors = [];
 
     $max_name_length = 60;
@@ -74,7 +69,6 @@ ini_set('display_errors', 1);
         exit();
     }
 
-    //form implementation
     if (isset($_SESSION['admin_id'])) {
         $adminId = $_SESSION['admin_id'];
         $azienda = new Azienda($db);
@@ -125,6 +119,7 @@ ini_set('display_errors', 1);
         else {}
     }
 }
+?>
 
   
 

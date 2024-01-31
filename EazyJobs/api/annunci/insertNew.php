@@ -61,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($errors)) {
         $userValues = $_POST;
-        header("Location: ../../PubblicaAnnuncio.php?errors=".urlencode(json_encode($errors))
-        ."&userValues=".urlencode(json_encode($userValues)));
+        header("Location: ../../PubblicaAnnuncio.php?errors=".urlencode(json_encode($errors)));
     exit();
 
     } else {
@@ -91,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: ../../Admin.php");
             exit();
         }
-        else {}     //think of suitable error message to pass onto PubblicaAnnuncio.php
-        }
+    }
 }
 ?>

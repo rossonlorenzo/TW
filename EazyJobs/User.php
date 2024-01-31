@@ -1,8 +1,5 @@
 <?php 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
 
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -65,10 +62,8 @@
         $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
         
         if ($annuncioDetails) {
-            // Fetch the result as an associative array
             $annuncio = $annuncioDetails->fetch(PDO::FETCH_ASSOC);
 
-            // Process the fetched announcement data
             if ($annuncio) {
                 $str_annunci_preferiti .= "
                     <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
@@ -85,7 +80,7 @@
                             <dt>Stipendio medio:</dt><dd>" . $annuncio['stipendio'] . "€</dd>
                             <dt>Contatti:</dt><dd>" . $annuncio['email'] . "</dd>
                         </dl>
-                        <input type='submit' class='bottone-rimuovi-preferiti' value='Rimuovi dai preferiti' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
+                        <input type='submit' class='bottone-rimuovi-preferiti' value='Rimuovi dai preferiti' aria-label=\"Rimuovi dai preferiti l'annuncio " . $annuncio['titolo'] . "\" data-id='" . $annuncio['annuncio_id'] . "'>
                     </li>";
             }
         }
@@ -104,10 +99,8 @@
       $annuncioDetails = Annuncio::getById($db, $row['annuncio_id']);
       
       if ($annuncioDetails) {
-          // Fetch the result as an associative array
           $annuncio = $annuncioDetails->fetch(PDO::FETCH_ASSOC);
 
-          // Process the fetched announcement data
           if ($annuncio) {
               $str_annunci_candidati .= "
                   <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
@@ -158,7 +151,6 @@
   $nomefile = "./templates/User.html";
   $contenuto = file_get_contents($nomefile);
 
-  //possibile errore sul cv
   $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true) : [];
   $cvErrore = isset($errors['cv']) ? htmlspecialchars($errors['cv']) : '';
   $contenuto = str_replace("cv-errore-placeholder", $cvErrore, $contenuto);

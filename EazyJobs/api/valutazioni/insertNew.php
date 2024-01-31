@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 header("Access-Control-Allow-Origin: *");
 
 include_once '../../config/connection.php';
@@ -14,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $valutazione = new Valutazione($db);
 
-    //server-side validation
     $errors = [];
 
     if (!empty($_POST['commento'])) {
@@ -26,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }    
 
-    // If there are errors, handle them (e.g., display error messages or prevent form submission)
     $aziendaId = $_POST['aziendaId'];
 
     if (!empty($errors)) {
@@ -34,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
 
     } else {
-        // If validation passes, proceed with form processing (sanitize, save to database, etc.)
         if (isset($_SESSION['user_id'])) {
             $loggedInUserId = $_SESSION['user_id'];
             $valutazione->utenti_id = $loggedInUserId;
@@ -58,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: ./../../Aziende.php?id=$aziendaId");
                 exit();
             }
-            else {}     //messaggio da inviare a Aziende.php
         } else {
             $errors = [];
             $errors['login'] = "Bisogna aver effettuato il login da candidato per poter pubblicare una recensione.";

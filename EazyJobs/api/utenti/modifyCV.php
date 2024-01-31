@@ -1,8 +1,4 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
@@ -14,7 +10,6 @@ ini_set('display_errors', 1);
     $db = $database->connect();
     session_start();
 
-    //server-side validation
     $errors = [];
 
     if ($_FILES['cv']['type'] !== 'application/pdf') {
@@ -26,7 +21,6 @@ ini_set('display_errors', 1);
         exit();
     }
 
-    //form implementation
     if (isset($_SESSION['user_id'])) {
         $userId = $_SESSION['user_id'];
         $utente = new Utente($db);
@@ -47,6 +41,7 @@ ini_set('display_errors', 1);
         }   
     }
 }
+?>
 
   
 

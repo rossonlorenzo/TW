@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $annuncio = new Annuncio($db);
 
-    //server-side validation
     $requiredFields = ['titolo', 'desc_breve', 'desc_completa', 'locazione', 'settore'];
     $errors = [];
 
@@ -59,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['stipendio'] = "Inserire uno stipendio valido";
     }
 
-    // If there are errors, handle them (e.g., display error messages or prevent form submission)
     if (!empty($errors)) {
         $annuncioId = $_POST['annuncioId'];
         header("Location: ../../ModificaAnnuncio.php?id=$annuncioId&errors=" . urlencode(json_encode($errors)));
@@ -91,6 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: ../../Admin.php");
             exit();
         }
-        else {}     //think of suitable error message to pass onto ModificaAnnuncio.php 
     }
 }
+?>

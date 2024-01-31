@@ -1,8 +1,4 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
@@ -13,7 +9,6 @@ ini_set('display_errors', 1);
     include_once '../../config/connection.php';
     include_once '../../models/preferito.php';
 
-    // Instantiate DB & connect
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $database = new Database();
         $conn = $database->connect();
@@ -28,3 +23,4 @@ ini_set('display_errors', 1);
         }
     }
 }
+?>

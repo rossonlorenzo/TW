@@ -1,8 +1,5 @@
 <?php 
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
 
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -106,7 +103,6 @@
 
   $contenuto = str_replace("aziendaId-placeholder", strval($aziendaId), $contenuto);
 
-  //gestione degli errori sul form di pubblicazione delle recensioni
   $errors = isset($_GET['errors']) ? json_decode(urldecode($_GET['errors']), true) : [];
 
   $commentoErrore = isset($errors['commento']) ? htmlspecialchars($errors['commento']) : '';
@@ -119,7 +115,6 @@
   $contenuto = str_replace("login-errore-placeholder", $loginErrore, $contenuto);
   $contenuto = str_replace("duplicato-errore-placeholder", $duplicatoErrore, $contenuto);
 
-  //rimpiazzo contenuto dinamico della pagina
   $contenuto = str_replace("<!-- azienda-placeholder -->", $str_azienda, $contenuto);
   $contenuto = str_replace("<!-- recensioni-placeholder -->", $str_valutazioni, $contenuto);
 

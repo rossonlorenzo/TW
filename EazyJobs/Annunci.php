@@ -1,7 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-// Headers
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Content-Type: text/html; charset=utf-8');
@@ -12,12 +10,10 @@ include_once 'models/annuncio.php';
 include_once 'models/preferito.php';
 include_once 'models/candidato.php';
 
-// Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 session_start();
 
-// da fare che se utente loggato, non si mostra bottone salva, ma banner "già salvato"
 $preferiti = array();
 if (isset($_SESSION['user_id'])) {
     $utenteID = $_SESSION['user_id'];
@@ -61,7 +57,6 @@ $livello_istruzione = $_GET['livello_istruzione'] ?? null;
 $esperienza = $_GET['esperienza'] ?? null;
 $stipendio = $_GET['stipendio'] ?? null;
 
-// serve per gestire la ricerca quando i filtri di tipo select sono impostati su "Nessuna" 
 $nome = ($nome === "Nessuna") ? null : $nome;
 $locazione = ($locazione === "Nessuna") ? null : $locazione;
 $settore = ($settore === "Nessuna") ? null : $settore;
@@ -80,11 +75,6 @@ $filters = array_filter(compact(
     'esperienza',
     'stipendio'
 ));
-
-// popola i filtri 
-// l'unica cosa che non mi piace è che lo deve fare anche quando
-// si filtrano gli annunci e quindi si fa una ricerca e si ricarica la pagina, però penso non si possa evitare
-// Bisogna farlo perchè altrimenti i filtri si adattano alla query "filtrata" e quindi non ci sarebbero tutti i campi
 
 $result = $annuncio->getAll();
 $num = $result->rowCount();
@@ -143,10 +133,6 @@ if ($num > 0) {
     );
 }
 
-// popola gli annunci, se non ci sono filtri, o meglio, al primo caricamento fa getAll. 
-// Questo perchè se si fa una ricerca filtrata, i filtri di stipendio ed esperienza non si possono mettere a null (l'utente non può)
-// quindi anche se si imposta tutto su "Nessuna" o si lasciano dei campi vuoti, il sistema lo vedrà comunque come una ricerca 
-// filtrata. Ovviamente non rappresenta un problema, a livello funzionale. Volevo solo condividere l'info con voi
 if (empty($filters)) {
     $result1 = $annuncio->getAll();
 } else {
@@ -246,17 +232,17 @@ if ($num > 0) {
             }
             $str_completo .= 
             "<ul class='azioni-aggiuntive'>" .
-            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>";
+            "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio {$id}, {$titolo}\"></li>";
             if(!in_array($id, $candidati)){
-                $str_completo .=             "<li><input type='submit' class='bottone-candidati' data-id='" . $id ."' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
+                $str_completo .=             "<li><input type='submit' class='bottone-candidati' data-id='" . $id ."' value='Candidati' aria-label=\"Candidati all'annuncio {$id}, {$titolo}\"></li>" ;
             } 
             if(!in_array($id, $preferiti)){
-                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}\"></li>" ;
+                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}, {$titolo}\"></li>" ;
             } 
             $str_completo .= 
-                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio {$id}\"></li>".
+                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio {$id}, {$titolo}\"></li>".
                 "</ul>".
-                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio {$id}\">" .
+                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Torna agli annunci uscendo da {$id}, {$titolo}\">" .
                 "</article>";
     }
 } else {
@@ -289,3 +275,4 @@ $contenuto = str_replace("min-placeholder", $min, $contenuto);
 $contenuto = str_replace("max-placeholder", $max, $contenuto);
 $contenuto = str_replace("value-placeholder", $max, $contenuto);
 echo $contenuto;
+?>

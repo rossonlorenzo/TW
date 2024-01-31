@@ -1,8 +1,4 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-  // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
@@ -14,7 +10,6 @@ ini_set('display_errors', 1);
     $db = $database->connect();
     session_start();
 
-    //server-side validation
     $errors = [];
 
     $max_name_length = 60;
@@ -32,13 +27,11 @@ ini_set('display_errors', 1);
         $errors['password'] = "Inserire una password valida ({$min_length}-{$max_length} caratteri)";
     }
 
-    //inserisci errore nel caso in cui i dati non siano cambiati affatto (volendo)
     if (!empty($errors)) {
         header("Location: ../../ModificaUser.php?errors=".urlencode(json_encode($errors)));
         exit();
     }
 
-    //form implementation
     if (isset($_SESSION['user_id'])) {
         $userId = $_SESSION['user_id'];
         $utente = new Utente($db);
@@ -63,9 +56,9 @@ ini_set('display_errors', 1);
             header("Location: ../../User.php");
             exit();
         }
-        else {}
     }
 }
+?>
 
   
 
