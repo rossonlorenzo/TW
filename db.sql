@@ -198,7 +198,10 @@ VALUES
     'Laurea Magistrale', 4, 4000.00, 15),
     ('Chef', 'Milano', '2023-11-15 09:15:00', 'Ristorazione', false, true, 'Tempo indeterminato', 'Entra a far parte della nostra squadra culinaria dedicata alla sperimentazione gastronomica.',
     'Sarai responsabile di creare esperienze culinarie uniche, combinando sapori e presentazioni innovative. Cerchiamo un individuo con esperienza culinaria, creatività nel design dei piatti e capacità di gestire una cucina con efficienza. Se sei appassionato della sperimentazione gastronomica e desideri contribuire a una proposta culinaria unica, entra a far parte della nostra squadra dedicata alla creazione di momenti gastronomici indimenticabili.',
-    'Diploma', 4, 3800.00, 20);
+    'Diploma', 4, 3800.00, 20),
+    ('Progettista web', 'Padova', '2024-01-20 10:25:00', 'Informatica', true, true, 'Tempo indeterminato', 'Partecipa all''innovazione del mondo del lavoro con EazyJobs come Progettista di siti web, e libera la tua creatività.',
+    'EazyJobs sta cercando un talentuoso Progettista Web per il suo dinamico team. In questa posizione chiave, avrai l''opportunità di contribuire alla progettazione e allo sviluppo di soluzioni web innovative, contribuendo al successo continuo dell''azienda. Necessitiamo di creatività, efficienza, passione e capacità di collaborazione, oltre che di un''ottima conoscenza di HTML, CSS, JavaScript e PHP. Candidati ora e abbraccia una carriera piena di sfide ed eccitanti opportunità.',
+    'Laurea Triennale', 1, 3400.00, 23);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS preferiti
@@ -238,7 +241,9 @@ VALUES
     (17, 11),
     (18, 6),
     (19, 7),
-    (20, 14);
+    (20, 14),
+    (21, 28),
+    (21, 1);
 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS candidate
@@ -278,7 +283,8 @@ VALUES
     (17, 11),
     (18, 6),
     (19, 7),
-    (20, 14);
+    (20, 14),
+    (21, 28);
 	 
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS valutazioni
@@ -334,4 +340,5 @@ VALUES
     (19, 4, 'Ho apprezzato l''attenzione ai dettagli e l''approccio professionale di questa azienda. La mia esperienza lavorativa è stata positiva, grazie a un ambiente di lavoro stimolante. Contribuire a progetti di rilievo ha reso il mio percorso gratificante.', 4),
     (19, 1, 'L''azienda ha un ambiente di lavoro positivo. Sono grato per le opportunità di apprendimento e sviluppo offertemi. La mia permanenza qui è stata caratterizzata da una crescita professionale continua e soddisfacente.', 5),
     (20, 2, 'Ho avuto l''opportunità di lavorare con un team altamente qualificato. Sono grato per le sfide stimolanti e le opportunità di crescita offertemi da questa azienda. La mia esperienza è stata estremamente positiva, contribuendo alla mia crescita professionale.', 5),
-    (20, 10, 'Lavorare con questa azienda è stata un''esperienza formativa. Ho imparato molto e ho avuto l''opportunità di mettere in pratica le mie competenze. La collaborazione con colleghi dedicati ha reso il mio percorso estremamente gratificante.', 4);
+    (20, 10, 'Lavorare con questa azienda è stata un''esperienza formativa. Ho imparato molto e ho avuto l''opportunità di mettere in pratica le mie competenze. La collaborazione con colleghi dedicati ha reso il mio percorso estremamente gratificante.', 4),
+    (21, 4, 'Ambiente di lavoro eccellente. Ho lavorato con un team molto professionale e dedicato, che mi ha permesso di maturare moltissimo dal punto di vista lavorativo e anche organizzativo. I progetti proposti erano sempre molto stimolanti e ', 5);
