@@ -7,8 +7,8 @@
     <title>Modifica Annuncio - EazyJobs</title>
     <meta name="keywords" content="EazyJobs, modifica, annuncio">
     <meta name="description" content="Form di modifica annunci per le aziende di EazyJobs">
-    <link rel="stylesheet" href="./stylesheet.css">
-    <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./style/stylesheet.css">
+    <link rel="stylesheet" href="./style/style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -58,11 +58,14 @@
         <fieldset id="modalità">
             <legend>Modalità di lavoro:</legend>
                 <div class="checkbox-group">
+                    <div class="checkbox-modalità">
                     <input type="checkbox" id="modalità-remoto" name="modalità-remoto" remoto-placeholder>
                     <label for="modalità-remoto" class="checkbox-label">Da remoto</label>
-
+                    </div>
+                    <div class="checkbox-modalità">
                     <input type="checkbox" id="modalità-presenza" name="modalità-presenza" presenza-placeholder>
                     <label for="modalità-presenza" class="checkbox-label">In presenza</label>
+                    </div>
                 </div>
         </fieldset>
         <div id="checkbox-errore" class="messaggio-errore">checkbox-errore-placeholder</div>
@@ -70,11 +73,14 @@
         <fieldset id="contratto">
             <legend>Tipo contratto:</legend>
                 <div class="radio-group">
+                    <div class="radio-contratto">
                     <input type="radio" id="determinato" name="contratto" value="Tempo determinato" determinato-placeholder>
                     <label for="determinato" class="radio-label">Tempo determinato</label>
-
+                    </div>
+                    <div class="radio-contratto">
                     <input type="radio" id="indeterminato" name="contratto" value="Tempo indeterminato" indeter-placeholder>
                     <label for="indeterminato" class="radio-label">Tempo indeterminato</label>
+                    </div>
                 </div>
         </fieldset>
         <div class="messaggio-errore">radio-errore-placeholder</div>
@@ -105,13 +111,12 @@
         <input type="text" id="stipendio" name="stipendio" value="stipendio-placeholder" required>
         <div id="stipendio-errore" class="messaggio-errore">stipendio-errore-placeholder</div>
 </fieldset>
-        <input type="submit" id="disabled-modificaAnnuncio-bottone" data-validation="validateFields" value='Modifica Annuncio' disabled>
-    </form>
-<div id="buttons">
-        <input type="submit" id="prev" value="Precedente">
-        <input type="submit" id="next" value="Successivo">
-    </div>
-    
+        <input type="submit" id="modificaAnnuncio-bottone" data-validation="validateFields" value='Modifica Annuncio' class="disabled" disabled>
+        <div id="buttons">
+            <input type="button" id="prev" value="Precedente" class="disabled" disabled>
+            <input type="button" id="next" value="Successivo">
+        </div>
+    </form>    
 </main>
 <script src="./src/script.js"></script>
 

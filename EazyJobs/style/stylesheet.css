@@ -247,9 +247,9 @@ section#cosa-offriamo {
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 1em;
-    background: url("./assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 27% no-repeat,
-                url("./assets/illustrations/undraw_doctors_p6aq.svg") left 25% top 32% no-repeat,
-                url("./assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat;
+    background: url("../../assets/illustrations/undraw_qa_engineers_dg-5-p.svg") left 0% top 27% no-repeat,
+                url("../../assets/illustrations/undraw_doctors_p6aq.svg") left 25% top 32% no-repeat,
+                url("../../assets/illustrations/undraw_coding_re_iv62.svg") left 5% top 52% no-repeat;
                 
     
     background-size: 15%, 21%, 15%;
@@ -394,7 +394,7 @@ ul#aziende img {
     }
 }
 
-.valutazione-media::before {                    /* fallback per IE */
+.valutazione-media::before {                    
     content: attr(data-content);
 }
 
@@ -532,8 +532,8 @@ form {
     width: 25%;
 }
 
-#filtri-ricerca.showing, #filtri-ricerca.hiding {          /* passando da visualizzazione mobile a desktop la barra dei filtri */
-    display: block;                                        /* torna visibile in ogni caso */ 
+#filtri-ricerca.showing, #filtri-ricerca.hiding {          
+    display: block;                                        
 }
 
 #filtri {
@@ -592,7 +592,7 @@ form {
 #filtri div .checkbox-modalità,
 #filtri div .radio-contratto {
     display: flex;
-    margin: auto;
+    margin-left: auto;
 }
 
 #filtri div .checkbox-modalità label,
@@ -614,7 +614,7 @@ form {
     margin: auto;
 }
 
-ul.annunci, ul.annunci.hidden {               /* lista annunci sempre visibile da desktop */
+ul.annunci, ul.annunci.hidden {               
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -695,7 +695,6 @@ dl.job-info dd {
     text-overflow: ellipsis;
 }
 
-/* da guardare meglio lo stile, ciò che serve o meno. (ho fatto copia incolla da annuncio completo, e graficamente è ok) */
 #annunci-completi{
     display: flex;
     flex-direction: column;
@@ -918,23 +917,6 @@ img#no-annuncio-completo {
     }
 }
 
-    /*
-    #annuncio-completo {
-        display: none;
-    }
-    #bottone-annunci {
-        display: inline;
-    }
-    #bottone-annunci:hover {
-        background-color: var(--headerBgColor)
-    }
-    ul.annunci {
-        max-width: fit-content;
-    }
-    ul.annunci li p {
-        text-wrap: wrap;
-    }*/
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -1148,10 +1130,9 @@ img#no-annuncio-completo {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #accedi-main {
-    display: flex;
-    align-items: center;
     margin: 2em auto;
     background: var(--bgColor);
+    padding: 1em;
 }
 
 #accedi-main #primoContenuto {
@@ -1166,21 +1147,18 @@ img#no-annuncio-completo {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
-    max-width: 30%;
+    max-width: 60%;
     min-width: fit-content;
-    margin: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 1em auto;
     padding: 1em;
 }
 
 #login-form label {
-    margin: auto;
+    margin: 1em auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
     font-weight: bold;
-    font-size: 1em;
-    margin-top: 1em;
+    font-size: 1.3em;
 }
 
 #credenziali {
@@ -1195,6 +1173,24 @@ img#no-annuncio-completo {
 #accedi-bottone {
     margin-top: 1em;
     margin-bottom: 2em;
+}
+
+#accedi-main input:not([type="submit"]){
+        padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    margin: auto;
+    width: 90%;
+}
+
+#accedi-main select{
+    padding: 0.5em;
+border-radius: 0.5em;
+border: 1px solid #ccc;
+box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+margin: auto;
+width: 70%;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1232,19 +1228,35 @@ img#no-annuncio-completo {
     background: var(--bgColor);
 }
 
-#registrazione-main input,
+
+#registrazione-main input:not([type="button"]):not([type="submit"]),
 #registrazione-main textarea {
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
     border: 1px solid #ccc;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    width: 90%;
-    margin: 0.5em auto;
+    width: 70%;
 }
 
-#registrazione-main #modifica-bottone:hover {
-    background: var(--footerBgColor);
+#registrazione-main #modificaAdmin-bottone:hover {
+    background: white;
+    color: black;
+}
+
+#registrazione-main input:hover {
+    background: white;
+    color: black;
+}
+
+#registrazione-main #modificaAdmin-bottone:hover.disabled {
+    background: #ccc;
+    color: #fff;
+}
+
+#registrazione-main input[type="button"]:hover.disabled {
+    background: #ccc;
+    color: #fff;
 }
 
 #registrazione-main form label {
@@ -1252,23 +1264,20 @@ img#no-annuncio-completo {
     margin-top: 1em;
 }
 
-#registrazione-form label {
+#registrazione-form label, #registrazione-form legend {
     margin: auto;
     white-space: nowrap;
     color: var(--headerTxtColor);
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 #credenziali, #dettagli, #dati {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 90%;
     padding: 0.5em;
-}
-
-#credenziali label {
-    font-size: 1.3em;
+    align-items: center;
 }
 
 #registrazione-main #desc_completa {
@@ -1297,14 +1306,10 @@ img#no-annuncio-completo {
     margin-left: 1em;
 }
 
-#disabled-modificaAdmin-bottone {
+input[type="button"].disabled, input[type="submit"].disabled {
     color: #fff;
     background-color: #ccc;
     opacity: 0.7;
-}
-
-#registrazione-main .visible-fieldset {
-    display: block;
 }
 
 #registrazione-main .hidden-fieldset {
@@ -1564,65 +1569,6 @@ section > div > button {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
 }
 
-/* #admin-listaAnnunci {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    max-height: 75vh;
-    list-style-type: none;
-}
-
-#admin-listaAnnunci::-webkit-scrollbar {
-    width: 0.5em;
-    background-color: var(--headerBgColor);
-}
-
-#admin-listaAnnunci::-webkit-scrollbar-thumb {
-    background-color: var(--headerTxtColor);
-}
-
-#admin-listaAnnunci > li {
-    background-color: white;
-    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
-    border: 0.2em var(--footerTxtColor) solid;
-    border-radius: 1em;
-    padding: 1em;
-    margin: 1em;
-}
-
-#admin-listaAnnunci li h3 {
-    font-size: 1.3em;
-    color: var(--footerTxtColor);
-}
-
-#admin-listaAnnunci li h4 {
-    font-size: 1em;
-}
-
-#admin-listaAnnunci li h5 {
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-#admin-listaAnnunci li p {
-    font-size: 0.8em;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#admin-listaAnnunci .header-annunci {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-#admin-listaAnnunci img {
-    max-width: 15%;
-} */
-
 #admin-recensioni {
     display: flex;
     flex-direction: column;
@@ -1755,11 +1701,22 @@ section > div > button {
     background: var(--bgColor);
 }
 
-#pubblica-annuncio-main input[type="submit"] {
-    margin: 0.5em;
+#publishJob-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--headerBgColor);
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    min-width: fit-content;
+    margin: auto;
     margin-top: 1em;
-    margin: 0.5em auto;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: var(--bgColor);
 }
+
 
 #pubblica-annuncio-main label,
 #pubblica-annuncio-main legend {
@@ -1767,12 +1724,18 @@ section > div > button {
     margin-bottom: 0.5em;
     color: var(--headerTxtColor);
     font-weight: bold;
+    font-size: 1.3em;
 }
+
+#pubblica-annuncio-main input[type="button"]{
+    margin-top: 1em;
+}
+
 
 #pubblica-annuncio-main input[type="text"],
 #pubblica-annuncio-main textarea,
 #pubblica-annuncio-main select{
-    width: 70%;
+    width: 90%;
     padding: 0.5em;
     border-radius: 0.5em;
     border: 1px solid #ccc;
@@ -1800,13 +1763,22 @@ section > div > button {
     height: 20vh;
 }
 
-.checkbox-group label, .radio-group label {
-    font-size: 0.8em;
+.checkbox-group, .radio-group{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 1em;
+}
+
+
+#pubblica-annuncio-main .checkbox-group label, #pubblica-annuncio-main .radio-group label {
+    font-size: 1em;
     color: black;
     font-weight: normal;
 }
 
 #buttons {
+    margin: auto;
     display: flex;
 }
 
@@ -1820,14 +1792,6 @@ section > div > button {
     background: var(--footerBgColor);
 }
 
-#pubblica-annuncio-main #modalità,
-#pubblica-annuncio-main #contratto {
-    width: 50%;
-    margin: auto;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
 #pubblica-annuncio-main form {
     background: var(--bgColor);
     border-radius: 1em;
@@ -1835,6 +1799,37 @@ section > div > button {
 
 #pubblica-annuncio-main #modificaAnnuncio-bottone:hover {
     background: var(--footerBgColor);
+}
+
+#pubblica-annuncio-main input[type="button"]:hover {
+    background: var(--footerBgColor);
+}
+
+#pubblica-annuncio-main #modificaAnnuncio-bottone.disabled:hover {
+    background-color: #ccc;
+}
+
+#pubblica-annuncio-main input[type="button"].disabled:hover {
+    background-color: #ccc;
+}
+
+
+
+
+#modifyJob-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--headerBgColor);
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
+    border: 0.2em var(--footerTxtColor) solid;
+    border-radius: 1em;
+    min-width: fit-content;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: var(--bgColor);
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1925,6 +1920,7 @@ div.blocco {
     font-size: 2em;
     margin: 1em 0 0 0;
     font-family: var(--font-body-family);
+    line-height: 1em;
 }
 
 #errore404-main img {

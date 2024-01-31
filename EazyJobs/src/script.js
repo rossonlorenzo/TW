@@ -797,7 +797,7 @@ function validateForm(formElement) {
 document.addEventListener('DOMContentLoaded', function () {
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
-    const mod = document.getElementById("disabled-modificaAnnuncio-bottone");
+    const mod = document.getElementById("modificaAnnuncio-bottone");
 
     const contenuti = document.getElementById("contenuti");
     const caratteristiche = document.getElementById("caratteristiche");
@@ -818,13 +818,19 @@ if (prev) {
         if(caratteristiche && caratteristiche.getAttribute("class") === "visible-fieldset"){
             contenuti.setAttribute("class", "visible-fieldset");
             caratteristiche.setAttribute("class","hidden-fieldset");
+            prev.setAttribute("class","disabled");
+            next.removeAttribute("disabled");
+            next.setAttribute("class","");
+            prev.disabled= true;
             setFocusToFirstInput(contenuti);
         }
         if(requisiti && requisiti.getAttribute("class") === "visible-fieldset"){
             caratteristiche.setAttribute("class", "visible-fieldset");
             requisiti.setAttribute("class","hidden-fieldset");
-            mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
+            mod.setAttribute("class","disabled");
             mod.disabled = true;
+            next.removeAttribute("disabled");
+            next.setAttribute("class","");
             setFocusToFirstInput(caratteristiche);
         }
     })
@@ -836,13 +842,17 @@ if (prev) {
                 return;
             }
             if(caratteristiche && caratteristiche.getAttribute("class") === "visible-fieldset"){
-                mod.setAttribute("id","modificaAnnuncio-bottone");
-                mod.removeAttribute("disabled")
+                mod.setAttribute("class","");
+                mod.removeAttribute("disabled");
+                next.setAttribute("class","disabled");
+                next.disabled= true;
                 requisiti.setAttribute("class", "visible-fieldset");
                 caratteristiche.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(requisiti);
             }
             if(contenuti && contenuti.getAttribute("class") === "visible-fieldset"){
+                prev.setAttribute("class","");
+                prev.removeAttribute("disabled");
                 caratteristiche.setAttribute("class", "visible-fieldset");
                 contenuti.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(caratteristiche);
@@ -858,7 +868,7 @@ if (prev) {
 document.addEventListener('DOMContentLoaded', function () {
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
-    const mod = document.getElementById("disabled-modificaAdmin-bottone");
+    const mod = document.getElementById("modificaAdmin-bottone");
 
     const credenziali = document.getElementById("credenziali");
     const dettagli = document.getElementById("dettagli");
@@ -879,13 +889,19 @@ document.addEventListener('DOMContentLoaded', function () {
             if(dettagli && dettagli.getAttribute("class") === "visible-fieldset"){
                 credenziali.setAttribute("class", "visible-fieldset");
                 dettagli.setAttribute("class", "hidden-fieldset");
+                prev.setAttribute("class","disabled");
+            next.removeAttribute("disabled");
+            next.setAttribute("class","");
+            prev.disabled= true;
                 setFocusToFirstInput(credenziali);
             }
             if(dati && dati.getAttribute("class") === "visible-fieldset"){
                 dettagli.setAttribute("class", "visible-fieldset");
                 dati.setAttribute("class","hidden-fieldset");
-                mod.setAttribute("id","disabled-modificaAnnuncio-bottone");
-                mod.disabled = true;
+                mod.setAttribute("class","disabled");
+            mod.disabled = true;
+            next.removeAttribute("disabled");
+            next.setAttribute("class","");
                 setFocusToFirstInput(dettagli);
             }
         })
@@ -897,8 +913,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
             if(dettagli && dettagli.getAttribute("class") === "visible-fieldset"){
-                mod.setAttribute("id","modificaAnnuncio-bottone");
-                mod.removeAttribute("disabled")
+                mod.setAttribute("class","");
+                mod.removeAttribute("disabled");
+                next.setAttribute("class","disabled");
+                next.disabled= true;
                 dati.setAttribute("class", "visible-fieldset");
                 dettagli.setAttribute("class", "hidden-fieldset");
                 setFocusToFirstInput(dati);
@@ -906,6 +924,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if(credenziali && credenziali.getAttribute("class") === "visible-fieldset"){
                 dettagli.setAttribute("class", "visible-fieldset");
                 credenziali.setAttribute("class", "hidden-fieldset");
+                prev.setAttribute("class","");
+                prev.removeAttribute("disabled");
                 setFocusToFirstInput(dettagli);
             }
         })
