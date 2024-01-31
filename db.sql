@@ -39,7 +39,7 @@ VALUES
     ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '../../assets/cvs/18_cv.pdf'),
     ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '../../assets/cvs/19_cv.pdf'),
     ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '../../assets/cvs/20_cv.pdf'),
-    ('user', 'user', 'user', NULL);
+    ('user', 'user', 'user', '../../assets/cvs/21_cv.pdf');
 
 
 CREATE TABLE IF NOT EXISTS aziende
@@ -84,7 +84,7 @@ VALUES
     ('gustofuturomilano@gustofuturo.it', 'kTC5P{;)6h', 'GustoFuturo Milano', 'http://www.gustofuturo.it', 2014, 350, 2600000, 'Milano', 'Ristorazione', 'GustoFuturo Milano è il luogo dove la gastronomia incontra l''innovazione. Offriamo esperienze culinarie uniche, sperimentando con ingredienti e tecniche all''avanguardia. Il nostro ristorante è una celebrazione di sapori contemporanei e creatività gastronomica nel cuore di Milano.', '../../assets/logos/20_logo.png'),
     ('agribari@agribari.it', 'B9^!sL7<Rp', 'AgriBari', 'http://www.agribari.it', 2020, 300, 2000000, 'Bari', 'Agroalimentare', 'AgriBari si dedica a fornire prodotti agroalimentari di alta qualità, coltivati con passione e impegno. La nostra azienda promuove pratiche agricole sostenibili, garantendo che ogni prodotto rifletta il rispetto per la terra e offra un''esperienza culinaria autentica e genuina.', '../../assets/logos/21_logo.png'),
     ('bedda@messinabedda.it', 'Q&u7^=kx5v', 'Messina Bedda', 'http://www.messinabedda.it', 2018, 250, 1800000, 'Messina', 'Turismo', 'Messina Bedda è la guida perfetta per esplorare le bellezze di Messina. Offriamo esperienze turistiche uniche, dal patrimonio culturale alle bellezze naturali. La nostra missione è far vivere ai visitatori l''autentica bellezza di Messina, con servizi turistici su misura e un tocco di ospitalità siciliana.', '../../assets/logos/22_logo.png'),
-    ('admin', 'admin', 'admin', 'http://www.admin.it', 1997, 4, 800, 'Padova', 'TecWeb', 'La nuova start-up dei fondatori di EazyJobs', NULL);
+    ('admin', 'admin', 'admin', 'http://www.admin.it', 1997, 4, 800, 'Padova', 'TecWeb', 'La nuova start-up dei fondatori di EazyJobs', '../../assets/logos/23_logo.png');
 
 
 CREATE TABLE IF NOT EXISTS annunci
