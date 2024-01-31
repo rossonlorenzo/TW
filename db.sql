@@ -1,6 +1,3 @@
--- SQLINES DEMO *** enerated by the ERD tool in pgAdmin 4.
--- SQLINES DEMO *** ue at https://redmine.postgresql.org/projects/pgadmin4/issues/new if you find any bugs, including reproduction steps.
-
 DROP TABLE IF EXISTS valutazioni;
 DROP TABLE IF EXISTS candidate;
 DROP TABLE IF EXISTS preferiti;
@@ -9,8 +6,6 @@ DROP TABLE IF EXISTS utenti;
 DROP TABLE IF EXISTS aziende;
 
 
-
--- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE TABLE IF NOT EXISTS utenti
 (
     id int NOT NULL AUTO_INCREMENT,
@@ -21,7 +16,7 @@ CREATE TABLE IF NOT EXISTS utenti
     PRIMARY KEY (id)
 );
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO utenti(email, password, nome, cv_path)
 VALUES
 	('marco.rossi@gmail.com', 'XxQ%C3r9e&', 'Marco Rossi', '../../assets/cvs/1_cv.pdf'),
@@ -44,9 +39,9 @@ VALUES
     ('alessio.rossi@yahoo.it', 'a:jvu5hRb`', 'Alessio Rossi', '../../assets/cvs/18_cv.pdf'),
     ('anna.martini@gmail.com', 'swLHWb)9EU', 'Anna Martini', '../../assets/cvs/19_cv.pdf'),
     ('luigi.verdi@hotmail.com', 't#Kp}-[9w]', 'Luigi Verdi', '../../assets/cvs/20_cv.pdf'),
-    ('user', 'user', 'user', NULL);
+    ('user', 'user', 'user', '../../assets/cvs/21_cv.pdf');
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 CREATE TABLE IF NOT EXISTS aziende
 (
     id int NOT NULL AUTO_INCREMENT,
@@ -64,7 +59,7 @@ CREATE TABLE IF NOT EXISTS aziende
     PRIMARY KEY (id)
 );
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO aziende (email, password, nome, sito, fondazione, dipendenti, fatturato, sede, settore, `desc`, logo_path)
 VALUES
     ('alta.tech@altatech.it', 'TG247V?`rP', 'AltaTech Soluzioni', 'http://www.altatech.it', 1995, 1000, 5000000, 'Milano', 'Informatica', 'AltaTech Soluzioni è una società di punta nel settore dell''informatica. La nostra missione è servire al meglio i nostri clienti, superando le loro le aspettative tramite un continuo aggiornamento alle ultime novità tecnologiche. Con un team altamente qualificato e un profondo impegno verso l''innovazione, stiamo ridefinendo il futuro delle tecnologie.', '../../assets/logos/1_logo.png'),
@@ -89,9 +84,9 @@ VALUES
     ('gustofuturomilano@gustofuturo.it', 'kTC5P{;)6h', 'GustoFuturo Milano', 'http://www.gustofuturo.it', 2014, 350, 2600000, 'Milano', 'Ristorazione', 'GustoFuturo Milano è il luogo dove la gastronomia incontra l''innovazione. Offriamo esperienze culinarie uniche, sperimentando con ingredienti e tecniche all''avanguardia. Il nostro ristorante è una celebrazione di sapori contemporanei e creatività gastronomica nel cuore di Milano.', '../../assets/logos/20_logo.png'),
     ('agribari@agribari.it', 'B9^!sL7<Rp', 'AgriBari', 'http://www.agribari.it', 2020, 300, 2000000, 'Bari', 'Agroalimentare', 'AgriBari si dedica a fornire prodotti agroalimentari di alta qualità, coltivati con passione e impegno. La nostra azienda promuove pratiche agricole sostenibili, garantendo che ogni prodotto rifletta il rispetto per la terra e offra un''esperienza culinaria autentica e genuina.', '../../assets/logos/21_logo.png'),
     ('bedda@messinabedda.it', 'Q&u7^=kx5v', 'Messina Bedda', 'http://www.messinabedda.it', 2018, 250, 1800000, 'Messina', 'Turismo', 'Messina Bedda è la guida perfetta per esplorare le bellezze di Messina. Offriamo esperienze turistiche uniche, dal patrimonio culturale alle bellezze naturali. La nostra missione è far vivere ai visitatori l''autentica bellezza di Messina, con servizi turistici su misura e un tocco di ospitalità siciliana.', '../../assets/logos/22_logo.png'),
-    ('admin', 'admin', 'admin', 'http://www.admin.it', 1997, 4, 800, 'Padova', 'TecWeb', 'La nuova start-up dei fondatori di EazyJobs', NULL);
+    ('admin', 'admin', 'admin', 'http://www.admin.it', 1997, 4, 800, 'Padova', 'TecWeb', 'La nuova start-up dei fondatori di EazyJobs', '../../assets/logos/23_logo.png');
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 CREATE TABLE IF NOT EXISTS annunci
 (
     id int NOT NULL AUTO_INCREMENT,
@@ -115,7 +110,7 @@ CREATE TABLE IF NOT EXISTS annunci
     ON DELETE CASCADE
 );
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO annunci (titolo, locazione, data_pub, settore, remoto, presenza, contratto, `desc_breve`, `desc_completa`, livello_istruzione, esperienza, stipendio, azienda_id)
 VALUES
     ('Sviluppatore Frontend', 'Milano', '2023-10-29 09:30:00', 'Informatica', true, true, 'Tempo indeterminato', 'Unisciti a noi come Sviluppatore Frontend! Esperto in HTML, CSS e JavaScript? Lavora su progetti innovativi con contratto a tempo indeterminato e stipendio competitivo.',
@@ -203,7 +198,7 @@ VALUES
     'EazyJobs sta cercando un talentuoso Progettista Web per il suo dinamico team. In questa posizione chiave, avrai l''opportunità di contribuire alla progettazione e allo sviluppo di soluzioni web innovative, contribuendo al successo continuo dell''azienda. Necessitiamo di creatività, efficienza, passione e capacità di collaborazione, oltre che di un''ottima conoscenza di HTML, CSS, JavaScript e PHP. Candidati ora e abbraccia una carriera piena di sfide ed eccitanti opportunità.',
     'Laurea Triennale', 1, 3400.00, 23);
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 CREATE TABLE IF NOT EXISTS preferiti
 (
     utenti_id int NOT NULL,
@@ -219,7 +214,7 @@ CREATE TABLE IF NOT EXISTS preferiti
     ON DELETE CASCADE
 );
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO preferiti (utenti_id, annuncio_id)
 VALUES
     (1, 7),
@@ -242,10 +237,9 @@ VALUES
     (18, 6),
     (19, 7),
     (20, 14),
-    (21, 28),
     (21, 1);
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 CREATE TABLE IF NOT EXISTS candidate
 (
     utenti_id int NOT NULL,
@@ -261,7 +255,7 @@ CREATE TABLE IF NOT EXISTS candidate
     ON DELETE CASCADE
 );
 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO candidate (utenti_id, annuncio_id)
 VALUES
     (1, 7),
@@ -284,9 +278,9 @@ VALUES
     (18, 6),
     (19, 7),
     (20, 14),
-    (21, 28);
+    (21, 1);
 	 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 CREATE TABLE IF NOT EXISTS valutazioni
 (
     utenti_id int NOT NULL,
@@ -304,7 +298,7 @@ CREATE TABLE IF NOT EXISTS valutazioni
     ON DELETE CASCADE
 );
 	 
--- SQLINES LICENSE FOR EVALUATION USE ONLY
+
 INSERT INTO valutazioni (utenti_id, aziende_id, commento, voto)
 VALUES
     (1, 1, 'Ho avuto un''esperienza lavorativa molto professionale in questa azienda. Sono rimasto colpito dalla competenza del team e dalla qualità del lavoro svolto.', 4),
@@ -341,4 +335,5 @@ VALUES
     (19, 1, 'L''azienda ha un ambiente di lavoro positivo. Sono grato per le opportunità di apprendimento e sviluppo offertemi. La mia permanenza qui è stata caratterizzata da una crescita professionale continua e soddisfacente.', 5),
     (20, 2, 'Ho avuto l''opportunità di lavorare con un team altamente qualificato. Sono grato per le sfide stimolanti e le opportunità di crescita offertemi da questa azienda. La mia esperienza è stata estremamente positiva, contribuendo alla mia crescita professionale.', 5),
     (20, 10, 'Lavorare con questa azienda è stata un''esperienza formativa. Ho imparato molto e ho avuto l''opportunità di mettere in pratica le mie competenze. La collaborazione con colleghi dedicati ha reso il mio percorso estremamente gratificante.', 4),
-    (21, 4, 'Ambiente di lavoro eccellente. Ho lavorato con un team molto professionale e dedicato, che mi ha permesso di maturare moltissimo dal punto di vista lavorativo e anche organizzativo. I progetti proposti erano sempre molto stimolanti e ', 5);
+    (21, 4, 'Ambiente di lavoro eccellente. Ho lavorato con un team molto professionale e dedicato, che mi ha permesso di maturare moltissimo dal punto di vista lavorativo e anche organizzativo. I progetti proposti erano sempre molto stimolanti e per niente banali.', 5),
+    (21, 23, 'Il team principale dell''azienda è veramente ottimo, mi hanno fatto sentire come fossi a casa sin dal primo giorno, e l''atmosfera che si respira è veramente ottima. Lavoro sempre ben organizzato e massima efficienza.', 5);
