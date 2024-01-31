@@ -509,7 +509,7 @@ ul.annunci li p {
     display: flex;
     flex-direction: row;
     align-items: start;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
 }
 

@@ -660,7 +660,7 @@ ul.annunci li h4 {
 
 .header-annunci {
     display: flex;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -783,7 +783,7 @@ dl.job-complete-info dt {
 
 dl.job-complete-info dd {
     font-size: 0.8em;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -981,7 +981,7 @@ img#no-annuncio-completo {
     width: 50%;
     padding: 0;
     margin: 0;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -1319,7 +1319,7 @@ img#foto-profilo {
     float: right;
     width: 20%;
     max-width: 10em;
-    clip-path: circle();
+    border-radius: 50%;
     margin-bottom: 1.5em;
     margin-top: 0.5em;
 }
