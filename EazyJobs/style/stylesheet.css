@@ -468,7 +468,8 @@ ul#aziende img {
     }
 
     form[action="Annunci.php"] button[type="submit"] span{
-        display: none;
+        position: absolute;
+        left: -999em;
     }
 
     form[action="Annunci.php"] button[type="submit"] img{
