@@ -670,6 +670,7 @@ ul.annunci li h4 {
 
 .header-annunci {
     display: flex;
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -793,6 +794,7 @@ dl.job-complete-info dt {
 
 dl.job-complete-info dd {
     font-size: 0.8em;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -994,6 +996,7 @@ img#no-annuncio-completo {
     width: 50%;
     padding: 0;
     margin: 0;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }

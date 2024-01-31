@@ -36,7 +36,7 @@
           "<div class='valutazione-container'>\n" .
               "<span class='nascosto'>" . $abbreviatedMedia . " su 5</span>\n" .
               "<div class='valutazione-media' aria-hidden='true' data-rating='" . $media . "'></div>\n" .          
-          "</div>\n" .          
+          "</div>\n" .  "</div>\n" .        
           "</li>" . "\n";
         }
   } else {
