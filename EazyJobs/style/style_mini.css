@@ -82,6 +82,11 @@ button.hamburger .close .line:nth-of-type(3) {
     box-shadow: none;
     max-width: 100%;
     padding: 0;
+    border-radius: 1em;
+}
+
+#breadcrumb {
+    border-radius: 1em;
 }
 
 #menu, #menu.showing {
@@ -211,6 +216,14 @@ section#cosa-offriamo > section {
 
 ul#aziende h3 {
     margin-top: 0.5em;
+}
+
+.azienda-grid {
+    margin-top: 0;
+}
+
+#ricerca-rapida:hover {
+    background-color: var(--bgColor);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -453,6 +466,11 @@ form {
     border-radius: 1em;
 }
 
+#bottone-filtri:hover {
+    background: var(--footerBgColor);
+    color: var(--footerTxtColor);
+}
+
 #filtri-ricerca input[type="submit"] {
     width: auto;
     margin: auto;
@@ -513,8 +531,8 @@ ul.annunci li p {
 .header-annunci {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    text-wrap: nowrap;
+    align-items: start;
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -524,20 +542,6 @@ ul.annunci li p {
 
 ul.annunci img {
     height: 0;
-}
-
-ul.job-info {
-    list-style-type: none;
-    margin-top: 1em;
-}
-
-ul.job-info li {
-    display: flex;
-    gap: 0.5em;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
 }
 
 /* da guardare meglio lo stile, ciò che serve o meno. (ho fatto copia incolla da annuncio completo, e graficamente è ok) */
@@ -597,46 +601,15 @@ ul.job-info li {
     font-size: 0.8em;
 }
 
-ul.annuncio-info {
-    list-style-type: none;
-    margin-top: 1em;
-}
-
-ul.annuncio-info li {
-    display: flex;
-    gap: 0.5em;
-}
-
 .dettagli {
     display: none;
     margin-top: 1em;
-}
-
-ul.job-complete-info {
-    list-style-type: none;
-}
-
-ul.job-complete-info li {
-    display: flex;
-    gap: 0.5em;
-}
-
-ul.job-complete-info li h5 {
-    white-space: nowrap;
-    overflow:visible;
-}
-
-ul.job-complete-info li p {/* [...] effect */
-    text-wrap: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 ul.azioni-aggiuntive {
     list-style-type: none;
     display: flex;
 }
-
 
 ul.azioni-aggiuntive li {
     max-width: fit-content;
@@ -657,6 +630,19 @@ ul.azioni-aggiuntive li {
     background-color: var(--bgColor);
     border-radius: 0;
     padding: 0.5em;
+    padding-bottom: 7em;
+}
+
+#applica-filtri:hover {
+    background-color: var(--bgColor);
+}
+
+#annunci-main .nessun-trovato {
+    height: 5vh;
+}
+
+img#no-annuncio-completo {
+    height: 32vh;
 }
 
 /* @media (max-width: 1200px) {

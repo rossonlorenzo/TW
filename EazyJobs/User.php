@@ -73,18 +73,18 @@
                 $str_annunci_preferiti .= "
                     <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
                         
-                            <h3>" . $annuncio['titolo'] . "</h3>
+                        <h3>" . $annuncio['titolo'] . "</h3>
                         <div class='header-annunci'>
                         <h4>" . $annuncio['nome'] . "</h4>
                         <img src='./assets/logos/". $annuncio['azienda_id'] ."_logo.png' alt='Logo azienda " . $annuncio['nome'] ."'>
                         </div>
                         <h5>Descrizione:</h5>
                         <p>" . $annuncio['desc_breve'] . "</p>
-                        <ul class='job-info'>
-                            <li><h5>Loco:</h5><p>" . $annuncio['locazione'] . "</p></li>
-                            <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
-                            <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
-                        </ul>
+                        <dl class='job-info'>
+                            <dt>Loco:</dt><dd>" . $annuncio['locazione'] . "</dd>
+                            <dt>Stipendio medio:</dt><dd>" . $annuncio['stipendio'] . "€</dd>
+                            <dt>Contatti:</dt><dd>" . $annuncio['email'] . "</dd>
+                        </dl>
                         <input type='submit' class='bottone-rimuovi-preferiti' value='Rimuovi dai preferiti' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
                     </li>";
             }
@@ -112,25 +112,25 @@
               $str_annunci_candidati .= "
                   <li id='annuncio-" . $annuncio['annuncio_id'] . "'>
                       
-                          <h3>" . $annuncio['titolo'] . "</h3>
+                      <h3>" . $annuncio['titolo'] . "</h3>
                       <div class='header-annunci'>
                       <h4>" . $annuncio['nome'] . "</h4>
                       <img src='./assets/logos/". $annuncio['azienda_id'] ."_logo.png' alt='Logo azienda " . $annuncio['nome'] ."'>
                       </div>
                       <h5>Descrizione:</h5>
                       <p>" . $annuncio['desc_breve'] . "</p>
-                      <ul class='job-info'>
-                          <li><h5>Loco:</h5><p>" . $annuncio['locazione'] . "</p></li>
-                          <li><h5>Stipendio medio:</h5><p>" . $annuncio['stipendio'] . "€</p></li>
-                          <li><h5>Contatti:</h5><p>" . $annuncio['email'] . "</p></li>
-                      </ul>
+                      <dl class='job-info'>
+                          <dt>Loco:</dt><dd>" . $annuncio['locazione'] . "</dd>
+                          <dt>Stipendio medio:</dt><dd>" . $annuncio['stipendio'] . "€</dd>
+                          <dt>Contatti:</dt><dd>" . $annuncio['email'] . "</dd>
+                      </dl>
                       <input type='submit' class='bottone-rimuovi-candidati' value='Rimuovi dai candidati' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
                   </li>";
           }
       }
     }
 } else {
-  $str_annunci_candidati = '<li class="nessun-trovato">(!) Nessun annuncio salvato</li>';
+  $str_annunci_candidati = '<li class="nessun-trovato">(!) Nessun annuncio</li>';
 }
 
     $valutazione = new Valutazione($db);
@@ -144,7 +144,7 @@
 
           $str_valutazioni .= 
               "<li>\n" .
-              "<h3>" . $nome . "</h3>\n" .
+              "<h3>" . $nome_azienda . "</h3>\n" .
               "<div class='valutazione'>\n" .
               "<h4>Valutazione:</h4><p>" . $voto . "</p>\n" .
               "</div>\n" .

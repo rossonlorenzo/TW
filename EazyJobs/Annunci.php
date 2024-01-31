@@ -176,11 +176,11 @@ if ($num > 0) {
             "<h5>Descrizione:</h5>" .
             "<p>" . $desc_breve . "</p>" .
 
-            "<ul class='job-info'>" .
-            "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
-            "<li><h5>Stipendio medio:</h5><p>" . $stipendio . "€</p></li>" .
-            "<li><h5>Contatti:</h5><p>" . $email . "</p></li>" .
-            "</ul>" .
+            "<dl class='job-info'>" .
+            "<dt>Loco:</dt><dd>" . $locazione . "</dd>" .
+            "<dt>Stipendio medio:</dt><dd>" . $stipendio . "€</dd>" .
+            "<dt>Contatti:</dt><dd>" . $email . "</dd>" .
+            "</dl>" .
             "</li>";
 
         if ($first == true) {
@@ -204,7 +204,9 @@ if ($num > 0) {
                 }
             }
 
-        $datePart = date('Y-m-d', strtotime($data_pub));
+        $data_originale = new DateTime($data_pub);
+        $data_formattata = $data_originale->format('d/m/Y');
+        
         $str_completo .=
             "<div class='annuncio-completo-contenitore' tabindex='0'>" .
                 "<h3>" . $titolo . "</h3>" .
@@ -216,23 +218,23 @@ if ($num > 0) {
                 "<h5>Descrizione:</h5>" .
                 "<p>" . $desc_completa . "</p>" .
 
-                "<ul class='annuncio-info'>" .
-                "<li><h5>Candidati all'annuncio:</h5><p>5</p></li>" .
-                "<li><h5>Recensioni dell'azienda:</h5><p>20</p></li>" .
-                "</ul>" .
+                "<dl class='annuncio-info'>" .
+                "<dt>Candidati all'annuncio:</dt><dd>5</dd>" .
+                "<dt>Recensioni dell'azienda:</dt><dd>20</dd>" .
+                "</dl>" .
 
                 "<div class='dettagli' aria-live='polite'>" .
-                    "<ul class='job-complete-info'>" .
-                    "<li><h5>Data di pubblicazione:</h5><time datetime=\"$datePart\">" . $datePart . "</time></li>" .
-                    "<li><h5>Loco:</h5><p>" . $locazione . "</p></li>" .
-                    "<li><h5>Settore:</h5><p>" . $settore . "</p></li>" .
-                    "<li><h5>Modalita' di lavoro:</h5><p>" . $ml . "</p></li>" .
-                    "<li><h5>Tipo di contratto:</h5><p>" . $contratto . "</p></li>" .
-                    "<li><h5>Livello di istruzione richiesto:</h5><p>" . $livello_istruzione . "</p></li>" .
-                    "<li><h5>Esperienza minima richiesta:</h5><p>" . $esperienza . "</p></li>" .
-                    "<li><h5>Stipendio:</h5><p>" . $stipendio . " €</p></li>" .
-                    "<li><h5>Contatti:</h5><p>" . $email . "</p></li>" .
-                    "</ul>" .
+                    "<dl class='job-complete-info'>" .
+                    "<dt>Data di pubblicazione:</dt><dd><time datetime=\"$data_pub\">" . $data_formattata . "</time></dd>" .
+                    "<dt>Loco:</dt><dd>" . $locazione . "</dd>" .
+                    "<dt>Settore:</dt><dd>" . $settore . "</dd>" .
+                    "<dt>Modalita' di lavoro:</dt><dd>" . $ml . "</dd>" .
+                    "<dt>Tipo di contratto:</dt><dd>" . $contratto . "</dd>" .
+                    "<dt>Livello di istruzione richiesto:</dt><dd>" . $livello_istruzione . "</dd>" .
+                    "<dt>Esperienza minima richiesta:</dt><dd>" . $esperienza . " anni</dd>" .
+                    "<dt>Stipendio:</dt><dd>" . $stipendio . " €</dd>" .
+                    "<dt>Contatti:</dt><dd>" . $email . "</dd>" .
+                    "</dl>" .
                 "</div>" .
             "</div>" ;
 
@@ -249,18 +251,17 @@ if ($num > 0) {
                 $str_completo .=             "<li><input type='submit' class='bottone-candidati' data-id='" . $id ."' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
             } 
             if(!in_array($id, $preferiti)){
-                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio #{$id}\"></li>" ;
+                $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}\"></li>" ;
             } 
             $str_completo .= 
-                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio #{$id}\"></li>".
+                "<li><input type='submit' class='bottone-stampa' value='Stampa' aria-label=\"Stampa l'annuncio {$id}\"></li>".
                 "</ul>".
-                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio #{$id}\">" .
+                "<input type='submit' class='bottone-annunci' data-target='annuncio-" . $id ."' value='Torna agli annunci' aria-label=\"Esci dall'annuncio {$id}\">" .
                 "</article>";
     }
 } else {
-    echo json_encode(
-        array('message' => 'Nessun annuncio trovato')
-    );
+    $str_completo = '<img id="no-annuncio-completo" src="./assets/illustrations/undraw_void_ggu.svg" alt="">';
+    $str_annunci = '<li class="nessun-trovato">(!) Nessun annuncio trovato</li>';
 }
 
 $nomefile = "./templates/Annunci.html";

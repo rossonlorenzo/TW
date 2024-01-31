@@ -65,14 +65,9 @@ ini_set('display_errors', 1);
         $errors['desc_completa'] = "Inserire una descrizione completa valida ({$min_desc_length}-{$max_desc_length} caratteri)";
     }
 
-    if (!empty($_FILES['logo']['name'])) {
-        $file_info = pathinfo($_FILES['logo']['name']);
-        $file_extension = strtolower($file_info['extension']);
-    
-        if ($file_extension !== 'png') {
-            $errors['logo'] = "Inserire un logo valido (formato PNG)";
-        }
-    }    
+    if ($_FILES['logo']['type'] !== 'application/png') {
+        $errors['logo'] = "Inserire un logo valido (formato PNG)";
+    }  
 
     if (!empty($errors)) {
         header("Location: ../../ModificaAdmin.php?errors=".urlencode(json_encode($errors)));
@@ -123,7 +118,7 @@ ini_set('display_errors', 1);
 
         $result = $azienda->modifyOld();
 
-        if($result) {
+        if ($result) {
             header("Location: ../../Admin.php");
             exit();
         }

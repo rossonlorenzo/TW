@@ -22,7 +22,7 @@
         $str_aziende = "";
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
           extract($row);
-          $abbreviatedMedia = number_format($media, 0);
+          $abbreviatedMedia = number_format($media, 1);
 
           $str_aziende .= 
           "<li id='aziende-" . $id . "'>\n" .
@@ -36,7 +36,7 @@
           "<div class='valutazione-container'>\n" .
               "<span class='nascosto'>" . $abbreviatedMedia . " su 5</span>\n" .
               "<div class='valutazione-media' aria-hidden='true' data-rating='" . $media . "'></div>\n" .          
-          "</div>\n" .          
+          "</div>\n" .  "</div>\n" .        
           "</li>" . "\n";
         }
   } else {

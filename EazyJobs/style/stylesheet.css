@@ -5,14 +5,14 @@
 }
 
 :root {
-    --headerBgColor: #EBEEFF;
-    --headerTxtColor: #023E8A;
-    --bgColor: #799CF0;
+    --headerBgColor: white;
+    --headerTxtColor: black;
+    --bgColor: #7462E0;
     --txtColor: rgb(0,0,0);
-    --footerBgColor: #EBEEFF;
-    --footerTxtColor: #023E8A;
-    --linkColor: #023E8A;
-    --visitedLinkColor: #799CF0;
+    --footerBgColor: white;
+    --footerTxtColor: black;
+    --linkColor: black;
+    --visitedLinkColor: #7462E0;
     --font-body-family: "Roboto Condensed", sans-serif;
 }
 
@@ -50,10 +50,12 @@ nav {
 
 a:link {
     color:var(--linkColor);
+    font-weight: bold;
 }
 
 a:visited {
     color:var(--visitedLinkColor);
+    font-weight: bold;
 }
 
 #navigazione {
@@ -66,6 +68,7 @@ a:visited {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     max-width: 75%;
     margin: 0 auto;
+    border: 0.25em outset var(--footerTxtColor);
 }
 
 #menu ul {
@@ -78,6 +81,7 @@ a:visited {
 #menu ul li {
     display: inline;
     flex: 1;
+    font-weight: bold;
 }
 
 #menu ul li:nth-child(3) {  /* show accedi/logout */
@@ -154,7 +158,6 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 .hidden-fieldset{
     display: none;
 }
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 HOME CSS [INZIO]
@@ -189,6 +192,7 @@ form {
     border-radius: 1em;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
+    border: 0.25em outset var(--footerTxtColor);
 }
 
 #barra-ricerca form {
@@ -198,6 +202,7 @@ form {
     margin: 0.5em auto;
     padding: 0.5em 0;
     width: 80%;
+    border: 0.2em solid var(--footerTxtColor);
 }
 
 #professione, #locazione {
@@ -248,6 +253,9 @@ section#cosa-offriamo {
                 
     
     background-size: 15%, 21%, 15%;
+    background: var(--bgColor);
+    border-radius: 1em;
+    border: 0.2em solid var(--footerTxtColor);
 }
 
 section#cosa-offriamo h2{
@@ -320,6 +328,8 @@ ul#aziende {
     margin: 0 auto 1em;
     overflow-x: auto;
     white-space: nowrap;
+    border: 0.2em solid var(--footerTxtColor);
+    background: var(--bgColor);
 }
 
 ul#aziende li {
@@ -394,15 +404,13 @@ ul#aziende img {
     margin: auto;
 }
 
+
 @media (max-width: 1200px) {
 
     #barra-ricerca form {
         width: 100%;
     }
-    
-    section#cosa-offriamo {
-        background: none;
-    }
+
 
     section#cosa-offriamo h2 {
         font-size: 2.5em;
@@ -535,7 +543,7 @@ form {
     border-radius: 1em;
     margin: 1em;
     padding: 0.3em;
-    border: 0.15em var(--footerTxtColor) solid;
+    border: 0.25em outset var(--footerTxtColor);
 }
 
 #filtri div {
@@ -548,7 +556,7 @@ form {
 #filtri div legend {
     margin: auto;
     white-space: nowrap;
-    color: var(--headerTxtColor);
+    color: var(--bgColor);
     font-weight: bold;
 }
 
@@ -641,6 +649,12 @@ ul.annunci li h3 {
     font-size: 1.3em;
 }
 
+ul.annunci p {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 ul.annunci li a {
     color: var(--linkColor);
 }
@@ -651,22 +665,12 @@ ul.annunci li a:visited {
 
 ul.annunci li h4 {
     font-size: 1em;
-}
-
-ul.annunci li h5 {
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-ul.annunci li p {
-    font-size: 0.8em;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: var(--bgColor);
 }
 
 .header-annunci {
     display: flex;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -674,18 +678,21 @@ ul.annunci img {
     height: 0;
 }
 
-ul.job-info {
-    list-style-type: none;
+dl.job-info {
     margin-top: 1em;
 }
 
-ul.job-info li {
-    display: flex;
-    gap: 0.5em;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
+dl.job-info dt {
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+dl.job-info dd {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* da guardare meglio lo stile, ciò che serve o meno. (ho fatto copia incolla da annuncio completo, e graficamente è ok) */
@@ -738,6 +745,7 @@ ul.job-info li {
 
 .annuncio-completo h4 {
     font-size: 1.1em;
+    color: var(--bgColor);
 }
 
 .annuncio-completo h5 {
@@ -745,28 +753,29 @@ ul.job-info li {
     font-weight: bold;
 }
 
-.annuncio-completo p,
-.annuncio-completo time {
-    font-size: 0.9em;
-}
-
 .annuncio-completo ul h5 {
     font-size: 0.9em;
     font-weight: bold;
 }
 
-.annuncio-completo ul p {
+.annuncio-completo ul p, 
+.annuncio-completo time {
     font-size: 0.8em;
 }
 
-ul.annuncio-info {
-    list-style-type: none;
+dl.annuncio-info {
     margin-top: 1em;
 }
 
-ul.annuncio-info li {
-    display: flex;
-    gap: 0.5em;
+dl.annuncio-info dt {
+    float: left;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+dl.annuncio-info dd {
+    font-size: 0.8em;
 }
 
 .dettagli {
@@ -774,24 +783,24 @@ ul.annuncio-info li {
     margin-top: 1em;
 }
 
-ul.job-complete-info {
-    list-style-type: none;
-}
-
-ul.job-complete-info li {
-    display: flex;
-    gap: 0.5em;
-}
-
-ul.job-complete-info li h5 {
+dl.job-complete-info dt {
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-right: 0.5em;
     white-space: nowrap;
-    overflow:visible;
+    overflow: visible;
 }
 
-ul.job-complete-info li p {/* [...] effect */
-    text-wrap: nowrap;
+dl.job-complete-info dd {
+    font-size: 0.8em;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+dl.job-complete-info time {
+    font-size: 0.95em;
 }
 
 ul.azioni-aggiuntive {
@@ -822,7 +831,51 @@ ul.azioni-aggiuntive li {
     width: 75%;
 }
 
+#ricerca-rapida:hover {
+    background-color: var(--headerBgColor);
+    color: var(--footerTxtColor);
+}
+
+#applica-filtri:hover {
+    background-color: var(--headerBgColor);
+}
+
+#annunci-main .nessun-trovato {
+    height: 5vh;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img#no-annuncio-completo {
+    margin-top: 2em;
+    border-radius: 1em;
+    background: var(--bgColor);
+    padding: 1em;
+    margin: 1em;
+}
+
+ @media (min-width: 1200px) {
+
+    img#no-annuncio-completo {
+        margin-top: 95%;
+        height: 40vh;
+    }
+ }
+
  @media (max-width: 1200px) {
+    #ricerca-rapida:hover {
+        background-color: var(--bgColor);
+    }
+
+    img#no-annuncio-completo {
+        height: 60vh;
+    }
+
     #annunci-main{
         width: 92%;
     }
@@ -864,8 +917,6 @@ ul.azioni-aggiuntive li {
         border-right: solid var(--footerTxtColor);
     }
 }
-
-
 
     /*
     #annuncio-completo {
@@ -945,7 +996,7 @@ ul.azioni-aggiuntive li {
     width: 50%;
     padding: 0;
     margin: 0;
-    text-wrap: nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -958,6 +1009,10 @@ ul.azioni-aggiuntive li {
 
 #bottone-recensioni {
     margin: 1em;
+}
+
+#bottone-recensioni:hover {
+    background-color: var(--headerBgColor);
 }
 
 #descrizioneAzienda {
@@ -992,6 +1047,8 @@ ul.azioni-aggiuntive li {
 #aziende-recensioni .valutazione dt {
     float: left;
     margin-right: 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 #aziende-recensioni h3 {
@@ -1019,6 +1076,7 @@ ul.azioni-aggiuntive li {
     border: 3px solid;
     border-radius: 1em;
     border-color: var(--headerTxtColor);
+    background-color: var(--headerBgColor);
 }
 
 .invisibile {
@@ -1093,6 +1151,7 @@ ul.azioni-aggiuntive li {
     display: flex;
     align-items: center;
     margin: 2em auto;
+    background: var(--bgColor);
 }
 
 #accedi-main #primoContenuto {
@@ -1170,6 +1229,7 @@ ul.azioni-aggiuntive li {
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 1em;
+    background: var(--bgColor);
 }
 
 #registrazione-main input,
@@ -1181,6 +1241,10 @@ ul.azioni-aggiuntive li {
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     width: 90%;
     margin: 0.5em auto;
+}
+
+#registrazione-main #modifica-bottone:hover {
+    background: var(--footerBgColor);
 }
 
 #registrazione-main form label {
@@ -1218,7 +1282,7 @@ ul.azioni-aggiuntive li {
 
 #cv, #logo {
     max-width: 60%;
-margin: auto;
+    margin: auto;
 }
 
 #admin-buttons {
@@ -1245,6 +1309,10 @@ margin: auto;
 
 #registrazione-main .hidden-fieldset {
     display: none;
+}
+
+#cv-errore.messaggio-errore {
+    width: 60%;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1276,11 +1344,11 @@ margin: auto;
     color: var(--headerTxtColor);
 }
 
-img#foto-profilo {
+#admin-main img#foto-profilo {
     float: right;
     width: 20%;
     max-width: 10em;
-    clip-path: circle();
+    border-radius: 50%;
     margin-bottom: 1.5em;
     margin-top: 0.5em;
 }
@@ -1358,9 +1426,17 @@ section > div > button {
     font-size: 1em;
 }
 
-.listaAnnunci li h5 {
+.listaAnnunci li dt {
+    float: left;
     font-size: 0.9em;
     font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.listaAnnunci li dd {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .listaAnnunci li p {
@@ -1426,8 +1502,8 @@ section > div > button {
 }
 
 #cv-preview {
-    width: 75%;
-    height: 50%;
+    width: 100%;
+    height: 50vh;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -1676,6 +1752,7 @@ section > div > button {
     margin: auto;
     margin-bottom: 2em;
     padding: 1em;
+    background: var(--bgColor);
 }
 
 #pubblica-annuncio-main input[type="submit"] {
@@ -1739,6 +1816,10 @@ section > div > button {
     opacity: 0.7;
 }
 
+#registrazione-main #modificaAnnuncio-bottone:hover {
+    background: var(--footerBgColor);
+}
+
 #pubblica-annuncio-main #modalità,
 #pubblica-annuncio-main #contratto {
     width: 50%;
@@ -1747,6 +1828,14 @@ section > div > button {
     margin-bottom: 0.5em;
 }
 
+#pubblica-annuncio-main form {
+    background: var(--bgColor);
+    border-radius: 1em;
+}
+
+#pubblica-annuncio-main #modificaAnnuncio-bottone:hover {
+    background: var(--footerBgColor);
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 PUBBLICA_ANNUNCIO CSS [FINE]
@@ -1776,6 +1865,7 @@ section > div > button {
     border: 0.2em var(--footerTxtColor) solid;
     border-radius: 1em;
     margin: 0.5em;
+    overflow: hidden;
 }
 
 h3.chi_siamo {
@@ -1888,6 +1978,7 @@ footer {
     max-width: 75%;
     text-align: center;
     margin: auto;
+    border: 0.25em outset var(--footerTxtColor);
 }
 
 footer p {
@@ -1911,6 +2002,7 @@ ul #contattaci {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    padding: 0em;
     padding-left: 5em;
 }
 
@@ -1922,12 +2014,9 @@ ul #contattaci {
     margin-right: 0.5em;
 }
 
-#contatti {
+ul #contatti {
     text-align: left;
-}
-
-#contatti li {
-    margin-top: 0.5em;
+    padding: 0em;
 }
 
 

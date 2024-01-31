@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 header("Access-Control-Allow-Origin: *");
 
@@ -14,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $annuncio = new Annuncio($db);
 
-    //server-side validation
     $requiredFields = ['titolo', 'desc_breve', 'desc_completa', 'locazione', 'settore'];
     $errors = [];
 
@@ -62,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['stipendio'] = "Inserire uno stipendio valido";
     }
 
-    // If there are errors, handle them (e.g., display error messages or prevent form submission)
     if (!empty($errors)) {
         $userValues = $_POST;
         header("Location: ../../PubblicaAnnuncio.php?errors=".urlencode(json_encode($errors))
@@ -70,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 
     } else {
-        // If validation passes, proceed with form processing (sanitize, save to database, etc.)
         $annuncio->titolo = $_POST['titolo'];
         $annuncio->locazione = $_POST['locazione'];
         $annuncio->data_pub = date('Y-m-d H:i:s');
