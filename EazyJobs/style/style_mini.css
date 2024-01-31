@@ -33,13 +33,6 @@ a [href*="Accedi"] {
     border-radius: 0.8em;
 }
 
-/*
-button, input[type="button"], input[type="submit"] {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0;
-}
-*/
 
 button.hamburger {
     border-radius: 0;
@@ -82,7 +75,6 @@ button.hamburger .close .line:nth-of-type(3) {
     box-shadow: none;
     max-width: 100%;
     padding: 0;
-    border-radius: 1em;
 }
 
 #breadcrumb {
@@ -630,7 +622,6 @@ ul.azioni-aggiuntive li {
     background-color: var(--bgColor);
     border-radius: 0;
     padding: 0.5em;
-    padding-bottom: 7em;
 }
 
 #applica-filtri:hover {
@@ -645,60 +636,6 @@ img#no-annuncio-completo {
     height: 32vh;
 }
 
-/* @media (max-width: 1200px) {
-    ul.annunci li h5 {
-        white-space: nowrap;
-        overflow: visible;
-    }
-    ul.annunci li p {
-        text-wrap: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-} */
-
-/* @media (max-width: 1024px) {
-    .annuncio-completo {
-        display: none;
-    }
-    .bottone-annunci {
-        display: inline;
-    }
-    .bottone-annunci:hover {
-        background-color: var(--headerBgColor)
-    }
-    ul.annunci {
-        max-width: fit-content;
-    }
-    ul.annunci li p {
-        text-wrap: wrap;
-    }
-}
-
-@media (max-width: 768px) {
-    #annunci-main {
-        width: 100%;
-    }
-    #filtri-ricerca {
-        max-width: 12em;
-    }
-    #filtri-ricerca {
-        display: none;
-    }
-    #bottone-filtri { 
-        display: inline;
-        margin-left: 1em;
-    }
-    ul.annunci li h5 {
-        white-space: nowrap;
-        overflow: visible;
-    }
-    ul.annunci li p {
-        text-wrap: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-} */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 ANNUNCI CSS [FINE]
@@ -839,8 +776,12 @@ footer {
     max-width: 100%;      
 }
 
-#footer ul > li:nth-child(2) {
+#footer > ul > li:nth-child(2) {
     display: none;
+}
+
+#contatti{
+    flex-direction: column;
 }
 
 ul #contattaci{
@@ -1119,11 +1060,12 @@ div.blocco {
     margin-bottom: 0.5em;
 }
 
-.checkbox-group, .radio-group{
-    display: flex;
-}
 
 #pubblica-annuncio-main input[type="text"], #pubblica-annuncio-main textarea, #pubblica-annuncio-main select {
+    width: 90%;
+}
+
+#registrazione-main input:not([type="button"]):not([type="submit"]), #registrazione-main textarea {
     width: 90%;
 }
 

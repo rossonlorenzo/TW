@@ -247,10 +247,10 @@ if ($num > 0) {
             $str_completo .= 
             "<ul class='azioni-aggiuntive'>" .
             "<li><input type='submit' class='bottone-dettagli' value='Mostra più dettagli' aria-label=\"Mostra più dettagli per l'annuncio #{$id}\"></li>";
-            if(!in_array($id, $candidati)){
+            if(!in_array($id, $candidati) && isset($_SESSION['user_id'])){
                 $str_completo .=             "<li><input type='submit' class='bottone-candidati' data-id='" . $id ."' value='Candidati' aria-label=\"Candidati all'annuncio #{$id}\"></li>" ;
             } 
-            if(!in_array($id, $preferiti)){
+            if(!in_array($id, $preferiti) && isset($_SESSION['user_id'])){
                 $str_completo .= "<li><input type='submit' class='bottone-salva' data-id='" . $id ."' value='Salva' aria-label=\"Salva l'annuncio {$id}\"></li>" ;
             } 
             $str_completo .= 

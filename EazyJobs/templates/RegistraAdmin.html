@@ -7,8 +7,8 @@
     <title>Registrazione Azienda - EazyJobs</title>
     <meta name="keywords" content="EazyJobs, registrazione, azienda">
     <meta name="description" content="Form di registrazione per le aziende di EazyJobs">
-    <link rel="stylesheet" href="./stylesheet.css">
-    <link rel="stylesheet" href="./style_mini.css" media="screen and (max-width:768px)">
+    <link rel="stylesheet" href="./style/stylesheet.css">
+    <link rel="stylesheet" href="./style/style_mini.css" media="screen and (max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -51,15 +51,15 @@
                 <div id="sito-errore" class="messaggio-errore">sito-errore-placeholder</div>
 
                 <label for="fondazione">Anno di fondazione:</label>
-                <input type="number" id="fondazione" name="fondazione" min="1800" max="currentYear-placeholder" required>
+                <input type="number" id="fondazione" name="fondazione" min="1800" max="currentYear-placeholder" placeholder="YYYY" required>
                 <div id="fondazione-errore" class="messaggio-errore">fondazione-errore-placeholder</div>
 
                 <label for="dipendenti">Numero di dipendenti:</label>
-                <input type="text" id="dipendenti" name="dipendenti" required>
+                <input type="text" id="dipendenti" name="dipendenti" placeholder="N" required>
                 <div id="dipendenti-errore" class="messaggio-errore">dipendenti-errore-placeholder</div>
 
                 <label for="fatturato">Fatturato:</label>
-                <input type="text" id="fatturato" name="fatturato" required>
+                <input type="text" id="fatturato" name="fatturato" placeholder="Cifra senza simbolo dell'Euro" required>
                 <div id="fatturato-errore" class="messaggio-errore">fatturato-errore-placeholder</div>
             </fieldset>
 
@@ -67,15 +67,15 @@
                 <legend>Dati rilevanti</legend>
 
                 <label for="locazione">Sede centrale (provincia):</label>
-                <input type="text" id="locazione" name="locazione" required>
+                <input type="text" id="locazione" name="locazione" placeholder="Nome di provincia" required>
                 <div id="locazione-errore" class="messaggio-errore">locazione-errore-placeholder</div>
 
                 <label for="settore">Settore:</label>
-                <input type="text" id="settore" name="settore" required>
+                <input type="text" id="settore" name="settore" placeholder="Nome di settore" required>
                 <div id="settore-errore" class="messaggio-errore">settore-errore-placeholder</div>
 
                 <label for="desc_completa">Descrizione:</label>
-                <textarea id="desc_completa" name="desc_completa" required></textarea>
+                <textarea id="desc_completa" name="desc_completa" placeholder="Descrizione dell'azienda" required></textarea>
                 <div id="desc_completa-errore" class="messaggio-errore">desc-completa-errore-placeholder</div>
                         
             <label for="logo">Logo:</label>
@@ -83,11 +83,11 @@
             <div id="logo-errore" class="messaggio-errore">logo-errore-placeholder</div>
             </fieldset>
             
-            <input type="submit" id="disabled-modificaAdmin-bottone" data-validation="validateFields" value='Registrati' disabled>
+            <input type="submit" id="modificaAdmin-bottone" data-validation="validateFields" value='Registrati' class="disabled" disabled>
             <div class="messaggio-errore" aria-live="assertive">credenziali-errore-placeholder</div>
 
             <div id="admin-buttons">
-                <input type="button" id="prev" value="Precedente">
+                <input type="button" id="prev" value="Precedente" class="disabled" disabled>
                 <input type="button" id="next" value="Successivo">
             </div>   
                 </form>           
