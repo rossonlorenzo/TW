@@ -132,7 +132,9 @@ button.hamburger .close .line:nth-of-type(3) {
 #home-main {
     width: 100%;
     height: auto;
-    padding-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 #home-main div#content {
@@ -150,11 +152,17 @@ button.hamburger .close .line:nth-of-type(3) {
     background-color: var(--headerBgColor);
     margin-bottom: 0;
     padding: 0.5em 5%;
-    position: fixed;
+    order: 1;
     bottom: 0;
     width: 100%;
     max-height: 15em;
     border-radius: 0;
+    box-shadow: none;
+    border-bottom: solid 0.1em var(--headerTxtColor);
+}
+
+#primoContenuto{
+    display: contents;
 }
 
 #barra-ricerca h2 {
@@ -204,11 +212,6 @@ section#cosa-offriamo > section {
 ul#aziende h3 {
     margin-top: 0.5em;
 }
-
-.azienda-grid {
-    margin-top: 0;
-}
-
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
@@ -339,6 +342,8 @@ img#profile_picture {
     width: 100%;
     margin: 0;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 form {
@@ -508,7 +513,7 @@ ul.annunci li p {
 .header-annunci {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: center;
     text-wrap: nowrap;
     overflow: hidden;
 }
@@ -652,7 +657,6 @@ ul.azioni-aggiuntive li {
     background-color: var(--bgColor);
     border-radius: 0;
     padding: 0.5em;
-    padding-bottom: 130px;
 }
 
 /* @media (max-width: 1200px) {
@@ -849,9 +853,17 @@ footer {
     max-width: 100%;      
 }
 
-footer {
+#footer ul > li:nth-child(2) {
     display: none;
 }
+
+ul #contattaci{
+    padding: 0;
+}
+
+/* footer {
+    display: none;
+} */
 
 #chi_siamo-main {
     height: auto;
@@ -1097,4 +1109,35 @@ div.blocco {
                                                                 AZIENDE CSS [FINE]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#registrazione-main{
+    width: 90%;
+}
+
+#registrazione-form{
+    width: 90%;
+}
+
+#credenziali, #dettagli, #dati{
+    width: 95%;
+}
+
+#pubblica-annuncio-main {
+    width: 90%;
+}
+
+#pubblica-annuncio-main #modalità, #pubblica-annuncio-main #contratto {
+    width: 90%; 
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.checkbox-group, .radio-group{
+    display: flex;
+}
+
+#pubblica-annuncio-main input[type="text"], #pubblica-annuncio-main textarea, #pubblica-annuncio-main select {
+    width: 90%;
+}
 

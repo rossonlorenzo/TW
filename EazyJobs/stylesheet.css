@@ -900,6 +900,7 @@ ul.azioni-aggiuntive li {
 #aziende-main {
     height: auto;
     margin: 1em auto;
+    background-color: var(--bgColor);
 }
 
 .delimitatore-piccolo {
@@ -1179,7 +1180,7 @@ ul.azioni-aggiuntive li {
     border: 1px solid #ccc;
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.2);
     width: 90%;
-    margin: auto;
+    margin: 0.5em auto;
 }
 
 #registrazione-main form label {
@@ -1222,6 +1223,14 @@ margin: auto;
 
 #admin-buttons {
     display: flex;
+}
+
+#prev{
+    margin-right: 1em;
+}
+
+#next{
+    margin-left: 1em;
 }
 
 #disabled-modificaAdmin-bottone {
@@ -1653,8 +1662,9 @@ section > div > button {
 --------------------------------------------------------------------------------------------------------------------------------------------------*/
 #pubblica-annuncio-main {
     background-color: var(--headerBgColor);
-    width: 80%;
+    width: 60%;
     height: auto;
+    margin-bottom: 1em;
 }
 
 #contenuti.visible-fieldset, 
@@ -1671,7 +1681,7 @@ section > div > button {
 #pubblica-annuncio-main input[type="submit"] {
     margin: 0.5em;
     margin-top: 1em;
-    margin: auto;
+    margin: 0.5em auto;
 }
 
 #pubblica-annuncio-main label,
@@ -1684,10 +1694,8 @@ section > div > button {
 
 #pubblica-annuncio-main input[type="text"],
 #pubblica-annuncio-main textarea,
-#pubblica-annuncio-main select,
-#pubblica-annuncio-main input[type="submit"] {
+#pubblica-annuncio-main select{
     width: 70%;
-    margin-bottom: 2em;
     padding: 0.5em;
     border-radius: 0.5em;
     border: 1px solid #ccc;
@@ -1738,6 +1746,7 @@ section > div > button {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------
                                                             
                                                                 PUBBLICA_ANNUNCIO CSS [FINE]
