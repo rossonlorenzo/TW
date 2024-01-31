@@ -738,7 +738,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     forms.forEach(function (form) {
-        if (form.id != "filtri-ricerca") {
+        if (form.id != "filtri-ricerca" && form.id != "home-ricerca" && form.id != "annunci-ricerca") {
             form.addEventListener('input', handleFieldInteraction);
             form.addEventListener('change', handleFieldInteraction);
         }
