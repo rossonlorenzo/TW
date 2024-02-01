@@ -418,9 +418,11 @@ function showHideCards(id) {
 
         changeButton(id);
 
+        makeFocusable(list);
+
         setTimeout(() => {
             list.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 250); // Scroll to the section after opening
+        }, 250);
     } else {
         list.classList.remove("showing");
         list.classList.add("hiding");
@@ -429,7 +431,25 @@ function showHideCards(id) {
         header.classList.add("hiding");
 
         changeButton(id);
+
+        makeNonFocusable(list);
     }
+}
+
+function makeFocusable(container) {
+    var focusableElements = container.querySelectorAll("a, button, input, select, textarea, [tabindex]:not([tabindex='-1'])");
+
+    focusableElements.forEach(function (element) {
+        element.setAttribute("tabindex", "0");
+    });
+}
+
+function makeNonFocusable(container) {
+    var focusableElements = container.querySelectorAll("a, button, input, select, textarea, [tabindex]:not([tabindex='-1'])");
+
+    focusableElements.forEach(function (element) {
+        element.setAttribute("tabindex", "-1");
+    });
 }
 
 
@@ -440,15 +460,21 @@ function changeButton(name) {
         span.className = "toggle show";
         btn.setAttribute("aria-expanded", "false");
         if (btn.id == "annunci-toggle") {
-            btn.setAttribute("aria-label", "Mostra gli annunci");
-        } else { btn.setAttribute("aria-label", "Mostra le recensioni"); }
+            btn.setAttribute("aria-label", "Mostra gli annunci pubblicati");
+        } else if (btn.id == "annunciPreferiti-toggle") { btn.setAttribute("aria-label", "Mostra gli annunci salvati"); 
+        } else if (btn.id == "annunciCandidati-toggle") {btn.setAttribute("aria-label", "Mostra gli annunci a cui sei candidato"); 
+        } else if (btn.id == "chiudi-candidati") {btn.setAttribute("aria-label", "Mostra i candidati");
+        } else if (btn.id == "recensioni-toggle") {btn.setAttribute("aria-label", "Mostra le recensioni");}
 
     } else {
         span.className = "toggle hide";
         btn.setAttribute("aria-expanded", "true");
         if (btn.id == "annunci-toggle") {
-            btn.setAttribute("aria-label", "Nascondi gli annunci");
-        } else { btn.setAttribute("aria-label", "Nascondi le recensioni"); }
+            btn.setAttribute("aria-label", "Nascondi gli annunci pubblicati");
+        } else if (btn.id == "annunciPreferiti-toggle") { btn.setAttribute("aria-label", "Nascondi gli annunci salvati"); 
+        } else if (btn.id == "annunciCandidati-toggle") {btn.setAttribute("aria-label", "Nascondi gli annunci a cui sei candidato"); 
+        } else if (btn.id == "chiudi-candidati") {btn.setAttribute("aria-label", "Nascondi i candidati");
+        } else if (btn.id == "recensioni-toggle") {btn.setAttribute("aria-label", "Nascondi le recensioni");}
     }
 }
 

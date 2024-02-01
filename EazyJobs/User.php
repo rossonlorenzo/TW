@@ -117,7 +117,7 @@
                           <dt>Stipendio medio:</dt><dd>" . $annuncio['stipendio'] . "€</dd>
                           <dt>Contatti:</dt><dd>" . $annuncio['email'] . "</dd>
                       </dl>
-                      <input type='submit' class='bottone-rimuovi-candidati' value='Rimuovi dai candidati' aria-label=\"Rimuovi l'annuncio " . $annuncio['titolo'] . " dai tuoi preferiti\" data-id='" . $annuncio['annuncio_id'] . "'>
+                      <input type='submit' class='bottone-rimuovi-candidati' value='Rimuovi dai candidati' aria-label=\"Rimuovi dai candidati l'annuncio " . $annuncio['titolo'] . "\" data-id='" . $annuncio['annuncio_id'] . "'>
                   </li>";
           }
       }

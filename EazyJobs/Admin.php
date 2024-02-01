@@ -76,7 +76,7 @@
                   if ($num > 0) {
                       while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                           extract($row);
-                          $str_candidati .= "<li class='candidato-annuncio-" . $annuncio_id  . " hidden'>\n" .
+                          $str_candidati .= "<li class='candidato-annuncio-" . $annuncio_id  . " hidden' aria-live='polite'>\n" .
                           "<h3> Candidato: </h3>" .
                           "<p>" . $nome . "</p>" .
                           "<h3> Contatto: </h3>" .
